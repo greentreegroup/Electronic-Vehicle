@@ -1,0 +1,98 @@
+/* General Styles */
+* {
+    font-family: 'Josefin Sans', sans-serif; /* Ensures consistent font usage */
+}
+
+/* Container for the form, uses fixed positioning to cover the entire viewport */
+.address-form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    align-items: center; /* Centers the form vertically */
+    justify-content: center; /* Centers the form horizontally */
+    z-index: 1000; /* Ensures it's above other content */
+}
+
+/* Styles for the form itself */
+.address-form {
+    background-color: #fff;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px; /* Maximum width for the form */
+    border-radius: 1px; /* Slight rounding of corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: relative;
+    z-index: 1001; /* Ensures form is above the semi-transparent background */
+}
+.address-form h2 {
+    text-align: center; /* Aligns the text to the center */
+}
+/* Close button styling */
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    
+}
+
+/* Form structure */
+form {
+    display: flex;
+    flex-direction: column; /* Stacks form elements vertically */
+}
+
+/* Input field styling */
+input, select {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+}
+
+/* Submit button styling, using green theme */
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Adjustments for the form group to align label and input */
+.form-group {
+    display: flex;
+    flex-direction: column; /* Stack label above input */
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem; /* Space between label and input */
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    margin-bottom: 1rem;
+}
+
+/* Ensures input fields and select in the form group take full width */
+.form-group input, .form-group select {
+    width: 100%;
+}

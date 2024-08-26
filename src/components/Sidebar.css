@@ -1,0 +1,43 @@
+/* Sidebar.css */
+.sidebar {
+  background-color: #c69963;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px; /* Adjust height of the sidebar */
+  width: 100%; /* Stretch the sidebar across the whole width */
+  position: fixed; /* Position the sidebar at the top of the page */
+  top: 0; /* Stick to the top */
+  z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav-item {
+  padding: 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black; /* White text */
+  background-color: #c69963;
+}
+
+.auth-links {
+  display: flex;
+  margin-right: 10px; /* Add margin to the right side of the auth-links container */
+}
+
+.auth-links .nav-link {
+  margin-left: 10px;
+}
+
+/* Add margin between sidebar and content */
+.content {
+  margin-top: 80px; /* Adjust as needed */
+}

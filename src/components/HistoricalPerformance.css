@@ -1,0 +1,9 @@
+*, *::before, *::after {    /* Prevent Header from extruding passed the window size */
+  box-sizing: border-box;
+}
+.historical-performance {
+    /* Ensure the container is responsive */
+    width: 90%;
+    max-width: 90%; /* Limit the maximum size if needed */
+    padding: 20px;
+  }

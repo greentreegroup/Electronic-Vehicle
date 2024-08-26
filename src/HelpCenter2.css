@@ -1,0 +1,144 @@
+/* HelpCenter.css */
+.section-wrapper {
+  flex-direction: column;
+  align-items: center;
+}
+.help-center-container {
+  
+  margin: 30px auto;
+  padding: 20px 10px; /* Adjusted padding */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #c69963;
+  color: #fff; /* Set text color to white */
+  width: 100%; /* Ensure articles span the entire width */
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column; /* Change to column direction */
+}
+
+.search-input {
+  width: 100%; /* Full width for input */
+  padding: 10px;
+  margin-bottom: 10px; /* Add margin between input and button */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-button {
+  width: 100%; /* Full width for button */
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.search-results {
+  margin-top: 20px;
+}
+
+.search-result-card {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-result-card h3 {
+  margin-bottom: 10px;
+}
+
+
+/* Featured Article Section */
+.article-container {
+  max-width: 80px;
+  margin: 40px auto;
+  padding: 20px;
+  display: flex; /* Use flexbox to arrange article cards */
+  flex-wrap: wrap; /* Allow wrapping of article cards */
+  justify-content: center; /* Center the article cards */
+  width: 100%; /* Ensure articles span the entire width */
+}
+
+
+.article-card {
+  width: calc(33.33% - 20px); /* Adjusted width for each card */
+  margin-bottom: 20px; /* Adjusted margin */
+}
+
+.article-thumbnail {
+  width: 100%;
+
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.article-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth animation */
+}
+
+.article-thumbnail img:hover {
+  transform: scale(1.1); /* Scale the image by 110% on hover */
+}
+
+.article-preview h3 {
+  margin: 30px;
+  padding: 10px;
+  font-size: 20px; /* Adjust font size as needed */
+  color: black; /* Set color to black */
+}
+
+.article-preview:hover {
+  background-color: #e0e0e0;
+}
+.head-line{
+  padding-left: 20px;
+  color:black;
+
+}
+.featured-articles {
+  display: flex;
+  flex-wrap: nowrap; /* Ensure articles stay in a single row */
+  gap: 20px; /* Adjust gap between articles */
+  padding: 20px;
+  background-color: #c69963;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  width: 100%; /* Ensure articles span the entire width */
+}
+/* HelpCenter.css */
+
+.contact-container {
+  
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #c69963;
+  color: #333;
+  width: 100%; /* Ensure articles span the entire width */
+}
+
+.contact-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-container p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+

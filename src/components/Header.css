@@ -1,0 +1,107 @@
+/*Header.css*/
+*, *::before, *::after {    /* Prevent Header from extruding passed the window size */
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+.header {
+    background-color: #54483A;
+    width: 100%;
+    grid-column: full-start / full-end;
+    background-image: linear-gradient(rgba(19, 43, 46, 0.93), rgba(16, 29, 44, 0.93)); 
+    background-size: cover;
+    background-position: center;
+    padding: 8rem;
+    padding-top: 4rem;
+    display: grid;
+    grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+    grid-template-columns: minmax(min-content, max-content);
+    grid-row-gap: 1.5rem;
+    justify-content: center;
+    position: relative; /* For absolute positioning of child elements */
+    color:white;
+  }
+  
+  .header__logo {
+    height: 3rem;
+    justify-self: center;
+  }
+  
+  .header__btn {
+    align-self: start;
+    justify-self: start;
+  }
+  
+  .header__seenon-text {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-column-gap: 1.5rem;
+    align-items: center;
+    font-size: 1.6rem;
+    color: #aaa;
+  }
+  
+  .header__seenon-text::before,
+  .header__seenon-text::after {
+    content: "";
+    height: 1px;
+    display: block;
+    background-color: currentColor;
+  }
+  
+  .header__seenon-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 3rem;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  .header__seenon-logos img {
+    max-height: 2.5rem;
+    max-width: 100%;
+    filter: brightness(70%);
+  }
+  
+/* Container for the buttons */
+.header-buttons {
+  position: absolute; /* Position it absolutely within the header */
+  top: 2rem; /* Adjust as needed */
+  right: 2rem; /* Adjust as needed */
+  z-index: 10; /* Ensure it's above other content */
+  display: flex; /* Align buttons in a row */
+  gap: 1rem; /* Space between buttons */
+}
+
+/* Shared style for sign in and sign up buttons */
+.header-buttons button {
+  background-color: #c69963; /* Example background color */
+  color: #fff; /* Text color */
+  border: none; /* No border */
+  padding: 0.8rem 1.6rem; /* Padding around the text */
+  font-size: 1.2rem; /* Font size */
+  border-radius: 1px; /*  corners */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+.header-buttons button:hover {
+  background-color: #B28451; /* Darker shade for hover effect */
+}
+
+/* view our properties button*/
+.properties-btn {
+  background-color: #c69963;
+  
+  color: white; /* Adjust text color as needed */
+  /* Centering the button vertically */
+  position: absolute;
+  top: 55%;
+  left: 45%;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+  
+}
+
+
+
+

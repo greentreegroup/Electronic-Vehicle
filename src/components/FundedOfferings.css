@@ -1,0 +1,44 @@
+/* FundedOfferings.css */
+.funded-offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns for three offerings */
+    gap: 20px; /* Space between grid items */
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .offering-item {
+    display: flex;
+    flex-direction: column; /* Stack image and info vertically */
+    align-items: center; /* Center content */
+  }
+
+  .offering-image {
+    width: 100%; /* Container takes full width of its parent */
+    overflow: hidden; /* Hide parts of the image that might overflow */
+  }
+  
+  
+  .offering-image img {
+    width: 100%; /* Ensure the image fills the container */
+    min-height: 200px;
+    max-height: 350px;
+    object-fit: cover; /* Adjust as needed */
+  }
+  
+  .offering-info {
+    text-align: center; /* Center the text for each offering */
+    padding: 10px; /* Add some padding around the text */
+  }
+  
+  @media (max-width: 768px) {
+    .funded-offerings-grid {
+      grid-template-columns: repeat(2, 1fr); /* Adjust to two columns on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .funded-offerings-grid {
+      grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+  }

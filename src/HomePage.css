@@ -1,0 +1,32 @@
+/* HomePage.css */
+*, *::before, *::after {    /* Prevent Header from extruding passed the window size */
+  box-sizing: border-box;
+}
+/* HomePage.css */
+
+.header {
+grid-area: header;
+width: 100%;
+/* Ensure it fills the area */
+/* Remove relative positioning if not needed for child positioning */
+position: relative; /* May be needed for mobile positioning */
+}
+
+section {
+  padding: 20px;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.welcome-message {
+  text-align: center;
+  font-weight: normal; /* Ensures the text is not bold */
+  font-size: 26px; /* Sets the font size to 26px */
+  margin: 20px auto; /* Adds some vertical margin around the paragraph and auto for horizontal to center */
+  padding: 0 px; /* Adds padding on the left and right. Adjust the 40px as needed. */
+  max-width: 1600px; /* Optional: Sets a maximum width for the paragraph */
+}

@@ -1,0 +1,25 @@
+h1{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title{
+    font-size: 1.5rem;
+}
+
+.date{
+    font-size: 1.2rem;
+}
+
+.articleGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-row-gap: 5rem;
+    grid-column-gap: 5rem;
+    margin: 5rem;
+}
+
+.articleImg{
+    width:100%;
+}

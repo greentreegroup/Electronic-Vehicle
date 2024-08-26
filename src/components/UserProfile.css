@@ -1,0 +1,129 @@
+/* User Profile Container */
+:root {
+    --primary-bg: white;
+    --secondary-bg: white;
+    --accent-bg: #4f46e5;
+
+    --primary-color: black;
+    --secondary-color: black(255,255,255, 70%);
+    --accent-color: #818cf8;
+
+    --border-color: rgba(255,255,255, 30%);
+    
+    --username-size: 32px;
+    --title-size: 28px;
+    --subtitle: 24px;
+}
+.user-profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: var(--secondary-bg); /* Background color using CSS variable */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
+    width: 100%; /* Full width */
+    font-family: Arial, Helvetica, sans-serif; /* Custom font */
+    color: var(--primary-color); /* Text color using CSS variable */
+}
+
+/* Headings */
+.user-profile-container h2 {
+    color: var(--primary-color); /* Text color using CSS variable */
+    margin-bottom: 20px;
+}
+
+/* User Details Paragraphs */
+.user-profile-container p {
+    color: var(--secondary-color); /* Text color using CSS variable */
+    margin: 5px 0; /* Add space between paragraphs */
+}
+
+/* Buttons Container */
+/* Buttons Container */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+    gap: 10px; /* Adds space between buttons */
+}
+
+/* Base Button Styles */
+/* Apply common styles to all buttons to ensure consistency */
+.change-info-button,
+.confirm-email-button,
+.delete-account-button,
+.manage-account-button {
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 10px 20px; /* Uniform padding */
+    font-size: 16px; /* Standard font size */
+    width: 150px; /* Fixed width to ensure all buttons are the same size */
+    height: 40px; /* Fixed height to ensure vertical alignment */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 10px; /* Space below each button */
+    color: white; /* Text color for all buttons */
+    text-align: center; /* Ensure text is centered if it wraps */
+}
+
+/* Individual Button Styles */
+.change-info-button,
+.confirm-email-button {
+    background-color: #c69963; /* Common background color */
+}
+
+.change-info-button:hover,
+.confirm-email-button:hover {
+    background-color: #B28451; /* Slightly darker background on hover */
+}
+
+.delete-account-button {
+    background-color: #ff5c5c; /* Red background for delete action */
+}
+
+.delete-account-button:hover {
+    background-color: rgba(190, 52, 52, 0.9); /* Slightly darker red on hover */
+}
+
+.manage-account-button {
+    background-color: #c69963; /* Background color consistent with other action buttons */
+}
+
+.manage-account-button:hover {
+    background-color: #B28451; /* Slightly darker on hover */
+}
+/* Loading and Error messages */
+.loading,
+.error {
+    color: #d9534f; /* Red color for errors */
+    margin: 20px;
+}
+
+/* For responsive design, adjust the layout on smaller screens */
+@media (max-width: 768px) {
+    .user-profile-container {
+        padding: 10px;
+    }
+}
+.manage-account-options {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px; /* Add some space between buttons */
+    
+}
+.manage-account-button {
+    background-color: #c69963; /* Set the background color */
+    color: white; /* Ensure the text color contrasts well */
+    padding: 10px 20px; /* Maintain consistent padding with other buttons */
+    cursor: pointer; /* Indicate that the element is clickable */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    margin-bottom: 10px; /* Space below the button */
+    border: none; /* Remove any border */
+}
+
+.manage-account-button:hover {
+    background-color: #B28451; /* Slightly darker shade on hover for feedback */
+}

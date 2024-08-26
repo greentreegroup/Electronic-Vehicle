@@ -1,0 +1,13 @@
+/*FeaturedListings.css*/
+
+.featured-listings {
+  grid-column: center-start / center-end;
+  margin: 4rem 3.6rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 20rem);
+  grid-gap: 6rem;
+}
+
+.featured-listing__top {
+  margin-top: 3.4rem;
+}

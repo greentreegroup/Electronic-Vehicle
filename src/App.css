@@ -1,0 +1,26 @@
+/* App.css */
+
+/* Existing styles */
+.App {
+  display: grid;
+  grid-template-columns: [sidebar-start] auto [sidebar-end] 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  /* Other styles */
+}
+
+.sidebar {
+  grid-area: sidebar;
+  /* Other styles */
+}
+
+.App-main {
+  grid-area: main;
+  /* Other styles */
+  margin-top: 40px; /* Adjust as needed */
+}
+
+body {
+  position: absolute;
+}

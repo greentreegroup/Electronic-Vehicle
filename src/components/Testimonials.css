@@ -1,0 +1,67 @@
+/* Testimonials Component CSS */
+
+.testimonials-container {
+    width: 100%;
+    overflow: hidden; /* Hide overflow to enable sliding effect */
+    position: relative; /* Relative positioning for containing the h1 */
+    background-color: #c69963; /* Set background color to black */
+  }
+  
+  .testimonials-heading {
+    position: absolute; /* Absolute positioning to place the heading */
+    top: 10px; /* Adjust top spacing as needed */
+    left: 50%; /* Center align horizontally */
+    transform: translateX(-50%); /* Move left by half of its width to center align */
+    text-align: center; /* Center align text */
+    font-size: 24px; /* Adjust font size as needed */
+    color: #fff; /* Set text color to white */
+  }
+  
+  .testimonial-card {
+    width: 80%; /* Reduced width for better readability */
+    margin: 60px auto 20px; /* Provide spacing below the heading */
+    padding: 20px;
+    border-radius: 10px; /* Add rounded corners for a modern look */
+    background-color: #f8f9fa; /* Light background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  .testimonial-card h2 {
+    color: #333; /* Dark text color for headings */
+    margin-bottom: 10px; /* Add some space below the heading */
+  }
+  
+  .testimonial-card p {
+    margin: 5px 0;
+    color: #555; /* Slightly darker text color for paragraphs */
+  }
+  
+  /* Slider container */
+  .slider {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Individual slide */
+  .slide {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: none; /* Initially hide slides */
+  }
+  
+  /* Show first slide by default */
+  .slide:first-child {
+    display: block;
+  }
+  
+  /* Additional styling for slide content */
+  .slide h3 {
+    margin-top: 0;
+  }
+  .head-line{
+    text-align: center;
+    padding-top: 30px;
+    color: white;
+  }
+  
