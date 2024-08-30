@@ -47,6 +47,12 @@ const Sidebar = () => {
           <Link to="/HelpCenter2" className="nav-link">
             Help Center
           </Link>
+          
+          <li className="nav-item">
+          <Link to="/contact" className="nav-link">
+            Contact Us
+          </Link>
+        </li>
         </li>
       </ul>
       <div className="auth-links">
