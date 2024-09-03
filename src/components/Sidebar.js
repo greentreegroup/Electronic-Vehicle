@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import SignInForm from './SignInForm.js';
 import SignUpForm from './SignUpForm.js';
+import ResearchPage from './ResearchPage.js';
 
 const Sidebar = () => {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -47,6 +48,14 @@ const Sidebar = () => {
           <Link to="/HelpCenter2" className="nav-link">
             Help Center
           </Link>
+
+        </li>
+       
+        <li className="nav-item">
+          <Link to="/Research" className="nav-link">
+            Research & Insights
+          </Link>
+          
         </li>
       </ul>
       <div className="auth-links">
