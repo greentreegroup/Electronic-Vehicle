@@ -1,73 +1,81 @@
 import React, { useState } from 'react';
-import './FAQSection.css'; // Assuming you have a CSS file for styling
+import './FAQSection.css';
 
 const FAQSection = () => {
-  // Questions and answers data
-  const faqs = [
-    {
-      question: "How do I sign up?",
-      answer: "You can sign up by clicking the Sign Up button and filling out the form."
-    },
-    {
-      question: "What is the return policy?",
-      answer: "Our return policy is 30 days, no questions asked. Contact us for more details."
-    },
-    
-    {
-      question: "What payment methods do you accept?",
-      answer: "We accept all major credit cards, including Visa, MasterCard, and American Express. You can also pay using PayPal."
-    },
-    {
-      question: "How secure is my personal information?",
-      answer: "We take your privacy and security very seriously. All transactions are encrypted and your personal details are protected according to the highest industry standards."
-    },
-    {
-        question: "How do I sign up?",
-        answer: "You can sign up by clicking the Sign Up button and filling out the form."
-      },
-      {
-        question: "What is the return policy?",
-        answer: "Our return policy is 30 days, no questions asked. Contact us for more details."
-      },
-      
-      {
-        question: "What payment methods do you accept?",
-        answer: "We accept all major credit cards, including Visa, MasterCard, and American Express. You can also pay using PayPal."
-      },
-      {
-        question: "How secure is my personal information?",
-        answer: "We take your privacy and security very seriously. All transactions are encrypted and your personal details are protected according to the highest industry standards."
-      },
-    // Add more FAQs here
-  ];
+  const [activeIndex, setActiveIndex] = useState(null);
 
-
-  const [activeIndex, setActiveIndex] = useState(null); // To keep track of the opened FAQ
-
-  const toggleFAQ = (index) => {
-    setActiveIndex(index === activeIndex ? null : index); // Close if clicked again, else open
+  const toggleAnswer = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
   };
+
+  const faqCategories = [
+    {
+      category: 'Shipping & Delivery',
+      faqs: [
+        {
+          question: 'Do you offer international shipping?',
+          answer: 'Yes, we offer international shipping to most countries. Shipping costs will be calculated at checkout.'
+        },
+        {
+          question: 'How do I track my order?',
+          answer: 'You can track your order status by logging into your account and navigating to the order section.'
+        }
+      ]
+    },
+    {
+      category: 'Returns & Exchanges',
+      faqs: [
+        {
+          question: 'What is your return policy?',
+          answer: 'Our return policy lasts 30 days. If 30 days have gone by since your purchase, unfortunately we can’t offer you a refund or exchange.'
+        },
+        {
+          question: 'How do I exchange an item?',
+          answer: 'To exchange an item, contact our support team with your order details, and they will assist you with the process.'
+        }
+      ]
+    },
+    {
+      category: 'Payment',
+      faqs: [
+        {
+          question: 'What payment methods do you accept?',
+          answer: 'We accept various payment methods, including credit/debit cards, PayPal, and other secure payment options.'
+        },
+        {
+          question: 'Can I pay in installments?',
+          answer: 'Yes, we offer installment payment options through our partnered services. Please select the installment option at checkout.'
+        }
+      ]
+    }
+  ];
 
   return (
     <div className="faq-section">
-      <h2>Frequently Asked Questions</h2>
-      {faqs.map((faq, index) => (
-        <div className={`faq-item ${index === activeIndex ? 'active' : ''}`} key={index} onClick={() => toggleFAQ(index)}>
-          <div className="faq-question">
-            {faq.question}
-          </div>
-          <div className="faq-answer">
-            {faq.answer}
-          </div>
+      <h2>FAQs</h2>
+      {faqCategories.map((category, catIndex) => (
+        <div key={catIndex} className="faq-category">
+          <h3>{category.category}</h3>
+          {category.faqs.map((faq, index) => (
+            <div
+              key={index}
+              className={`faq-item ${activeIndex === `${catIndex}-${index}` ? 'active' : ''}`}
+            >
+              <button
+                className="faq-question"
+                onClick={() => toggleAnswer(`${catIndex}-${index}`)}
+              >
+                {faq.question}
+              </button>
+              {activeIndex === `${catIndex}-${index}` && (
+                <div className="faq-answer">
+                  {faq.answer}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       ))}
-      <div className="contact-info">
-        <h3>Contact Us</h3>
-        <p>If you didn't find the answer you were looking for, please contact us at:</p>
-        <p>Email: contact@example.com</p>
-        <p>Phone: (123) 456-7890</p>
-        {/* Add more contact details if necessary */}
-      </div>
     </div>
   );
 };

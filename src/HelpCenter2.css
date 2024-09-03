@@ -1,44 +1,61 @@
-/* HelpCenter.css */
+/* HelpCenter2.css */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .section-wrapper {
+  display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
+
 .help-center-container {
-  
   margin: 30px auto;
-  padding: 20px 10px; /* Adjusted padding */
+  padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #c69963;
-  color: #fff; /* Set text color to white */
-  width: 100%; /* Ensure articles span the entire width */
+  color: #fff;
+  width: 100%; 
+  max-width: 100%; 
+  box-sizing: border-box; 
 }
 
 .search-container {
   display: flex;
-  flex-direction: column; /* Change to column direction */
+  flex-direction: column;
+  width: 100%;
 }
 
 .search-input {
-  width: 100%; /* Full width for input */
+  width: 100%;
   padding: 10px;
-  margin-bottom: 10px; /* Add margin between input and button */
+  margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  box-sizing: border-box; 
 }
-
+ h2{
+ text-align: center;
+}
 .search-button {
-  width: 100%; /* Full width for button */
-  padding: 10px 20px;
+  width: 100%;
+  padding: 10px;
   border-radius: 5px;
   background-color: black;
   color: #fff;
   border: none;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .search-results {
   margin-top: 20px;
+  width: 100%;
 }
 
 .search-result-card {
@@ -48,83 +65,94 @@
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box; 
 }
-
-.search-result-card h3 {
-  margin-bottom: 10px;
-}
-
-
 /* Featured Article Section */
-.article-container {
-  max-width: 80px;
-  margin: 40px auto;
-  padding: 20px;
-  display: flex; /* Use flexbox to arrange article cards */
-  flex-wrap: wrap; /* Allow wrapping of article cards */
-  justify-content: center; /* Center the article cards */
-  width: 100%; /* Ensure articles span the entire width */
+.featured-articles-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; 
+  width: 100%; 
+  padding: 20px; 
 }
 
+.featured-articles {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px;
+  justify-content: center; 
+  max-width: 1200px; 
+  width: 100%; 
+}
 
+/* Article Cards */
 .article-card {
-  width: calc(33.33% - 20px); /* Adjusted width for each card */
-  margin-bottom: 20px; /* Adjusted margin */
+  flex: 1 1 calc(33.33% - 20px); 
+  max-width: 300px; 
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Responsiveness: Adjust layout for smaller screens */
+@media (max-width: 768px) {
+  .article-card {
+    flex: 1 1 calc(50% - 20px); 
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-card {
+    flex: 1 1 100%; 
+    max-width: 100%;
+  }
+}
+
+/* Thumbnail */
 .article-thumbnail {
   width: 100%;
-
+  height: 200px;
   overflow: hidden;
-  border-radius: 8px;
 }
 
 .article-thumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out; /* Add transition for smooth animation */
+  transition: transform 0.3s ease-in-out;
 }
 
 .article-thumbnail img:hover {
-  transform: scale(1.1); /* Scale the image by 110% on hover */
+  transform: scale(1.1); 
 }
 
-.article-preview h3 {
-  margin: 30px;
-  padding: 10px;
-  font-size: 20px; /* Adjust font size as needed */
-  color: black; /* Set color to black */
+/* Article Title */
+.article-title {
+  padding: 15px;
+  font-size: 18px;
+  text-align: center;
+  color: #333;
 }
 
-.article-preview:hover {
-  background-color: #e0e0e0;
-}
-.head-line{
-  padding-left: 20px;
-  color:black;
 
-}
-.featured-articles {
-  display: flex;
-  flex-wrap: nowrap; /* Ensure articles stay in a single row */
-  gap: 20px; /* Adjust gap between articles */
-  padding: 20px;
-  background-color: #c69963;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  width: 100%; /* Ensure articles span the entire width */
-}
-/* HelpCenter.css */
-
+/* Contact Section */
 .contact-container {
-  
   margin-top: 40px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #c69963;
   color: #333;
-  width: 100%; /* Ensure articles span the entire width */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; 
 }
 
 .contact-container h2 {
@@ -141,4 +169,3 @@
   color: #333;
   text-align: center;
 }
-
