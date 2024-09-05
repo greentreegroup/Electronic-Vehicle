@@ -1,16 +1,16 @@
-//HistoricalPerformance.js 
-import React from 'react';
-import { 
-  Chart as ChartJS, 
-  CategoryScale, 
-  LinearScale, 
-  BarElement, 
-  Title, 
-  Tooltip, 
-  Legend 
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-import './HistoricalPerformance.css';
+//HistoricalPerformance.js
+import React from "react";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+import "./HistoricalPerformance.css";
 
 // Registering the components required for the bar chart
 ChartJS.register(
@@ -46,11 +46,11 @@ const HistoricalPerformance = ({ performanceData }) => {
     },
     plugins: {
       legend: {
-        position: 'top', // Adjust legend position as needed
+        position: "top", // Adjust legend position as needed
       },
       title: {
         display: true,
-        text: 'Investment Overview', // Optional: Display a title for the chart
+        text: "Investment Overview", // Optional: Display a title for the chart
       },
     },
   };
@@ -58,10 +58,10 @@ const HistoricalPerformance = ({ performanceData }) => {
     labels: performanceData.investmentOverview.labels,
     datasets: [
       {
-        label: 'Dollars Invested',
+        label: "Dollars Invested",
         data: performanceData.investmentOverview.data,
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
+        backgroundColor: "rgba(54, 162, 235, 0.2)",
+        borderColor: "rgba(54, 162, 235, 1)",
         borderWidth: 1,
       },
     ],
@@ -71,9 +71,14 @@ const HistoricalPerformance = ({ performanceData }) => {
     <div className="historical-performance">
       <h2>Historical Performance Overview</h2>
       <p>Completed Deals: {performanceData.completedDeals}</p>
-      <p>Money Distributed to Investors: ${performanceData.moneyDistributed.toLocaleString()}</p>
-      <p>Total Amount Invested: ${performanceData.totalInvested.toLocaleString()}</p>
-      <p>Asset Classes Funded: {performanceData.assetClasses.join(', ')}</p>
+      <p>
+        Vehicles Distributed to Buyers:
+        {performanceData.vehiclesDistributed.toLocaleString()}
+      </p>
+      <p>
+        Total Amount Invested: ${performanceData.totalInvested.toLocaleString()}
+      </p>
+      <p>Vehicle Types Offered: {performanceData.vehicleTypes.join(", ")}</p>
       <div>
         <h3>Investment Overview</h3>
         <Bar data={data} options={options} />
