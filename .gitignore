@@ -38,3 +38,7 @@ Thumbs.db
 
 # Temporary files
 *.swp
+
+# files
+package.json
+package-lock.json

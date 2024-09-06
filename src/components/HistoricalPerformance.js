@@ -54,18 +54,18 @@ const HistoricalPerformance = ({ performanceData }) => {
       },
     },
   };
-  const data = {
-    labels: performanceData.investmentOverview.labels,
-    datasets: [
-      {
-        label: "Dollars Invested",
-        data: performanceData.investmentOverview.data,
-        backgroundColor: "rgba(54, 162, 235, 0.2)",
-        borderColor: "rgba(54, 162, 235, 1)",
-        borderWidth: 1,
-      },
-    ],
-  };
+  // const data = {
+  //   // labels: performanceData.investmentOverview.labels,
+  //   datasets: [
+  //     {
+  //       label: "Dollars Invested",
+  //       data: performanceData.investmentOverview.data,
+  //       backgroundColor: "rgba(54, 162, 235, 0.2)",
+  //       borderColor: "rgba(54, 162, 235, 1)",
+  //       borderWidth: 1,
+  //     },
+  //   ],
+  // };
 
   return (
     <div className="historical-performance">
@@ -81,7 +81,7 @@ const HistoricalPerformance = ({ performanceData }) => {
       <p>Vehicle Types Offered: {performanceData.vehicleTypes.join(", ")}</p>
       <div>
         <h3>Investment Overview</h3>
-        <Bar data={data} options={options} />
+        {/* <Bar data={data} options={options} /> */}
       </div>
     </div>
   );
