@@ -1,14 +1,20 @@
 /* Sidebar.css */
 .sidebar {
-  background-color: #c69963;
+  background-color: #c69963; /* Maintain the base color */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px; /* Adjust height of the sidebar */
-  width: 100%; /* Stretch the sidebar across the whole width */
-  position: fixed; /* Position the sidebar at the top of the page */
-  top: 0; /* Stick to the top */
-  z-index: 1000; /* Ensure it stays on top of other content */
+  height: 60px; 
+  width: 100%; 
+  position: fixed; 
+  top: 0; 
+  z-index: 1000; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.sidebar:hover {
+  background-color: #b28451; /* Slightly darken on hover for interactivity */
 }
 
 .sidebar-nav {
@@ -16,28 +22,187 @@
   padding: 0;
   margin: 0;
   display: flex;
+  gap: 15px; /* Add some space between items */
 }
 
 .nav-item {
   padding: 10px;
+  transition: transform 0.2s ease; /* Smooth transition for scaling */
+}
+
+.nav-item:hover {
+  transform: scale(1.1); /* Slightly enlarge item on hover */
 }
 
 .nav-link {
   text-decoration: none;
-  color: black; /* White text */
-  background-color: #c69963;
+  color: black; /* White text for contrast */
+  font-weight: bold; /* Make the text stand out */
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: transparent; /* Transparent to show hover effect */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Add a light background on hover */
+  color: white; /* Ensure text color remains white */
 }
 
 .auth-links {
   display: flex;
-  margin-right: 10px; /* Add margin to the right side of the auth-links container */
+  margin-right: 20px; /* Add margin to the right side of the auth-links container */
+  gap: 15px; /* Add space between auth links */
 }
 
 .auth-links .nav-link {
   margin-left: 10px;
 }
 
+.auth-links .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light hover effect for auth links */
+  color: white;
+}
+
 /* Add margin between sidebar and content */
 .content {
   margin-top: 80px; /* Adjust as needed */
+}
+
+/* Sidebar.css */
+
+/* Add dropdown menu styles */
+/* Sidebar.css */
+
+/* Add dropdown menu styles */
+/* Sidebar.css */
+
+/* Add dropdown menu styles */
+.account-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.account-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: bold;
+  color: black;
+}
+
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #c69963;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  list-style: none;
+  padding: 0; /* Remove default padding */
+  margin: 0;
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  margin: 0;
+  padding: 10px 15px; /* Uniform padding */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Divider line */
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none; /* Remove border from the last item */
+}
+
+.dropdown-menu li button,
+.dropdown-menu li a {
+  display: block; /* Make both button and link elements block level */
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  width: 100%; /* Ensure both buttons and links take the full width */
+  text-align: left; /* Align text to the left */
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 15px; /* Ensure consistent padding */
+}
+
+.dropdown-menu li button:hover,
+.dropdown-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
+}
+
+/* Sidebar.css */
+
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1001; /* Ensure it's on top */
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Show hamburger icon on small screens */
+  }
+
+  .sidebar-nav {
+    display: none; /* Hide the sidebar by default on small screens */
+    flex-direction: column;
+    background-color: #c69963; /* Ensure the menu has the same background color */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+  }
+
+  .sidebar-nav.mobile-show {
+    display: flex; /* Show the menu when 'mobile-show' class is added */
+  }
+
+  .sidebar-nav.mobile-hide {
+    display: none; /* Ensure the menu is hidden when 'mobile-hide' is active */
+  }
+
+  .nav-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .auth-links {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  .account-button{
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  /* On larger screens, hide the hamburger and show the nav normally */
+  .hamburger {
+    display: none;
+  }
+
+  .sidebar-nav {
+    display: flex; /* Show the sidebar as a flex container */
+    flex-direction: row; /* Make the nav items align horizontally */
+  }
 }

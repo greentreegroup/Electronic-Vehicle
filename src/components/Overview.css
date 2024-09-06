@@ -31,6 +31,7 @@ p{
     align-items: start;
     justify-content: center;
     margin: 0 auto; /* Center the grid container */
+    padding: 6rem 0;
     width: 90%; /* Adjust based on your layout needs */
     /* Initial setup for two columns */
     grid-template-columns: repeat(2, 1fr); /* Set up for 2 columns */
@@ -60,11 +61,13 @@ p{
 
 .feature {
     /*float: left;*/
-    width: 80%;
+    width: 100%;
     /*bottom: 6rem;*/
     display: grid;
     grid-template-columns: min-content 1fr;
     grid-column-gap: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
 feature {
@@ -84,5 +87,5 @@ feature {
   }
 
   .features{
-    margin: 7rem;
+    margin: 0 auto;
   }

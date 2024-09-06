@@ -12,9 +12,9 @@ function Overview() {
           </svg>  
             </div>
 
-          <h4 className="heading-4 heading-4--dark">World's best luxury homes</h4>
+          <h4 className="heading-4 heading-4--dark">Global Reach, Local Expertise</h4>
           <p className ="thirdItem"> </p>
-          <p className="feature__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio necessitatibus pariatur voluptatibus.</p>
+          <p className="feature__text">Our network spans across the globe, giving you access to a vast selection of vehicles and parts, no matter where you are.</p>
       </div>
 
       <div className="feature">
@@ -23,9 +23,9 @@ function Overview() {
         <path d="M25.5 1c0.276 0 0.5-0.224 0.5-0.5s-0.224-0.5-0.5-0.5h-17c-0.276 0-0.5 0.224-0.5 0.5s0.224 0.5 0.5 0.5h17zM25.5 2h-19c-3.283 0-4.813 1.166-5.519 2.144-0.864 1.2-1.026 2.803-0.456 4.514 0.882 2.646 3.846 5.825 5.668 7.237 0.092 0.071 0.2 0.105 0.307 0.105 0.149 0 0.297-0.066 0.396-0.194 0.169-0.218 0.129-0.532-0.089-0.702-1.674-1.296-4.525-4.342-5.332-6.763-0.467-1.397-0.354-2.68 0.318-3.612 0.815-1.131 2.442-1.729 4.707-1.729h1.5v9.5c0 6.726 6.673 10.601 8.036 11.322-0.021 0.056-0.036 0.115-0.036 0.178v2.5c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-2.5c0-0.058-0.015-0.112-0.033-0.164 1.514-0.712 9.033-4.586 9.033-11.336v-9.5h1.5c2.265 0 3.892 0.598 4.707 1.729 0.672 0.932 0.785 2.215 0.318 3.613-0.63 1.891-3.769 5.553-5.332 6.763-0.218 0.169-0.258 0.483-0.089 0.702 0.099 0.127 0.247 0.193 0.396 0.193 0.107 0 0.215-0.034 0.307-0.104 1.732-1.342 4.961-5.119 5.668-7.237 0.57-1.711 0.408-3.314-0.456-4.514-0.706-0.979-2.236-2.145-5.519-2.145h-2zM25 12.5c0 6.093-7.152 9.804-8.486 10.443-1.228-0.665-7.514-4.367-7.514-10.443v-9.5h16v9.5zM11 28c-1.141 0-2 0.86-2 2v1.5c0 0.276 0.224 0.5 0.5 0.5h14c0.276 0 0.5-0.224 0.5-0.5v-1.425c0-1.163-0.879-2.075-2-2.075h-11zM23 30.075v0.925h-13v-1c0-0.589 0.411-1 1-1h11c0.57 0 1 0.462 1 1.075z"></path>
           </svg>
                   </div>
-          <h4 className="heading-4 heading-4--dark">Only the best properties</h4>
+          <h4 className="heading-4 heading-4--dark">Award-Winning Service</h4>
           <p className ="thirdItem"> </p>
-          <p className="feature__text">Voluptatum mollitia quae. Vero ipsum sapiente molestias accusamus rerum sed a eligendi aut quia.</p>
+          <p className="feature__text">Our company has been recognized for providing top-notch service and customer satisfaction in the auto industry.</p>
       </div>
 
       <div className="feature">
@@ -34,9 +34,9 @@ function Overview() {
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM12 14.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
           </svg>
         </div>
-          <h4 className="heading-4 heading-4--dark">All homes in in top locations</h4>
+          <h4 className="heading-4 heading-4--dark">Find Us Near You</h4>
           <p className ="thirdItem"> </p>
-          <p className="feature__text">Tenetur distinctio necessitatibus pariatur voluptatibus quidem consequatur harum.</p>
+          <p className="feature__text">With multiple locations nationwide, we're never far away when you need expert advice or automotive support.</p>
       </div>
 
       <div className="feature">
@@ -45,9 +45,9 @@ function Overview() {
             <path d="M14.683 14.698c0.117 0 0.235-0.041 0.33-0.124l11.317-9.922-0.66-0.752-11.317 9.921c-0.208 0.182-0.229 0.498-0.046 0.706 0.099 0.113 0.237 0.171 0.376 0.171zM10.188 32c6.142 0 9.812-4.83 9.812-9.5 0-1.346-0.322-2.829-0.798-3.792l4.522-2.261c0.169-0.085 0.276-0.258 0.276-0.447v-4h3c0.011 0 0.102-0.006 0.113-0.006 0.666-0.045 0.865-0.257 0.887-0.994v-4h3c0.129 0 0.218 0.014 0.278 0.023 0.121 0.019 0.347 0.054 0.543-0.122 0.202-0.18 0.193-0.408 0.185-0.609-0.002-0.072-0.006-0.167-0.006-0.292v-4.531c0-0.81-0.659-1.469-1.469-1.469h-3.875c-0.354 0-0.698 0.129-0.969 0.364l-13.187 11.56c-0.649-0.13-1.63-0.299-2.313-0.299-5.617 0-10.187 4.57-10.187 10.187s4.57 10.188 10.188 10.188zM10.188 12.625c0.501 0 1.359 0.12 2.354 0.328 0.155 0.034 0.314-0.010 0.432-0.113l13.371-11.722c0.087-0.076 0.198-0.118 0.311-0.118h3.875c0.259 0 0.469 0.21 0.469 0.469v4.531h-3.5c-0.276 0-0.5 0.224-0.5 0.5v4.5h-3.5c-0.276 0-0.5 0.224-0.5 0.5v4.191l-4.724 2.362c-0.131 0.065-0.227 0.186-0.262 0.328s-0.006 0.293 0.080 0.412c0.44 0.607 0.906 2.114 0.906 3.707 0 4.178-3.296 8.5-8.812 8.5-5.066 0-9.188-4.122-9.188-9.188s4.122-9.187 9.188-9.187zM8.5 27c1.93 0 3.5-1.57 3.5-3.5s-1.57-3.5-3.5-3.5-3.5 1.57-3.5 3.5 1.57 3.5 3.5 3.5zM8.5 21c1.378 0 2.5 1.122 2.5 2.5s-1.122 2.5-2.5 2.5-2.5-1.122-2.5-2.5 1.122-2.5 2.5-2.5z"></path>
           </svg>        
           </div>
-          <h4 className="heading-4 heading-4--dark">New home in one week</h4>
+          <h4 className="heading-4 heading-4--dark">Unlock Your Dream Car</h4>
           <p className ="thirdItem"> </p>
-          <p className="feature__text">Vero ipsum sapiente molestias accusamus rerum. Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p className="feature__text">Get exclusive access to a wide range of vehicles and unlock unbeatable deals on the best cars in the market.</p>
       </div>
 
       <div className="feature">
@@ -56,9 +56,9 @@ function Overview() {
               <path d="M0.5 3c-0.276 0-0.5 0.224-0.5 0.5v17c0 0.827 0.673 1.5 1.5 1.5h28c0.827 0 1.5-0.673 1.5-1.5v-17c0-0.276-0.224-0.5-0.5-0.5s-0.5 0.224-0.5 0.5v17c0 0.276-0.224 0.5-0.5 0.5h-28c-0.276 0-0.5-0.224-0.5-0.5v-17c0-0.276-0.224-0.5-0.5-0.5zM32.5 0h-34c-0.276 0-0.5 0.224-0.5 0.5s0.224 0.5 0.5 0.5h34c0.276 0 0.5-0.224 0.5-0.5s-0.224-0.5-0.5-0.5zM11.854 8.146c-0.183-0.183-0.475-0.196-0.674-0.031l-6 5c-0.212 0.177-0.241 0.492-0.064 0.705 0.177 0.212 0.491 0.241 0.705 0.064l5.649-4.708 5.677 5.677c0.097 0.098 0.225 0.147 0.353 0.147s0.256-0.049 0.354-0.146l7.146-7.147v3.793c0 0.276 0.224 0.5 0.5 0.5s0.5-0.224 0.5-0.5v-5c0-0.065-0.013-0.13-0.038-0.191-0.051-0.122-0.148-0.22-0.271-0.271-0.061-0.025-0.126-0.038-0.191-0.038h-5c-0.276 0-0.5 0.224-0.5 0.5s0.224 0.5 0.5 0.5h3.793l-6.793 6.793-5.646-5.647zM8.057 31.732c0.128 0.245 0.43 0.339 0.675 0.211l6.768-3.545 6.768 3.545c0.074 0.039 0.153 0.057 0.232 0.057 0.18 0 0.354-0.098 0.443-0.268 0.128-0.245 0.034-0.547-0.211-0.675l-6.893-3.61c0.098-0.091 0.161-0.219 0.161-0.364v-2.583c0-0.276-0.224-0.5-0.5-0.5s-0.5 0.224-0.5 0.5v2.583c0 0.144 0.063 0.272 0.161 0.363l-6.893 3.61c-0.245 0.129-0.339 0.431-0.211 0.676z"></path>
           </svg>
       </div>
-          <h4 className="heading-4 heading-4--dark">Top 1% realtors</h4>
+          <h4 className="heading-4 heading-4--dark">Data-Driven Performance</h4>
           <p className ="thirdItem"> </p>
-          <p className="feature__text">Quidem consequatur harum, voluptatum mollitia quae. Tenetur distinctio necessitatibus pariatur voluptatibus.</p>
+          <p className="feature__text">We use cutting-edge analytics to provide insights on the best-performing vehicles, ensuring you make informed decisions.</p>
       </div>
 
       <div className="feature">
@@ -67,9 +67,9 @@ function Overview() {
             <path d="M14 0c-5.514 0-10 4.486-10 10v3h-1.5c-1.378 0-2.5 1.122-2.5 2.5v14c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-14c0-1.378-1.122-2.5-2.5-2.5h-1.5v-3c0-5.514-4.486-10-10-10zM5 10c0-4.962 4.038-9 9-9s9 4.038 9 9v3h-3v-3c0-3.309-2.691-6-6-6s-6 2.691-6 6v3h-3v-3zM19 13h-10v-3c0-2.757 2.243-5 5-5s5 2.243 5 5v3zM12.293 21l-5 5h-4.586l5-5h4.586zM18.293 21l-5 5h-4.586l5-5h4.586zM24.293 21l-5 5h-4.586l5-5h4.586zM27 21v5h-6.293l5-5h1.293zM1.293 26h-0.293v-5h5.293l-5 5zM25.5 31h-23c-0.827 0-1.5-0.673-1.5-1.5v-2.5h26v2.5c0 0.827-0.673 1.5-1.5 1.5zM27 15.5v4.5h-26v-4.5c0-0.827 0.673-1.5 1.5-1.5h23c0.827 0 1.5 0.673 1.5 1.5z"></path>
           </svg>        
           </div>
-          <h4 className="heading-4 heading-4--dark">Secure payments on nexter</h4>
+          <h4 className="heading-4 heading-4--dark">Secure Online Payments</h4>
           <p className ="thirdItem"> </p>
-          <p className="feature__text">Pariatur voluptatibus quidem consequatur harum, voluptatum mollitia quae.</p>
+          <p className="feature__text">Shop online for cars and parts with confidence, knowing your transactions are fully secure.</p>
       </div>
     </section>
 

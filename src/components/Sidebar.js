@@ -1,4 +1,3 @@
-// Sidebar.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
@@ -6,17 +5,29 @@ import SignInForm from './SignInForm.js';
 import SignUpForm from './SignUpForm.js';
 
 const Sidebar = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false); // For hamburger menu
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const toggleMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
+  };
 
   const handleSignInClick = () => {
     setShowSignIn(true);
     setShowSignUp(false);
+    setShowDropdown(false);
   };
 
   const handleSignUpClick = () => {
     setShowSignUp(true);
     setShowSignIn(false);
+    setShowDropdown(false);
   };
 
   const closeForms = () => {
@@ -26,8 +37,13 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <ul className="sidebar-nav">
-        {/* Your existing navigation items */}
+      {/* Hamburger icon visible on mobile */}
+      <button className="hamburger" onClick={toggleMobileMenu}>
+        ☰
+      </button>
+
+      {/* Sidebar navigation, toggle visibility on mobile */}
+      <ul className={`sidebar-nav ${showMobileMenu ? 'mobile-show' : 'mobile-hide'}`}>
         <li className="nav-item">
           <Link to="/" className="nav-link">
             Home
@@ -49,13 +65,37 @@ const Sidebar = () => {
           </Link>
         </li>
       </ul>
+
       <div className="auth-links">
-        <button onClick={handleSignInClick} className="nav-link">
-          Sign In
-        </button>
-        <button onClick={handleSignUpClick} className="nav-link">
-          Sign Up
-        </button>
+        <div className="account-dropdown">
+          <button onClick={toggleDropdown} className="nav-link account-button">
+            Account
+          </button>
+          {showDropdown && (
+            <ul className="dropdown-menu">
+              <li>
+                <button onClick={handleSignInClick} className="nav-link">
+                  Sign In
+                </button>
+              </li>
+              <li>
+                <button onClick={handleSignUpClick} className="nav-link">
+                  Sign Up
+                </button>
+              </li>
+              <li>
+                <Link to="/profile" className="nav-link">
+                  User Profile
+                </Link>
+              </li>
+              <li>
+                <Link to="/settings" className="nav-link">
+                  Settings
+                </Link>
+              </li>
+            </ul>
+          )}
+        </div>
       </div>
       {showSignIn && <SignInForm onClose={closeForms} />}
       {showSignUp && <SignUpForm onClose={closeForms} />}

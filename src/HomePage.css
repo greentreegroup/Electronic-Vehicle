@@ -1,32 +1,64 @@
 /* HomePage.css */
-*, *::before, *::after {    /* Prevent Header from extruding passed the window size */
+
+/* General box-sizing for all elements */
+*, *::before, *::after {
   box-sizing: border-box;
 }
-/* HomePage.css */
-
+body{
+  text-align: center;
+}
+/* Header styles */
 .header {
-grid-area: header;
-width: 100%;
-/* Ensure it fills the area */
-/* Remove relative positioning if not needed for child positioning */
-position: relative; /* May be needed for mobile positioning */
+  grid-area: header;
+  width: 100%;
+  position: relative; /* May be necessary for positioning child elements */
 }
 
-section {
-  padding: 20px;
-  margin: 20px;
-}
-
+/* Ensure appropriate text and section styling */
 h1 {
   text-align: center;
   margin-bottom: 20px;
 }
 
+/* Welcome message styling */
+ section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: visible;
+
+  /* Prevent text overflow */
+  overflow-wrap: break-word;
+  /* older version of overflow-wrap for older browsers */
+  word-wrap: break-word;  
+  word-break: break-word;
+  hyphens: auto;
+}
 .welcome-message {
   text-align: center;
   font-weight: normal; /* Ensures the text is not bold */
-  font-size: 26px; /* Sets the font size to 26px */
-  margin: 20px auto; /* Adds some vertical margin around the paragraph and auto for horizontal to center */
-  padding: 0 px; /* Adds padding on the left and right. Adjust the 40px as needed. */
-  max-width: 1600px; /* Optional: Sets a maximum width for the paragraph */
+  font-size: 24px; /* Slightly reduce the font size for better readability */
+  margin: 40px auto; /* More vertical margin around the paragraph */
+  padding: 0 20px; /* Padding for some space on the left and right */
+  max-width: 1000px; /* Restrict the text width for better readability */
+  line-height: 1.6; /* Increase line height for better readability */
+  color: #333; /* Slightly soften the text color */
+}
+
+/* Body and HTML styling to prevent horizontal overflow */
+body, html {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Responsive adjustments for welcome message on smart screens*/
+@media (max-width: 768px) {
+  .welcome-message {
+    font-size: 18px;
+    padding-right:45px;
+    
+  }
 }

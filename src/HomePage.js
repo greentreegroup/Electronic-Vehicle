@@ -7,6 +7,8 @@ import SignUpForm from './components/SignUpForm';
 import Footer from './components/Footer';
 import Testimonials from './components/Testimonials'; // Import Testimonials component
 import './HomePage.css';
+import FeaturedParts from './components/FeaturedParts';
+
 
 function HomePage() {
   return (
@@ -15,24 +17,29 @@ function HomePage() {
       <main className="App-main">
         <br />
         <h1>Overview</h1>
-        <p className='welcome-message'>Welcome to 2300 Frontier, where innovative ideas meet passionate investors. 
-          Our platform bridges the gap between groundbreaking projects and the funding 
-          they need to come to life. Whether you're an entrepreneur ready to launch your 
-          next big idea or an investor looking to diversify your portfolio with exciting 
-          new ventures, 2300 Frontier is your gateway to the future of funding. Explore a 
-          world of opportunities with us and be part of the journey that transforms dreams 
-          into reality.
-        </p>
+        <p className="welcome-message">
+  Welcome to <strong>2300 Frontier</strong>, where the future of electric mobility begins. Our platform connects 
+  innovative electric vehicle solutions with passionate investors, driving the transition to a cleaner, greener world. 
+  <br/><br/>
+  Whether you're an EV startup ready to revolutionize transportation or an investor seeking to power the next generation 
+  of sustainable mobility, <strong>2300 Frontier</strong> is your gateway to groundbreaking opportunities.
+  <br/><br/>
+  Join us in accelerating the shift towards electric vehicles and be part of the journey toward a more sustainable tomorrow.
+</p>
         <Overview/>
+
+        <FeaturedParts/>
 
         {/* Featured Listings Section */}
         <div className="featured-listings-container">
           <br />
-          <h1>Featured investment opportunities</h1>
-          <p className='welcome-message'>Discover the latest and most exciting crowdfunding opportunities 
-            on 2300 Frontier. From cutting-edge technology innovations to sustainable environmental solutions, 
-            our platform hosts a variety of projects seeking your support. Dive into our curated selection of 
-            opportunities and find the next big thing to invest in.
+          <h1>Featured Electric Vehicles</h1>
+          <p className="welcome-message">
+            Discover the latest and most exciting electric vehicles on <strong>2300 Frontier</strong>. From state-of-the-art 
+            electric cars to groundbreaking advancements in battery technology, our platform showcases a variety of innovative 
+            vehicles leading the charge towards a sustainable future.
+            <br/><br/>
+            Explore our curated selection of featured electric vehicles and find the next breakthrough in sustainable transportation.
           </p>
           <FeaturedListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'}/>
         </div>
@@ -43,9 +50,9 @@ function HomePage() {
           <Testimonials />
         </div>
         
-        <Footer/>
+        <Footer />
       </main>
-      {/* You can add other sections/components here as needed */}
+      {}
     </div>
   );
 }

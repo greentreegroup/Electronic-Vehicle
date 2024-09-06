@@ -13,6 +13,8 @@ import HelpCenter2 from './HelpCenter2';
 
 import './App.css';
 import Chatbot from './Chatbot';
+import FeaturedParts from './components/FeaturedParts';
+import FeatureCars from './components/FeaturedCars';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -37,6 +39,8 @@ function App() {
             <Route path="/listings" element={<InvestmentListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'} />} />
             <Route path="/listings/:listingId" element={<InvestmentDetails />} /> {/* Route for listing details page */}
             <Route path="/userProfile/:userId" element={<UserProfile />} /> {/* Route for listing details page */}
+            <Route path="/Parts" element={<FeaturedParts />} /> {/* Route for listing details page */}
+            <Route path="/Cars" element={<FeatureCars />} /> {/* Route for listing details page */}
             {/* Other routes */}
           </Routes>
         </main>
