@@ -8,19 +8,19 @@ import "./App.css";
 
 const performanceData = {
   completedDeals: 120,
-  moneyDistributed: 5000000,
-  totalInvested: 7000000,
-  assetClasses: ["Real Estate", "Stocks", "Bonds"],
-  investmentOverview: {
+  vehiclesDistributed: 50000,
+  totalInvested: 70000,
+  vehicleTypes: ["Electronic", "Hybrid"],
+  purchaseOverview: {
     labels: ["2020", "2021", "2022"],
-    data: [2000000, 2500000, 2500000],
+    data: [20000, 25000, 25000],
   },
 };
 
 // Dummy Data for successful funded offerings
 const offeringsData = [
   {
-    image: "img/gal-10.jpeg",
+    image: "",
     name: "Offering Example 1",
     description: "Description of the offering",
 
@@ -28,13 +28,13 @@ const offeringsData = [
   },
   {
     // Add more offerings as needed
-    image: "img/gal-7.jpeg",
+    image: "",
     name: "Offering Example 2",
     description: "Description of the offering",
   },
   {
     // Add more offerings as needed
-    image: "img/gal-4.jpeg",
+    image: "",
     name: "Offering Example 3",
     description: "Description of the offering",
   },
