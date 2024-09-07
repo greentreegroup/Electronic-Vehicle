@@ -10,6 +10,7 @@ import InvestmentDetails from './components/InvestmentDetails';
 import UserProfile from './components/UserProfile';
 import HomePage from './HomePage';
 import HelpCenter2 from './HelpCenter2';
+import AboutUsServiceInfo from './AboutUs-ServiceInfo';
 
 import './App.css';
 import Chatbot from './Chatbot';
@@ -34,6 +35,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/HelpCenter2" element={<HelpCenter2 />} />
             <Route path="/track-record" element={<TrackRecord />} />
+            <Route path="/AboutUs-ServiceInfo" element={<AboutUsServiceInfo/>} />
             <Route path="/listings" element={<InvestmentListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'} />} />
             <Route path="/listings/:listingId" element={<InvestmentDetails />} /> {/* Route for listing details page */}
             <Route path="/userProfile/:userId" element={<UserProfile />} /> {/* Route for listing details page */}

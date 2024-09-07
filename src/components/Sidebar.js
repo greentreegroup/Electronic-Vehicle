@@ -48,6 +48,11 @@ const Sidebar = () => {
             Help Center
           </Link>
         </li>
+        <li className="nav-item">
+          <Link to="/AboutUs-ServiceInfo" className="nav-link">
+            About Us
+          </Link>
+        </li>
       </ul>
       <div className="auth-links">
         <button onClick={handleSignInClick} className="nav-link">
