@@ -12,15 +12,15 @@ const performanceData = {
   totalInvested: 70000,
   vehicleTypes: ["Electronic", "Hybrid"],
   purchaseOverview: {
-    // labels: ["2020", "2021", "2022"],
-    // data: [20000, 25000, 25000],
+    labels: ["2020", "2021", "2022"],
+    data: [20000, 25000, 25000],
   },
 };
 
 // Dummy Data for successful funded offerings
 const offeringsData = [
   {
-    image: "",
+    image: "/img/car-1.jpg",
     name: "Offering Example 1",
     description: "Description of the offering",
 
@@ -28,13 +28,13 @@ const offeringsData = [
   },
   {
     // Add more offerings as needed
-    image: "",
+    image: "/img/car-2.jpg",
     name: "Offering Example 2",
     description: "Description of the offering",
   },
   {
     // Add more offerings as needed
-    image: "",
+    image: "/img/car-3.jpg",
     name: "Offering Example 3",
     description: "Description of the offering",
   },

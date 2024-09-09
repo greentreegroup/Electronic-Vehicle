@@ -12,8 +12,8 @@ const performanceData = {
   totalInvested: 70000,
   vehicleTypes: ["Electronic", "Hybrid"],
   purchaseOverview: {
-    // labels: ["2020", "2021", "2022"],
-    // data: [20000, 25000, 25000],
+    labels: ["2020", "2021", "2022"],
+    data: [20000, 25000, 25000],
   },
 };
 

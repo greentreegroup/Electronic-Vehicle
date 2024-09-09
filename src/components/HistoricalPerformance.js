@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
+// import { Bar } from "react-chartjs-2";
 import "./HistoricalPerformance.css";
 
 // Registering the components required for the bar chart
@@ -22,18 +22,19 @@ ChartJS.register(
   Legend
 );
 
+/*   Example data structure for performanceData prop: */
 const HistoricalPerformance = ({ performanceData }) => {
-  // Example data structure for performanceData prop:
-  // {
-  //   completedDeals: 120,
-  //   moneyDistributed: 5000000, // in dollars
-  //   totalInvested: 7000000, // in dollars
-  //   assetClasses: ['Real Estate', 'Stocks', 'Bonds'],
-  //   investmentOverview: {
-  //     labels: ['2020', '2021', '2022'],
-  //     data: [2000000, 2500000, 2500000],
-  //   },
-  // }
+  //   {
+  //     completedDeals: 120;
+  //     moneyDistributed: 5000000; // in dollars
+  //     totalInvested: 7000000; // in dollars
+  //     assetClasses: ["Real Estate", "Stocks", "Bonds"];
+  //     investmentOverview: {
+  //       labels: ["2020", "2021", "2022"];
+  //       data: [2000000, 2500000, 2500000];
+  //     }
+  //   }
+  // };
 
   const options = {
     responsive: true, // Ensure the chart is responsive
@@ -54,18 +55,19 @@ const HistoricalPerformance = ({ performanceData }) => {
       },
     },
   };
-  // const data = {
-  //   // labels: performanceData.investmentOverview.labels,
-  //   datasets: [
-  //     {
-  //       label: "Dollars Invested",
-  //       data: performanceData.investmentOverview.data,
-  //       backgroundColor: "rgba(54, 162, 235, 0.2)",
-  //       borderColor: "rgba(54, 162, 235, 1)",
-  //       borderWidth: 1,
-  //     },
-  //   ],
-  // };
+
+  const data = {
+    labels: performanceData.purchaseOverview.labels,
+    datasets: [
+      {
+        label: "Vehicles Purchased",
+        data: performanceData.purchaseOverview.data,
+        backgroundColor: "rgba(54, 162, 235, 0.2)",
+        borderColor: "rgba(54, 162, 235, 1)",
+        borderWidth: 1,
+      },
+    ],
+  };
 
   return (
     <div className="historical-performance">
@@ -80,7 +82,7 @@ const HistoricalPerformance = ({ performanceData }) => {
       </p>
       <p>Vehicle Types Offered: {performanceData.vehicleTypes.join(", ")}</p>
       <div>
-        <h3>Investment Overview</h3>
+        {/* <h3>Investment Overview</h3> */}
         {/* <Bar data={data} options={options} /> */}
       </div>
     </div>
