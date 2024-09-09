@@ -73,7 +73,10 @@ button {
     width: 100%; /* ensures input occupies the remaining space */
 }
 
-
+.forgot-password {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
 
 .submit-btn {
     background-color: #4CAF50; /* Green background */

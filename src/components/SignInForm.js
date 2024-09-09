@@ -75,8 +75,9 @@ const SignInForm = ({ onClose }) => {
                     <ResetPassword onClose={() => setResetPasswordClicked(false)} />
                 ) : (
                     <>
-                        <h2>Sign In</h2>
+                        <h2>Welcome</h2>
                         <button className="close-btn" onClick={onClose}>X</button>
+                        <p>Sign in to access your GreenTree account.</p>
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="email">Email</label>
@@ -105,12 +106,18 @@ const SignInForm = ({ onClose }) => {
                             </div>
 
                             {error && <div className="error-message">{error}</div>}
+                            <div className="forgot-password">
+                                <a href="#" onClick={handleForgetPasswordClick}>Forgot your password?</a>
+                            </div>
 
                             <button type="submit" className="submit-btn">Sign In</button>
-                            <button type="button" className="reset-btn" onClick={handleForgetPasswordClick}>
-                                Forget Password
-                            </button>
+                            
                         </form>
+                        <div className="create-account">
+                            <p>
+                                New to GreenTree? <a href="/create-account">Create an account</a>
+                            </p>
+                        </div>
                     </>
                 )}
             </div>
