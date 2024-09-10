@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar';
 
 import TrackRecord from './TrackRecord';
 import InvestmentListings from './components/InvestmentListings';
+import SignInForm from './components/SignInForm';
 import InvestmentDetails from './components/InvestmentDetails';
 import UserProfile from './components/UserProfile';
 import HomePage from './HomePage';
@@ -35,9 +36,9 @@ function App() {
             <Route path="/HelpCenter2" element={<HelpCenter2 />} />
             <Route path="/track-record" element={<TrackRecord />} />
             <Route path="/listings" element={<InvestmentListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'} />} />
-            <Route path="/listings/:listingId" element={<InvestmentDetails />} /> {/* Route for listing details page */}
-            <Route path="/userProfile/:userId" element={<UserProfile />} /> {/* Route for listing details page */}
-            {/* Other routes */}
+            <Route path="/signin" element={<SignInForm />} />
+            <Route path="/listings/:listingId" element={<InvestmentDetails />} /> 
+            <Route path="/userProfile/:userId" element={<UserProfile />} /> 
           </Routes>
         </main>
         <Chatbot />

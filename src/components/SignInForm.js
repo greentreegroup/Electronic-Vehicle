@@ -1,21 +1,16 @@
-//SignInForm.js
 import React, { useState } from 'react';
-import './SignInForm.css';
-import './ResetPasswordForm.css';
-import SignInButton from './SignInButton';
-import ResetPassword from './ResetPasswordForm';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection      
-import UserProfile from './UserProfile';
+import { useNavigate, Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import './SignInForm.css';
 
-const SignInForm = ({ onClose }) => {
+const SignInPage = () => {
     const [formData, setFormData] = useState({
         email_address: '',
         Password: ''
     });
-    const navigate = useNavigate(); // Hook for navigation
     const [error, setError] = useState(null);
-    const [resetPasswordClicked, setResetPasswordClicked] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -24,8 +19,9 @@ const SignInForm = ({ onClose }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError(null);
+        setIsLoading(true);
 
-        // Endpoint URL from Power Automate
         const powerAutomateEndpoint = 'https://prod-25.southeastasia.logic.azure.com:443/workflows/4cf63c66c18d4326a3be6de024f950a3/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cANk_84AqvhzTZk8A2K7Lj6G8w-zNoixqp5qW94akpc';
 
         try {
@@ -34,95 +30,70 @@ const SignInForm = ({ onClose }) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    email_addres: formData.email_address,
-                    Password: formData.Password,
-                }),
+                body: JSON.stringify(formData),
             });
 
-            // Handle the response based on your requirements
             if (response.ok) {
-                const userId = await response.text(); // Assuming the response is just a plain text
-                console.log('Login successful!');
-                console.log('Response data:', userId); // Log the user ID
-                onClose(); // Close the form or redirect to another page
-                Cookies.set('isLoggedIn', 'true', { expires: 7 }); // NEW: Set cookie on successful login
+                const userId = await response.text();
+                Cookies.set('isLoggedIn', 'true', { expires: 7 });
                 navigate(`/userProfile/${userId}`);
             } else if (response.status === 401 || response.status === 403) {
-                console.error('Login failed: Unauthorized access');
                 setError('Incorrect email or password. Please try again.');
             } else if (response.status === 404) {
-                console.error('Login failed: User not found');
-                setError('Incorrect email or password. Please try again.');
+                setError('User not found. Please check your email address.');
             } else {
-                console.error('Login failed!');
                 setError('An error occurred. Please try again later.');
             }
         } catch (error) {
             console.error('Error during login:', error);
             setError('An error occurred. Please try again later.');
+        } finally {
+            setIsLoading(false);
         }
     };
 
-    const handleForgetPasswordClick = () => {
-        setResetPasswordClicked(true);
-    };
-
     return (
-        <div className="signin-form-container">
-            <div className="signin-form">
-                {resetPasswordClicked ? (
-                    <ResetPassword onClose={() => setResetPasswordClicked(false)} />
-                ) : (
-                    <>
-                        <h2>Welcome</h2>
-                        <button className="close-btn" onClick={onClose}>X</button>
-                        <p>Sign in to access your GreenTree account.</p>
-                        <form onSubmit={handleSubmit}>
-                            <div className="form-group">
-                                <label htmlFor="email">Email</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email_address"
-                                    placeholder="Email"
-                                    value={formData.email_address}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                            </div>
-
-                            <div className="form-group">
-                                <label htmlFor="password">Password</label>
-                                <input
-                                    type="password"
-                                    id="password"
-                                    name="Password"
-                                    placeholder="Password"
-                                    value={formData.Password}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                            </div>
-
-                            {error && <div className="error-message">{error}</div>}
-                            <div className="forgot-password">
-                                <a href="#" onClick={handleForgetPasswordClick}>Forgot your password?</a>
-                            </div>
-
-                            <button type="submit" className="submit-btn">Sign In</button>
-                            
-                        </form>
-                        <div className="create-account">
-                            <p>
-                                New to GreenTree? <a href="/create-account">Create an account</a>
-                            </p>
-                        </div>
-                    </>
-                )}
+        <div className="sign-in-page">
+            <div className="sign-in-container">
+                <h1>Welcome - Join Us</h1>
+                <p>Sign in to access your GreenTree account</p>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="email_address">Email</label>
+                        <input
+                            type="email"
+                            id="email_address"
+                            name="email_address"
+                            value={formData.email_address}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="Password">Password</label>
+                        <input
+                            type="password"
+                            id="Password"
+                            name="Password"
+                            value={formData.Password}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    {error && <div className="error-message">{error}</div>}
+                    <button type="submit" className="submit-btn" disabled={isLoading}>
+                        {isLoading ? 'Signing In...' : 'Sign In'}
+                    </button>
+                </form>
+                <div className="additional-options">
+                    <Link to="/forgot-password" className="forgot-password">Forgot your password?</Link>
+                    <p className="create-account">
+                        New to GreenTree? <Link to="/signup">Create an account</Link>
+                    </p>
+                </div>
             </div>
         </div>
     );
 };
 
-export default SignInForm;
+export default SignInPage;
