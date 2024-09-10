@@ -24,7 +24,7 @@
 
 .nav-link {
   text-decoration: none;
-  color: black; /* Black text */
+  color: black; /* White text */
   background-color: #c69963;
 }
 
@@ -37,67 +37,7 @@
   margin-left: 10px;
 }
 
-/* Dropdown Menu Styling */
-.auth-menu {
-  position: relative; /* Adjusted for dropdown */
-  margin-right: 10px; /* Aligns with other elements */
-}
-
-.menu-icon {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: inherit;
-  padding: 10px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.menu-icon:hover {
-  transform: scale(1.2);
-  color: #333; /* Darker hover color */
-}
-
-.menu-dropdown {
-  position: absolute;
-  top: 60px; /* Aligned with the bottom of the sidebar */
-  right: 0;
-  background-color: white;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  width: 200px; /* Fixed size */
-  padding: 10px 0;
-  z-index: 1000;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.menu-item {
-  padding: 10px 20px;
-  cursor: pointer;
-  color: #333;
-  font-size: 16px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.menu-item:hover {
-  background-color: #007bff;
-  color: white;
-}
-
-.menu-item:not(:last-child) {
-  border-bottom: 1px solid #ddd;
-}
-
-/* Show dropdown */
-.auth-menu.open .menu-dropdown {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Ensure content doesn't hide behind the sidebar */
+/* Add margin between sidebar and content */
 .content {
   margin-top: 80px; /* Adjust as needed */
 }
