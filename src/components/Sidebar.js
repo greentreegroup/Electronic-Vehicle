@@ -59,7 +59,7 @@ const Sidebar = () => {
                 </Link>
               </li>
               <li>
-                {/* Link to Sign Up page */}
+                {/* Link to Sign Up page  */}
                 <Link to="/signup" className="nav-link">
                   Sign Up
                 </Link>
