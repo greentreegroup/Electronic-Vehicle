@@ -1,5 +1,6 @@
 /* User Profile Container */
 :root {
+    --the-brown: #c69963;
     --primary-bg: white;
     --secondary-bg: white;
     --accent-bg: #4f46e5;
@@ -15,6 +16,7 @@
     --subtitle: 24px;
 }
 .user-profile-container {
+    grid-area: profile;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,14 +25,54 @@
     background: var(--secondary-bg); /* Background color using CSS variable */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
     width: 100%; /* Full width */
-    font-family: Arial, Helvetica, sans-serif; /* Custom font */
+    font-family: "Nunito", sans-serif; /* Custom font */
     color: var(--primary-color); /* Text color using CSS variable */
+    left: 100px;
+    
+}
+
+.name-display {
+    padding: 5px;
+
+}
+.profile-tiles {
+    background-color: var(--the-brown);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+    font-size: 14pt;
+
+}
+
+.navig {
+    text-decoration: underline;
+
+}
+
+.navig:hover {
+    color: var(--accent-bg);
+
+}
+.empty {
+    grid-area: non;
+}
+
+.adj div{
+    display: grid;
+    grid-template-columns: 22% 14% 14% 50%;
+    position: relative;
+    top: 50px;
+    left: 100px;
 }
 
 /* Headings */
 .user-profile-container h2 {
+    position: relative;
     color: var(--primary-color); /* Text color using CSS variable */
-    margin-bottom: 20px;
+    margin-left: 100px;
+    left: 100px;
 }
 
 /* User Details Paragraphs */
@@ -38,6 +80,8 @@
     color: var(--secondary-color); /* Text color using CSS variable */
     margin: 5px 0; /* Add space between paragraphs */
 }
+
+
 
 /* Buttons Container */
 /* Buttons Container */

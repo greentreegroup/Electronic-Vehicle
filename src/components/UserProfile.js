@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ChangeInfoForm from './ChangeInfoForm';
+import './UserProfile.css'; // Import CSS file for styling
 
 const UserProfile = () => {
   const [userData, setUserData] = useState(null);
@@ -51,16 +52,40 @@ const UserProfile = () => {
   }
 
   return (
-    <div>
-      <h2>User Profile</h2>
+    
+    <div className="adj">
+
+
+      {userData && (
+        <div> 
+          <h2></h2><h2></h2><h2></h2><h2></h2>
+          <h2>Hello,</h2>
+          <h2> {userData.first_name}!</h2>
+          <h1></h1>
+          <h2></h2><h2></h2><h2></h2>
+          <h2></h2><h2></h2><h2></h2>
+
+
+        </div>
+      )}
+   
       {userData && (
         <div>
-          <p>Email: {userData.email_address}</p>
-          <p>First Name: {userData.first_name || 'N/A'}</p>
-          <p>Last Name: {userData.last_name || 'N/A'}</p>
-          <p>Phone Number: {userData.phone_number || 'N/A'}</p>
-          <p>Password: {userData.password || 'N/A'}</p>
+          <h2 className="navig" >Account</h2>
 
+          <h2></h2><h2></h2>
+          <p className="profile-tiles">Email: {userData.email_address}</p>
+          <h2 className="navig">Payment</h2>
+          <h2></h2><h2></h2>
+          <p className="profile-tiles">First Name: {userData.first_name || 'N/A'}</p>
+          <h2 className="navig">Order History</h2>
+          <h2></h2><h2></h2>
+          <p className="profile-tiles">Last Name: {userData.last_name || 'N/A'}</p>
+          <h2></h2><h2></h2><h2></h2>
+          <p className="profile-tiles">Phone Number: {userData.phone_number || 'N/A'}</p>
+          <h2></h2><h2></h2><h2></h2>
+          <p className="profile-tiles">Password: {userData.password || 'N/A'}</p>
+          <h2></h2><h2></h2><h2></h2>
           {/* Button to open Change Info form */}
           <button onClick={handleOpenChangeInfo}>Change Info</button>
 
@@ -68,6 +93,8 @@ const UserProfile = () => {
           {isChangeInfoOpen && <ChangeInfoForm user_id={userId} onClose={handleCloseChangeInfo} />}
         </div>
       )}
+
+
     </div>
   );
 };
