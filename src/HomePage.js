@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Testimonials from './components/Testimonials'; // Import Testimonials component
 import './HomePage.css';
 import FeaturedParts from './components/FeaturedParts';
+import FeatureCars from './components/FeaturedCars';
 
 
 function HomePage() {
@@ -29,6 +30,7 @@ function HomePage() {
         <Overview/>
 
         <FeaturedParts/>
+        <FeatureCars/>
 
         {/* Featured Listings Section */}
         <div className="featured-listings-container">

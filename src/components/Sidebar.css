@@ -206,3 +206,28 @@
     flex-direction: row; /* Make the nav items align horizontally */
   }
 }
+
+/* Center the search bar */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+}
+
+.search-bar {
+  width: 60%; /* Adjust width as needed */
+  margin-top: 5px;
+  padding-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Ensure the search bar centers on mobile */
+@media (max-width: 768px) {
+  .search-bar {
+    width: 50%; /* Adjust width for smaller screens */
+    margin-top: 10px;
+  }
+}

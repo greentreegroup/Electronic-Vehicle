@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    
+   
+    text-align: center;
+}
+
+h4 {
+    color: white;
+}
+
+
+
+header {
+    padding: 20px;
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: burlywood;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+#featured-cars-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+
+
+.featured-car {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    transform: translateX(100%);
+    transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.featured-car.active {
+    left: 0;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+.featured-car img {
+    width: 30%;
+    height: auto;
+    float: left;
+    margin-right: 10rem;
+}
+
+.featured-car-caption {
+    overflow: hidden;
+}
+
+.featured-car-caption h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.featured-car-caption p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.featured-car-caption a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.featured-car-hidden-left {
+    transform: translateX(-100%);
+}
+
+.featured-car-hidden-right {
+    transform: translateX(100%);
+}
+
+@media (max-width:480px){
+
+    .featured-car img {
+        width: 30%;
+        height: auto;
+        float: left;
+        margin-right: 4rem;
+    }
+
+
+}

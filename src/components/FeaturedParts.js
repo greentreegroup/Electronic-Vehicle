@@ -4,16 +4,16 @@ import './FeaturedParts.css';
 function FeaturedParts() {
   const parts = [
     { src: `${process.env.PUBLIC_URL}/img/battery.jpeg`, alt: 'Batteries', title: 'Batteries' },
-    { src: `${process.env.PUBLIC_URL}/img/suspension.jpeg`, alt: 'Suspension', title: 'Suspension' },
+    { src: `${process.env.PUBLIC_URL}/img/spark-plug.jpeg`, alt: 'Spark Plugs', title: 'Spark Plugs' },
     { src: `${process.env.PUBLIC_URL}/img/brakes.jpeg`, alt: 'Brake Pads', title: 'Brake Pads' },
-    { src: `${process.env.PUBLIC_URL}/img/performance.jpeg`, alt: 'Performance', title: 'Performance' },
-    { src: `${process.env.PUBLIC_URL}/img/brake_rotor.jpeg`, alt: 'Brake Rotors', title: 'Brake Rotors' },
-    { src: `${process.env.PUBLIC_URL}/img/engine_oil.jpeg`, alt: 'Engine Oil', title: 'Engine Oil' },
-    { src: `${process.env.PUBLIC_URL}/img/wax.jpeg`, alt: 'Wash & Wax', title: 'Wash & Wax' },
-    { src: `${process.env.PUBLIC_URL}/img/ac-chem.jpeg`, alt: 'AC Chemicals', title: 'AC Chemicals' },
-    { src: `${process.env.PUBLIC_URL}/img/truck_towing.webp`, alt: 'Truck & Towing', title: 'Truck & Towing' },
-    { src: `${process.env.PUBLIC_URL}/img/radiator.jpeg`, alt: 'Radiators', title: 'Radiators' },
-    { src: `${process.env.PUBLIC_URL}/img/coil.jpeg`, alt: 'Ignition Coils', title: 'Ignition Coils' },
+    { src: `${process.env.PUBLIC_URL}/img/tires.jpeg`, alt: 'Tires', title: 'Tires' },
+    { src: `${process.env.PUBLIC_URL}/img/floor-mats.jpeg`, alt: 'Floor Mats', title: 'Floor Mats' },
+    { src: `${process.env.PUBLIC_URL}/img/dashboard-mount.jpeg`, alt: 'Car Holder', title: 'Dashboard Mounts' },
+    { src: `${process.env.PUBLIC_URL}/img/fluids.jpeg`, alt: 'Car Fluids', title: 'Fluids' },
+    { src: `${process.env.PUBLIC_URL}/img/car-mirror.jpeg`, alt: 'Car Mirrors', title: 'Car Mirrors' },
+    { src: `${process.env.PUBLIC_URL}/img/lights.jpeg`, alt: 'Lights', title: 'Car Lights' },
+    // { src: `${process.env.PUBLIC_URL}/img/radiator.jpeg`, alt: 'Radiators', title: 'Radiators' },
+    // { src: `${process.env.PUBLIC_URL}/img/coil.jpeg`, alt: 'Ignition Coils', title: 'Ignition Coils' },
     { src: `${process.env.PUBLIC_URL}/img/clearance.jpeg`, alt: 'Clearance', title: 'Clearance' },
   ];
 

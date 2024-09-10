@@ -9,6 +9,7 @@ const Sidebar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false); // For hamburger menu
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(''); // For search bar
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -35,14 +36,16 @@ const Sidebar = () => {
     setShowSignUp(false);
   };
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
   return (
     <div className="sidebar">
-      {/* Hamburger icon visible on mobile */}
       <button className="hamburger" onClick={toggleMobileMenu}>
         ☰
       </button>
 
-      {/* Sidebar navigation, toggle visibility on mobile */}
       <ul className={`sidebar-nav ${showMobileMenu ? 'mobile-show' : 'mobile-hide'}`}>
         <li className="nav-item">
           <Link to="/" className="nav-link">
@@ -65,6 +68,17 @@ const Sidebar = () => {
           </Link>
         </li>
       </ul>
+
+      {/* Search Bar */}
+      <div className="search-container">
+      <input
+          type="text"
+          placeholder="🔍 Search for a product..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+          className="search-bar"
+        />
+      </div>
 
       <div className="auth-links">
         <div className="account-dropdown">
@@ -97,6 +111,7 @@ const Sidebar = () => {
           )}
         </div>
       </div>
+
       {showSignIn && <SignInForm onClose={closeForms} />}
       {showSignUp && <SignUpForm onClose={closeForms} />}
     </div>
