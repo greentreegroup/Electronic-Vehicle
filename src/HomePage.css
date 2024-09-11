@@ -1,11 +1,15 @@
 /* HomePage.css */
 
+
+
 /* General box-sizing for all elements */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 body{
   text-align: center;
+ 
+
 }
 /* Header styles */
 .header {

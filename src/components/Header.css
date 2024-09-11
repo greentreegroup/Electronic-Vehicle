@@ -4,10 +4,10 @@
   margin-top: 0px;
 }
 .header {
-    background-color: #54483A;
+    background-color: #17292E;
     width: 100%;
     grid-column: full-start / full-end;
-    background-image: linear-gradient(rgba(19, 43, 46, 0.93), rgba(16, 29, 44, 0.93)); 
+  
     background-size: cover;
     background-position: center;
     padding: 8rem;
@@ -22,7 +22,7 @@
   }
   
   .header__logo {
-    height: 3rem;
+    height: 5rem;
     justify-self: center;
   }
   
@@ -37,7 +37,7 @@
     grid-column-gap: 1.5rem;
     align-items: center;
     font-size: 1.6rem;
-    color: #aaa;
+    color: #f57b18;
   }
   
   .header__seenon-text::before,

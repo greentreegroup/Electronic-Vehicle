@@ -1,6 +1,6 @@
 /* Sidebar.css */
 .sidebar {
-  background-color: #c69963; /* Maintain the base color */
+  background-color: #ecf0f1; /* Maintain the base color */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,7 +14,7 @@
 }
 
 .sidebar:hover {
-  background-color: #b28451; /* Slightly darken on hover for interactivity */
+  background-color: #ced2d3 /* Slightly darken on hover for interactivity */
 }
 
 .sidebar-nav {
@@ -38,6 +38,8 @@
   text-decoration: none;
   color: black; /* White text for contrast */
   font-weight: bold; /* Make the text stand out */
+  white-space: nowrap;
+ 
   padding: 5px 10px;
   border-radius: 5px;
   background-color: transparent; /* Transparent to show hover effect */
@@ -46,7 +48,7 @@
 
 .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Add a light background on hover */
-  color: white; /* Ensure text color remains white */
+  color: black; /* Ensure text color remains white */
 }
 
 .auth-links {
@@ -61,7 +63,7 @@
 
 .auth-links .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Light hover effect for auth links */
-  color: white;
+
 }
 
 /* Add margin between sidebar and content */
@@ -96,7 +98,7 @@
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #c69963;
+  background-color: #ced2d3;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   list-style: none;
@@ -143,7 +145,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: white;
+  color: black;
   position: fixed;
   top: 10px;
   left: 10px;

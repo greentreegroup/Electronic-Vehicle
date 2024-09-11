@@ -11,10 +11,11 @@ import UserProfile from './components/UserProfile';
 import HomePage from './HomePage';
 import HelpCenter2 from './HelpCenter2';
 
-import './App.css';
+
 import Chatbot from './Chatbot';
 import FeaturedParts from './components/FeaturedParts';
 import FeatureCars from './components/FeaturedCars';
+import './App.css';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

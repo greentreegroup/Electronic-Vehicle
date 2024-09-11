@@ -1,5 +1,5 @@
 /*FeaturedListings.css*/
-
+/* 
 .featured-listings {
   grid-column: center-start / center-end;
   margin: 4rem 3.6rem;
@@ -10,4 +10,26 @@
 
 .featured-listing__top {
   margin-top: 3.4rem;
+} */
+
+/* new code to center the listings */
+
+.featured-listings {
+  margin: 4rem auto; /* Keep the component centered */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); /* Ensure cards have a min width but don't stretch too much */
+  grid-gap: 3rem;
+  max-width: 100%; /* Prevent it from going too wide */
+  width: 90%; /* Ensure it takes full width of its container */
+  justify-content: center;
+}
+
+.featured-listing__top {
+  margin-top: 3.4rem;
+}
+
+.listing-btn{
+
+  background-color: #f57b18;
+  color: black;
 }

@@ -1,5 +1,19 @@
 /* App.css */
 
+
+:root{
+ 
+
+/* Define font-family, font-weight, bg-color, etc variables in :root */
+
+  --paragraph-font-family: 'Verdana', sans-serif;
+  --header-font-family: 'Trebuchet MS', sans-serif;
+  --background-color: #f2f2f5;
+  --font-weight-bold: bold;
+
+}
+
+
 /* Existing styles */
 .App {
   display: grid;
@@ -23,4 +37,23 @@
 
 body {
   position: absolute;
+  background-color: var(--background-color);
+}
+
+/* Apply the paragraph font to all <p> elements */
+.App p {
+  font-family: var(--paragraph-font-family);
+
+}
+
+/* Apply the header font to all header elements (h1, h2, h3, etc.) */
+.App h1, h2, h3, h4, h5, h6 {
+  font-family: var(--header-font-family);
+  font-weight: var(--font-weight-bold);
+
+ 
+}
+
+.App body{
+  background-color: var(--background-color);
 }

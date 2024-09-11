@@ -2,10 +2,7 @@
     box-sizing: border-box;
   }
 h4{
-    font-family: "Josefin Sas", sans-serif;
-    color: #54483A;
     font-size: 1.2rem;
-    font-weight: 400;
     display: block;
     margin-block-start: 1.33em;
     margin-block-end: 1.33em;
@@ -14,8 +11,7 @@ h4{
 }
 
 p{
-    font-family: "Nunito", sans-serif;
-    color: #6D5D4B;
+    font-family: "Verdana",Tahoma, sans-serif;
     font-size: 1rem;
     font-weight: 300;
     line-height: 1.6;
@@ -83,7 +79,7 @@ feature {
     height: 3.8rem;
     transform: translateY(10%);
     transform-origin: center center;
-    fill: #c69963;
+    fill:  #f57b18;
   }
 
   .features{
