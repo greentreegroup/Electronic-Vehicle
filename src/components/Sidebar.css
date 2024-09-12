@@ -69,6 +69,7 @@
 /* Add margin between sidebar and content */
 .content {
   margin-top: 80px; /* Adjust as needed */
+
 }
 
 /* Sidebar.css */
@@ -160,7 +161,7 @@
   .sidebar-nav {
     display: none; /* Hide the sidebar by default on small screens */
     flex-direction: column;
-    background-color: #c69963; /* Ensure the menu has the same background color */
+    background-color: #ecf0f1; /* Ensure the menu has the same background color */
     position: absolute;
     top: 60px;
     left: 0;
@@ -231,5 +232,6 @@
   .search-bar {
     width: 50%; /* Adjust width for smaller screens */
     margin-top: 10px;
+    margin-right: 3rem;
   }
 }

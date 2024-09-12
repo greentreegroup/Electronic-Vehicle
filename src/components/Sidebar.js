@@ -66,6 +66,14 @@ const Sidebar = () => {
           <Link to="/HelpCenter2" className="nav-link">
             Help Center
           </Link>
+
+        </li>
+       
+        <li className="nav-item">
+          <Link to="/Research" className="nav-link">
+            Research & Insights
+          </Link>
+          
         </li>
       </ul>
 

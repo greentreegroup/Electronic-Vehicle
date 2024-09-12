@@ -125,6 +125,10 @@ nav ul li a.active::after {
         float: left;
         margin-right: 4rem;
     }
-
+    #featured-cars-content {
+      
+       
+        height: 380px;
+    }
 
 }

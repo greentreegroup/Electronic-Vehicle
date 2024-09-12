@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar';
 
 import TrackRecord from './TrackRecord';
 import InvestmentListings from './components/InvestmentListings';
+import SignInForm from './components/SignInForm';
 import InvestmentDetails from './components/InvestmentDetails';
 import UserProfile from './components/UserProfile';
 import HomePage from './HomePage';
@@ -43,6 +44,7 @@ function App() {
             <Route path="/Parts" element={<FeaturedParts />} /> {/* Route for listing details page */}
             <Route path="/Cars" element={<FeatureCars />} /> {/* Route for listing details page */}
             {/* Other routes */}
+            <Route path="/signin" element={<SignInForm />} />
           </Routes>
         </main>
         <Chatbot />
