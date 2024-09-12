@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import './SignUpForm.css';
+import './ChangeInfoForm.css';
 
 const ChangeInfoForm = ({ onClose, user_id }) => {
   const [formData, setFormData] = useState({

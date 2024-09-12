@@ -99,7 +99,7 @@ const UserProfile = () => {
                   <p>{userData?.email_address}</p>
                 </div>
               </div>
-              <button onClick={handleOpenChangeInfo}>Change Info</button>
+              <button onClick={handleOpenChangeInfo}>Update Info</button>
               {isChangeInfoOpen && <ChangeInfoForm user_id={userId} onClose={handleCloseChangeInfo} />}
             </div>
           )}
