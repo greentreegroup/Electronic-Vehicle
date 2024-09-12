@@ -68,13 +68,13 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
   return (
     <div className="signup-form-container">
       <div className="signup-form">
-        <h2>Change your data</h2>
+        <h2>Update Information</h2>
         <button className="close-btn" onClick={onClose}>
-          X
+          ✖
         </button>
         <form onSubmit={handleSubmit}>
           <label>
-            First Name:
+            <span>First Name:</span>
             <input
               type="text"
               name="First_Name"
@@ -82,9 +82,8 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
               onChange={handleChange}
             />
           </label>
-
           <label>
-            Last Name:
+            <span>Last Name:</span>
             <input
               type="text"
               name="Last_Name"
@@ -92,9 +91,8 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
               onChange={handleChange}
             />
           </label>
-
           <label>
-            Email Address:
+            <span>Email Address:</span>
             <input
               type="email"
               name="email_addres"
@@ -102,9 +100,8 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
               onChange={handleChange}
             />
           </label>
-
           <label>
-            Phone Number:
+            <span>Phone Number:</span>
             <input
               type="tel"
               name="phone_number"
@@ -112,11 +109,9 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
               onChange={handleChange}
             />
           </label>
-
           {error && <div className="error-message">{error}</div>}
-
           <button type="submit" className="submit-btn">
-            Update Data
+            Update
           </button>
         </form>
       </div>
