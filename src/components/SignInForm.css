@@ -73,10 +73,20 @@ button {
     width: 100%; /* ensures input occupies the remaining space */
 }
 
+.forgot-password a,
+.create-account a {
+    color: #1565c0; /* Use #1565c0 for blue */
+    text-decoration: none;
+}
+
+.forgot-password a:hover,
+.create-account a:hover {
+    text-decoration: underline;
+}
 
 
 .submit-btn {
-    background-color: #4CAF50; /* Green background */
+    background-color: #f57b18; /* light orange background */
     color: white; /* White text color */
     padding: 14px 20px;
     margin: 8px 0;
@@ -88,5 +98,5 @@ button {
 }
 
 .submit-btn:hover {
-    background-color: #45a049; /* Slightly darker green for hover effect */
+    background-color:#a9774b; /* Slightly darker orange for hover effect */
 }

@@ -146,35 +146,7 @@ const SignUpForm = ({ onClose }) => {
                             required
                         />
                     </div>
-
-                    <div className="form-group">
-                        <label htmlFor="phone_number">Phone Number:</label>
-                        <input
-                            type="text"
-                            id="phone_number"
-                            name="phone_number"
-                            placeholder="Phone Number"
-                            value={formData.phone_number}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="Is_developer">Are you a developer?</label>
-                        <input
-                            type="checkbox"
-                            id="Is_developer"
-                            name="Is_developer"
-                            checked={formData.Is_developer}
-                            onChange={() =>
-                                setFormData((prevData) => ({
-                                    ...prevData,
-                                    Is_developer: !prevData.Is_developer,
-                                }))
-                            }
-                        />
-                    </div>
-
+                      
                     {error && <div className="error-message">{error}</div>}
 
                     <button type="submit" className="submit-btn">

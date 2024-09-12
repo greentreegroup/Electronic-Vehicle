@@ -60,7 +60,7 @@ const ResetPasswordForm = ({ onClose }) => {
     <div className="signup-form-container">
       <div className="signup-form">
         <h2>Reset Password</h2>
-        <button className="close-btn" onClick={onClose}></button>
+        <button className="close-btn" onClick={onClose}>X</button>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email_addres">Email:</label>

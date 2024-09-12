@@ -1,129 +1,233 @@
 /* User Profile Container */
-:root {
-    --primary-bg: white;
-    --secondary-bg: white;
-    --accent-bg: #4f46e5;
 
-    --primary-color: black;
-    --secondary-color: black(255,255,255, 70%);
-    --accent-color: #818cf8;
-
-    --border-color: rgba(255,255,255, 30%);
-    
-    --username-size: 32px;
-    --title-size: 28px;
-    --subtitle: 24px;
+/* Global styles */
+.user-profile * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.user-profile-container {
+
+.user-profile {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding: 20px;
-    background: var(--secondary-bg); /* Background color using CSS variable */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
-    width: 100%; /* Full width */
-    font-family: Arial, Helvetica, sans-serif; /* Custom font */
-    color: var(--primary-color); /* Text color using CSS variable */
+    padding: 50px 0;
 }
 
-/* Headings */
-.user-profile-container h2 {
-    color: var(--primary-color); /* Text color using CSS variable */
+.user-profile main {
+    display: flex;
+    max-width: 1200px;
+    margin-top: 30px;
+    padding-left: 180px;
+    width: 100%;
+}
+
+.user-profile aside {
+    width: 300px;
+    padding-right: 40px;
+    position: relative;
+    margin-left: -20px;
+    background-color: #17292e;
+    border-radius: 12px;
+    color: white;
+    padding: 20px;
+}
+
+.user-profile aside h3 {
+    font-size: 22px;
     margin-bottom: 20px;
 }
 
-/* User Details Paragraphs */
-.user-profile-container p {
-    color: var(--secondary-color); /* Text color using CSS variable */
-    margin: 5px 0; /* Add space between paragraphs */
+.user-profile aside p {
+    font-size: 16px;
+    margin-bottom: 30px;
 }
 
-/* Buttons Container */
-/* Buttons Container */
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
-    gap: 10px; /* Adds space between buttons */
+.user-profile aside ul {
+    list-style: none;
+    padding-left: 0;
 }
 
-/* Base Button Styles */
-/* Apply common styles to all buttons to ensure consistency */
-.change-info-button,
-.confirm-email-button,
-.delete-account-button,
-.manage-account-button {
-    display: flex; /* Use flexbox to center content */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    padding: 10px 20px; /* Uniform padding */
-    font-size: 16px; /* Standard font size */
-    width: 150px; /* Fixed width to ensure all buttons are the same size */
-    height: 40px; /* Fixed height to ensure vertical alignment */
-    border: none;
+.user-profile aside ul li {
+    padding: 12px 0;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin-bottom: 10px; /* Space below each button */
-    color: white; /* Text color for all buttons */
-    text-align: center; /* Ensure text is centered if it wraps */
+    font-size: 18px;
+    display: flex;
+    align-items: center;
 }
 
-/* Individual Button Styles */
-.change-info-button,
-.confirm-email-button {
-    background-color: #c69963; /* Common background color */
+.user-profile aside ul li.active {
+    color: #f57b18;
+    font-weight: bold;
 }
 
-.change-info-button:hover,
-.confirm-email-button:hover {
-    background-color: #B28451; /* Slightly darker background on hover */
+.user-profile aside ul li:hover {
+    color: #f57b18;
 }
 
-.delete-account-button {
-    background-color: #ff5c5c; /* Red background for delete action */
+.user-profile .profile-content {
+    flex-grow: 1;
+    padding-left: 30px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.delete-account-button:hover {
-    background-color: rgba(190, 52, 52, 0.9); /* Slightly darker red on hover */
+.user-profile h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
 }
 
-.manage-account-button {
-    background-color: #c69963; /* Background color consistent with other action buttons */
+.user-profile .sign-out {
+    background-color: #f57b18;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: right;
+    margin-top: -40px;
+    border-radius: 5px;
 }
 
-.manage-account-button:hover {
-    background-color: #B28451; /* Slightly darker on hover */
-}
-/* Loading and Error messages */
-.loading,
-.error {
-    color: #d9534f; /* Red color for errors */
-    margin: 20px;
+.user-profile .sign-out:hover {
+    background-color: #e66916;
 }
 
-/* For responsive design, adjust the layout on smaller screens */
-@media (max-width: 768px) {
-    .user-profile-container {
+.user-profile h2 {
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+.user-profile p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.user-profile .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.user-profile .info-item {
+    background-color: #fafafa;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.user-profile .info-item h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #888;
+}
+
+.user-profile .info-item p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.user-profile button {
+    margin-top: 40px;
+    padding: 12px 20px;
+    background-color: #f57b18;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-profile button:hover {
+    background-color: #e66916;
+}
+
+/* Media Queries for Mobile Devices */
+@media screen and (max-width: 768px) {
+    /* Stack sidebar and main content vertically on mobile */
+    .user-profile {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    /* Adjust main container layout for mobile */
+    .user-profile main {
+        flex-direction: column;
+        padding-left: 0;
+        margin-top: 0;
+    }
+
+    /* Sidebar adjustments for mobile */
+    .user-profile aside {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .user-profile aside ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+
+    .user-profile aside ul li {
+        flex: 1;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .user-profile aside h3 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .user-profile aside p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    /* Profile content adjustments */
+    .user-profile .profile-content {
+        padding: 20px;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: #f4f7f6; /* Use the same background as the page for seamless look */
+    }
+
+    .user-profile h1 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .user-profile .sign-out {
+        margin-top: 10px;
+        float: none;
+        width: 100%;
+        padding: 12px;
+    }
+
+    .user-profile .info-grid {
+        grid-template-columns: 1fr; /* Single column layout on mobile */
+    }
+
+    /* Adjust font sizes */
+    .user-profile h2 {
+        font-size: 20px;
+    }
+
+    .user-profile p, .user-profile .info-item h4 {
+        font-size: 14px;
+    }
+
+    /* Button adjustments */
+    .user-profile button {
+        width: 100%;
+        margin-top: 20px;
         padding: 10px;
     }
-}
-.manage-account-options {
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 10px; /* Add some space between buttons */
-    
-}
-.manage-account-button {
-    background-color: #c69963; /* Set the background color */
-    color: white; /* Ensure the text color contrasts well */
-    padding: 10px 20px; /* Maintain consistent padding with other buttons */
-    cursor: pointer; /* Indicate that the element is clickable */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    margin-bottom: 10px; /* Space below the button */
-    border: none; /* Remove any border */
-}
-
-.manage-account-button:hover {
-    background-color: #B28451; /* Slightly darker shade on hover for feedback */
 }

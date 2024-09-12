@@ -65,6 +65,7 @@ button {
 
 .form-group label {
     text-align: right; /* aligns the text to the right */
+    white-space: nowrap;
 }
 
 .form-group input {
