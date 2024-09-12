@@ -5,8 +5,8 @@ import Cookies from 'js-cookie';
 import Sidebar from './components/Sidebar';
 
 import TrackRecord from './TrackRecord';
-import InvestmentListings from './components/InvestmentListings';
-import InvestmentDetails from './components/InvestmentDetails';
+import EVPartsAccessories from './components/EVPartsAccessories';
+import PartDetail from './components/PartDetail'; 
 import UserProfile from './components/UserProfile';
 import HomePage from './HomePage';
 import HelpCenter2 from './HelpCenter2';
@@ -23,7 +23,7 @@ function App() {
       setIsLoggedIn(true);
     }
     console.log(`isLoggedIn: ${isLoggedIn}`);
-  }, []);
+  }, [isLoggedIn]); // Add isLoggedIn as a dependency
 
   return (
     <Router>
@@ -34,10 +34,9 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/HelpCenter2" element={<HelpCenter2 />} />
             <Route path="/track-record" element={<TrackRecord />} />
-            <Route path="/listings" element={<InvestmentListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'} />} />
-            <Route path="/listings/:listingId" element={<InvestmentDetails />} /> {/* Route for listing details page */}
-            <Route path="/userProfile/:userId" element={<UserProfile />} /> {/* Route for listing details page */}
-            {/* Other routes */}
+            <Route path="/PartsAccessories" element={<EVPartsAccessories />} /> 
+            <Route path="/PartsAccessories/:listingId" element={<PartDetail />} /> 
+            <Route path="/userProfile/:userId" element={<UserProfile />} /> 
           </Routes>
         </main>
         <Chatbot />
