@@ -23,7 +23,10 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1001;
+     
 }
+
+
 
 .close-btn {
     position: absolute;
@@ -33,6 +36,8 @@
     background: none;
     font-size: 1.5rem;
     cursor: pointer;
+    margin-top: 20px;
+    padding: 10px;
 }
 
 form {
