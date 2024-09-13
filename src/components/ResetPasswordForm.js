@@ -20,7 +20,7 @@ const ResetPasswordForm = ({ onClose }) => {
     e.preventDefault();
 
     const url =
-      'https://prod-52.southeastasia.logic.azure.com:443/workflows/6f28b53042394fe395b4884f8ea2f7dc/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=r-mg-hvPyuMbiMYSKp-QG0SwbOywAqha2GWZnYjYQs8';
+      'https://prod-28.southeastasia.logic.azure.com:443/workflows/d4da430a258048a19053102b55e42267/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1rJ3DMxfbKfRHGOH1lfDnZWUatLpunagIXnF6Agx1gw';
 
     const headers = {
       'Content-Type': 'application/json',
