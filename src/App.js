@@ -16,7 +16,9 @@ import HelpCenter2 from './HelpCenter2';
 import Chatbot from './Chatbot';
 import FeaturedParts from './components/FeaturedParts';
 import FeatureCars from './components/FeaturedCars';
+import ResearchPage from './components/ResearchPage';
 import './App.css';
+import ContactForm from './components/ContactForm';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -43,6 +45,8 @@ function App() {
             <Route path="/userProfile/:userId" element={<UserProfile />} /> {/* Route for listing details page */}
             <Route path="/Parts" element={<FeaturedParts />} /> {/* Route for listing details page */}
             <Route path="/Cars" element={<FeatureCars />} /> {/* Route for listing details page */}
+            <Route path="/Research" element={<ResearchPage />} /> {/* Route for listing details page */}
+            <Route path="/Contact" element={<ContactForm />} /> {/* Route for listing details page */}
             {/* Other routes */}
             <Route path="/signin" element={<SignInForm />} />
           </Routes>

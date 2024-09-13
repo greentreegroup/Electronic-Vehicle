@@ -75,6 +75,12 @@ const Sidebar = () => {
           </Link>
           
         </li>
+        <li className="nav-item">
+          <Link to="/Contact" className="nav-link">
+            Contact Us
+          </Link>
+          
+        </li>
       </ul>
 
       {/* Search Bar */}
