@@ -2,15 +2,22 @@ body{
     width: 100%;
 }
 .top-section {
-    min-height: 80vh; 
+    min-height: 30vh; 
     background-position: center;
-    color: #c69963;
+    color: #f57b18;
     display: flex; 
     justify-content: center;
     align-items: center; 
     text-align: center; 
 }
 
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: #17292e;
+}
 .top-section h1, .next-section h1 {
     margin: 0;
 }
@@ -22,9 +29,9 @@ body{
 
 
 .next-section {
-    min-height: calc(100vh - 20px);
+    min-height: calc(50vh - 20px);
     background-position: center;
-    color: #c69963;
+    color: #f57b18;
     display: flex; 
     justify-content: center; 
     align-items: center; 
@@ -47,8 +54,12 @@ body{
     text-align: center; 
 }
 
-.flex-item h1, .flex-item p {
-    color: #c69963; 
+.flex-item h1{
+    color: #f57b18; 
+    margin: 0;
+}
+.flex-item p{
+    color: black; 
     margin: 0;
 }
 

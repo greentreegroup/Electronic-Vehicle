@@ -6,7 +6,10 @@ import Footer from './components/Footer';
 function AboutUsServiceInfo() {
   return (
     <div>
-      <div className="top-section d-flex justify-content-center align-items-center">
+      <div class="logo">
+          <img src="/img/ev_rabbit1.jpg"></img>
+      </div>
+      <div className="top-section">
         <div className="text-center">
           <h1>Welcome to EVrabbit</h1>
           <h2>Discover more about our amazing team and mission.</h2>
