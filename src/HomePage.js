@@ -31,7 +31,6 @@ function HomePage() {
 
         <FeaturedParts/>
         <FeatureCars/>
-
         {/* Featured Listings Section */}
         <div className="featured-listings-container">
           <br />
@@ -43,15 +42,14 @@ function HomePage() {
             <br/><br/>
             Explore our curated selection of featured electric vehicles and find the next breakthrough in sustainable transportation.
           </p>
-          <FeaturedListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'}/>
+          {/*<FeaturedListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'}/> */}
         </div>
 
         {/* Testimonials Section */}
-        <div className="testimonials-container">
-          <h1 className='head-line'>Testimonials</h1>
-          <Testimonials />
-        </div>
-        
+        {/*<div className="testimonials-container">*/}
+          {/*<h1 className='head-line'>Testimonials</h1>*/}
+          {/*<Testimonials />*/}
+        {/*</div>*/}
         <Footer />
       </main>
       {}
