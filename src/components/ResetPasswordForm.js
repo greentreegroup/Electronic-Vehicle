@@ -77,7 +77,7 @@ const ResetPasswordForm = ({ onClose }) => {
 
           {error && <div className="error-message">{error}</div>}
 
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-bton">
             Send Mail
           </button>
         </form>
