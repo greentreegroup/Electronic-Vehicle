@@ -34,18 +34,19 @@ const SignUpForm = ({ onClose }) => {
             return;
         }
 
-        const hashedPassword = await bcrypt.hash(formData.password, saltRounds);
+        /*need a better password system */
+        /*const hashedPassword = await bcrypt.hash(formData.password, saltRounds);*/
 
         const url =
-            'https://prod-59.southeastasia.logic.azure.com:443/workflows/0091e6cd1300433eaedd67486ec575fb/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=hfjJjtqRIk7oL1JbPl8MP50fDfo6gC6yv-d4marzYxg';
+            'https://prod-63.southeastasia.logic.azure.com:443/workflows/298505686ab047b881892eb5678736d1/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=uDGzv3sDKOnM1EuAMt6FsOY2FhgmNUQYY6M4FeiAwgY';
 
         const headers = {
             'Content-Type': 'application/json',
         };
 
         const body = JSON.stringify({
-            ...formData,
-            password: hashedPassword,
+            ...formData
+            /*password: hashedPassword,*/
         });
 
         try {

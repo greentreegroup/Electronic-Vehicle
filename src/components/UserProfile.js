@@ -66,7 +66,7 @@ const UserProfile = () => {
           </ul>
         </aside>
         <section className="profile-content">
-          <h1>GreenTree EV Account</h1>
+          <h1>EVrabbit Account</h1>
           <button className="sign-out">Sign out</button>
           
           {activeSection === 'personal' && (
