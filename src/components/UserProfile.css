@@ -163,12 +163,13 @@
     /* Sidebar adjustments for mobile */
     .user-profile aside {
         width: 100%;
-        padding-right: 0;
+        margin-left: 0px;
         margin-bottom: 20px;
     }
 
     .user-profile aside ul {
         display: flex;
+        align-content: center;
         justify-content: space-between;
         padding: 0 10px;
     }
@@ -177,6 +178,7 @@
         flex: 1;
         text-align: center;
         font-size: 14px;
+        justify-content: space-around;
     }
 
     .user-profile aside h3 {
