@@ -14,7 +14,6 @@
   .signup-form {
     background-color: #fff;
     padding: 2rem;
-    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 500px;
@@ -29,13 +28,15 @@
   
   .close-btn {
     position: absolute;
+    width: 50px;
     top: -20px;
     right: 10px;
-    background-color: transparent;
+    background-color: #fff !important;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #666;
+    color: #666 !important;
+    max-width: 10%;
   }
   
   .signup-form form {
@@ -47,6 +48,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+    text-align: end;
     color: #333;
   }
   
@@ -61,6 +63,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
+    margin-right: 1rem;
   }
   
   .error-message {
@@ -68,7 +71,7 @@
     margin-bottom: 1rem;
   }
   
-  .submit-btn {
+  .submit-butn {
     background-color: #f0ad4e;
     color: white;
     border: none;
@@ -80,6 +83,6 @@
     margin-top: 1rem;
   }
   
-  .submit-btn:hover {
+  .submit-butn:hover {
     background-color: #ec971f;
   }

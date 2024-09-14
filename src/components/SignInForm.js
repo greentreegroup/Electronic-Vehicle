@@ -83,11 +83,11 @@ const SignInForm = ({ onClose }) => {
                 ) : (
                     <>
                         <h2>Welcome</h2>
-                        <button className="close-btn" onClick={onClose}>X</button>
+                        <button className="close-btn" onClick={onClose}>✖</button>
                         <p>Sign in to access your EVrabbit account.</p>
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
-                                <label htmlFor="email">Email</label>
+                                <label htmlFor="email">Email:</label>
                                 <input
                                     type="email"
                                     id="email"
@@ -100,7 +100,7 @@ const SignInForm = ({ onClose }) => {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="password">Password</label>
+                                <label htmlFor="password">Password:</label>
                                 <input
                                     type="password"
                                     id="password"
@@ -117,7 +117,7 @@ const SignInForm = ({ onClose }) => {
                                 <a href="#" onClick={handleForgetPasswordClick}>Forgot your password?</a>
                             </div>
 
-                            <button type="submit" className="submit-btn">Sign In</button>
+                            <button type="submit" className="submit-bton">Sign In</button>
                         </form>
                         <div className="create-account">
                             <p>

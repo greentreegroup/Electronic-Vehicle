@@ -110,7 +110,7 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
             />
           </label>
           {error && <div className="error-message">{error}</div>}
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-butn">
             Update
           </button>
         </form>

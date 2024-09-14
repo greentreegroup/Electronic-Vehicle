@@ -80,7 +80,7 @@ const SignUpForm = ({ onClose }) => {
             <div className="signup-form">
                 <h2>Sign Up</h2>
                 <button className="close-btn" onClick={onClose}>
-                    X
+                    ✖
                 </button>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
@@ -150,7 +150,7 @@ const SignUpForm = ({ onClose }) => {
                       
                     {error && <div className="error-message">{error}</div>}
 
-                    <button type="submit" className="submit-btn">
+                    <button type="submit" className="submit-bton">
                         Sign Up
                     </button>
                 </form>
