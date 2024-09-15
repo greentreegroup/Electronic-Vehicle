@@ -5,9 +5,9 @@ import Cookies from 'js-cookie';
 import Sidebar from './components/Sidebar';
 
 import TrackRecord from './TrackRecord';
-import InvestmentListings from './components/InvestmentListings';
+import EVPartsAccessories from './components/EVPartsAccessories';
 import SignInForm from './components/SignInForm';
-import InvestmentDetails from './components/InvestmentDetails';
+import PartDetail from './components/PartDetail'; 
 import UserProfile from './components/UserProfile';
 import HomePage from './HomePage';
 import HelpCenter2 from './HelpCenter2';
@@ -40,8 +40,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/HelpCenter2" element={<HelpCenter2 />} />
             <Route path="/track-record" element={<TrackRecord />} />
-            <Route path="/listings" element={<InvestmentListings minPrice={-1} maxPrice={-1} sortByRecent={false} propertyType={'none'} />} />
-            <Route path="/listings/:listingId" element={<InvestmentDetails />} /> {/* Route for listing details page */}
+            <Route path="/PartsAccessories" element={<EVPartsAccessories />} /> 
+            <Route path="/PartsAccessories/:listingId" element={<PartDetail />} /> {/* Route for listing details page */}
             <Route path="/userProfile/:userId" element={<UserProfile />} /> {/* Route for listing details page */}
             <Route path="/Parts" element={<FeaturedParts />} /> {/* Route for listing details page */}
             <Route path="/Cars" element={<FeatureCars />} /> {/* Route for listing details page */}
