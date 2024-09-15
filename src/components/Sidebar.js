@@ -52,12 +52,12 @@ const Sidebar = () => {
             Home
           </Link>
         </li>
-        {/*<li className="nav-item">
-          <Link to="/listings" className="nav-link">
-            Listings
+        <li className="nav-item">
+          <Link to="/PartsAccessories" className="nav-link">
+            Parts
           </Link>
         </li>
-        <li className="nav-item">
+        {/*<li className="nav-item">
           <Link to="/track-record" className="nav-link">
             Track Record
           </Link>
