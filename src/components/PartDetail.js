@@ -37,7 +37,6 @@ const PartDetail = () => {
     const fetchRecommendedItems = (allItems, category) => {
       setRecommendLoading(true);
       try {
-        // Filter items by category
         const filteredItems = allItems.filter(item => item.category === category && item.ID !== parseFloat(listingId));
         setRecommended(filteredItems);
         if (filteredItems.length === 0) {
@@ -59,7 +58,6 @@ const PartDetail = () => {
   };
 
   const handleAddToCart = () => {
-    // Implement add-to-cart functionality
     console.log(`Added ${quantity} of ${part.name} to the cart`);
   };
 

@@ -1,14 +1,13 @@
-// EVPartsAccessories.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './EVPartsAccessories.css'; 
+import './EVPartsAccessories.css';
 
-const MAX_NAME_LENGTH = 25; 
+const MAX_NAME_LENGTH = 25;
 
 // Utility function to truncate text
 const truncateText = (text, maxLength) => {
   if (typeof text !== 'string') {
-    return 'No Name'; 
+    return 'No Name';
   }
   if (text.length <= maxLength) {
     return text;
@@ -28,6 +27,7 @@ const EVPartsAccessories = () => {
   });
   const [loading, setLoading] = useState(true);
   const [filteredParts, setFilteredParts] = useState([]);
+  const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false); 
 
   useEffect(() => {
     const fetchPartsData = async () => {
@@ -35,8 +35,8 @@ const EVPartsAccessories = () => {
         const response = await axios.get(
           'https://prod-51.southeastasia.logic.azure.com:443/workflows/21aef51634694bfb992ec69d9f1da148/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=hAiQE6T-GmhZFghY9oHSRTB-lJo9_gUd4KJYjkuo5ik'
         );
-        setParts(response.data || []); 
-        setFilteredParts(response.data || []); 
+        setParts(response.data || []);
+        setFilteredParts(response.data || []);
       } catch (error) {
         console.error('Error fetching parts data:', error);
         setError('Failed to fetch parts data.');
@@ -82,10 +82,17 @@ const EVPartsAccessories = () => {
 
   const handleFilterClick = () => {
     applyFilters();
+    if (window.innerWidth <= 480) {
+      toggleFilterBox(); 
+    }
   };
 
   const updateFilter = (e) => {
     setFilters({ ...filters, [e.target.name]: e.target.value });
+  };
+
+  const toggleFilterBox = () => {
+    setIsFilterBoxOpen(!isFilterBoxOpen);
   };
 
   if (loading) {
@@ -99,7 +106,7 @@ const EVPartsAccessories = () => {
   return (
     <div className="parts-page">
       {/* Search Bar */}
-      <div className="search-container">
+      <div className="search-contain">
         <input
           type="text"
           placeholder="Search Parts"
@@ -111,15 +118,78 @@ const EVPartsAccessories = () => {
             if (e.key === 'Enter') handleSearchClick();
           }}
         />
-        <button className="search-button" onClick={handleSearchClick}>
+        <button className="part-search-button" onClick={handleSearchClick}>
           Search
         </button>
       </div>
 
+      {/* Filter Toggle Button (only shown on mobile) */}
+      <div className="filter-toggle-container">
+        <button className="filter-toggle-button" onClick={toggleFilterBox}>
+          {isFilterBoxOpen ? 'Close Filters' : 'Open Filters'}
+        </button>
+      </div>
+
+      {/* Filter Box for mobile view */}
+      <div className={`filter-box-mobile ${isFilterBoxOpen ? 'open' : 'closed'}`}>
+        <button className="filter-close-button" onClick={toggleFilterBox}>&times;</button>
+        <h3>Filter Parts</h3>
+        <div className="filter-group">
+          <label>
+            Min Price:
+            <input
+              type="number"
+              name="minPrice"
+              value={filters.minPrice}
+              onChange={updateFilter}
+            />
+          </label>
+          <label>
+            Max Price:
+            <input
+              type="number"
+              name="maxPrice"
+              value={filters.maxPrice}
+              onChange={updateFilter}
+            />
+          </label>
+          <label>
+            Category:
+            <select
+              name="selectedCategory"
+              value={filters.selectedCategory}
+              onChange={updateFilter}
+            >
+              <option value="">All Categories</option>
+              <option value="Brake">Brake</option>
+              <option value="Oil">Oil</option>
+              <option value="Engine">Engine</option>
+              <option value="Battery">Battery</option>
+              <option value="Turbo">Turbo</option>
+            </select>
+          </label>
+          <label>
+            Availability:
+            <select
+              name="availability"
+              value={filters.availability}
+              onChange={updateFilter}
+            >
+              <option value="">All</option>
+              <option value="In Stock">In Stock</option>
+              <option value="Out of Stock">Out of Stock</option>
+            </select>
+          </label>
+          <button className="filter-button" onClick={handleFilterClick}>
+            Apply Filters
+          </button>
+        </div>
+      </div>
+
       {/* Main Content Container */}
       <div className="main-content">
-        {/* Filter Box */}
-        <div className="filter-box">
+        {/* Filter Box for desktop view */}
+        <div className="filter-box-desktop">
           <h3>Filter Parts</h3>
           <div className="filter-group">
             <label>
@@ -190,7 +260,7 @@ const EVPartsAccessories = () => {
               </a>
             ))
           ) : (
-            <p className="empty-message">No parts available.</p>
+            <p className="error-message">No parts found.</p>
           )}
         </div>
       </div>
