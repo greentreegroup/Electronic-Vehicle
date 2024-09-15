@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './HelpCenter2.css'; // Importing CSS file for styling
+import Footer from './components/Footer';
+import FAQSection from './components/FAQSection';
 
 const HelpCenter = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -27,19 +29,19 @@ const HelpCenter = () => {
       id: 4,
       title: 'Company Related Articles',
       url: 'https://www.springer.capital/',
-      image: 'nexter.jpg',
+      image: 'rabbit.JPG',
     },
     { 
       id: 5,
-      title: 'Real Estate Crowdfunding Related Articles',
-      url: 'https://www.investopedia.com/articles/investing/072514/real-estate-and-crowdfunding-new-path-investors.asp',
-      image: 'RSCF.jpg',
+      title: 'Electric Vehicle Related Articles',
+      url: 'https://www.iea.org/energy-system/transport/electric-vehicles',
+      image: 'charge.webp',
     },
     { 
       id: 6,
-      title: 'Real Estate Laws Article',
-      url: 'https://iclg.com/practice-areas/real-estate-laws-and-regulations/usa',
-      image: 'REL.jpg',
+      title: 'Electric Vehicle Laws Article',
+      url: 'https://electrificationcoalition.org/work/federal-ev-policy/',
+      image: 'about-us.webp',
     },
   ];
 
@@ -47,8 +49,8 @@ const HelpCenter = () => {
     <>
     <div class="section-wrapper">
       <div className="help-center-container">
-        <h2 className='head-line'>Help Center</h2>
-        <div className="search-container">
+        <h2 className='head-line' style={{color:'white'}}>Help Center</h2>
+        {/* <div className="search-container">
           <input
             type="text"
             value={searchQuery}
@@ -57,7 +59,7 @@ const HelpCenter = () => {
             className="search-input"
           />
           <button onClick={handleSearch} className="search-button">Search</button>
-        </div>
+        </div> */}
         {searchResult.length > 0 && (
           <div className="search-results">
             {searchResult.map((result, index) => (
@@ -85,13 +87,15 @@ const HelpCenter = () => {
         </div>
       </div>
        {/* Contact Section */}
+       <FAQSection />
        <div className="contact-container">
         <h2>Contact Us</h2>
-        <p>Email: example@example.com</p>
-          <p>Phone: +1 (123) 456-7890</p>
-          <p>Address: 123 Main St, City, Country</p>
+        <p>Email: support@evrabbit.com</p>
+          <p>Phone: +1 (779) 707-1757</p>
+          <p>Address: 4753 N Broadway, Chicago, Illinois</p>
       </div>
       </div>
+      <Footer />
     </>
   );
 };
