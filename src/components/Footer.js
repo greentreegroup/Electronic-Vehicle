@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__content">
-        <p>EVrabbit &copy; {new Date().getFullYear()}</p>
-        <img className= 'logo' src="/img/rabbit.jpg" alt="EVrabbit logo"></img>
+        <p className='inline'><a href="/"><img src="/img/rabbit.JPG" alt="EVrabbit logo"></img></a></p>
+        <p> EVrabbit &copy; {new Date().getFullYear()}</p>
       </div>
     </footer>
   );
