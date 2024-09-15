@@ -110,7 +110,7 @@ const EVPartsAccessories = () => {
         <input
           type="text"
           placeholder="Search Parts"
-          className="search-bar"
+          className="p-search-bar"
           name="searchTerm"
           value={filters.searchTerm}
           onChange={updateFilter}

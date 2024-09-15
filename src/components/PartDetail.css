@@ -114,7 +114,6 @@
   font-size: 16px;
   line-height: 1.5;
 }
-
 .part-detail__specifications ul {
   list-style: none;
   padding: 0;
@@ -122,13 +121,23 @@
 }
 
 .part-detail__specifications li {
+  display: flex;
+  justify-content: flex-start;
   margin-bottom: 10px;
+  align-items: center;
 }
 
-.part-detail__specifications strong {
-  display: inline-block;
-  width: 150px;
+.part-detail__specifications li strong {
+  flex: 0 0 150px; /* Fixed width for the label (strong) */
+  margin-right: 10px; /* Spacing between label and value */
+  font-weight: bold;
+  text-align: right;
 }
+
+.part-detail__specifications li span {
+  flex: 1;
+}
+
 
 /* Recommended Section */
 .recommended-section {
@@ -154,12 +163,16 @@
   flex: 0 0 auto;
   width: calc(100% / 4 - 15px); 
   max-width: 160px;
-  border: 1px solid #ddd;
   border-radius: 4px;
   overflow: hidden;
   text-align: center;
   padding: 8px;
   scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.recommended-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(23, 41, 46, 0.4);
 }
 
 .recommended-item__image {
@@ -182,6 +195,24 @@
   font-size: 14px;
   color: #007bff;
   font-weight: bold;
+}
+/* Apply Verdana font to all paragraphs */
+.part-detail__description p,
+.part-detail__specifications li span,
+.part-detail__specifications li {
+  font-family: Verdana, sans-serif;
+}
+
+/* Apply sans-serif font to other elements */
+.part-detail__name,
+.part-detail__price,
+.quantity-selector label,
+.add-to-cart-button,
+.part-detail__description h2,
+.part-detail__specifications h2,
+.recommended-item__name,
+.recommended-item__price {
+  font-family: sans-serif;
 }
 
 /* Responsive Design */
