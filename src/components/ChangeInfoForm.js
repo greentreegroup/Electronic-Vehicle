@@ -21,6 +21,12 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
     }));
   };
 
+  const reloadAfterUpdate = async () => {
+    setTimeout(() => {
+      window.location.reload(); {/*reload to show updated info*/}  
+    } , "5000"); 
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -49,6 +55,7 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
 
       if (response.ok) {
         console.log('Data has been sent successfully.');
+        reloadAfterUpdate();
         onClose();
       } else {
         console.error('Error while sending data:', response.statusText, responseText);
