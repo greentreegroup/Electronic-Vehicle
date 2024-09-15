@@ -1,0 +1,152 @@
+/* General Reset to prevent overflow */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Top Section */
+.top-section {
+    min-height: 30vh; 
+    background-position: center;
+    color: #f57b18;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+    padding: 20px;
+    width: 100%; /* Ensure the section spans the full width */
+}
+
+/* Logo Section */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: #17292e;
+    width: 100%; /* Ensure full width */
+    padding: 10px; /* Added padding for spacing */
+}
+
+.logo img {
+    max-width: 100%; /* Ensure the logo scales down */
+    height: auto;
+}
+
+/* Headings */
+.top-section h1, .next-section h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    max-width: 100%; /* Prevent headings from exceeding viewport width */
+}
+
+.top-section h2, .next-section h2 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    max-width: 100%; /* Prevent text from exceeding viewport */
+}
+
+/* Next Section */
+.next-section {
+    min-height: calc(50vh - 20px);
+    background-position: center;
+    color: #f57b18;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px;
+    text-align: center;
+    width: 100%; /* Ensure full width */
+}
+
+/* Flexbox container */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: flex-start; /* Ensure proper alignment */
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 0 auto; /* Center container and avoid overflow */
+}
+
+/* Flex Items */
+.flex-item {
+    flex: 1 1 300px;
+    margin: 10px;
+    text-align: center;
+    max-width: 100%; /* Prevent items from exceeding the container */
+}
+
+.flex-item h1 {
+    color: #f57b18;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.flex-item p {
+    color: black;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Mobile and Tablet Responsive Design */
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .flex-item {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    /* Adjust headings for mobile */
+    .top-section h1, .next-section h1 {
+        font-size: 2rem;
+    }
+
+    .top-section h2, .next-section h2 {
+        font-size: 1.2rem;
+    }
+
+    /* Reduce padding on mobile */
+    .top-section, .next-section {
+        padding: 15px;
+        min-height: 10vh;
+    }
+
+    .logo {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-section h1, .next-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .top-section h2, .next-section h2 {
+        font-size: 1rem;
+    }
+
+    .flex-item h1 {
+        font-size: 1.5rem;
+        margin-top: 15px;
+    }
+
+    .flex-item p {
+        font-size: 0.9rem;
+    }
+
+    .flex-item {
+        margin: 5px 0;
+    }
+}

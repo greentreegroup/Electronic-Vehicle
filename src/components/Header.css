@@ -21,6 +21,15 @@
     color:white;
   }
   
+  @media screen and (max-width: 768px) {
+    .header {
+      padding-bottom: 2rem; /* Reduce padding at the bottom only on mobile */
+    }
+  
+    .header__logo {
+      margin-bottom: 0; /* Ensure no extra space under the logo */
+    }
+  }
   .header__logo {
     height: 5rem;
     justify-self: center;
@@ -61,6 +70,38 @@
     max-width: 100%;
     filter: brightness(70%);
   }
+  /* Responsive styles for mobile screens */
+/* Mobile styles - Adjusting space between elements */
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 4rem 1rem; /* Reduce padding on mobile */
+    grid-row-gap: 1rem; /* Reduce the space between grid rows */
+  }
+
+  .header__logo {
+    height: 4rem; /* Slightly reduce logo size */
+    margin-bottom: 1rem; /* Adjust margin between logo and other elements */
+  }
+
+  .header__btn {
+    margin-top: 1rem; /* Adjust button margin */
+  }
+
+  .header__seenon-logos {
+    grid-template-columns: repeat(2, 1fr); /* Two logos per row on mobile */
+    grid-column-gap: 3rem; /* Reduce gap between logos */
+    grid-row-gap: 2rem
+  }
+
+  .header__seenon-logos img {
+    max-height: 2rem; /* Reduce logo size slightly on mobile */
+    
+  }
+
+  .header__seenon-text {
+    font-size: 1.4rem; /* Adjust text size */
+  }
+}
   
 /* Container for the buttons */
 .header-buttons {
