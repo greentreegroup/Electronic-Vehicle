@@ -151,6 +151,7 @@
     .user-profile {
         flex-direction: column;
         padding: 20px 0;
+        width: 100vw; /*adjust content to cover entire page on mobile displays*/
     }
 
     /* Adjust main container layout for mobile */
