@@ -52,7 +52,7 @@ const Sidebar = () => {
             Home
           </Link>
         </li>
-        <li className="nav-item">
+        {/*<li className="nav-item">
           <Link to="/listings" className="nav-link">
             Listings
           </Link>
@@ -61,7 +61,7 @@ const Sidebar = () => {
           <Link to="/track-record" className="nav-link">
             Track Record
           </Link>
-        </li>
+        </li>*/}
         <li className="nav-item">
           <Link to="/HelpCenter2" className="nav-link">
             Help Center
