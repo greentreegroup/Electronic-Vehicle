@@ -134,6 +134,11 @@ const Sidebar = () => {
                   Settings
                 </Link>
               </li>
+              <li>
+                <Link to="/cart" className="nav-link">
+                  Shopping Cart
+                </Link>
+              </li>
             </ul>
           )}
         </div>

@@ -7,11 +7,10 @@ import Sidebar from './components/Sidebar';
 import TrackRecord from './TrackRecord';
 import EVPartsAccessories from './components/EVPartsAccessories';
 import SignInForm from './components/SignInForm';
-import PartDetail from './components/PartDetail'; 
+import PartDetail from './components/PartDetail';  
 import UserProfile from './components/UserProfile';
 import HomePage from './HomePage';
 import HelpCenter2 from './HelpCenter2';
-
 
 import Chatbot from './Chatbot';
 import FeaturedParts from './components/FeaturedParts';
@@ -20,6 +19,7 @@ import ResearchPage from './components/ResearchPage';
 import './App.css';
 import ContactForm from './components/ContactForm';
 import AboutUsServiceInfo from './components/AboutUs-ServiceInfo';
+import ShoppingCart from './components/ShoppingCart';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -49,6 +49,7 @@ function App() {
             <Route path="/Research" element={<ResearchPage />} /> {/* Route for listing details page */}
             <Route path="/Contact" element={<ContactForm />} /> {/* Route for listing details page */}
             <Route path="/AboutUs" element={<AboutUsServiceInfo />} /> {/* Route for listing details page */}
+            <Route path="/cart" element={<ShoppingCart />} /> {/* Route for listing details page */}
             {/* Other routes */}
             <Route path="/signin" element={<SignInForm />} />
           </Routes>
