@@ -1,7 +1,7 @@
 {
-  "name": "crowd-sourcing",
-  "version": "0.1.0",
-  "homepage": "https://springer.properties",
+  "name": "ev",
+  "version": "1.0.0",
+  "homepage": "https://evrabbit.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "npm run copy-cname && gh-pages -d build",
+    "deploy": "gh-pages -d build --cname evrabbit.com",
     "copy-cname": "cp public/CNAME build/CNAME",
     "start": "react-scripts start",
     "build": "react-scripts build",
