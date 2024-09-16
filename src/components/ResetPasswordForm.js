@@ -20,7 +20,7 @@ const ResetPasswordForm = ({ onClose }) => {
     e.preventDefault();
 
     const url =
-      'https://prod-52.southeastasia.logic.azure.com:443/workflows/6f28b53042394fe395b4884f8ea2f7dc/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=r-mg-hvPyuMbiMYSKp-QG0SwbOywAqha2GWZnYjYQs8';
+      'https://prod-28.southeastasia.logic.azure.com:443/workflows/d4da430a258048a19053102b55e42267/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1rJ3DMxfbKfRHGOH1lfDnZWUatLpunagIXnF6Agx1gw';
 
     const headers = {
       'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const ResetPasswordForm = ({ onClose }) => {
     <div className="signup-form-container">
       <div className="signup-form">
         <h2>Reset Password</h2>
-        <button className="close-btn" onClick={onClose}></button>
+        <button className="close-btn" onClick={onClose}>X</button>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email_addres">Email:</label>
@@ -77,7 +77,7 @@ const ResetPasswordForm = ({ onClose }) => {
 
           {error && <div className="error-message">{error}</div>}
 
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-bton">
             Send Mail
           </button>
         </form>

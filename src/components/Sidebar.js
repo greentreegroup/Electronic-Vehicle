@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import SignInForm from './SignInForm.js';
 import SignUpForm from './SignUpForm.js';
+import Cookies from 'js-cookie';
 
 const Sidebar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -30,6 +31,12 @@ const Sidebar = () => {
     setShowSignIn(false);
     setShowDropdown(false);
   };
+
+  const handleUserAccountClick = () => {
+    Cookies.get('id') == undefined ? setShowSignIn(true) : window.location.replace('/userProfile/'.concat(Cookies.get('id'))); 
+    setShowSignUp(false);
+    setShowDropdown(false);
+  };  
 
   const closeForms = () => {
     setShowSignIn(false);
@@ -125,9 +132,9 @@ const Sidebar = () => {
                 </button>
               </li>
               <li>
-                <Link to="/profile" className="nav-link">
+                <button onClick={handleUserAccountClick} className="nav-link">
                   User Profile
-                </Link>
+                </button>
               </li>
               <li>
                 <Link to="/settings" className="nav-link">

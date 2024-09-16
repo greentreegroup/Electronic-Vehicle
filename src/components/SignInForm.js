@@ -1,9 +1,9 @@
-//SignInForm.js
 import React, { useState } from 'react';
 import './SignInForm.css';
 import './ResetPasswordForm.css';
 import SignInButton from './SignInButton';
 import ResetPassword from './ResetPasswordForm';
+import SignUpForm from './SignUpForm'; // Import the SignUpForm component
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection      
 import UserProfile from './UserProfile';
 import Cookies from 'js-cookie';
@@ -13,9 +13,11 @@ const SignInForm = ({ onClose }) => {
         email_address: '',
         Password: ''
     });
+    const [resetPasswordClicked, setResetPasswordClicked] = useState(false);
+    const [createAccountClicked, setCreateAccountClicked] = useState(false); // New state for Create Account
+
     const navigate = useNavigate(); // Hook for navigation
     const [error, setError] = useState(null);
-    const [resetPasswordClicked, setResetPasswordClicked] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -25,7 +27,6 @@ const SignInForm = ({ onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Endpoint URL from Power Automate
         const powerAutomateEndpoint = 'https://prod-25.southeastasia.logic.azure.com:443/workflows/4cf63c66c18d4326a3be6de024f950a3/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cANk_84AqvhzTZk8A2K7Lj6G8w-zNoixqp5qW94akpc';
 
         try {
@@ -46,7 +47,8 @@ const SignInForm = ({ onClose }) => {
                 console.log('Login successful!');
                 console.log('Response data:', userId); // Log the user ID
                 onClose(); // Close the form or redirect to another page
-                Cookies.set('isLoggedIn', 'true', { expires: 7 }); // NEW: Set cookie on successful login
+                Cookies.set('isLoggedIn', 'true', { expires: 1000*60*4 }); // NEW: Set cookie on successful login
+                Cookies.set('id', userId, {expires: 1000*60*4} ) // 1000*60*4 = 4 hour cookie from login time
                 navigate(`/userProfile/${userId}`);
             } else if (response.status === 401 || response.status === 403) {
                 console.error('Login failed: Unauthorized access');
@@ -68,18 +70,25 @@ const SignInForm = ({ onClose }) => {
         setResetPasswordClicked(true);
     };
 
+    const handleCreateAccountClick = () => {
+        setCreateAccountClicked(true); // Set state to true for Create Account
+    };
+
     return (
         <div className="signin-form-container">
             <div className="signin-form">
                 {resetPasswordClicked ? (
                     <ResetPassword onClose={() => setResetPasswordClicked(false)} />
+                ) : createAccountClicked ? (
+                    <SignUpForm onClose={() => setCreateAccountClicked(false)} /> // Conditionally render SignUpForm
                 ) : (
                     <>
-                        <h2>Sign In</h2>
-                        <button className="close-btn" onClick={onClose}>X</button>
+                        <h2>Welcome</h2>
+                        <button className="close-btn" onClick={onClose}>✖</button>
+                        <p>Sign in to access your EVrabbit account.</p>
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
-                                <label htmlFor="email">Email</label>
+                                <label htmlFor="email">Email:</label>
                                 <input
                                     type="email"
                                     id="email"
@@ -92,7 +101,7 @@ const SignInForm = ({ onClose }) => {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="password">Password</label>
+                                <label htmlFor="password">Password:</label>
                                 <input
                                     type="password"
                                     id="password"
@@ -105,12 +114,17 @@ const SignInForm = ({ onClose }) => {
                             </div>
 
                             {error && <div className="error-message">{error}</div>}
+                            <div className="forgot-password">
+                                <a href="#" onClick={handleForgetPasswordClick}>Forgot your password?</a>
+                            </div>
 
-                            <button type="submit" className="submit-btn">Sign In</button>
-                            <button type="button" className="reset-btn" onClick={handleForgetPasswordClick}>
-                                Forget Password
-                            </button>
+                            <button type="submit" className="submit-bton">Sign In</button>
                         </form>
+                        <div className="create-account">
+                            <p>
+                                New to EVrabbit? <a href="#" onClick={handleCreateAccountClick}>Create an account</a> 
+                            </p>
+                        </div>
                     </>
                 )}
             </div>

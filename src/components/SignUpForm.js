@@ -34,18 +34,19 @@ const SignUpForm = ({ onClose }) => {
             return;
         }
 
-        const hashedPassword = await bcrypt.hash(formData.password, saltRounds);
+        /*need a better password system */
+        /*const hashedPassword = await bcrypt.hash(formData.password, saltRounds);*/
 
         const url =
-            'https://prod-59.southeastasia.logic.azure.com:443/workflows/0091e6cd1300433eaedd67486ec575fb/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=hfjJjtqRIk7oL1JbPl8MP50fDfo6gC6yv-d4marzYxg';
+            'https://prod-63.southeastasia.logic.azure.com:443/workflows/298505686ab047b881892eb5678736d1/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=uDGzv3sDKOnM1EuAMt6FsOY2FhgmNUQYY6M4FeiAwgY';
 
         const headers = {
             'Content-Type': 'application/json',
         };
 
         const body = JSON.stringify({
-            ...formData,
-            password: hashedPassword,
+            ...formData
+            /*password: hashedPassword,*/
         });
 
         try {
@@ -79,7 +80,7 @@ const SignUpForm = ({ onClose }) => {
             <div className="signup-form">
                 <h2>Sign Up</h2>
                 <button className="close-btn" onClick={onClose}>
-                    X
+                    ✖
                 </button>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
@@ -146,38 +147,10 @@ const SignUpForm = ({ onClose }) => {
                             required
                         />
                     </div>
-
-                    <div className="form-group">
-                        <label htmlFor="phone_number">Phone Number:</label>
-                        <input
-                            type="text"
-                            id="phone_number"
-                            name="phone_number"
-                            placeholder="Phone Number"
-                            value={formData.phone_number}
-                            onChange={handleChange}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="Is_developer">Are you a developer?</label>
-                        <input
-                            type="checkbox"
-                            id="Is_developer"
-                            name="Is_developer"
-                            checked={formData.Is_developer}
-                            onChange={() =>
-                                setFormData((prevData) => ({
-                                    ...prevData,
-                                    Is_developer: !prevData.Is_developer,
-                                }))
-                            }
-                        />
-                    </div>
-
+                      
                     {error && <div className="error-message">{error}</div>}
 
-                    <button type="submit" className="submit-btn">
+                    <button type="submit" className="submit-bton">
                         Sign Up
                     </button>
                 </form>

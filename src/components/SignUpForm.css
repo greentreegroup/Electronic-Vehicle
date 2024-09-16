@@ -65,6 +65,7 @@ button {
 
 .form-group label {
     text-align: right; /* aligns the text to the right */
+    white-space: nowrap;
 }
 
 .form-group input {
@@ -75,8 +76,8 @@ button {
     width: 100%; /* ensures input occupies the remaining space */
 }
 
-.submit-btn {
-    background-color: #c69963; /* Green background */
+.submit-bton {
+    background-color: #f57b18; /* Green background */
     color: white; /* White text color */
     padding: 14px 20px;
     margin: 8px 0;
@@ -87,6 +88,6 @@ button {
     transition: background-color 0.3s; /* Smooth transition for background color */
 }
 
-.submit-btn:hover {
-    background-color: #B28451; /* Slightly darker green for hover effect */
+.submit-bton:hover {
+    background-color: #e66916 !important; /* Slightly darker green for hover effect */
 }
