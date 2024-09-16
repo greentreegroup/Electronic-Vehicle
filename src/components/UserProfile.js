@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ChangeInfoForm from './ChangeInfoForm';
 import './UserProfile.css';
+import Cookies from 'js-cookie';
 
 const UserProfile = () => {
   const [userData, setUserData] = useState(null);
@@ -44,6 +45,12 @@ const UserProfile = () => {
     setActiveSection(section);
   };
 
+  const onSignOutClick = () => {
+    window.location.href='/';
+    Cookies.remove('id');
+  };
+
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
@@ -67,7 +74,7 @@ const UserProfile = () => {
         </aside>
         <section className="profile-content">
           <h1>EVrabbit Account</h1>
-          <button className="sign-out">Sign out</button>
+          <button className="sign-out" onClick={onSignOutClick}>Sign out</button>
           
           {activeSection === 'personal' && (
             <div>

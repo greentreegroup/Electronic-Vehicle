@@ -47,7 +47,8 @@ const SignInForm = ({ onClose }) => {
                 console.log('Login successful!');
                 console.log('Response data:', userId); // Log the user ID
                 onClose(); // Close the form or redirect to another page
-                Cookies.set('isLoggedIn', 'true', { expires: 7 }); // NEW: Set cookie on successful login
+                Cookies.set('isLoggedIn', 'true', { expires: 1000*60*4 }); // NEW: Set cookie on successful login
+                Cookies.set('id', userId, {expires: 1000*60*4} ) // 1000*60*4 = 4 hour cookie from login time
                 navigate(`/userProfile/${userId}`);
             } else if (response.status === 401 || response.status === 403) {
                 console.error('Login failed: Unauthorized access');
