@@ -35,6 +35,19 @@ const Sidebar = () => {
           </Link>
         </li>
         <li className="nav-item">
+<<<<<<< Updated upstream
+=======
+          <Link to="/CarSearch" className="nav-link">
+            Electric Cars
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/PartsAccessories" className="nav-link">
+            Parts
+          </Link>
+        </li>
+        {/*<li className="nav-item">
+>>>>>>> Stashed changes
           <Link to="/listings" className="nav-link">
             Listings
           </Link>

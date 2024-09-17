@@ -14,6 +14,10 @@ import HelpCenter2 from './HelpCenter2';
 import './App.css';
 import Chatbot from './Chatbot';
 import ResearchPage from './components/ResearchPage';
+import ContactForm from './components/ContactForm';
+import AboutUsServiceInfo from './components/AboutUs-ServiceInfo';
+import CarSearch from './components/CarSearch';
+import CarSearchDetails from './components/CarSearchDetails';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -39,6 +43,13 @@ function App() {
             <Route path="/listings/:listingId" element={<InvestmentDetails />} /> {/* Route for listing details page */}
             <Route path="/userProfile/:userId" element={<UserProfile />} /> {/* Route for listing details page */}
             <Route path="/Research" element={<ResearchPage />} />
+            <Route path="/Parts" element={<FeaturedParts />} /> {/* Route for listing details page */}
+            <Route path="/Cars" element={<FeatureCars />} /> {/* Route for listing details page */}
+            <Route path="/CarSearch" element={<CarSearch />} /> {/* Route for searching/filtering electric vehicles database */}
+            <Route path="/car-details/:id" element={<CarSearchDetails />} />
+            <Route path="/Research" element={<ResearchPage />} /> {/* Route for listing details page */}
+            <Route path="/Contact" element={<ContactForm />} /> {/* Route for listing details page */}
+            <Route path="/AboutUs" element={<AboutUsServiceInfo />} /> {/* Route for listing details page */}
             {/* Other routes */}
           </Routes>
         </main>
