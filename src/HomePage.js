@@ -19,11 +19,11 @@ function HomePage() {
         <br />
         <h1>Overview</h1>
         <p className="welcome-message">
-  Welcome to <strong>2300 Frontier</strong>, where the future of electric mobility begins. Our platform connects 
+  Welcome to <strong>EVrabbit</strong>, where the future of electric mobility begins. Our platform connects 
   innovative electric vehicle solutions with passionate investors, driving the transition to a cleaner, greener world. 
   <br/><br/>
   Whether you're an EV startup ready to revolutionize transportation or an investor seeking to power the next generation 
-  of sustainable mobility, <strong>2300 Frontier</strong> is your gateway to groundbreaking opportunities.
+  of sustainable mobility, <strong>EVrabbit</strong> is your gateway to groundbreaking opportunities.
   <br/><br/>
   Join us in accelerating the shift towards electric vehicles and be part of the journey toward a more sustainable tomorrow.
 </p>
@@ -37,7 +37,7 @@ function HomePage() {
           <br />
           <h1>Featured Electric Vehicles</h1>
           <p className="welcome-message">
-            Discover the latest and most exciting electric vehicles on <strong>2300 Frontier</strong>. From state-of-the-art 
+            Discover the latest and most exciting electric vehicles on <strong>EVrabbit</strong>. From state-of-the-art 
             electric cars to groundbreaking advancements in battery technology, our platform showcases a variety of innovative 
             vehicles leading the charge towards a sustainable future.
             <br/><br/>
