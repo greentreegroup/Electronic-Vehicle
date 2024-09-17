@@ -74,7 +74,8 @@
   }
   
   .container {
-    padding: 0 10px; /* Reduce padding */
+    padding: 0 5px; /* Reduce padding */
+    max-width: 600px; /* Reduce size */
   }
 }
 
