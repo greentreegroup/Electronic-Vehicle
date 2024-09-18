@@ -1,46 +1,47 @@
-*, *::before, *::after {    /* Prevent Header from extruding passed the window size */
-    box-sizing: border-box;
-  }
-h4{
-    font-family: "Josefin Sas", sans-serif;
-    color: #54483A;
-    font-size: 1.2rem;
-    font-weight: 400;
-    display: block;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+*,
+*::before,
+*::after {
+  /* Prevent Header from extruding passed the window size */
+  box-sizing: border-box;
+}
+h4 {
+  font-family: "Josefin Sas", sans-serif;
+  color: #54483a;
+  font-size: 1.2rem;
+  font-weight: 400;
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
-p{
-    font-family: "Nunito", sans-serif;
-    color: #6D5D4B;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.6;
-    display: block;    
+p {
+  font-family: "Nunito", sans-serif;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  display: block;
 }
-
-
-
 
 .features {
-    display: grid;
-    grid-gap: 6rem; /* Adjust the gap as needed */
-    align-items: start;
-    justify-content: center;
-    margin: 0 auto; /* Center the grid container */
-    width: 90%; /* Adjust based on your layout needs */
-    /* Initial setup for two columns */
-    grid-template-columns: repeat(2, 1fr); /* Set up for 2 columns */
+  display: grid;
+  grid-gap: 6rem; /* Adjust the gap as needed */
+  align-items: start;
+  justify-content: center;
+  margin: 0 auto; /* Center the grid container */
+  width: 90%; /* Adjust based on your layout needs */
+  /* Initial setup for two columns */
+  grid-template-columns: repeat(2, 1fr); /* Set up for 2 columns */
 }
 
 /* Media query for narrower screens */
-@media (max-width: 800px) { /* Adjust breakpoint as needed */
-    .features {
-        grid-template-columns: 1fr; /* One column on narrow screens */
-    }
+@media (max-width: 800px) {
+  /* Adjust breakpoint as needed */
+  .features {
+    grid-template-columns: 1fr; /* One column on narrow screens */
+  }
 }
 /*
 .icon {
@@ -59,30 +60,30 @@ p{
 }*/
 
 .feature {
-    /*float: left;*/
-    width: 80%;
-    /*bottom: 6rem;*/
-    display: grid;
-    grid-template-columns: min-content 1fr;
-    grid-column-gap: 1rem;
+  /*float: left;*/
+  width: 80%;
+  /*bottom: 6rem;*/
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-column-gap: 1rem;
 }
 
 feature {
-    width: auto;
-    margin-bottom: 0;
+  width: auto;
+  margin-bottom: 0;
 }
 
 .features:nth-child(3) {
-    display: none;
-  }
-  .icon{
-    width: 3.8rem;
-    height: 3.8rem;
-    transform: translateY(10%);
-    transform-origin: center center;
-    fill: #c69963;
-  }
+  display: none;
+}
+.icon {
+  width: 3.8rem;
+  height: 3.8rem;
+  transform: translateY(10%);
+  transform-origin: center center;
+  fill: #c69963;
+}
 
-  .features{
-    margin: 7rem;
-  }
+.features {
+  margin: 7rem;
+}

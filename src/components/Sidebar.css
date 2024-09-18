@@ -1,6 +1,6 @@
 /* Sidebar.css */
 .sidebar {
-  background-color: #c69963;
+  background-color: #f2f2f5;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,8 +24,8 @@
 
 .nav-link {
   text-decoration: none;
-  color: black; /* White text */
-  background-color: #c69963;
+  color: rgb(0, 0, 0); /* White text */
+  background-color: #f2f2f5;
 }
 
 .auth-links {
