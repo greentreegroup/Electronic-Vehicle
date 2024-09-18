@@ -18,6 +18,7 @@ import ResearchPage from './components/ResearchPage';
 //import AboutUsServiceInfo from './components/AboutUs-ServiceInfo';
 import CarSearch from './components/CarSearch';
 import CarSearchDetails from './components/CarSearchDetails';
+import FuelSavingCalc from './components/FuelSavingCalc';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -54,6 +55,7 @@ function App() {
             <Route path="/Contact" element={<ContactForm />} />  Route for listing details page
             <Route path="/AboutUs" element={<AboutUsServiceInfo />} /> Route for listing details page
             Other routes */}
+            <Route path="/FuelSavingCalc" element={<FuelSavingCalc />} /> {/* Route to fuel savings calculator */}
           </Routes>
         </main>
         <Chatbot />

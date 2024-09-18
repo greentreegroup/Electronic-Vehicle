@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ResearchPage.css';
 
 
@@ -103,10 +104,12 @@ const ResearchPage = () => {
       <div className="tool-icon">
         <img src="img/calc-icon.png" alt="Fuel Savings Calculator" />
       </div>
-      <div className="tool-text">
-        <h3>Fuel savings calculator</h3>
-        <p>See how fuel economy affects total cost to own</p>
-      </div>
+      <Link to="/FuelSavingCalc">
+        <div className="tool-text">
+          <h3>Fuel savings calculator</h3>
+          <p>See how fuel economy affects total cost to own</p>
+        </div>
+      </Link>
     </div>
   </div>
 </section>
