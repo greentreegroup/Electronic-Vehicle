@@ -51,7 +51,7 @@
   }
   
   .search-bar button:hover {
-    background-color: darken(var(--primary-color), 10%);
+    background-color: rgba(0, 51, 102, 0.8)
   }
   
   .hero-section {
