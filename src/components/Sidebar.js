@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom'; // Import useLocation for detecting page changes
 import './Sidebar.css';
 import SignInForm from './SignInForm.js';
 import SignUpForm from './SignUpForm.js';
@@ -11,6 +11,28 @@ const Sidebar = () => {
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [searchQuery, setSearchQuery] = useState(''); // For search bar
+
+  const dropdownRef = useRef(null); // Create a reference for the dropdown
+  const location = useLocation(); // To detect route changes
+
+  // Close the dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false); // Close the dropdown if clicked outside
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef]);
+
+  // Close dropdown on route change
+  useEffect(() => {
+    setShowDropdown(false); // Close the dropdown when page changes
+  }, [location]);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -114,7 +136,7 @@ const Sidebar = () => {
         />
       </div>
 
-      <div className="auth-links">
+      <div className="auth-links" ref={dropdownRef}>
         <div className="account-dropdown">
           <button onClick={toggleDropdown} className="nav-link account-button">
             Account
