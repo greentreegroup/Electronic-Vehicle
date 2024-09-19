@@ -13,10 +13,10 @@ const FAQSection = () => {
       answer: "Our return policy is 30 days, no questions asked. Contact us for more details."
     },
     
-    {
-      question: "What payment methods do you accept?",
-      answer: "We accept all major credit cards, including Visa, MasterCard, and American Express. You can also pay using PayPal."
-    },
+    //{
+    //  question: "What payment methods do you accept?",
+    //  answer: "We accept all major credit cards, including Visa, MasterCard, and American Express. You can also pay using PayPal."
+    //},
     {
       question: "How secure is my personal information?",
       answer: "We take your privacy and security very seriously. All transactions are encrypted and your personal details are protected according to the highest industry standards."
