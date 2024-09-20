@@ -29,7 +29,7 @@ function HomePage() {
 </p>
         <Overview/>
 
-        <FeaturedParts/>
+        {/*<FeaturedParts/>*/}
         <FeatureCars/>
 
         {/* Featured Listings Section */}
