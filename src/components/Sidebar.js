@@ -54,12 +54,6 @@ const Sidebar = () => {
     setShowDropdown(false);
   };
 
-  const handleUserAccountClick = () => {
-    Cookies.get('id') == undefined ? setShowSignIn(true) : window.location.replace('/userProfile/'.concat(Cookies.get('id'))); 
-    setShowSignUp(false);
-    setShowDropdown(false);
-  };  
-
   const closeForms = () => {
     setShowSignIn(false);
     setShowSignUp(false);
@@ -154,9 +148,9 @@ const Sidebar = () => {
                 </button>
               </li>
               <li>
-                <button onClick={handleUserAccountClick} className="nav-link">
+                <Link to={`/userProfile/${Cookies.get('id')}`} className="nav-link">
                   User Profile
-                </button>
+                </Link>
               </li>
               <li>
                 <Link to="/settings" className="nav-link">

@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './EVPartsAccessories.css';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import "./EVPartsAccessories.css";
 
 const MAX_NAME_LENGTH = 25;
 
 // Utility function to truncate text
 const truncateText = (text, maxLength) => {
-  if (typeof text !== 'string') {
-    return 'No Name';
+  if (typeof text !== "string") {
+    return "No Name";
   }
   if (text.length <= maxLength) {
     return text;
@@ -19,27 +20,27 @@ const EVPartsAccessories = () => {
   const [parts, setParts] = useState([]);
   const [error, setError] = useState(null);
   const [filters, setFilters] = useState({
-    minPrice: '',
-    maxPrice: '',
-    selectedCategory: '',
-    availability: '',
-    searchTerm: ''
+    minPrice: "",
+    maxPrice: "",
+    selectedCategory: "",
+    availability: "",
+    searchTerm: "",
   });
   const [loading, setLoading] = useState(true);
   const [filteredParts, setFilteredParts] = useState([]);
-  const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false); 
+  const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
 
   useEffect(() => {
     const fetchPartsData = async () => {
       try {
         const response = await axios.get(
-          'https://prod-51.southeastasia.logic.azure.com:443/workflows/21aef51634694bfb992ec69d9f1da148/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=hAiQE6T-GmhZFghY9oHSRTB-lJo9_gUd4KJYjkuo5ik'
+          "https://prod-51.southeastasia.logic.azure.com:443/workflows/21aef51634694bfb992ec69d9f1da148/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=hAiQE6T-GmhZFghY9oHSRTB-lJo9_gUd4KJYjkuo5ik",
         );
         setParts(response.data || []);
         setFilteredParts(response.data || []);
       } catch (error) {
-        console.error('Error fetching parts data:', error);
-        setError('Failed to fetch parts data.');
+        console.error("Error fetching parts data:", error);
+        setError("Failed to fetch parts data.");
       } finally {
         setLoading(false);
       }
@@ -50,28 +51,40 @@ const EVPartsAccessories = () => {
 
   const formatPrice = (price) => {
     if (price == null || isNaN(price)) {
-      return 'Price Unavailable';
+      return "Price Unavailable";
     }
     return `$${parseFloat(price).toFixed(2)}`;
   };
 
   const getAvailabilityText = (availability) => {
-    return availability ? 'In Stock' : 'Out of Stock';
+    return availability ? "In Stock" : "Out of Stock";
   };
 
   const applyFilters = () => {
-    const { minPrice, maxPrice, selectedCategory, availability, searchTerm } = filters;
-    const filtered = parts.filter(part => {
+    const { minPrice, maxPrice, selectedCategory, availability, searchTerm } =
+      filters;
+    const filtered = parts.filter((part) => {
       const price = parseFloat(part.price);
       const min = parseFloat(minPrice);
       const max = parseFloat(maxPrice);
 
-      const isWithinPriceRange = (!minPrice || price >= min) && (!maxPrice || price <= max);
-      const isCategoryMatch = !selectedCategory || part.category === selectedCategory;
-      const isAvailabilityMatch = !availability || (availability === 'In Stock' ? part.availability : !part.availability);
-      const isSearchTermMatch = part.name.toLowerCase().includes(searchTerm.toLowerCase());
+      const isWithinPriceRange =
+        (!minPrice || price >= min) && (!maxPrice || price <= max);
+      const isCategoryMatch =
+        !selectedCategory || part.category === selectedCategory;
+      const isAvailabilityMatch =
+        !availability ||
+        (availability === "In Stock" ? part.availability : !part.availability);
+      const isSearchTermMatch = part.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
 
-      return isWithinPriceRange && isCategoryMatch && isAvailabilityMatch && isSearchTermMatch;
+      return (
+        isWithinPriceRange &&
+        isCategoryMatch &&
+        isAvailabilityMatch &&
+        isSearchTermMatch
+      );
     });
     setFilteredParts(filtered);
   };
@@ -83,7 +96,7 @@ const EVPartsAccessories = () => {
   const handleFilterClick = () => {
     applyFilters();
     if (window.innerWidth <= 480) {
-      toggleFilterBox(); 
+      toggleFilterBox();
     }
   };
 
@@ -115,7 +128,7 @@ const EVPartsAccessories = () => {
           value={filters.searchTerm}
           onChange={updateFilter}
           onKeyDown={(e) => {
-            if (e.key === 'Enter') handleSearchClick();
+            if (e.key === "Enter") handleSearchClick();
           }}
         />
         <button className="part-search-button" onClick={handleSearchClick}>
@@ -126,13 +139,17 @@ const EVPartsAccessories = () => {
       {/* Filter Toggle Button (only shown on mobile) */}
       <div className="filter-toggle-container">
         <button className="filter-toggle-button" onClick={toggleFilterBox}>
-          {isFilterBoxOpen ? 'Close Filters' : 'Open Filters'}
+          {isFilterBoxOpen ? "Close Filters" : "Open Filters"}
         </button>
       </div>
 
       {/* Filter Box for mobile view */}
-      <div className={`filter-box-mobile ${isFilterBoxOpen ? 'open' : 'closed'}`}>
-        <button className="filter-close-button" onClick={toggleFilterBox}>&times;</button>
+      <div
+        className={`filter-box-mobile ${isFilterBoxOpen ? "open" : "closed"}`}
+      >
+        <button className="filter-close-button" onClick={toggleFilterBox}>
+          &times;
+        </button>
         <h3>Filter Parts</h3>
         <div className="filter-group">
           <label>
@@ -244,20 +261,34 @@ const EVPartsAccessories = () => {
         </div>
 
         {/* Parts List */}
-        <div className={`parts-grid ${filteredParts.length === 0 ? 'empty' : ''}`}>
+        <div
+          className={`parts-grid ${filteredParts.length === 0 ? "empty" : ""}`}
+        >
           {filteredParts.length > 0 ? (
             filteredParts.map((part) => (
-              <a href={`/PartsAccessories/${part.ID}`} key={part.ID} className="part-card-link">
+              <Link
+                to={`/PartsAccessories/${part.ID}`}
+                key={part.ID}
+                className="part-card-link"
+              >
                 <div className="part-card">
-                  <img src={part.image || 'default-image.jpg'} alt={part.name || 'Part Image'} className="part-card__img" />
+                  <img
+                    src={part.image || "default-image.jpg"}
+                    alt={part.name || "Part Image"}
+                    className="part-card__img"
+                  />
                   <h5 className="part-card__name">
-                    {truncateText(part.name || '', MAX_NAME_LENGTH)}
+                    {truncateText(part.name || "", MAX_NAME_LENGTH)}
                   </h5>
-                  <p className="part-card__category">{part.category || 'Unknown Category'}</p>
+                  <p className="part-card__category">
+                    {part.category || "Unknown Category"}
+                  </p>
                   <p className="part-card__price">{formatPrice(part.price)}</p>
-                  <p className="part-card__availability">{getAvailabilityText(part.availability)}</p>
+                  <p className="part-card__availability">
+                    {getAvailabilityText(part.availability)}
+                  </p>
                 </div>
-              </a>
+              </Link>
             ))
           ) : (
             <p className="error-message">No parts found.</p>
