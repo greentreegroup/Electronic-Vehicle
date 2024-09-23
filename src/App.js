@@ -15,6 +15,7 @@ import HelpCenter2 from './HelpCenter2';
 import Chatbot from './Chatbot';
 import FeaturedParts from './components/FeaturedParts';
 import FeatureCars from './components/FeaturedCars';
+import Timeline from './components/Timeline';
 import './App.css';
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             <Route path="/userProfile/:userId" element={<UserProfile />} /> {/* Route for listing details page */}
             <Route path="/Parts" element={<FeaturedParts />} /> {/* Route for listing details page */}
             <Route path="/Cars" element={<FeatureCars />} /> {/* Route for listing details page */}
+            <Route path="/Timeline" element={<Timeline />} /> {/* Route for listing details page */}
             {/* Other routes */}
           </Routes>
         </main>
