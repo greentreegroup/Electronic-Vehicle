@@ -74,6 +74,12 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.contact-submit-button:disabled {
+    cursor: not-allowed;
+    background-color: #888; /* Change the color when the button is disabled */
 }
 
 .checkbox-group {

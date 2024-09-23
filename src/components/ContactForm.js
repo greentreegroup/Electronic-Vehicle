@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './ContactForm.css'; // Ensure this CSS file has appropriate styles
 
 const ContactForm = () => {
-  // Initial state for form data
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
@@ -14,11 +13,10 @@ const ContactForm = () => {
     agree_to_privacy_policy: false,
   });
 
-  // State to handle error and submission messages
   const [error, setError] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // New state for submission status
 
-  // Handle input change events
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -27,12 +25,10 @@ const ContactForm = () => {
     });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true); // Set submitting state to true when the form is submitted
 
-    // Placeholder URL for your Power Automate endpoint
-  
     const powerAutomateEndpoint = 
     'https://prod-46.southeastasia.logic.azure.com:443/workflows/9ba6c356db1a4726bd912540eb8116bb/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=CWGHk3tRx_JXXditPGIIFzGcrHoEBOXuBbhJup__u8A';
 
@@ -46,7 +42,6 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        // Reset form and show success message
         setFormData({
           name: '',
           mobile: '',
@@ -64,6 +59,8 @@ const ContactForm = () => {
     } catch (error) {
       setError('An error occurred. Please try again later.');
       console.error('Error during form submission:', error);
+    } finally {
+      setIsSubmitting(false); // Reset submitting state after submission
     }
   };
 
@@ -107,7 +104,13 @@ const ContactForm = () => {
                 <label style={{marginRight:'5rem'}} htmlFor="privacy-policy">I agree to the <a href="#">Privacy Policy</a></label>
               </div>
               {error && <div className="error-message">{error}</div>}
-              <button className='contact-submit-button' type="submit">SUBMIT</button>
+              <button 
+                className={`contact-submit-button ${isSubmitting ? 'submitting' : ''}`} 
+                type="submit" 
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Submitting...' : 'SUBMIT'}
+              </button>
             </form>
           )}
         </section>
