@@ -11,14 +11,14 @@ let cartItemList = [
     itemName: "Brake Pad",
     price: 45.29,
     quantity: 3,
-    img: ".../public/img/brakes.jpeg"
+    img: "/img/brakes.jpeg"
   },
   {
     id: 2,
     itemName: "New Turbochargers",
     price: 1199.89,
     quantity: 1,
-    img: ".../public/img/brake_rotar.jpeg"
+    img: "/img/brake_rotor.jpeg"
   }
 ]
 
