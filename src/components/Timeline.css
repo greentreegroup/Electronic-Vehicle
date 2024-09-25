@@ -1,4 +1,8 @@
+.timeline-header{
+    color:black;
+    margin:30px;
+}
+
 .timeline-body{
-    color:red;
     margin:20px;
 }
