@@ -11,8 +11,6 @@ import PartDetail from './components/PartDetail';
 import UserProfile from './components/UserProfile';
 import HomePage from './HomePage';
 import HelpCenter2 from './HelpCenter2';
-
-
 import Chatbot from './Chatbot';
 import FeaturedParts from './components/FeaturedParts';
 import FeatureCars from './components/FeaturedCars';

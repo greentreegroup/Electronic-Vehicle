@@ -72,20 +72,20 @@
 }
 
 .submit-butn {
-  background-color: #f0ad4e;
+  background-color: #f57b18;
   color: white;
   border: none;
-  padding: 0.75rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 1rem;
-}
-
-.submit-butn.submitting {
-  background-color: #ccc; /* Change background color when submitting */
-  cursor: not-allowed; /* Disable cursor during submission */
+  width: auto;
+  align-self: center; /* centerr */
+  margin-top: 1rem; /* add some */
+  margin-bottom: 0; /* remove */
+  position: relative; /* fix */
+  top: -20px; /* adjust */
 }
 
 .submit-butn:hover {
