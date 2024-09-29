@@ -136,7 +136,6 @@
 .dropdown-menu li a:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
 }
-
 /* Sidebar.css */
 
 /* Hamburger Menu Styles */
@@ -153,13 +152,14 @@
   z-index: 1001; /* Ensure it's on top */
 }
 
-@media (max-width: 768px) {
+/* Show hamburger on tablet and mobile screens (max-width: 1024px) */
+@media (max-width: 1024px) {
   .hamburger {
-    display: block; /* Show hamburger icon on small screens */
+    display: block; /* Show hamburger icon on tablet and smaller screens */
   }
 
   .sidebar-nav {
-    display: none; /* Hide the sidebar by default on small screens */
+    display: none; /* Hide the sidebar by default on smaller screens */
     flex-direction: column;
     background-color: #ecf0f1; /* Ensure the menu has the same background color */
     position: absolute;
@@ -193,13 +193,13 @@
     right: 10px;
     top: 10px;
   }
-  .account-button{
+  .account-button {
     margin-top: 10px;
   }
 }
 
-@media (min-width: 769px) {
-  /* On larger screens, hide the hamburger and show the nav normally */
+/* On larger screens, hide the hamburger and show the nav normally */
+@media (min-width: 1025px) {
   .hamburger {
     display: none;
   }
@@ -228,7 +228,15 @@
 }
 
 /* Ensure the search bar centers on mobile */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    margin-right: 10px;
+  }
   .search-bar {
     width: 50%; /* Adjust width for smaller screens */
     margin-top: 10px;

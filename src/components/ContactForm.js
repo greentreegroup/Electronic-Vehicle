@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ContactForm.css"; // Ensure this CSS file has appropriate styles
+import "./ContactForm.css"; // Link to the new CSS file
 import { countries } from "./countries";
 
 const ContactForm = () => {
@@ -16,7 +16,7 @@ const ContactForm = () => {
 
   const [error, setError] = useState(null);
   const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); // New state for submission status
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -28,7 +28,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // Set submitting state to true when the form is submitted
+    setIsSubmitting(true);
 
     const powerAutomateEndpoint =
       "https://prod-46.southeastasia.logic.azure.com:443/workflows/9ba6c356db1a4726bd912540eb8116bb/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=CWGHk3tRx_JXXditPGIIFzGcrHoEBOXuBbhJup__u8A";
@@ -58,131 +58,125 @@ const ContactForm = () => {
         throw new Error("Failed to submit form");
       }
     } catch (error) {
-      setError('An error occurred. Please try again later.');
-      console.error('Error during form submission:', error);
+      setError("An error occurred. Please try again later.");
+      console.error("Error during form submission:", error);
     } finally {
-      setIsSubmitting(false); // Reset submitting state after submission
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <>
-      <main>
-        <section className="contact-form">
-          <h1>CONTACT US</h1>
-          <p>
-            Should you have any inquiries or suggestions, please inform us by
-            filling in the fields below or send the following information to
-            email
-            <a href="mailto:support@evrabbit.com"> support@evrabbit.com</a>. We
-            are committed to providing you an effective and timely response.
-          </p>
-          {submitted ? (
-            <div className="success-message">
-              Your response has been submitted. Thank you!
+    <main>
+      <section className="contact-form">
+        <h1>Contact Us</h1>
+        <p>
+          Should you have any inquiries or suggestions, please fill out the form below or email us at 
+          <a href="mailto:support@evrabbit.com"> support@evrabbit.com</a>. We will get back to you shortly.
+        </p>
+        {submitted ? (
+          <div className="success-message">
+            Thank you! Your submission has been received.
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <input
+                type="text"
+                name="name"
+                placeholder="*Name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+              />
+              <input
+                type="text"
+                name="mobile"
+                placeholder="*Mobile No."
+                value={formData.mobile}
+                onChange={handleInputChange}
+                required
+              />
             </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <div className="form-group horizontal-group">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="*NAME"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="mobile"
-                  placeholder="*MOBILE NO."
-                  value={formData.mobile}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group horizontal-group">
-                <input
-                  type="text"
-                  name="vin"
-                  placeholder="*VIN/ID: Enter your VIN or 'none'"
-                  value={formData.vin}
-                  onChange={handleInputChange}
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="*EMAIL"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group horizontal-group">
-                <select
-                  name="country"
-                  value={formData.country}
-                  onChange={handleInputChange}
-                  required
-                >
-                  {countries.map((country) => (
-                    <option key={country.code} value={country.name}>
-                      {country.name}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  name="type"
-                  value={formData.type}
-                  onChange={handleInputChange}
-                  required
-                >
-                  <option value="" disabled>
-                    *TYPE
-                  </option>
-                  <option value="question">Question</option>
-                  <option value="comment">Comment</option>
-                  <option value="complaint">Complaint</option>
-                </select>
-              </div>
-              <div className="form-group horizontal-group">
-                <textarea
-                  name="question_or_comment"
-                  placeholder="*QUESTION/COMMENT"
-                  value={formData.question_or_comment}
-                  onChange={handleInputChange}
-                  required
-                ></textarea>
-              </div>
-              <div className="form-group checkbox-group">
-                <input
-                  type="checkbox"
-                  name="agree_to_privacy_policy"
-                  id="privacy-policy"
-                  checked={formData.agree_to_privacy_policy}
-                  onChange={handleInputChange}
-                  required
-                />
-                <label style={{ marginRight: "5rem" }} htmlFor="privacy-policy">
-                  I agree to the <a href="#">Privacy Policy</a>
-                </label>
-              </div>
-              {error && <div className="error-message">{error}</div>}
-              <button 
-                className={`contact-submit-button ${isSubmitting ? 'submitting' : ''}`} 
-                type="submit" 
-                disabled={isSubmitting}
+            <div className="form-group">
+              <input
+                type="text"
+                name="vin"
+                placeholder="*VIN/ID (or 'none')"
+                value={formData.vin}
+                onChange={handleInputChange}
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="*Email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <select
+                name="country"
+                value={formData.country}
+                onChange={handleInputChange}
+                required
               >
-                {isSubmitting ? 'Submitting...' : 'SUBMIT'}
-              </button>
-            </form>
-          )}
-        </section>
-      </main>
-    </>
+                {countries.map((country) => (
+                  <option key={country.code} value={country.name}>
+                    {country.name}
+                  </option>
+                ))}
+              </select>
+              <select
+                name="type"
+                value={formData.type}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="" disabled>
+                  *Type
+                </option>
+                <option value="question">Question</option>
+                <option value="comment">Comment</option>
+                <option value="complaint">Complaint</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <textarea
+                name="question_or_comment"
+                placeholder="*Question/Comment"
+                value={formData.question_or_comment}
+                onChange={handleInputChange}
+                required
+              ></textarea>
+            </div>
+            <div className="form-group checkbox-group">
+              <input
+                type="checkbox"
+                name="agree_to_privacy_policy"
+                id="privacy-policy"
+                checked={formData.agree_to_privacy_policy}
+                onChange={handleInputChange}
+                required
+              />
+              <label htmlFor="privacy-policy">
+                I agree to the <a href="#">Privacy Policy</a>
+              </label>
+            </div>
+            {error && <div className="error-message">{error}</div>}
+            <button
+              className={`contact-submit-button ${isSubmitting ? "submitting" : ""}`}
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Submit"}
+            </button>
+          </form>
+        )}
+      </section>
+    </main>
   );
 };
 
 export default ContactForm;
-

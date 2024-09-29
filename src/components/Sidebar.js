@@ -63,6 +63,11 @@ const Sidebar = () => {
     setSearchQuery(e.target.value);
   };
 
+  // Function to close the mobile menu when a link is clicked
+  const handleLinkClick = () => {
+    setShowMobileMenu(false);
+  };
+
   return (
     <div className="sidebar">
       <button className="hamburger" onClick={toggleMobileMenu}>
@@ -71,57 +76,40 @@ const Sidebar = () => {
 
       <ul className={`sidebar-nav ${showMobileMenu ? 'mobile-show' : 'mobile-hide'}`}>
         <li className="nav-item">
-          <Link to="/" className="nav-link">
+          <Link to="/" className="nav-link" onClick={handleLinkClick}>
             Home
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/PartsAccessories" className="nav-link">
+          <Link to="/PartsAccessories" className="nav-link" onClick={handleLinkClick}>
             Parts
           </Link>
         </li>
-        {/*<li className="nav-item">
-          <Link to="/listings" className="nav-link">
-            Listings
-          </Link>
-        </li>
-        {/*<li className="nav-item">
-          <Link to="/track-record" className="nav-link">
-            Track Record
-          </Link>
-        </li>*/}
         <li className="nav-item">
-          <Link to="/HelpCenter2" className="nav-link">
+          <Link to="/HelpCenter2" className="nav-link" onClick={handleLinkClick}>
             Help Center
           </Link>
-
         </li>
-       
         <li className="nav-item">
-          <Link to="/Research" className="nav-link">
+          <Link to="/Research" className="nav-link" onClick={handleLinkClick}>
             Research & Insights
           </Link>
-          
         </li>
         <li className="nav-item">
-          <Link to="/Contact" className="nav-link">
+          <Link to="/Contact" className="nav-link" onClick={handleLinkClick}>
             Contact Us
           </Link>
-        
-          
         </li>
         <li className="nav-item">
-          <Link to="/AboutUs" className="nav-link">
+          <Link to="/AboutUs" className="nav-link" onClick={handleLinkClick}>
             About Us
           </Link>
-        
-          
         </li>
       </ul>
 
       {/* Search Bar */}
       <div className="search-container">
-      <input
+        <input
           type="text"
           placeholder="🔍 Search for a product..."
           value={searchQuery}
@@ -148,12 +136,12 @@ const Sidebar = () => {
                 </button>
               </li>
               <li>
-                <Link to={`/userProfile/${Cookies.get('id')}`} className="nav-link">
+                <Link to={`/userProfile/${Cookies.get('id')}`} className="nav-link" onClick={handleLinkClick}>
                   User Profile
                 </Link>
               </li>
               <li>
-                <Link to="/settings" className="nav-link">
+                <Link to="/settings" className="nav-link" onClick={handleLinkClick}>
                   Settings
                 </Link>
               </li>
