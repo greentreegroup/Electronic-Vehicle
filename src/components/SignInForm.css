@@ -89,7 +89,6 @@ button {
     text-decoration: underline;
 }
 
-
 .submit-bton {
     opacity: 100%;
     background-color: #f57b18; /* light orange background */
@@ -105,6 +104,11 @@ button {
     justify-content: center !important;
 }
 
+.submit-bton.submitting {
+    background-color: #ccc; /* Change background when submitting */
+    cursor: not-allowed;
+}
+
 .submit-bton:hover {
-    background-color:#e66916; /* Slightly darker orange for hover effect */
+    background-color: #e66916; /* Slightly darker orange for hover effect */
 }

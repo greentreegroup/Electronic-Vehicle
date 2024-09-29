@@ -1,4 +1,3 @@
-//SignUpForm.js
 import React, { useState } from 'react';
 import './SignUpForm.css';
 import bcrypt from 'bcryptjs';
@@ -17,6 +16,7 @@ const SignUpForm = ({ onClose }) => {
     });
 
     const [error, setError] = useState(null);
+    const [isSubmitting, setIsSubmitting] = useState(false); // New state for submission status
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -34,8 +34,7 @@ const SignUpForm = ({ onClose }) => {
             return;
         }
 
-        /*need a better password system */
-        /*const hashedPassword = await bcrypt.hash(formData.password, saltRounds);*/
+        setIsSubmitting(true); // Set submitting state to true when the form is submitted
 
         const url =
             'https://prod-63.southeastasia.logic.azure.com:443/workflows/298505686ab047b881892eb5678736d1/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=uDGzv3sDKOnM1EuAMt6FsOY2FhgmNUQYY6M4FeiAwgY';
@@ -45,7 +44,7 @@ const SignUpForm = ({ onClose }) => {
         };
 
         const body = JSON.stringify({
-            ...formData
+            ...formData,
             /*password: hashedPassword,*/
         });
 
@@ -62,7 +61,6 @@ const SignUpForm = ({ onClose }) => {
             } else {
                 console.error('Error while sending data:', response.statusText);
 
-                // Dodaj obsługę błędu 403 (Forbidden)
                 if (response.status === 403) {
                     setError('Error: Email already exists. Please use a different email.');
                 } else {
@@ -72,6 +70,8 @@ const SignUpForm = ({ onClose }) => {
         } catch (error) {
             console.error('Error:', error.message);
             setError('An error occurred. Please try again later.');
+        } finally {
+            setIsSubmitting(false); // Reset submitting state after submission
         }
     };
 
@@ -147,11 +147,15 @@ const SignUpForm = ({ onClose }) => {
                             required
                         />
                     </div>
-                      
+
                     {error && <div className="error-message">{error}</div>}
 
-                    <button type="submit" className="submit-bton">
-                        Sign Up
+                    <button
+                        type="submit"
+                        className={`submit-bton ${isSubmitting ? 'submitting' : ''}`}
+                        disabled={isSubmitting}
+                    >
+                        {isSubmitting ? 'Submitting...' : 'Sign Up'}
                     </button>
                 </form>
             </div>

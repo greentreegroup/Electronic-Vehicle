@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import './ChangeInfoForm.css';
 
@@ -12,6 +11,7 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
   });
 
   const [error, setError] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false); // New state for submission status
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,12 +23,13 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
 
   const reloadAfterUpdate = async () => {
     setTimeout(() => {
-      window.location.reload(); {/*reload to show updated info*/}  
-    } , "5000"); 
+      window.location.reload(); {/*reload to show updated info*/}
+    }, "5000"); 
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true); // Set submitting state to true when the form is submitted
 
     const url =
       'https://prod-28.southeastasia.logic.azure.com:443/workflows/55d037b6f649479bbacdd548c65947dd/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1EXt4OGfLWyO1s1Yh4oheOSFRK5jYFVyAjVmaWCvHqY';
@@ -37,11 +38,9 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
       'Content-Type': 'application/json',
     };
 
-    // Convert fields that should be integers to numbers
     const body = JSON.stringify({
       ...formData,
-      id: parseInt(formData.id), // Assuming id should be an integer
-      // Add other fields that should be integers here
+      id: parseInt(formData.id),
     });
 
     try {
@@ -69,6 +68,8 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
     } catch (error) {
       console.error('Error:', error.message);
       setError('An error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false); // Reset submitting state after submission
     }
   };
 
@@ -117,8 +118,12 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
             />
           </label>
           {error && <div className="error-message">{error}</div>}
-          <button type="submit" className="submit-butn">
-            Update
+          <button
+            type="submit"
+            className={`submit-butn ${isSubmitting ? 'submitting' : ''}`}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Submitting...' : 'Update'}
           </button>
         </form>
       </div>

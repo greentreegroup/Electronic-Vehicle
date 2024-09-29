@@ -77,17 +77,22 @@ button {
 }
 
 .submit-bton {
-    background-color: #f57b18; /* Green background */
-    color: white; /* White text color */
+    background-color: #f57b18;
+    color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     border-radius: 1px;
     cursor: pointer;
-    font-size: 1rem; /* Adjust font size as needed */
-    transition: background-color 0.3s; /* Smooth transition for background color */
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-bton.submitting {
+    background-color: #ccc; /* Change background when submitting */
+    cursor: not-allowed;
 }
 
 .submit-bton:hover {
-    background-color: #e66916 !important; /* Slightly darker green for hover effect */
+    background-color: #e66916 !important;
 }

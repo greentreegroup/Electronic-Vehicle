@@ -5,7 +5,6 @@ import SignInButton from './SignInButton';
 import ResetPassword from './ResetPasswordForm';
 import SignUpForm from './SignUpForm'; // Import the SignUpForm component
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection      
-import UserProfile from './UserProfile';
 import Cookies from 'js-cookie';
 
 const SignInForm = ({ onClose }) => {
@@ -15,9 +14,10 @@ const SignInForm = ({ onClose }) => {
     });
     const [resetPasswordClicked, setResetPasswordClicked] = useState(false);
     const [createAccountClicked, setCreateAccountClicked] = useState(false); // New state for Create Account
+    const [isSubmitting, setIsSubmitting] = useState(false); // New state for submission status
+    const [error, setError] = useState(null);
 
     const navigate = useNavigate(); // Hook for navigation
-    const [error, setError] = useState(null);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -26,6 +26,7 @@ const SignInForm = ({ onClose }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true); // Set submitting state to true when the form is submitted
 
         const powerAutomateEndpoint = 'https://prod-25.southeastasia.logic.azure.com:443/workflows/4cf63c66c18d4326a3be6de024f950a3/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cANk_84AqvhzTZk8A2K7Lj6G8w-zNoixqp5qW94akpc';
 
@@ -41,14 +42,13 @@ const SignInForm = ({ onClose }) => {
                 }),
             });
 
-            // Handle the response based on your requirements
             if (response.ok) {
                 const userId = await response.text(); // Assuming the response is just a plain text
                 console.log('Login successful!');
                 console.log('Response data:', userId); // Log the user ID
                 onClose(); // Close the form or redirect to another page
-                Cookies.set('isLoggedIn', 'true', { expires: 1, sameSite: 'None', secure: true})
-                Cookies.set('id', userId, {expires: 1, sameSite: 'None', secure: true } ) 
+                Cookies.set('isLoggedIn', 'true', { expires: 1, sameSite: 'None', secure: true })
+                Cookies.set('id', userId, { expires: 1, sameSite: 'None', secure: true })
                 navigate(`/userProfile/${userId}`);
             } else if (response.status === 401 || response.status === 403) {
                 console.error('Login failed: Unauthorized access');
@@ -63,6 +63,8 @@ const SignInForm = ({ onClose }) => {
         } catch (error) {
             console.error('Error during login:', error);
             setError('An error occurred. Please try again later.');
+        } finally {
+            setIsSubmitting(false); // Reset submitting state after submission
         }
     };
 
@@ -118,11 +120,17 @@ const SignInForm = ({ onClose }) => {
                                 <a href="#" onClick={handleForgetPasswordClick}>Forgot your password?</a>
                             </div>
 
-                            <button type="submit" className="submit-bton">Sign In</button>
+                            <button
+                                type="submit"
+                                className={`submit-bton ${isSubmitting ? 'submitting' : ''}`}
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? 'Submitting...' : 'Sign In'}
+                            </button>
                         </form>
                         <div className="create-account">
                             <p>
-                                New to EVrabbit? <a href="#" onClick={handleCreateAccountClick}>Create an account</a> 
+                                New to EVrabbit? <a href="#" onClick={handleCreateAccountClick}>Create an account</a>
                             </p>
                         </div>
                     </>
