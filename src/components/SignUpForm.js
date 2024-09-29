@@ -173,7 +173,6 @@ const SignUpForm = ({ onClose }) => {
                         />
                     </div>
 
-                    {/* Country selector */}
                     <div className="form-group">
                         <label htmlFor="country">Country:</label>
                         <Select
