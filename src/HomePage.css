@@ -30,3 +30,11 @@ h1 {
   padding: 0 px; /* Adds padding on the left and right. Adjust the 40px as needed. */
   max-width: 1600px; /* Optional: Sets a maximum width for the paragraph */
 }
+
+.featured-articles-container {
+  margin-bottom: 60px;
+}
+
+.featured-articles .article-title {
+  margin-bottom: 60px;
+}
