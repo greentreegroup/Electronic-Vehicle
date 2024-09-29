@@ -7,6 +7,11 @@
   padding: 20px;
 }
 
+.faq-title {
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
 .faq-item {
   margin-bottom: 10px;
   border: 1px solid #ddd;

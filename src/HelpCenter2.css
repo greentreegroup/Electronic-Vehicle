@@ -116,10 +116,9 @@
 }
 
 .head-line{
-  padding-left: 20px;
-  
-
+  padding-left: 0px;
 }
+
 .featured-articles {
   display: flex;
   flex-wrap: nowrap; /* Ensure articles stay in a single row */
@@ -129,8 +128,17 @@
   overflow-x: auto; /* Enable horizontal scrolling */
   width: 100%; /* Ensure articles span the entire width */
 }
-/* HelpCenter.css */
 
+.featured-articles-heading {
+  margin-bottom: 25px;
+}
+
+.article-title {
+  margin-top: 25px; /* Add some space above the title to move it down */
+  text-align: center; /* Optional: to center-align the title */
+  font-size: 18px;
+  color: white;
+}
 
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 1024px) {
