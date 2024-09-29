@@ -1,7 +1,8 @@
-//SignUpForm.js
 import React, { useState } from 'react';
 import './SignUpForm.css';
 import bcrypt from 'bcryptjs';
+import { Country, State, City } from 'country-state-city';
+import Select from 'react-select';
 
 const saltRounds = 10;
 
@@ -14,6 +15,9 @@ const SignUpForm = ({ onClose }) => {
         password_repet: '',
         phone_number: '',
         Is_developer: false,
+        country: null,
+        state: null,
+        city: null,
     });
 
     const [error, setError] = useState(null);
@@ -26,6 +30,30 @@ const SignUpForm = ({ onClose }) => {
         }));
     };
 
+    const handleCountryChange = (selectedCountry) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            country: selectedCountry,
+            state: null, // reset state and city when country changes
+            city: null,
+        }));
+    };
+
+    const handleStateChange = (selectedState) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            state: selectedState,
+            city: null, // reset city when state changes
+        }));
+    };
+
+    const handleCityChange = (selectedCity) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            city: selectedCity,
+        }));
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -34,19 +62,16 @@ const SignUpForm = ({ onClose }) => {
             return;
         }
 
-        /*need a better password system */
-        /*const hashedPassword = await bcrypt.hash(formData.password, saltRounds);*/
+        /* const hashedPassword = await bcrypt.hash(formData.password, saltRounds); */
 
-        const url =
-            'https://prod-63.southeastasia.logic.azure.com:443/workflows/298505686ab047b881892eb5678736d1/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=uDGzv3sDKOnM1EuAMt6FsOY2FhgmNUQYY6M4FeiAwgY';
-
+        const url = 'https://your-backend-api-url';
         const headers = {
             'Content-Type': 'application/json',
         };
 
         const body = JSON.stringify({
-            ...formData
-            /*password: hashedPassword,*/
+            ...formData,
+            /* password: hashedPassword, */
         });
 
         try {
@@ -62,7 +87,6 @@ const SignUpForm = ({ onClose }) => {
             } else {
                 console.error('Error while sending data:', response.statusText);
 
-                // Dodaj obsługę błędu 403 (Forbidden)
                 if (response.status === 403) {
                     setError('Error: Email already exists. Please use a different email.');
                 } else {
@@ -83,6 +107,7 @@ const SignUpForm = ({ onClose }) => {
                     ✖
                 </button>
                 <form onSubmit={handleSubmit}>
+                    {/* Existing form fields */}
                     <div className="form-group">
                         <label htmlFor="First_Name">First Name:</label>
                         <input
@@ -147,7 +172,61 @@ const SignUpForm = ({ onClose }) => {
                             required
                         />
                     </div>
-                      
+
+                    {/* Country selector */}
+                    <div className="form-group">
+                        <label htmlFor="country">Country:</label>
+                        <Select
+                            id="country"
+                            name="country"
+                            options={Country.getAllCountries().map((country) => ({
+                                value: country.isoCode,
+                                label: country.name,
+                            }))}
+                            value={formData.country}
+                            onChange={handleCountryChange}
+                            placeholder="Select Country"
+                        />
+                    </div>
+
+                    {/* State selector */}
+                    {formData.country && (
+                        <div className="form-group">
+                            <label htmlFor="state">State:</label>
+                            <Select
+                                id="state"
+                                name="state"
+                                options={State.getStatesOfCountry(formData.country?.value).map((state) => ({
+                                    value: state.isoCode,
+                                    label: state.name,
+                                }))}
+                                value={formData.state}
+                                onChange={handleStateChange}
+                                placeholder="Select State"
+                            />
+                        </div>
+                    )}
+
+                    {/* City selector */}
+                    {formData.state && (
+                        <div className="form-group">
+                            <label htmlFor="city">City:</label>
+                            <Select
+                                id="city"
+                                name="city"
+                                options={City.getCitiesOfState(formData.country?.value, formData.state?.value).map(
+                                    (city) => ({
+                                        value: city.name,
+                                        label: city.name,
+                                    })
+                                )}
+                                value={formData.city}
+                                onChange={handleCityChange}
+                                placeholder="Select City"
+                            />
+                        </div>
+                    )}
+
                     {error && <div className="error-message">{error}</div>}
 
                     <button type="submit" className="submit-bton">
