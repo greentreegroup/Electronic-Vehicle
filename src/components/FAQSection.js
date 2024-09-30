@@ -12,33 +12,14 @@ const FAQSection = () => {
       question: "What is the return policy?",
       answer: "Our return policy is 30 days, no questions asked. Contact us for more details."
     },
-    
-    //{
-    //  question: "What payment methods do you accept?",
-    //  answer: "We accept all major credit cards, including Visa, MasterCard, and American Express. You can also pay using PayPal."
-    //},
     {
       question: "How secure is my personal information?",
       answer: "We take your privacy and security very seriously. All transactions are encrypted and your personal details are protected according to the highest industry standards."
     },
-    // {
-    //     question: "How do I sign up?",
-    //     answer: "You can sign up by clicking the Sign Up button and filling out the form."
-    //   },
-    //   {
-    //     question: "What is the return policy?",
-    //     answer: "Our return policy is 30 days, no questions asked. Contact us for more details."
-    //   },
-      
-    //   {
-    //     question: "What payment methods do you accept?",
-    //     answer: "We accept all major credit cards, including Visa, MasterCard, and American Express. You can also pay using PayPal."
-    //   },
-    //   {
-    //     question: "How secure is my personal information?",
-    //     answer: "We take your privacy and security very seriously. All transactions are encrypted and your personal details are protected according to the highest industry standards."
-    //   },
-    // Add more FAQs here
+    {
+      question: "What shipping methods do you offer?",
+      answer: "We offer standard, expedited, and next-day shipping options. Shipping times may vary based on your location. You can choose your preferred method during checkout."
+    }    
   ];
 
 
