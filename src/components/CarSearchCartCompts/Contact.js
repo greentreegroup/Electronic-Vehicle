@@ -3,8 +3,7 @@ import { Box, Typography, Grid } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
-
-const COLOUR = "#f57b18";
+import { COLOUR } from "./Colour"
 
 const ContactSeller = ({ contacts }) => {
   return (

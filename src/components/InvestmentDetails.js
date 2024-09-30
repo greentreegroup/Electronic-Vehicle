@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './InvestmentDetails.css';
-import Modal from './Modal'; // Import the Modal component if you have it in a separate file
+//import Modal from './Modal'; // Import the Modal component if you have it in a separate file
 
 const InvestmentDetails = () => {
   const { listingId } = useParams(); // Get the listingId parameter from the URL
@@ -112,14 +112,6 @@ const InvestmentDetails = () => {
         </div>
       </div>
 
-      {/* Modal for full-size image display */}
-      <Modal showModal={showModal} onClose={toggleModal}>
-        <img
-          src={property.photos[currentImageIndex]}
-          alt={property.location}
-          style={{ width: '100%' }} // Ensures the image fits within the modal
-        />
-      </Modal>
     </div>
   );
 };

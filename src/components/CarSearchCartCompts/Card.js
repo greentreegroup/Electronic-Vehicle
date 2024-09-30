@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { AZURE_BLOB_SAS_URL } from "./CarSearchUrls";
+import { AZURE_BLOB_SAS_URL } from "./urls";
+import { formatCurrency } from "./functions"
 
 const CarCard = ({ result }) => {
   const navigate = useNavigate();
@@ -20,11 +21,11 @@ const CarCard = ({ result }) => {
       onClick={handleClick}
       sx={{
         cursor: "pointer",
-        transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition for hover effects
+        transition: "transform 0.3s ease, box-shadow 0.3s ease", 
         "&:hover": {
           backgroundColor: "#ecf0f1",
-          transform: "scale(1.05)", // Slight magnification effect
-          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.2)", // Box shadow around edges
+          transform: "scale(1.05)",
+          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.2)",
         },
       }}
     >
@@ -45,17 +46,17 @@ const CarCard = ({ result }) => {
           variant="h4"
           color="text.secondary"
           sx={{
-            fontSize: "clamp(16px, 2.5vw, 24px)", // Dynamically scale font size between 16px and 24px
-            overflow: "hidden", // Hide overflow text
-            textOverflow: "ellipsis", // Show ellipsis if text overflows
-            whiteSpace: "nowrap", // Prevent text from wrapping to a new line
+            fontSize: "clamp(16px, 2.5vw, 24px)",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
           }}
         >
           {result.brand} {result.model}
         </Typography>
         <Typography variant="body2">{`Year: ${result.year}`}</Typography>
         <Typography variant="h4" color="text.primary">
-          {`$${result.price.toFixed(2)}`}
+          {formatCurrency(result.price)}
         </Typography>
       </CardContent>
     </Card>

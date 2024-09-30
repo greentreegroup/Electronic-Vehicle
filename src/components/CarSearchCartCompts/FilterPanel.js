@@ -1,6 +1,7 @@
 import React from "react";
 import { SelectChangeEvent, Slider, Typography, Grid } from "@mui/material";
-import { FormSortOrder, FormSortBy } from "./CarSearchForms";
+import { FormSortOrder, FormSortBy } from "./Forms";
+import { COLOUR } from "./Colour"
 
 const FilterPanel = ({
   brand,
@@ -37,19 +38,19 @@ const FilterPanel = ({
         sx={{
           marginBottom: 2,
           marginLeft: "6px",
-          color: "#f57b18", // Set the color of the slider
+          color: COLOUR,
           "& .MuiSlider-thumb": {
-            backgroundColor: "#f57b18", // Thumb (the circle) color
+            backgroundColor: COLOUR,
             "&:hover, &.Mui-focusVisible": {
               boxShadow: "0px 0px 0px 8px rgba(245, 123, 24, 0.16)", // Orange glow on hover
-              backgroundColor: "#f57b18", // Maintain the orange color on hover
+              backgroundColor: COLOUR,
             },
           },
           "& .MuiSlider-track": {
-            backgroundColor: "#f57b18", // Track (filled portion) color
+            backgroundColor: COLOUR,
           },
           "& .MuiSlider-rail": {
-            backgroundColor: "#ddd", // Rail (unfilled portion) color
+            backgroundColor: "#ddd",
           },
         }}
       />
@@ -63,16 +64,16 @@ const FilterPanel = ({
         max={2024}
         sx={{
           marginLeft: "6px",
-          color: "#f57b18", // Set the color of the slider
+          color: COLOUR,
           "& .MuiSlider-thumb": {
-            backgroundColor: "#f57b18",
+            backgroundColor: COLOUR,
             "&:hover, &.Mui-focusVisible": {
               boxShadow: "0px 0px 0px 8px rgba(245, 123, 24, 0.16)",
-              backgroundColor: "#f57b18",
+              backgroundColor: COLOUR,
             },
           },
           "& .MuiSlider-track": {
-            backgroundColor: "#f57b18",
+            backgroundColor: COLOUR,
           },
           "& .MuiSlider-rail": {
             backgroundColor: "#ddd",

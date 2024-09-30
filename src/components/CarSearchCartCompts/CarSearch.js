@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Box, Grid } from "@mui/material";
-import { Typography, CarCard } from "./CarSearchCard";
-import { useCarContext } from "./CarSearchContext";
-import FilterPanel from "./CarSearchFilterPanel";
-import Pagination from "./CarSearchPagination";
-import Loading from "./CarSearchLoading";
-import { REACT_APP_PA_BACKEND_CAR_URL, REACT_APP_PA_UNIQUE_CAR_BRANDS_URL } from "./CarSearchUrls"
+import { Box, Grid, SelectChangeEvent } from "@mui/material";
+import { Typography, CarCard } from "./Card";
+import { useCarContext } from "./CarContext";
+import FilterPanel from "./FilterPanel";
+import Pagination from "./Pagination";
+import Loading from "./Loading";
+import { PA_BACKEND_CAR_URL, PA_UNIQUE_CAR_BRANDS_URL } from "./urls"
 
-
-const CarSearch = () => {
+const Search: React.FC = () => {
   const [searchResults, setSearchResults] = useState([]);
   const { carData, setCarData, currentPage, setCurrentPage } = useCarContext();
   const [sortOrder, setSortOrder] = useState("price-asc");
@@ -41,11 +40,12 @@ const CarSearch = () => {
   useEffect(() => {
     if (carData === null) {
       setLoading(true);
-      fetch(REACT_APP_PA_BACKEND_CAR_URL, {
+      fetch(PA_BACKEND_CAR_URL, {
         headers: { "Content-Type": "application/json" },
       })
         .then((res) => res.json())
         .then((data) => {
+          //console.log("Fetched data:", data);
           setCarData(data);
         })
         .catch((err) => {
@@ -60,13 +60,11 @@ const CarSearch = () => {
   // filter cars
   useEffect(() => {
     if (carData) {
-      let filteredResults = carData
+      const filteredResults = carData
         .filter(
-          (car) => car.price >= priceRange[0] && car.price <= priceRange[1]
+          (car) => car.price >= priceRange[0] && car.price <= priceRange[1],
         )
-        .filter(
-          (car) => car.year >= yearRange[0] && car.year <= yearRange[1]
-        )
+        .filter((car) => car.year >= yearRange[0] && car.year <= yearRange[1])
         .filter((car) => (brand ? car.brand === brand : true));
 
       // Sorting based on the selected sortOrder
@@ -90,7 +88,7 @@ const CarSearch = () => {
       // Apply pagination logic: slice the filtered results to show only the results for the current page
       const paginatedResults = filteredResults.slice(
         (currentPage - 1) * cardsPerPage,
-        currentPage * cardsPerPage
+        currentPage * cardsPerPage,
       );
 
       setSearchResults(paginatedResults);
@@ -102,11 +100,13 @@ const CarSearch = () => {
   useEffect(() => {
     const fetchCarBrands = async () => {
       try {
-        const response = await fetch(REACT_APP_PA_UNIQUE_CAR_BRANDS_URL, {
+        const response = await fetch(PA_UNIQUE_CAR_BRANDS_URL, {
           headers: { "Content-Type": "application/json" },
         });
         if (!response.ok) {
-          throw new Error("Network response error for fetching car brands list");
+          throw new Error(
+            "Network response error for fetching car brands list",
+          );
         }
 
         const data = await response.json();
@@ -120,10 +120,12 @@ const CarSearch = () => {
   }, []);
 
   return (
-    <Box sx={{ marginTop: "50px", maxWidth: "100%" }}>
-      <Typography variant="h4" gutterBottom>
-        EV Search
-      </Typography>
+    <Box sx={{ padding: 0, margin: 0, maxWidth: "100%" }}>
+      <Grid container alignItems="center" justifyContent="space-between">
+          <Typography variant="h4" gutterBottom>
+            EV Search
+          </Typography>
+      </Grid>
       <Grid container spacing={2}>
         <FilterPanel
           brand={brand}
@@ -162,4 +164,4 @@ const CarSearch = () => {
   );
 };
 
-export default CarSearch;
+export default Search;

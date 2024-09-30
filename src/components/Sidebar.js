@@ -5,6 +5,7 @@ import './Sidebar.css';
 import SignInForm from './SignInForm.js';
 import SignUpForm from './SignUpForm.js';
 import ResearchPage from './ResearchPage.js';
+import ShoppingCartHeader from "./CarSearchCartCompts/ShoppingCartHeader";
 
 const Sidebar = () => {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -70,6 +71,7 @@ const Sidebar = () => {
         </li>
       </ul>
       <div className="auth-links">
+        <ShoppingCartHeader />
         <button onClick={handleSignInClick} className="nav-link">
           Sign In
         </button>

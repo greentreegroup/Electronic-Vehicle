@@ -5,8 +5,8 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
+import { BACKGROUND_COLOUR, SELECT_COLOUR2, COLOUR } from "./Colour"
 
-const SELECT_COLOUR = "#ecf0f1";
 
 const FormSortBy = ({
   brand,
@@ -24,24 +24,31 @@ const FormSortBy = ({
           PaperProps: {
             sx: {
               "& .MuiMenuItem-root": {
-                backgroundColor: "#fff", // Default background color for menu items
                 "&.Mui-selected": {
-                  backgroundColor: SELECT_COLOUR, // Background color for selected item
+                  backgroundColor: SELECT_COLOUR2,
                   "&:hover": {
-                    backgroundColor: SELECT_COLOUR, // Keep same background color on hover when selected
+                    backgroundColor: SELECT_COLOUR2,
                   },
                 },
                 "&:hover": {
-                  backgroundColor: SELECT_COLOUR,
+                  backgroundColor: SELECT_COLOUR2,
                 },
               },
-            },
+            }
+          }
+        }}
+        sx ={{
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: COLOUR,
+          },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: COLOUR,
           },
         }}
       >
         {/* Option to show all brands */}
         <MenuItem value="">All Brands</MenuItem>{" "}
-        {carBrands.map((carBrand, index) => (
+        {carBrands.map((carBrand: string, index: number) => (
           <MenuItem key={index} value={carBrand}>
             {carBrand}
           </MenuItem>
@@ -51,7 +58,7 @@ const FormSortBy = ({
   );
 };
 
-const FormSortOrder = ({
+const FormSortOrder: React.FC<FormSortOrderProps> = ({
   sortOrder,
   handleSortOrderChange,
 }) => {
@@ -66,18 +73,25 @@ const FormSortOrder = ({
           PaperProps: {
             sx: {
               "& .MuiMenuItem-root": {
-                backgroundColor: "#fff", // Default background color for menu items
                 "&.Mui-selected": {
-                  backgroundColor: SELECT_COLOUR, // Background color for selected item
+                  backgroundColor: SELECT_COLOUR2,
                   "&:hover": {
-                    backgroundColor: SELECT_COLOUR, // Keep same background color on hover when selected
+                    backgroundColor: SELECT_COLOUR2,
                   },
                 },
                 "&:hover": {
-                  backgroundColor: SELECT_COLOUR,
+                  backgroundColor: SELECT_COLOUR2,
                 },
               },
             },
+          },
+        }}
+        sx ={{
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: COLOUR,
+          },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: COLOUR,
           },
         }}
       >

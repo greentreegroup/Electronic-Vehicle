@@ -6,9 +6,8 @@ import {
   KeyboardDoubleArrowLeftRounded,
   KeyboardDoubleArrowRightRounded,
 } from "@mui/icons-material";
+import { BACKGROUND_COLOUR, SELECT_COLOUR } from "./Colour"
 
-const BACKGROUND_COLOUR = "#17292e";
-const SELECT_COLOUR = "#fff";
 
 const Pagination = ({
   loading,
