@@ -8,6 +8,7 @@ import { AZURE_BLOB_SAS_URL } from "./urls";
 import { useCart } from "./CartContext";
 import BackButton from "./BackButton";
 import Snackbar, { SnackbarCloseReason } from "@mui/material/Snackbar";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import { COLOUR } from "./Colour";
@@ -225,7 +226,11 @@ const CarDetails = () => {
                   onClose={handleClose}
                   severity="success"
                   variant="outlined"
-                  sx={{ width: "100%" }}
+                  icon={<CheckCircleOutlineIcon sx={{ color: COLOUR }} />}
+                  sx={{
+                    color: COLOUR,
+                    borderColor:COLOUR,
+                  }}
                 >
                   {`${car.brand} ${car.model} added`}
                 </Alert>

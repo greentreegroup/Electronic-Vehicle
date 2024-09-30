@@ -7,7 +7,7 @@ import Pagination from "./Pagination";
 import Loading from "./Loading";
 import { PA_BACKEND_CAR_URL, PA_UNIQUE_CAR_BRANDS_URL } from "./urls"
 
-const Search: React.FC = () => {
+const Search = () => {
   const [searchResults, setSearchResults] = useState([]);
   const { carData, setCarData, currentPage, setCurrentPage } = useCarContext();
   const [sortOrder, setSortOrder] = useState("price-asc");
