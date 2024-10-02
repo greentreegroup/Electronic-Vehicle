@@ -1,23 +1,12 @@
 import React from "react";
-import {
-  SelectChangeEvent,
-  FormControl,
-  MenuItem,
-  Select,
-} from "@mui/material";
-import { SELECT_COLOUR2, COLOUR } from "./Colour"
+import { FormControl, MenuItem, Select } from "@mui/material";
+import { SELECT_COLOUR2, COLOUR } from "./Colour";
 
-
-const FormSortBy = ({
-  brand,
-  handleSortBrand,
-  carBrands,
-}) => {
+const FormSortBy = ({ brand, handleSortBrand, carBrands }) => {
   return (
     <FormControl fullWidth sx={{ marginBottom: 2 }}>
       <Select
-        labelId="sort-field-label"
-        id="sort-field"
+        id="sort-brand"
         value={brand}
         onChange={handleSortBrand}
         MenuProps={{
@@ -34,10 +23,10 @@ const FormSortBy = ({
                   backgroundColor: SELECT_COLOUR2,
                 },
               },
-            }
-          }
+            },
+          },
         }}
-        sx ={{
+        sx={{
           "&:hover .MuiOutlinedInput-notchedOutline": {
             borderColor: COLOUR,
           },
@@ -48,7 +37,7 @@ const FormSortBy = ({
       >
         {/* Option to show all brands */}
         <MenuItem value="">All Brands</MenuItem>{" "}
-        {carBrands.map((carBrand: string, index: number) => (
+        {carBrands.map((carBrand, index) => (
           <MenuItem key={index} value={carBrand}>
             {carBrand}
           </MenuItem>
@@ -58,14 +47,10 @@ const FormSortBy = ({
   );
 };
 
-const FormSortOrder: React.FC<FormSortOrderProps> = ({
-  sortOrder,
-  handleSortOrderChange,
-}) => {
+const FormSortOrder = ({ sortOrder, handleSortOrderChange }) => {
   return (
     <FormControl fullWidth sx={{ marginBottom: 2 }}>
       <Select
-        labelId="sort-order-label"
         id="sort-order"
         value={sortOrder}
         onChange={handleSortOrderChange}
@@ -86,7 +71,7 @@ const FormSortOrder: React.FC<FormSortOrderProps> = ({
             },
           },
         }}
-        sx ={{
+        sx={{
           "&:hover .MuiOutlinedInput-notchedOutline": {
             borderColor: COLOUR,
           },
@@ -104,4 +89,49 @@ const FormSortOrder: React.FC<FormSortOrderProps> = ({
   );
 };
 
-export { FormSortBy, FormSortOrder };
+const FormModelType = ({ model, modelTypes, handleSortModels }) => {
+  return (
+    <FormControl fullWidth sx={{ marginBottom: 2 }}>
+      <Select
+        id="sort-model"
+        value={model}
+        onChange={handleSortModels}
+        MenuProps={{
+          PaperProps: {
+            sx: {
+              "& .MuiMenuItem-root": {
+                "&.Mui-selected": {
+                  backgroundColor: SELECT_COLOUR2,
+                  "&:hover": {
+                    backgroundColor: SELECT_COLOUR2,
+                  },
+                },
+                "&:hover": {
+                  backgroundColor: SELECT_COLOUR2,
+                },
+              },
+            },
+          },
+        }}
+        sx={{
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: COLOUR,
+          },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: COLOUR,
+          },
+        }}
+      >
+        {/* Option to show all brands */}
+        <MenuItem value="">All Models</MenuItem>{" "}
+        {modelTypes.map((model, index) => (
+          <MenuItem key={index} value={model}>
+            {model}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+  );
+};
+
+export { FormSortBy, FormSortOrder, FormModelType };

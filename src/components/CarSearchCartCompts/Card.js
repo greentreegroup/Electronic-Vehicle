@@ -3,6 +3,7 @@ import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { AZURE_BLOB_SAS_URL } from "./urls";
 import { formatCurrency } from "./functions"
+import { BACKGROUND_COLOUR } from "./Colour"
 
 const CarCard = ({ result }) => {
   const navigate = useNavigate();
@@ -55,7 +56,8 @@ const CarCard = ({ result }) => {
           {result.brand} {result.model}
         </Typography>
         <Typography variant="body2">{`Year: ${result.year}`}</Typography>
-        <Typography variant="h4" color="text.primary">
+        <Typography variant="body2">{`Model: ${result.model_type}`}</Typography>
+        <Typography variant="h4" color={BACKGROUND_COLOUR}>
           {formatCurrency(result.price)}
         </Typography>
       </CardContent>

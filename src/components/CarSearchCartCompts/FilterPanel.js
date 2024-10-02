@@ -1,14 +1,17 @@
 import React from "react";
-import { SelectChangeEvent, Slider, Typography, Grid } from "@mui/material";
-import { FormSortOrder, FormSortBy } from "./Forms";
+import { Slider, Typography, Grid } from "@mui/material";
+import { FormSortOrder, FormSortBy, FormModelType } from "./Forms";
 import { COLOUR } from "./Colour"
 
 const FilterPanel = ({
   brand,
+  model,
   sortOrder,
   priceRange,
   yearRange,
   carBrands,
+  modelTypes,
+  handleSortModels,
   handleSortOrderChange,
   handleSortBrand,
   handlePriceChange,
@@ -22,6 +25,14 @@ const FilterPanel = ({
         carBrands={carBrands}
         handleSortBrand={handleSortBrand}
       />
+
+      <Typography gutterBottom>Model</Typography>
+      <FormModelType
+        model={model}
+        modelTypes={modelTypes}
+        handleSortModels={handleSortModels}
+      />
+
       <Typography gutterBottom>Order</Typography>
       <FormSortOrder
         sortOrder={sortOrder}

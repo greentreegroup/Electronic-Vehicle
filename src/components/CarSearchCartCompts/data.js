@@ -310,6 +310,7 @@ export const shippingRates = {
   default: { baseRate: 3000, weightMultiplier: 1.6 },
 };
 
+export const modelTypes = ["SUV", "Sedan", "Hatchback", "Van"]
 
 export const countries =
 {

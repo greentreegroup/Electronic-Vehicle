@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Box, Grid, SelectChangeEvent } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { Typography, CarCard } from "./Card";
 import { useCarContext } from "./CarContext";
 import FilterPanel from "./FilterPanel";
 import Pagination from "./Pagination";
 import Loading from "./Loading";
+import { modelTypes } from "./data";
 import { PA_BACKEND_CAR_URL, PA_UNIQUE_CAR_BRANDS_URL } from "./urls"
 
 const Search = () => {
@@ -14,6 +15,7 @@ const Search = () => {
   const [priceRange, setPriceRange] = useState([0, 200000]);
   const [yearRange, setYearRange] = useState([2000, 2024]);
   const [brand, setBrand] = useState("");
+  const [model, setModel] = useState("");
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(false);
   const [carBrands, setCarBrands] = useState([]);
@@ -22,6 +24,11 @@ const Search = () => {
 
   const handleSortBrand = (event) => {
     setBrand(event.target.value);
+  };
+
+
+  const handleSortModels = (event) => {
+    setModel(event.target.value);
   };
 
   const handleSortOrderChange = (event) => {
@@ -65,7 +72,8 @@ const Search = () => {
           (car) => car.price >= priceRange[0] && car.price <= priceRange[1],
         )
         .filter((car) => car.year >= yearRange[0] && car.year <= yearRange[1])
-        .filter((car) => (brand ? car.brand === brand : true));
+        .filter((car) => (brand ? car.brand === brand : true))
+        .filter((car) => (model ? car.model_type === model : true));
 
       // Sorting based on the selected sortOrder
       switch (sortOrder) {
@@ -94,7 +102,7 @@ const Search = () => {
       setSearchResults(paginatedResults);
       setTotalPages(Math.ceil(filteredResults.length / cardsPerPage));
     }
-  }, [brand, priceRange, yearRange, currentPage, carData, sortOrder]);
+  }, [brand, priceRange, yearRange, currentPage, carData, sortOrder, model]);
 
   // fetch unique car brands
   useEffect(() => {
@@ -129,10 +137,13 @@ const Search = () => {
       <Grid container spacing={2}>
         <FilterPanel
           brand={brand}
+          model={model}
           sortOrder={sortOrder}
           priceRange={priceRange}
           yearRange={yearRange}
           carBrands={carBrands}
+          modelTypes={modelTypes}
+          handleSortModels={handleSortModels}
           handleSortOrderChange={handleSortOrderChange}
           handleSortBrand={handleSortBrand}
           handlePriceChange={handlePriceChange}
@@ -153,7 +164,6 @@ const Search = () => {
             ))}
           </Grid>
           <Pagination
-            loading={loading}
             totalPages={totalPages}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}

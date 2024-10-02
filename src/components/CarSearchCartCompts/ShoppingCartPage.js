@@ -9,7 +9,8 @@ import BackButton from "./BackButton";
 import { shippingRates } from "./data";
 import CountrySelect from "./CountrySelect";
 import { formatCurrency } from "./functions";
-import { SelectChangeEvent } from "@mui/material/Select";
+import ModalEmptyCart from "./ModalEmptyCart";
+import EmptyCartButton from "./EmptyCartButton";
 import { COLOUR } from "./Colour";
 
 const Cart = () => {
@@ -20,6 +21,7 @@ const Cart = () => {
   const [shippingCost, setShippingCost] = useState(0);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [totalQuantity, setTotalQuantity] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
   const totalCars = cart.length;
 
@@ -34,6 +36,12 @@ const Cart = () => {
 
   const handleBack = () => {
     navigate("/CarSearch");
+  };
+
+  const handleEmptyCart = () => {
+    if (cart.length > 0) {
+      setModalOpen(true);
+    }
   };
 
   const calculateTotal = (updatedCart) => {
@@ -56,9 +64,7 @@ const Cart = () => {
   };
 
   const calculateShippingCost = (country) => {
-    const rate =
-      shippingRates[country] ||
-      shippingRates.default;
+    const rate = shippingRates[country] || shippingRates.default;
     return rate.baseRate * rate.weightMultiplier;
   };
 
@@ -91,6 +97,11 @@ const Cart = () => {
 
   return (
     <>
+      <ModalEmptyCart
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        calculateTotal={calculateTotal}
+      />
       <Grid
         container
         alignItems="center"
@@ -105,14 +116,17 @@ const Cart = () => {
           <Grid container alignItems="center">
             {/* Stacked sub-caption (Cars and Qty) */}
             <Grid item>
-              <Stack spacing={1}>
-                <Stack direction="row" spacing={1} alignItems="center">
-                  <Typography variant="body1">Types of Cars:</Typography>
-                  <Chip label={totalCars} variant="outlined" />
-                </Stack>
-                <Stack direction="row" spacing={1} alignItems="center">
-                  <Typography variant="body1">Total Qty:</Typography>
-                  <Chip label={totalQuantity} variant="outlined" />
+              <Stack direction="row" spacing={2} alignItems="center">
+                <EmptyCartButton handleEmptyCart={handleEmptyCart} />
+                <Stack spacing={1}>
+                  <Stack direction="row" spacing={1} alignItems="center">
+                    <Typography variant="body1">Types of Cars:</Typography>
+                    <Chip label={totalCars} variant="outlined" />
+                  </Stack>
+                  <Stack direction="row" spacing={1} alignItems="center">
+                    <Typography variant="body1">Total Qty:</Typography>
+                    <Chip label={totalQuantity} variant="outlined" />
+                  </Stack>
                 </Stack>
               </Stack>
             </Grid>
