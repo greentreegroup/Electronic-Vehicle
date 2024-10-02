@@ -20,6 +20,7 @@ import ResearchPage from './components/ResearchPage';
 import './App.css';
 import ContactForm from './components/ContactForm';
 import AboutUsServiceInfo from './components/AboutUs-ServiceInfo';
+import Timeline from './components/Timeline';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,6 +52,7 @@ function App() {
             <Route path="/AboutUs" element={<AboutUsServiceInfo />} /> {/* Route for listing details page */}
             {/* Other routes */}
             <Route path="/signin" element={<SignInForm />} />
+            <Route path="/Timeline" element={<Timeline />} />
           </Routes>
         </main>
         <Chatbot />
