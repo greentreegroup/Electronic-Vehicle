@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './ContactForm.css'; // Ensure this CSS file has appropriate styles
+import Footer from "./Footer"
+
 
 const ContactForm = () => {
   // Initial state for form data
@@ -70,8 +72,13 @@ const ContactForm = () => {
   return (
     <>
       <main>
-        <section className="contact-form">
+        <section className="contact-header">
           <h1>CONTACT US</h1>
+          <h2>At <span className="important">EVrabbit</span>, we believe in customer transparency and trust.</h2>
+          <h2>If you have any inquiries or questions, please contact us using the methods below.</h2>
+        </section>
+        <section className="contact-form">
+          <h1>CONTACT FORM</h1>
           <p>
             Should you have any inquiries or suggestions, please inform us by filling in the fields below or send the following information to email
             <a href="mailto:support@evrabbit.com"> support@evrabbit.com</a>. We are committed to providing you an effective and timely response.
@@ -111,7 +118,31 @@ const ContactForm = () => {
             </form>
           )}
         </section>
+        <section className="contact-info">
+          <h1>CONTACT INFO</h1>
+          <p>
+            Here is some additional contact information:
+          </p>
+          <ul className="info-list">
+            <li>
+              <span className="headtext"> Email:</span>
+              <br></br>
+              <span className="subtext"><a href="mailto:support@evrabbit.com"> support@evrabbit.com</a></span>
+            </li>
+            <li>
+              <span className="headtext"> Phone Number:</span>
+              <br></br>
+              <span className="subtext"> +1 (779) 707-1757</span>
+            </li>
+            <li>
+              <span className="headtext"> Address:</span>
+              <br></br>
+              <span className="subtext"> 4753 N Broadway, Chicago, Illinois</span>
+            </li>
+          </ul>
+        </section>
       </main>
+      <Footer />
     </>
   );
 };

@@ -108,7 +108,7 @@ const Footer = () => {
           <div className="contactLinks">
             <h3>Contact Us Here:</h3>
             <ul>
-              <li>Email: support@evrabbit.com</li>
+              <li>Email: <a href="mailto:support@evrabbit.com">support@evrabbit.com</a></li>
               <li>Phone: +1 (779) 707-1757</li>
               <li>Address: 4753 N Broadway, Chicago, Illinois</li>
               <li>
@@ -128,7 +128,7 @@ const Footer = () => {
           <div className="important_links">
             {/* Terms and conditions and policy can be added here once they are created*/}
             <a href="#">Terms and Conditions</a>
-            .
+            <span className="bigDot">.</span>
             <a href="#">Privacy Notice</a>
           </div>
         </div>

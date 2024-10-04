@@ -5,6 +5,7 @@
     /*text-align: center;
     /*padding: 4rem 2rem; /* Adjust padding as needed */
     position: relative;
+    width:100%;
 
     /* For all links within the footer */
     a:link, a:visited{
@@ -56,7 +57,7 @@
     font-size: 20px;
   }
 
-  /* To make text pop out*/
+  /* To make text pop out */
   .important{
     color:#f57b18
   }
@@ -131,8 +132,12 @@
   .important_links{
     text-align: right;
     margin:auto;
-    margin-top:10px;
     margin-bottom:5px;
+  }
+
+  /* For making the dot between the links bigger */
+  .bigDot{
+    font-size:30px;
   }
 
   .important_links{
