@@ -2,21 +2,176 @@
 .footer {
     background-color: #17292E;
     color: white;
-    text-align: center;
-    padding: 4rem 2rem; /* Adjust padding as needed */
+    /*text-align: center;
+    /*padding: 4rem 2rem; /* Adjust padding as needed */
     position: relative;
+
+    /* For all links within the footer */
+    a:link, a:visited{
+      color:#faf3e5;
+      text-decoration: none;
+    }
+    
+    a:hover{
+      color:#ffc260;
+    }
   }
   
   .footer__content p {
     display: inline;
     margin: 0;
     padding: 0;
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
   }
 
   .footer__content img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     transform: translate(0, 13px)
-    
+  }
+
+  /* CSS for the top section of the footer */
+
+  .joinEVrabbit{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap:wrap;
+    margin: auto;
+    width:95%;
+  }
+
+  .joinHeader{
+    text-align: left;
+    margin:10px;
+  }
+
+  .joinHeader h1{
+    text-align:left;
+    margin-bottom: 5px;
+    font-size: 30px;
+  }
+
+  .joinHeader h2{
+    font-size: 20px;
+  }
+
+  /* To make text pop out*/
+  .important{
+    color:#f57b18
+  }
+
+  .joinSignUp{
+    text-align:center;
+  }
+
+  .signInButton{
+    border-radius: 10px;
+    color:white;
+    background-color:#f57b18;
+    margin-top: 30px;
+    margin-right: 125px;
+  }
+
+  hr{
+    border-color:rgb(66, 105, 105);
+    width:95%;
+    margin:auto;
+    margin-top:5px;
+    margin-bottom:5px;
+  }
+
+  /* CSS for the middle section of the footer */
+
+  .footerLinks{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap:wrap;
+    text-align: left;
+    margin: 10px;
+    margin: auto;
+    width:95%;
+  }
+
+  .footerLinks ul{
+    list-style-type: none;
+  }
+
+  .footerLinks li{
+    margin-top:5px
+  }
+
+  .listLinks{
+    margin-left:10px;
+  }
+
+  .contactLinks{
+    vertical-align: middle;
+    text-align: center;
+    padding:auto;
+    margin-left:10px;
+    margin-right:10px;
+  }
+
+  /* CSS for the bottom section of the footer */
+
+  .important_info{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap:wrap;
+  }
+
+  .copyright{
+    text-align: center;
+    margin-left:5px;
+  }
+
+  .important_links{
+    text-align: right;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:5px;
+  }
+
+  .important_links{
+    a:link, a:visited{
+      margin:10px;
+    }
+  }
+
+  /* For tablets */
+  @media (max-width: 785px) {
+    .joinHeader{
+      text-align: center;
+    }
+
+    .joinHeader h1{
+      text-align: center;
+    }
+
+    .signInButton{
+      margin-top:0px;
+      margin-right:0px;
+    }
+
+    .joinEVrabbit{
+      flex-direction: column;
+    }
+
+    .contactLinks{
+      margin-top:10px;
+      width:100%;
+    }
+  }
+
+  /* for mobile devices */
+  @media (max-width:480px){
+    .listLinks{
+      width:40%;
+      margin-left:0px;
+      margin-right:10px;
+      margin-bottom:10px;
+    }
   }
