@@ -101,6 +101,13 @@ const Sidebar = () => {
         
           
         </li>
+        <li className="nav-item">
+          <Link to="/Timeline" className="nav-link">
+            Timeline
+          </Link>
+        
+          
+        </li>
       </ul>
 
       {/* Search Bar */}

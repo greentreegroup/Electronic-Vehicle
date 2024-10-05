@@ -1,0 +1,24 @@
+/* Timeline.css */
+
+/* For the whole returned component */
+.timeline{
+    top:0;
+    width:100%;
+}
+
+/* For the header at the top of the page, right below the navbar */
+.timeline-header{
+    color:white;
+    background-color: #17292e;
+    padding:30px;
+}
+
+/* For the body of the timeline, where the Chronos component is located*/
+/* .timeline-body{
+    margin:20px;
+} */
+
+/* For important text */
+.important{
+    color:#f57b18
+}
