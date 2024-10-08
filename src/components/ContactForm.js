@@ -99,7 +99,7 @@ const ContactForm = () => {
               </div>
               <div className="form-group horizontal-group">
                 <input type="text" name="country" placeholder="*COUNTRY" value={formData.country} onChange={handleInputChange} required />
-                <select name="type" value={formData.type} onChange={handleInputChange} required>
+                <select style = {{marginBottom:'1rem'}}name="type" value={formData.type} onChange={handleInputChange} required>
                   <option value="" disabled>*TYPE</option>
                   <option value="question">Question</option>
                   <option value="comment">Comment</option>
@@ -111,7 +111,7 @@ const ContactForm = () => {
               </div>
               <div className="form-group checkbox-group">
                 <input type="checkbox" name="agree_to_privacy_policy" id="privacy-policy" checked={formData.agree_to_privacy_policy} onChange={handleInputChange} required />
-                <label style={{marginRight:'5rem'}} htmlFor="privacy-policy">I agree to the <a href="#">Privacy Policy</a></label>
+                <label style={{marginRight:'3rem'}} htmlFor="privacy-policy">I agree to the <a href="#">Privacy Policy</a></label>
               </div>
               {error && <div className="error-message">{error}</div>}
               <button className='contact-submit-button' type="submit">SUBMIT</button>
