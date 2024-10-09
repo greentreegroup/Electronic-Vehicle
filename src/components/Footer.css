@@ -71,7 +71,7 @@
     color:white;
     background-color:#f57b18;
     margin-top: 30px;
-    margin-right: 125px;
+    margin-right: 155px;
   }
 
   hr{
@@ -113,6 +113,11 @@
     padding:auto;
     margin-left:10px;
     margin-right:10px;
+  }
+
+  .contactLinks ul{
+    text-align: center;
+    margin-right:20px;
   }
 
   /* CSS for the bottom section of the footer */

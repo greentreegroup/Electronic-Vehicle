@@ -1,4 +1,4 @@
-main{
+.contactMain{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -7,11 +7,15 @@ main{
 }
 
 .contact-header{
-    padding:30px;
+    padding:40px;
     width:100%;
     text-align: center;
     color:white;
     background-color: #17292e;
+}
+
+.contact-header h1 {
+    font-size: 30px;
 }
 
 /* To make text pop out */

@@ -71,9 +71,9 @@ const ContactForm = () => {
 
   return (
     <>
-      <main>
+      <main className="contactMain">
         <section className="contact-header">
-          <h1>CONTACT US</h1>
+          <h1>Contact Us</h1>
           <h2>At <span className="important">EVrabbit</span>, we believe in customer transparency and trust.</h2>
           <h2>If you have any inquiries or questions, please contact us using the methods below.</h2>
         </section>
