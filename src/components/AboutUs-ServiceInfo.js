@@ -1,39 +1,81 @@
 import React from 'react';
-import './AboutUs-ServiceInfo.css';
-import '../App.css';
+import { ArrowRight, Users, Target, Zap, Globe } from 'lucide-react';
 import Footer from './Footer';
+import './AboutUs-ServiceInfo.css';
 
-function AboutUsServiceInfo() {
+const AboutUs = () => {
   return (
-    <div>
-      <div class="logo">
-          <img src="/img/ev_rabbit1.jpg"></img>
-      </div>
-      <div className="top-section">
-        <div className="text-center">
-          <h1>Welcome to EVrabbit</h1>
-          <h2>Discover more about our amazing team and mission.</h2>
+    <div className="about-us-container">      
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="content-wrapper">
+          <h1 className="main-title">About Us</h1>
+          <p className="subtitle">Driving the Future of Electric Mobility</p>
+          <a href="#learn-more" className="cta-button">
+            Discover <ArrowRight className="icon" />
+          </a>
         </div>
-      </div>
-      <div className="next-section d-flex">
-        <div className="flex-container">
-          <div className="flex-item">
-            <h1>Our Mission</h1>
+      </section>
+
+      {/* Client Value Section */}
+      <section className="client-value-section">
+        <div className="content-wrapper">
+          <div className="text-content">
+            <h2>Client-first, Experience unmatched</h2>
             <p>
-              Our mission is to provide outstanding solutions that drive innovation and growth. We are committed to delivering exceptional services and products that not only meet but exceed our clients' expectations. Our team of dedicated professionals works tirelessly to ensure that every project is executed with the highest standards of quality and excellence. By leveraging cutting-edge technology and best practices, we strive to address complex challenges and create sustainable value for our clients. <br></br> We believe in building strong, long-term relationships with our partners and customers through transparent communication and a shared commitment to success. Our mission is not just about achieving business goals; it’s about making a meaningful impact in the communities we serve and contributing positively to the industry at large. We are passionate about what we do, and our mission drives us to continuously improve and innovate.
+              EVrabbit. with years of export experience is a leading electric vehicle
+              wholesaler, distributor and dealer in China, and is authorized by the Chinese government to promote
+              and sell vehicles such as electric cars and used cars to all over the world.
+            </p>
+            <p>
+              We are looking for distribution partners worldwide and offer them a wide and high quality selection of
+              vehicles.
             </p>
           </div>
-          <div className="flex-item">
-            <h1>Our Team</h1>
-            <p>
-              At our company, our team is our greatest asset. Comprising a diverse group of talented professionals, each member of our team brings a wealth of experience and expertise to the table. Our team members are selected for their exceptional skills, innovative thinking, and unwavering dedication to our mission. We foster a collaborative environment where creativity and problem-solving thrive, and where every individual's contribution is valued and recognized. <br></br>Our team is united by a shared passion for excellence and a commitment to delivering results. From seasoned industry veterans to emerging young talents, our team is equipped to handle the most challenging projects with professionalism and ingenuity. We invest in our people by providing ongoing training and development opportunities to ensure that they stay ahead of industry trends and continue to grow both personally and professionally.
-            </p>
+          <div className="image-content">
+            <img src="https://img.freepik.com/free-vector/electric-car-concept-illustration_114360-927.jpg?t=st=1728089340~exp=1728092940~hmac=505a9658c75d6cb0471b58648302a8f873e7fdebcfd02c90448b671e6564be7d&w=2000" className="client-image" />
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Info Section */}
+      <section id="learn-more" className="info-section">
+        <div className="content-wrapper">
+          <div className="info-grid">
+            <div className="info-card">
+              <Target className="card-icon" />
+              <h2>Our Mission</h2>
+              <p>
+                At EVrabbit, we're committed to revolutionizing electric vehicle technology. 
+                Our mission is to provide innovative solutions that make electric mobility 
+                accessible, efficient, and exciting for everyone worldwide.
+              </p>
+            </div>
+            <div className="info-card">
+              <Users className="card-icon" />
+              <h2>Our Team</h2>
+              <p>
+                Our diverse team of experts brings together decades of experience in automotive 
+                engineering, electrical systems, and sustainable technologies. We're united by 
+                our passion for innovation and our commitment to excellence.
+              </p>
+            </div>
+            <div className="info-card">
+              <Globe className="card-icon" />
+              <h2>Global Reach</h2>
+              <p>
+                With years of export experience, we've established ourselves as a trusted 
+                name in the global EV market. Our government authorization allows us to bring 
+                cutting-edge electric and used vehicles to customers worldwide.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
-}
+};
 
-export default AboutUsServiceInfo;
+export default AboutUs;

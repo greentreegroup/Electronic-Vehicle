@@ -1,152 +1,202 @@
-/* General Reset to prevent overflow */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    width: 100%;
-    overflow-x: hidden; /* Prevent horizontal overflow */
+/* AboutUs.css */
+.about-us-container {
+    background: linear-gradient(135deg, #17292e 0%, #091214 100%);
+    color: #ffffff;
+    min-height: 100vh;
     font-family: 'Arial', sans-serif;
-}
-
-/* Top Section */
-.top-section {
-    min-height: 30vh; 
-    background-position: center;
-    color: #f57b18;
-    display: flex; 
-    justify-content: center;
-    align-items: center; 
-    text-align: center;
-    padding: 20px;
-    width: 100%; /* Ensure the section spans the full width */
-}
-
-/* Logo Section */
-.logo {
+  }
+  
+  .hero-section {
+    background: url('/public/img/rabbit.JPG') no-repeat center center;
+    background-size: cover;
+    height: 70vh;
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center; 
-    background-color: #17292e;
-    width: 100%; /* Ensure full width */
-    padding: 10px; /* Added padding for spacing */
-}
-
-.logo img {
-    max-width: 100%; /* Ensure the logo scales down */
-    height: auto;
-}
-
-/* Headings */
-.top-section h1, .next-section h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    max-width: 100%; /* Prevent headings from exceeding viewport width */
-}
-
-.top-section h2, .next-section h2 {
-    margin: 10px 0;
-    font-size: 1.5rem;
-    max-width: 100%; /* Prevent text from exceeding viewport */
-}
-
-/* Next Section */
-.next-section {
-    min-height: calc(50vh - 20px);
-    background-position: center;
-    color: #f57b18;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 20px;
     text-align: center;
-    width: 100%; /* Ensure full width */
-}
-
-/* Flexbox container */
-.flex-container {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center; 
-    align-items: flex-start; /* Ensure proper alignment */
-    width: 100%;
+    position: relative;
+  }
+  
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(23, 41, 46, 0.7);
+  }
+  
+  .content-wrapper {
     max-width: 1200px;
-    padding: 20px;
-    margin: 0 auto; /* Center container and avoid overflow */
-}
-
-/* Flex Items */
-.flex-item {
-    flex: 1 1 300px;
-    margin: 10px;
-    text-align: center;
-    max-width: 100%; /* Prevent items from exceeding the container */
-}
-
-.flex-item h1 {
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .main-title {
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
     color: #f57b18;
-    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+  }
+  
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f57b18;
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #ff8c00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(245, 123, 24, 0.5);
+  }
+  
+  .cta-button .icon {
+    margin-left: 10px;
+  }
+  
+  .client-value-section {
+    padding: 100px 0;
+    background: #ffffff;
+  }
+  
+  .client-value-section .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .text-content {
+    flex: 1;
+  }
+  
+  .text-content h2 {
+    font-size: 2.5rem;
+    color: #f57b18;
+    margin-bottom: 30px;
+    line-height: 1.2;
+  }
+  
+  .text-content p {
+    font-size: 1.1rem;
+    color: #17292e;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .image-content {
+    flex: 1;
+  }
+  
+  .client-image {
+    width: 100%;
+    border-radius: 15px;
+  }
+  
+  .info-section {
+    padding: 100px 0;
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  .info-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 40px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(245, 123, 24, 0.2);
+  }
+  
+  .card-icon {
+    color: #f57b18;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 25px;
+  }
+  
+  .info-card h2 {
     font-size: 2rem;
-}
-
-.flex-item p {
-    color: black;
-    margin: 0;
-    font-size: 1rem;
-}
-
-/* Mobile and Tablet Responsive Design */
-@media (max-width: 768px) {
-    .flex-container {
-        flex-direction: column; /* Stack items vertically */
+    margin-bottom: 20px;
+    color: #f57b18;
+  }
+  
+  .info-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 1024px) {
+    .client-value-section .content-wrapper {
+      flex-direction: column;
     }
-
-    .flex-item {
-        margin: 10px 0;
-        width: 100%;
+  
+    .info-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
-
-    /* Adjust headings for mobile */
-    .top-section h1, .next-section h1 {
-        font-size: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .main-title {
+      font-size: 3.5rem;
     }
-
-    .top-section h2, .next-section h2 {
-        font-size: 1.2rem;
+  
+    .subtitle {
+      font-size: 1.5rem;
     }
-
-    /* Reduce padding on mobile */
-    .top-section, .next-section {
-        padding: 15px;
-        min-height: 10vh;
+  
+    .info-grid {
+      grid-template-columns: 1fr;
     }
-
-    .logo {
-        padding: 10px;
+  
+    .client-value-section,
+    .info-section {
+      padding: 60px 0;
     }
-}
-
-@media (max-width: 480px) {
-    .top-section h1, .next-section h1 {
-        font-size: 1.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    .main-title {
+      font-size: 2.8rem;
     }
-
-    .top-section h2, .next-section h2 {
-        font-size: 1rem;
+  
+    .hero-section {
+      height: 60vh;
     }
-
-    .flex-item h1 {
-        font-size: 1.5rem;
-        margin-top: 15px;
+  
+    .info-card {
+      padding: 30px;
     }
-
-    .flex-item p {
-        font-size: 0.9rem;
+  
+    .text-content h2 {
+      font-size: 2rem;
     }
-
-    .flex-item {
-        margin: 5px 0;
-    }
-}
+  }
