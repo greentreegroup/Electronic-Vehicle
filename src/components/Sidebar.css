@@ -1,20 +1,40 @@
 /* Sidebar.css */
-.sidebar {
-  background-color: #ecf0f1; /* Maintain the base color */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px; 
-  width: 100%; 
-  position: fixed; 
-  top: 0; 
+.full-sidebar{
+  position: fixed;
+  width:100%;
   z-index: 1000; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
   transition: background-color 0.3s ease; /* Smooth background color transition */
+  background-color: #ecf0f1; /* Maintain the base color */
 }
 
-.sidebar:hover {
-  background-color: #ced2d3 /* Slightly darken on hover for interactivity */
+.sidebar {
+  background-color: #ecf0f1; /* Maintain the base color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px; 
+  width: 100%; 
+  top: 0; 
+}
+
+.full-sidebar:hover {
+  background-color: #ced2d3; /* Slightly darken on hover for interactivity */
+  .sidebar{
+    background-color: #ced2d3 /* Make sure all parts of sidebar are darkened */
+  }
+}
+
+.logo-div{
+  margin-left:20px;
+}
+
+.logo-div p{
+  font-weight: bold;
+  display:inline;
+  color:#f57b18
 }
 
 .sidebar-nav {
@@ -86,7 +106,20 @@
   display: inline-block;
 }
 
+.brand-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
 .account-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-weight: bold;
+  color: black;
+}
+
+.brand-button{
   cursor: pointer;
   background: none;
   border: none;
@@ -153,9 +186,11 @@
   z-index: 1001; /* Ensure it's on top */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .hamburger {
     display: block; /* Show hamburger icon on small screens */
+    font-size:25px;
+    margin-top:12px;
   }
 
   .sidebar-nav {
@@ -191,14 +226,11 @@
   .auth-links {
     position: absolute;
     right: 10px;
-    top: 10px;
   }
-  .account-button{
-    margin-top: 10px;
-  }
+  
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1000px) {
   /* On larger screens, hide the hamburger and show the nav normally */
   .hamburger {
     display: none;
@@ -233,5 +265,20 @@
     width: 50%; /* Adjust width for smaller screens */
     margin-top: 10px;
     margin-right: 3rem;
+  }
+
+  .nav-link{
+    font-size:12px;
+  }
+}
+
+/* Center the search bar more on smaller screen sizes */
+@media (max-width: 500px){
+  .search-container{
+    margin-right: 5rem;
+  }
+
+  .search-bar{
+    width: 55%;
   }
 }
