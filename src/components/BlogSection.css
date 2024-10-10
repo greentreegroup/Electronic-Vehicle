@@ -1,0 +1,78 @@
+.blog-section {
+  text-align: left;
+  padding: 20px;
+  display: flex; /* Use flexbox for vertical centering */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+}
+
+.blog-section h1 {
+  text-align: left;
+  width: 100%; /* Allow the heading to take full width */
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  width: 100%; /* Ensure it takes full width of the parent */
+}
+
+.blog-card {
+  background: #17292E;
+  border-radius: 15px;
+  padding: 20px;
+  width: calc(50% - 10px);
+  color: white;
+  min-height: 300px; /* Set a minimum height for the blog card */
+  display: flex;
+  flex-direction: column; /* Allow stacking of content vertically */
+  justify-content: space-between; /* Space between elements for better layout */
+}
+
+.blog-card h1,
+.blog-card p {
+  margin: 10px; /* Remove all margins */
+  padding: 10px; /* Remove all padding */
+}
+
+/* Added styling for button alignment */
+.blog-card .button-container {
+  display: flex; /* Use flexbox for button alignment */
+  justify-content: flex-end; /* Align button to the right */
+}
+
+.blog-card button {
+  margin: 0; /* Remove all margins */
+  padding: 10px; 
+  max-width: fit-content;
+  background-color: #f57b18;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px; /* Optional: for rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.blog-card button a {
+  text-decoration: none; /* Remove underline from link */
+  color: #fff; /* Ensure text color matches button color */
+}
+
+.blog-card button:hover {
+  background-color: #f57b18cf; /* Change the background color on hover */
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center; /* Center the cards */
+  }
+
+  .blog-card {
+    width: 100%; /* Make cards full width */
+    margin-bottom: 20px; /* Add space between cards */
+  }
+}

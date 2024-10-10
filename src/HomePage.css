@@ -41,16 +41,7 @@ h1 {
   word-break: break-word;
   hyphens: auto;
 }
-.welcome-message {
-  text-align: center;
-  font-weight: normal; /* Ensures the text is not bold */
-  font-size: 24px; /* Slightly reduce the font size for better readability */
-  margin: 40px auto; /* More vertical margin around the paragraph */
-  padding: 0 20px; /* Padding for some space on the left and right */
-  max-width: 1000px; /* Restrict the text width for better readability */
-  line-height: 1.6; /* Increase line height for better readability */
-  color: #333; /* Slightly soften the text color */
-}
+
 
 /* Body and HTML styling to prevent horizontal overflow */
 body, html {
@@ -66,3 +57,4 @@ body, html {
     
   }
 }
+

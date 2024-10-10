@@ -1,0 +1,100 @@
+.car-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 80vh; /* Adjust based on your design */
+    flex-wrap: wrap; /* Allow items to wrap */
+}
+
+.car-image {
+    width: 50%; /* Default width for larger screens */
+    position: relative; /* For positioning play button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Optional: for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: for shadow effect */
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white; /* Default background */
+    border: none;
+    font-size: 2rem;
+    color: rgb(0, 0, 0, 0.5);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%; /* Circular button */
+    transition: background 0.3s; /* Smooth transition for background change */
+}
+
+.play-button:hover {
+    color: white; /* Change background to white on hover */
+    background: rgb(0, 0, 0, 0.5); /* Change text color to black on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Box shadow for depth */
+}
+
+.car-content {
+    width: 45%; /* Default width for larger screens */
+    margin-left: 20px; /* Margin for spacing */
+    color: rgb(0, 0, 0); /* Assuming text color is black */
+}
+
+.car-content h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.car-content p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.get-started-button {
+    background-color: #f57b18;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px; /* Optional: for rounded corners */
+}
+
+.get-started-button:hover {
+    background-color: #f57b18cf; /* Slightly transparent on hover */
+}
+
+.get-started-button a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the color of the button */
+}
+
+
+/* Media Query for Responsive Layout */
+@media (max-width: 768px) {
+    .car-section {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+        height: auto; /* Allow height to adjust */
+    }
+
+    .car-image {
+        width: 80%; /* Adjust image width for smaller screens */
+        margin-bottom: 20px; /* Space between image and content */
+    }
+
+    .car-content {
+        width: 80%; /* Adjust content width for smaller screens */
+        margin-left: 0; /* Remove left margin */
+        text-align: center; /* Center text for better appearance */
+    }
+}
