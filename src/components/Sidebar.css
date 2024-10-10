@@ -126,7 +126,7 @@
   color: black;
 }
 
-.dropdown-menu {
+.sidebar-dropdown-menu {
   display: block;
   position: absolute;
   top: 100%;
@@ -140,18 +140,18 @@
   z-index: 1000;
 }
 
-.dropdown-menu li {
+.sidebar-dropdown-menu li {
   margin: 0;
   padding: 10px 15px; /* Uniform padding */
   border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Divider line */
 }
 
-.dropdown-menu li:last-child {
+.sidebar-dropdown-menu li:last-child {
   border-bottom: none; /* Remove border from the last item */
 }
 
-.dropdown-menu li button,
-.dropdown-menu li a {
+.sidebar-dropdown-menu li button,
+.sidebar-dropdown-menu li a {
   display: block; /* Make both button and link elements block level */
   background: none;
   border: none;
@@ -159,13 +159,12 @@
   cursor: pointer;
   width: 100%; /* Ensure both buttons and links take the full width */
   text-align: left; /* Align text to the left */
-  font-weight: bold;
   text-decoration: none;
   padding: 10px 15px; /* Ensure consistent padding */
 }
 
-.dropdown-menu li button:hover,
-.dropdown-menu li a:hover {
+.sidebar-dropdown-menu li button:hover,
+.sidebar-dropdown-menu li a:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
 }
 

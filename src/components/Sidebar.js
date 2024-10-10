@@ -77,7 +77,7 @@ const Sidebar = () => {
               Account
             </button>
             {showDropdown && (
-              <ul className="dropdown-menu">
+              <ul className="sidebar-dropdown-menu">
                 <li>
                   <button onClick={handleSignInClick} className="nav-link">
                     Sign In
@@ -166,7 +166,7 @@ const Sidebar = () => {
               Brands
             </button>
             {showBrandDropdown && (
-              <ul className="dropdown-menu">
+              <ul className="sidebar-dropdown-menu">
                 <li>
                   <button className="nav-link">
                     Aion
