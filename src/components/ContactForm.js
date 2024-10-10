@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './ContactForm.css'; // Ensure this CSS file has appropriate styles
+import Footer from "./Footer"
+
 
 const ContactForm = () => {
   // Initial state for form data
@@ -69,9 +71,14 @@ const ContactForm = () => {
 
   return (
     <>
-      <main>
+      <main className="contactMain">
+        <section className="contact-header">
+          <h1>Contact Us</h1>
+          <h2>At <span className="important">EVrabbit</span>, we believe in customer transparency and trust.</h2>
+          <h2>If you have any inquiries or questions, please contact us using the methods below.</h2>
+        </section>
         <section className="contact-form">
-          <h1>CONTACT US</h1>
+          <h1>CONTACT FORM</h1>
           <p>
             Should you have any inquiries or suggestions, please inform us by filling in the fields below or send the following information to email
             <a href="mailto:support@evrabbit.com"> support@evrabbit.com</a>. We are committed to providing you an effective and timely response.
@@ -92,7 +99,7 @@ const ContactForm = () => {
               </div>
               <div className="form-group horizontal-group">
                 <input type="text" name="country" placeholder="*COUNTRY" value={formData.country} onChange={handleInputChange} required />
-                <select name="type" value={formData.type} onChange={handleInputChange} required>
+                <select style = {{marginBottom:'1rem'}}name="type" value={formData.type} onChange={handleInputChange} required>
                   <option value="" disabled>*TYPE</option>
                   <option value="question">Question</option>
                   <option value="comment">Comment</option>
@@ -104,14 +111,38 @@ const ContactForm = () => {
               </div>
               <div className="form-group checkbox-group">
                 <input type="checkbox" name="agree_to_privacy_policy" id="privacy-policy" checked={formData.agree_to_privacy_policy} onChange={handleInputChange} required />
-                <label style={{marginRight:'5rem'}} htmlFor="privacy-policy">I agree to the <a href="#">Privacy Policy</a></label>
+                <label style={{marginRight:'3rem'}} htmlFor="privacy-policy">I agree to the <a href="#">Privacy Policy</a></label>
               </div>
               {error && <div className="error-message">{error}</div>}
               <button className='contact-submit-button' type="submit">SUBMIT</button>
             </form>
           )}
         </section>
+        <section className="contact-info">
+          <h1>CONTACT INFO</h1>
+          <p>
+            Here is some additional contact information:
+          </p>
+          <ul className="info-list">
+            <li>
+              <span className="headtext"> Email:</span>
+              <br></br>
+              <span className="subtext"><a href="mailto:support@evrabbit.com"> support@evrabbit.com</a></span>
+            </li>
+            <li>
+              <span className="headtext"> Phone Number:</span>
+              <br></br>
+              <span className="subtext"> +1 (779) 707-1757</span>
+            </li>
+            <li>
+              <span className="headtext"> Address:</span>
+              <br></br>
+              <span className="subtext"> 4753 N Broadway, Chicago, Illinois</span>
+            </li>
+          </ul>
+        </section>
       </main>
+      <Footer />
     </>
   );
 };
