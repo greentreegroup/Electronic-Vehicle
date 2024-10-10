@@ -1,87 +1,46 @@
-*, *::before, *::after {    /* Prevent Header from extruding passed the window size */
-    box-sizing: border-box;
-  }
-h4{
-    font-size: 1.2rem;
-    display: block;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-
-p{
-    font-family: "Verdana",Tahoma, sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.6;
-    display: block;    
-}
-
-
-
-
 .features {
-    display: grid;
-    grid-gap: 6rem; /* Adjust the gap as needed */
-    align-items: start;
-    justify-content: center;
-    margin: 0 auto; /* Center the grid container */
-    padding: 6rem 0;
-    width: 90%; /* Adjust based on your layout needs */
-    /* Initial setup for two columns */
-    grid-template-columns: repeat(2, 1fr); /* Set up for 2 columns */
-}
-
-/* Media query for narrower screens */
-@media (max-width: 800px) { /* Adjust breakpoint as needed */
-    .features {
-        grid-template-columns: 1fr; /* One column on narrow screens */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Spacing between the features */
+  }
+  
+  .feature {
+    flex-basis: calc(16.66% - 20px); /* Makes six features fit in a row */
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .feature__text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .heading-4--dark {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .heading-2--dark {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .feature {
+      flex-basis: 100%; /* Makes each feature take up full width on smaller screens */
+      margin-bottom: 20px;
     }
-}
-/*
-.icon {
-    grid-area: img;
-}
-.heading-4{
-    grid-area: head;
-}
-.feature__text{
-    grid-area: text;
-}
-.feature{
-    grid-template-areas:
-    "img img head head"
-    " . . text text";
-}*/
-
-.feature {
-    /*float: left;*/
-    width: 100%;
-    /*bottom: 6rem;*/
-    display: grid;
-    grid-template-columns: min-content 1fr;
-    grid-column-gap: 1rem;
-    align-items: center;
-    justify-content: center;
-}
-
-feature {
-    width: auto;
-    margin-bottom: 0;
-}
-
-.features:nth-child(3) {
-    display: none;
   }
-  .icon{
-    width: 3.8rem;
-    height: 3.8rem;
-    transform: translateY(10%);
-    transform-origin: center center;
-    fill:  #f57b18;
-  }
-
-  .features{
-    margin: 0 auto;
-  }
+  
