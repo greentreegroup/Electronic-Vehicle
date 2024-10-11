@@ -15,7 +15,7 @@ const ResearchPage = () => {
         <button>Search</button>
       </div>
 
-      <section className="hero-section">
+      <section className="research-hero-section">
         <div className="hero-text">
           <h2>Mileage On A Car Can’t Tell You Everything</h2>
           <p>

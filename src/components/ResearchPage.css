@@ -54,7 +54,7 @@
     background-color: darken(var(--primary-color), 10%);
   }
   
-  .hero-section {
+  .research-hero-section {
     display: flex;
     flex-direction: column;
     align-items: center;
