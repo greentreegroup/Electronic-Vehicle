@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import SignInForm from './SignInForm.js';
 import SignUpForm from './SignUpForm.js';
+import Dealer from './Dealer.js'; // Import Dealer form
 import Cookies from 'js-cookie';
 
 const Sidebar = () => {
@@ -11,6 +12,7 @@ const Sidebar = () => {
   const [showBrandDropdown, setShowBrandDropdown] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [showDealer, setShowDealer] = useState(false); // For Dealer form
   const [searchQuery, setSearchQuery] = useState(''); // For search bar
 
   /* Dropdown for account menu */
@@ -32,24 +34,35 @@ const Sidebar = () => {
   const handleSignInClick = () => {
     setShowSignIn(true);
     setShowSignUp(false);
+    setShowDealer(false);
     setShowDropdown(false);
   };
 
   const handleSignUpClick = () => {
     setShowSignUp(true);
     setShowSignIn(false);
+    setShowDealer(false);
+    setShowDropdown(false);
+  };
+
+  const handleDealerClick = () => {
+    setShowDealer(true);
+    setShowSignIn(false);
+    setShowSignUp(false);
     setShowDropdown(false);
   };
 
   const handleUserAccountClick = () => {
-    Cookies.get('id') == undefined ? setShowSignIn(true) : window.location.replace('/userProfile/'.concat(Cookies.get('id'))); 
+    Cookies.get('id') === undefined ? setShowSignIn(true) : window.location.replace('/userProfile/'.concat(Cookies.get('id'))); 
     setShowSignUp(false);
+    setShowDealer(false);
     setShowDropdown(false);
   };  
 
   const closeForms = () => {
     setShowSignIn(false);
     setShowSignUp(false);
+    setShowDealer(false);
   };
 
   const handleSearchChange = (e) => {
@@ -63,7 +76,7 @@ const Sidebar = () => {
           <p>EVrabbit </p>
         </div>
         <div className="search-container">
-        <input
+          <input
             type="text"
             placeholder="🔍 Search for a product..."
             value={searchQuery}
@@ -94,6 +107,11 @@ const Sidebar = () => {
                   </button>
                 </li>
                 <li>
+                  <button onClick={handleDealerClick} className="nav-link"> {/* Dealer tab */}
+                    Dealer
+                  </button>
+                </li>
+                <li>
                   <Link to="/settings" className="nav-link">
                     Settings
                   </Link>
@@ -105,7 +123,10 @@ const Sidebar = () => {
 
         {showSignIn && <SignInForm onClose={closeForms} />}
         {showSignUp && <SignUpForm onClose={closeForms} />}
+        {showDealer && <Dealer onClose={closeForms} />} {/* Render Dealer form */}
+
       </div>
+
       <div className="sidebar">
         <button className="hamburger" onClick={toggleMobileMenu}>
           ☰
@@ -122,16 +143,6 @@ const Sidebar = () => {
               Parts
             </Link>
           </li>
-          {/*<li className="nav-item">
-            <Link to="/listings" className="nav-link">
-              Listings
-            </Link>
-          </li>
-          {/*<li className="nav-item">
-            <Link to="/track-record" className="nav-link">
-              Track Record
-            </Link>
-          </li>*/}
           <li className="nav-item">
             <Link to="/HelpCenter2" className="nav-link">
               Help Center
@@ -158,50 +169,6 @@ const Sidebar = () => {
             </Link>
           </li>
         </ul>
-
-        {/* Drop down menu for showing popular brands */}
-        <div className="auth-links">
-          <div className="brand-dropdown">
-            <button onClick={toggleBrandDropdown} className="nav-link brand-button">
-              Brands
-            </button>
-            {showBrandDropdown && (
-              <ul className="sidebar-dropdown-menu">
-                <li>
-                  <button className="nav-link">
-                    Aion
-                  </button>
-                </li>
-                <li>
-                  <button className="nav-link">
-                    Baojun
-                  </button>
-                </li>
-                <li>
-                  <button className="nav-link">
-                    BYD
-                  </button>
-                </li>
-                <li>
-                  <button className="nav-link">
-                    Tesla
-                  </button>
-                </li>
-                <li>
-                  <button className="nav-link">
-                    Wuling
-                  </button>
-                </li>
-                <li>
-                  <button className="nav-link">
-                    All brands
-                  </button>
-                </li>
-              </ul>
-            )}
-          </div>
-        </div>
-        
       </div>
     </div>
   );

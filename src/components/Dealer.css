@@ -1,0 +1,110 @@
+* {
+    font-family: 'Josefin Sans', sans-serif;
+}
+.signin-form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.signin-form {
+    background-color: #fff;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1001;
+     
+}
+
+
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+button {
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+
+.form-group {
+    display: grid;
+    grid-template-columns: min-content auto; /* adjust column sizes as needed */
+    gap: 0.5rem; /* space between label and input */
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    text-align: right; /* aligns the text to the right */
+}
+
+.form-group input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    width: 100%; /* ensures input occupies the remaining space */
+}
+
+.forgot-password a,
+.create-account a {
+    color: #1565c0; /* Use #1565c0 for blue */
+    text-decoration: none;
+}
+
+.forgot-password a:hover,
+.create-account a:hover {
+    text-decoration: underline;
+}
+
+
+.submit-bton {
+    opacity: 100%;
+    background-color: #f57b18; /* light orange background */
+    color: white; /* White text color */
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+    font-size: 1rem; /* Adjust font size as needed */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    align-content: center !important;
+    justify-content: center !important;
+}
+
+.submit-bton:hover {
+    background-color:#e66916; /* Slightly darker orange for hover effect */
+}
