@@ -1,76 +1,77 @@
-/*Header.css*/
-*, *::before, *::after {    /* Prevent Header from extruding passed the window size */
+/* Header.css */
+*, *::before, *::after {
   box-sizing: border-box;
   margin-top: 0px;
 }
+
 .header {
-    background-color: #17292E;
-    width: 100%;
-    grid-column: full-start / full-end;
-  
-    background-size: cover;
-    background-position: center;
-    padding: 8rem;
-    padding-top: 6rem;
-    display: grid;
-    grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
-    grid-template-columns: minmax(min-content, max-content);
-    grid-row-gap: 1.5rem;
-    justify-content: center;
-    position: relative; /* For absolute positioning of child elements */
-    color:white;
+  background-color: #17292E;
+  width: 100%;
+  grid-column: full-start / full-end;
+  background-size: cover;
+  background-position: center;
+  padding: 8rem;
+  padding-top: 6rem;
+  display: grid;
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+  grid-template-columns: minmax(min-content, max-content);
+  grid-row-gap: 1.5rem;
+  justify-content: center;
+  position: relative; /* For absolute positioning of child elements */
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding-bottom: 2rem; /* Reduce padding at the bottom only on mobile */
   }
-  
-  @media screen and (max-width: 768px) {
-    .header {
-      padding-bottom: 2rem; /* Reduce padding at the bottom only on mobile */
-    }
-  
-    .header__logo {
-      margin-bottom: 0; /* Ensure no extra space under the logo */
-    }
-  }
+
   .header__logo {
-    height: 5rem;
-    justify-self: center;
+    margin-bottom: 0; /* Ensure no extra space under the logo */
   }
-  
-  .header__btn {
-    align-self: start;
-    justify-self: start;
-  }
-  
-  .header__seenon-text {
-    display: grid;
-    grid-template-columns: 1fr max-content 1fr;
-    grid-column-gap: 1.5rem;
-    align-items: center;
-    font-size: 1.6rem;
-    color: #f57b18;
-  }
-  
-  .header__seenon-text::before,
-  .header__seenon-text::after {
-    content: "";
-    height: 1px;
-    display: block;
-    background-color: currentColor;
-  }
-  
-  .header__seenon-logos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 3rem;
-    justify-items: center;
-    align-items: center;
-  }
-  
-  .header__seenon-logos img {
-    max-height: 2.5rem;
-    max-width: 100%;
-    filter: brightness(70%);
-  }
-  /* Responsive styles for mobile screens */
+}
+
+.header__logo {
+  height: 5rem;
+  justify-self: center;
+}
+
+.header__btn {
+  align-self: start;
+  justify-self: start;
+}
+
+.header__seenon-text {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-column-gap: 1.5rem;
+  align-items: center;
+  font-size: 1.6rem;
+  color: #f57b18;
+}
+
+.header__seenon-text::before,
+.header__seenon-text::after {
+  content: "";
+  height: 1px;
+  display: block;
+  background-color: currentColor;
+}
+
+.header__seenon-logos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 3rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.header__seenon-logos img {
+  max-height: 2.5rem;
+  max-width: 100%;
+  filter: brightness(70%);
+}
+
 /* Mobile styles - Adjusting space between elements */
 @media screen and (max-width: 768px) {
   .header {
@@ -90,59 +91,85 @@
   .header__seenon-logos {
     grid-template-columns: repeat(2, 1fr); /* Two logos per row on mobile */
     grid-column-gap: 3rem; /* Reduce gap between logos */
-    grid-row-gap: 2rem
+    grid-row-gap: 2rem;
   }
 
   .header__seenon-logos img {
     max-height: 2rem; /* Reduce logo size slightly on mobile */
-    
   }
 
   .header__seenon-text {
     font-size: 1.4rem; /* Adjust text size */
   }
 }
-  
-/* Container for the buttons */
-.header-buttons {
-  position: absolute; /* Position it absolutely within the header */
-  top: 2rem; /* Adjust as needed */
-  right: 2rem; /* Adjust as needed */
-  z-index: 10; /* Ensure it's above other content */
-  display: flex; /* Align buttons in a row */
-  gap: 1rem; /* Space between buttons */
+
+.HomeSearch {
+  margin: 2rem 0; /* Space above and below */
+  margin-left: 20%; /* Start from 20% from the left */
+  width: 60%; /* Adjust width to maintain responsiveness */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: row; /* Align items in a row on larger screens */
+  justify-content: center; /* Center items */
+  background-color: white; /* White background */
+  padding: 1rem 2rem; /* Padding for spacing inside the container */
+  border-radius: 50px; /* Optional: for a rounded shape */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
 }
 
-/* Shared style for sign in and sign up buttons */
-.header-buttons button {
-  background-color: #c69963; /* Example background color */
-  color: #fff; /* Text color */
+.filter-dropdown {
+  min-width: 150px; /* Ensure a minimum width for dropdowns */
+}
+
+.search-button {
+  font-size: large;
+  border-radius: 4px; /* Optional: make corners slightly round */
+  min-width: 150px; /* Set a minimum width for consistency */
+}
+
+.search-button:hover{
+  background-color: #f57b18cf;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  
+  .HomeSearch {
+    flex-direction: column; /* Stack elements vertically on mobile */
+    align-items: center; /* Center items */
+    margin-left: 0; /* Reset margin for mobile view */
+    width: 100%; /* Full width on mobile */
+  }
+}
+
+.Fmodel {
+  text-align: center; /* Center the text and buttons */
+  margin-top: 2rem; /* Add some space above */
+}
+
+.Fmodel p {
+  font-size: 1.5rem; /* Adjust font size for the "Or Browse Featured Model" text */
+  font-weight: bold; /* Make the text bold */
+  margin-bottom: 1rem; /* Space below the text */
+}
+
+.btn {
+  background-color: #29383c; /* Primary blue color */
+  color: white; /* White text */
   border: none; /* No border */
-  padding: 0.8rem 1.6rem; /* Padding around the text */
-  font-size: 1.2rem; /* Font size */
-  border-radius: 1px; /*  corners */
-  cursor: pointer; /* Change cursor to pointer */
-  transition: background-color 0.3s; /* Smooth transition for background color */
-}
-.header-buttons button:hover {
-  background-color: #B28451; /* Darker shade for hover effect */
+  border-radius: 25px; /* Rounded edges for buttons */
+  padding: 0.5rem 1.5rem; /* Padding for button size */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-/* view our properties button*/
-.properties-btn {
-  background-color: #c69963;
-  
-  color: white; /* Adjust text color as needed */
-  /* Centering the button vertically */
-  position: absolute;
-  top: 55%;
-  left: 45%;
-  transform: translateY(-50%);
-  border: none;
-  cursor: pointer;
-  
+.btn:hover {
+  background-color: #f57b18cf; /* Darker blue on hover */
 }
 
+.btn:focus {
+  outline: none; /* Remove default focus outline */
+}
 
-
+.btn.m-1 {
+  margin: 0.5rem; /* Adjust spacing between buttons */
+}
 

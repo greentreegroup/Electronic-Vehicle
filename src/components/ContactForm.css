@@ -1,13 +1,38 @@
+.contactMain{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap:wrap;
+    width:100%;
+}
 
+.contact-header{
+    padding:40px;
+    width:100%;
+    text-align: center;
+    color:white;
+    background-color: #17292e;
+}
+
+.contact-header h1 {
+    font-size: 30px;
+}
+
+/* To make text pop out */
+.important{
+    color:#f57b18
+}
 
 .contact-form {
     background-color: white;
     margin-top: 40px;
+    margin-bottom: 40px;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
+    /* width: 100%;
+    max-width: 600px; */
+    width:50%;
     box-sizing: border-box;
 }
 
@@ -81,11 +106,13 @@
     align-items: center;   /* Aligns items vertically in the center */
     justify-content: center; /* Horizontally centers the checkbox and label within the group */
     margin-bottom: 20px;   /* Adds space below the group */
-    width: 100%;           /* Ensures the group uses the full width available */
+    width: 50%;           /* Reduces width to allow the box and label to be closer together */
+    margin-left:auto; /* Centers the checkbox group with auto margins */
+    margin-right:auto;
 }
 
 .checkbox-group input {
-    margin-right: 10px;   /* Adds space between the checkbox and the label */
+    margin-right: 5px;   /* Adds space between the checkbox and the label */
 }
 
 .checkbox-group label {
@@ -102,10 +129,63 @@
     margin-left: 10px;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
+.contact-info{
+    background-color: white;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    /* max-width: 600px; */
+    box-sizing: border-box;
+}
+
+.contact-info a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.contact-info p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.info-list{
+    text-align: left;
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.info-list li{
+    margin-bottom:20px;
+    margin-left:20px;
+}
+
+/* Icons found here: https://html-css-js.com/html/character-codes/#:~:text=Click%20the%20emoji%20to%20highlight%20and%20copy%20the%20character.%20Paste */
+.info-list li:nth-child(1){
+    list-style-type: "📧 ";
+}
+
+.info-list li:nth-child(2){
+    list-style-type: "📞 ";
+}
+
+.info-list li:nth-child(3){
+    list-style-type: "💼 ";
+}
+
+.headtext{
+    color: #17292e;
+}
+
+/* For tablets */
+@media (max-width: 795px) {
     .contact-form {
-        padding: 20px;
+        /* padding: 20px; */
+        width:75%
     }
 
     .contact-form h1 {
@@ -124,8 +204,46 @@
         font-size: 0.85rem;
     }
 
+    #privacy-policy{
+        margin-left: 0.8rem;
+    }
 
-#privacy-policy{
-    margin-left: 4rem;
+    .contact-info{
+        width:75%;
+        margin-top:0px
+    }
+
+    .horizontal-group{
+        flex-direction: column;
+    }
+
+    .horizontal-group input,
+    .horizontal-group select,
+    .horizontal-group textarea {
+        width: 100%; /* Adjust due to column layout */
+        font-size: 0.9rem;
+    }
+
+    .info-list {
+        font-size: 1.1rem;
+    }
 }
+
+
+/* for mobile devices */
+@media (max-width:480px){
+    .horizontal-group input,
+    .horizontal-group select,
+    .horizontal-group textarea {
+        width: 100%; /* Adjust due to column layout */
+        font-size: 0.9rem;
+    }
+
+    .info-list {
+        font-size: 0.9rem;
+    }
+
+    .horizontal-group{
+        flex-direction: column;
+    }
 }
