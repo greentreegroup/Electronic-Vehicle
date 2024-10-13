@@ -4,7 +4,7 @@ import {Chrono} from "react-chrono";
 import Footer from "./Footer"
 
 //Stores all of the Chrono Timeline data here
-const data = [
+const timeline_data = [
     {
         title: "1.",
         cardTitle: "Select cars",
@@ -106,12 +106,22 @@ function Timeline() {
             <h2>Use the buttons below to navigate and change settings in the timeline.</h2>
         </div>
         <div className="timeline-body">
+
+            {/* NOTE: If you change anything here, you will have to refresh the page to see it on the timeline */}
             <Chrono 
-                items={data} 
-                timelinePointShape="square"
-                readMore={true}
-                mode="VERTICAL"
-                enableLayoutSwitch={false}
+                className="timeline-functional"
+                items={timeline_data} //Set items to the array above
+                hideControls={true} //Hide the controls
+                timelinePointShape="square" //Sets the timeline point to a square
+                readMore={true} //Smaller textboxes will have "read more" button (needs to be refreshed first to work)
+                cardHeight={80} //Max height is 80. 
+                mode="VERTICAL" //Set mode to vertical
+                enableLayoutSwitch={false} //Gets rid of layout switch (not needed)
+                enableQuickJump={false} //Gets rid of quick jump button (does not work properly)
+                highlightCardsOnHover={true} //Highlights the cards on hover
+                disableNavOnKey //Disables keyboard movement of timeline
+
+                //Color scheme
                 theme={{
                     primary: "#f57b18",
                     secondary: "#17292e",
@@ -119,7 +129,25 @@ function Timeline() {
                     titleColorActive: "white",
                     cardTitleColor: "black",
                 }}
-            />
+
+                //Font sizing scheme
+                fontSizes={{
+                    cardSubtitle: '0.95rem',
+                    cardText: '0.8rem',
+                    cardTitle: '1.5rem',
+                    title: '1.5rem',
+                }}
+
+                //Button Alt Text
+                buttonTexts={{
+                    first: 'Jump to First Step',
+                    last: 'Jump to Last Step',
+                    next: 'Next Step',
+                    previous: 'Previous Step',
+                }}
+
+            > 
+            </Chrono>
         </div>
         <Footer />
     </div>

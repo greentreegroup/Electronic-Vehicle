@@ -67,11 +67,16 @@
   }
 
   .signInButton{
-    border-radius: 10px;
+    border-radius: 4px;
     color:white;
     background-color:#f57b18;
+    border-color:transparent;
     margin-top: 30px;
-    margin-right: 155px;
+    margin-right: 150px;
+  }
+
+  .signInButton:hover{
+    background-color:#c66415;
   }
 
   hr{
