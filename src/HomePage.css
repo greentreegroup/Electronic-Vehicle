@@ -49,6 +49,18 @@ body, html {
   overflow-y: auto;
 }
 
+/* For any links in progress (disables them) */
+.link-in-progress{
+  pointer-events: none;
+  cursor: default;
+}
+
+/* For any buttons in progress (disables clicking on them without impacting css) */
+#button-in-progress{
+  pointer-events: none;
+  cursor: default;
+}
+
 /* Responsive adjustments for welcome message on smart screens*/
 @media (max-width: 768px) {
   .welcome-message {

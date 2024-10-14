@@ -77,32 +77,33 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* All of these links can be added once the cars pages are developed */}
+          {/* All of these links can be added once the cars pages are developed. They are currently unlickable. Look for 
+          "link-in-progress" class in CSS to make them clickable again */}
           <div className="listLinks">
             <h3>By Energy:</h3>
             <ul>
-              <li><a href="#">Electric</a></li>
-              <li><a href="#">Hybrid</a></li>
+              <li><a className="link-in-progress" href="#">Electric</a></li>
+              <li><a className="link-in-progress" href="#">Hybrid</a></li>
             </ul>
           </div>
           <div clasNames="listLinks">
             <h3>By Brands:</h3>
             <ul>
-              <li><a href="#">Aion</a></li>
-              <li><a href="#">Avatr</a></li>
-              <li><a href="#">BYD</a></li>
-              <li><a href="#">Changan</a></li>
-              <li><a href="#">Geely</a></li>
+              <li><a className="link-in-progress" href="#">Aion</a></li>
+              <li><a className="link-in-progress" href="#">Avatr</a></li>
+              <li><a className="link-in-progress" href="#">BYD</a></li>
+              <li><a className="link-in-progress" href="#">Changan</a></li>
+              <li><a className="link-in-progress" href="#">Geely</a></li>
             </ul>
           </div>
           <div className="listLinks">
             <h3>By Model:</h3>
             <ul>
-              <li><a href="#">Hatchback</a></li>
-              <li><a href="#">Mini</a></li>
-              <li><a href="#">MPV</a></li>
-              <li><a href="#">Sedan</a></li>
-              <li><a href="#">SUV</a></li>
+              <li><a className="link-in-progress" href="#">Hatchback</a></li>
+              <li><a className="link-in-progress" href="#">Mini</a></li>
+              <li><a className="link-in-progress" href="#">MPV</a></li>
+              <li><a className="link-in-progress" href="#">Sedan</a></li>
+              <li><a className="link-in-progress" href="#">SUV</a></li>
             </ul>
           </div>
           <div className="contactLinks">
@@ -127,9 +128,9 @@ const Footer = () => {
           </div>
           <div className="important_links">
             {/* Terms and conditions and policy can be added here once they are created*/}
-            <a href="#">Terms and Conditions</a>
+            <a className="link-in-progress" href="#">Terms and Conditions</a>
             <span className="bigDot">.</span>
-            <a href="#">Privacy Notice</a>
+            <a className="link-in-progress" href="#">Privacy Notice</a>
           </div>
         </div>
       </div>

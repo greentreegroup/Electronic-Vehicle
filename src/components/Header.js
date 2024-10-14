@@ -77,12 +77,13 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
 
       <div className='Fmodel text-center mt-4'> {/* Added margin for spacing */}
         <p>Or Browse Featured Model</p>
-        <div className="d-flex justify-content-center flex-wrap">
-          <button className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('SUV')}>SUV</button>
-          <button className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Sedan')}>Sedan</button>
-          <button className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Hatchback')}>Hatchback</button>
-          <button className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Mini')}>Mini</button>
-          <button className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Electric')}>Electric</button>
+        <div className="d-flex justify-content-center flex-wrap"> 
+          {/* Buttons that are not implemented yet are disabled */}
+          <button id="button-in-progress" className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('SUV')}>SUV</button>
+          <button id="button-in-progress" className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Sedan')}>Sedan</button>
+          <button id="button-in-progress" className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Hatchback')}>Hatchback</button>
+          <button id="button-in-progress" className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Mini')}>Mini</button>
+          <button id="button-in-progress" className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Electric')}>Electric</button>
         </div>
       </div>
 

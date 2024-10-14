@@ -7,7 +7,7 @@ const BlogCard = ({ title, description }) => {
       <h1>{title}</h1>
       <p>{description}</p>
       <div className="button-container">
-      <button> <a href="/">Get Started</a></button>
+      <button id="button-in-progress"> <a href="/">Get Started</a></button>
       </div>
     </div>
   );

@@ -103,7 +103,7 @@ const FeatureCars = () => {
             <div className="featured-car-caption">
               <h2 style={{ color: 'lightslategray' }}>{feature.title}</h2>
               <p style={{ color: 'lightslategray' }}>{feature.description}</p>
-              {feature.link && <a href="#">{feature.link}</a>}
+              {feature.link && <a className="link-in-progress" href="#">{feature.link}</a>}
             </div>
           </div>
         ))}
