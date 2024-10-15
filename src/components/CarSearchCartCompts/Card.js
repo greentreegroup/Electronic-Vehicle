@@ -1,13 +1,12 @@
 import React from "react";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { AZURE_BLOB_SAS_URL } from "./urls";
-import { formatCurrency } from "./functions"
-import { BACKGROUND_COLOUR } from "./Colour"
+import { formatCurrency } from "./functions";
+import { BACKGROUND_COLOUR } from "./Colour";
 
 const CarCard = ({ result }) => {
   const navigate = useNavigate();
-  const [firstImage] = result.image.split(",");
+  const [firstImage] = result.image.split(", ");
 
   const handleClick = () => {
     navigate(`/car-details/${result.id}`, { state: { car: result } });
@@ -22,7 +21,8 @@ const CarCard = ({ result }) => {
       onClick={handleClick}
       sx={{
         cursor: "pointer",
-        transition: "transform 0.3s ease, box-shadow 0.3s ease", 
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        maxWidth: "100%",
         "&:hover": {
           backgroundColor: "#ecf0f1",
           transform: "scale(1.05)",
@@ -33,14 +33,14 @@ const CarCard = ({ result }) => {
       <CardMedia
         component="img"
         sx={{
-          width: 400,
-          height: 300,
+          height: "12rem",
+          width: "100%",
           objectFit: "cover",
           objectPosition: "center",
         }}
-        image={AZURE_BLOB_SAS_URL(firstImage)}
+        image={firstImage}
         onError={handleImageError}
-        alt={result.brand}
+        alt={`${result.brand} ${result.model}`}
       />
       <CardContent>
         <Typography
@@ -65,4 +65,4 @@ const CarCard = ({ result }) => {
   );
 };
 
-export { CarCard, Typography };
+export default CarCard;

@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Grid, Box, IconButton, Typography } from "@mui/material";
-import { ArrowBack, ArrowForward, AddShoppingCart } from "@mui/icons-material";
-import ContactSeller from "./Contact";
-import { contactData } from "./data";
-import { AZURE_BLOB_SAS_URL } from "./urls";
-import { useCart } from "./CartContext";
-import BackButton from "./BackButton";
-import Snackbar, { SnackbarCloseReason } from "@mui/material/Snackbar";
+import { Box, Typography, Snackbar, Button, TextField } from "@mui/material";
+import { AddShoppingCart } from "@mui/icons-material";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import Alert from "@mui/material/Alert";
-import Button from "@mui/material/Button";
+import { useCart } from "./CartContext";
+import ContactSeller from "./Contact";
+import { contactData } from "./data";
 import { COLOUR } from "./Colour";
+import Specifications from "./Specifications";
+import './CarDetails.css'; 
+
+const formatPrice = (price) => {
+  return price.toString().replace(/\B(?=(\d{3})+(?!))/g, ",");
+};
 
 const CarDetails = () => {
   const location = useLocation();
@@ -19,274 +21,162 @@ const CarDetails = () => {
   const car = location.state?.car;
   const [open, setOpen] = useState(false);
   const { cart, setCart } = useCart();
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [imageArray, setImageArray] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+  const [selectedImage, setSelectedImage] = useState(car.image.split(",")[0]);
+  const imageArray = car.image.split(",");
 
   const handleBack = () => {
     navigate("/CarSearch");
   };
 
-  useEffect(() => {
-    const images = car.image.split(",");
-    setImageArray(images);
-  }, [car.image]);
-
-  const handlePrev = () => {
-    setCurrentImageIndex((prev) =>
-      prev === 0 ? car.image.length - 1 : prev - 1,
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentImageIndex((prev) =>
-      prev === car.image.length - 1 ? 0 : prev + 1,
-    );
-  };
-
-  const handleClose = ( event?, reason?) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpen(false);
-  };
-
-  const addToCart = (id, delta) => {
-    const existingCar = cart.find((item) => item.id === id);
+  const addToCart = () => {
+    const existingCar = cart.find((item) => item.id === car.id);
     let updatedCart;
 
     if (existingCar) {
       updatedCart = cart.map((item) =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, existingCar.quantity + delta) }
-          : item,
+        item.id === car.id
+          ? { ...item, quantity: existingCar.quantity + quantity }
+          : item
       );
     } else {
-      const { id, brand, model, price, image } = car;
-      const newCartItem: CartItem = {
-        id: id,
-        name: `${brand} ${model}`,
-        price: price,
-        image: image,
-        quantity: 1,
+      const newCartItem = {
+        id: car.id,
+        name: `${car.brand} ${car.model}`,
+        price: car.price,
+        image: selectedImage,
+        quantity,
       };
       updatedCart = [...cart, newCartItem];
     }
+
     setOpen(true);
-    //console.log(`${car.brand} ${car.model} added`);
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") return;
+    setOpen(false);
+  };
+
   return (
-    <Box
-      sx={{
-        overflow: "auto",
-        textAlign: "center",
-      }}
-    >
-      <Grid container alignItems="center" justifyContent="space-between">
-        <Grid item>
-          <BackButton handleBack={handleBack} />
-        </Grid>
-      </Grid>
+    <Box className="container">
+      <Box className="car-section">
+        <Box className="image-container">
+          <img
+            src={selectedImage}
+            alt={`${car.brand} ${car.model}`}
+            className="image"
+          />
+          <Box className="thumbnails">
+            {imageArray.map((img, index) => (
+              <Box
+                key={index}
+                className="thumbnail"
+                onClick={() => setSelectedImage(img)}
+              >
+                <img src={img} alt={`Thumbnail ${index + 1}`} />
+              </Box>
+            ))}
+          </Box>
+        </Box>
 
-      <Grid container spacing={2} sx={{ justifyContent: "center" }}>
-        <Grid item xs={12} md={8} sx={{ position: "relative" }}>
-          <Box
-            sx={{
-              position: "relative",
-              width: "600px",
-              height: "400px",
-              margin: "auto",
-              overflow: "hidden",
+        <Box className="details-container">
+          <Typography variant="h4" className="title">
+            {car.brand} {car.model}
+          </Typography>
+          <Typography variant="body1">
+            Model Type: {car.model_type}, Top Speed: {car.top_speed} km/h
+          </Typography>
+          <Typography variant="h3" className="price">
+            ${formatPrice(car.price)}
+          </Typography>
+          <Typography variant="body1">
+            Availability: Available
+          </Typography>
+
+          <Box className="quantity-selector">
+            <Button onClick={() => setQuantity(Math.max(1, quantity - 1))} variant="outlined">-</Button>
+            <TextField
+              value={quantity}
+              onChange={(e) => setQuantity(Math.max(1, e.target.value))}
+              inputProps={{ min: 1, style: { textAlign: 'center' } }}
+              variant="outlined"
+              size="small"
+              sx={{ width: 50, mx: 1 }}
+            />
+            <Button onClick={() => setQuantity(quantity + 1)} variant="outlined">+</Button>
+          </Box>
+
+          <Button
+            onClick={addToCart}
+            variant="outlined"
+            style={{
+              borderColor: COLOUR,
+              color: COLOUR,
+              width: '100%',
+              marginTop: 16,
+              fontFamily: "Arial, sans-serif",
             }}
           >
-            <IconButton
-              onClick={handlePrev}
-              sx={{
-                position: "absolute",
-                left: 10,
-                top: "50%",
-                transform: "translateY(-50%)",
-                zIndex: 1,
-                backgroundColor: "rgba(0, 0, 0, 0.5)",
-                color: "#fff",
-              }}
-              disabled={currentImageIndex === 0}
-            >
-              <ArrowBack />
-            </IconButton>
-            {imageArray.length > 0 && (
-              <img
-                src={AZURE_BLOB_SAS_URL(imageArray[currentImageIndex])}
-                alt={`${currentImageIndex + 1} of ${car.brand} ${car.model}`}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: "center",
-                }}
-                onError={(e) => {
-                  e.currentTarget.src = "https://placehold.co/400x300";
-                }}
-              />
-            )}
-            <IconButton
-              onClick={handleNext}
-              sx={{
-                position: "absolute",
-                right: 10,
-                top: "50%",
-                transform: "translateY(-50%)",
-                zIndex: 1,
-                backgroundColor: "rgba(0, 0, 0, 0.5)",
-                color: "#fff",
-              }}
-              disabled={currentImageIndex === imageArray.length - 1}
-            >
-              <ArrowForward />
-            </IconButton>
+            <AddShoppingCart /> Add to Cart
+          </Button>
+
+          <Box className="contact-message">
+            <Typography variant="body1">
+              Any questions? Contact us via e-mail at <a href="mailto:example@gmail.com">example@gmail.com</a>
+            </Typography>
           </Box>
-        </Grid>
+        </Box>
+      </Box>
 
-        {/* Price Box */}
-        <Grid item xs={12} md={4}>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "400px",
-              padding: 2,
-            }}
-          >
-            <Box
-              sx={{
-                backgroundColor: "#fff",
-                padding: 2,
-                borderRadius: "8px",
-                boxShadow: 3,
-                textAlign: "center",
-                width: "100%",
-                maxWidth: "300px",
-              }}
-            >
-              <Typography
-                variant="h4"
-                sx={{
-                  color: "#000",
-                  fontWeight: "bold",
-                  marginBottom: 1,
-                }}
-              >
-                {car.brand} {car.model}
-              </Typography>
-              <Typography
-                variant="h4"
-                sx={{
-                  color: "#555",
-                }}
-              >
-                ${car.price}
-              </Typography>
-              <Button
-                onClick={() => addToCart(car.id, 1)}
-                variant="outlined"
-                sx={{
-                  borderColor: COLOUR,
-                  color: COLOUR,
-                  flexDirection: "column",
-                  alignItems: "center",
-                  padding: 2,
-                  "&:hover": {
-                    borderColor: COLOUR,
-                    backgroundColor: `${COLOUR}25`,
-                    color: COLOUR,
-                  },
-                }}
-              >
-                <AddShoppingCart sx={{ fontSize: 100 }} />
-                <Typography
-                  fontSize="large"
-                  variant="caption"
-                  sx={{ marginTop: 1, padding: 2 }}
-                >
-                  Add to Cart
-                </Typography>
-              </Button>
-
-              <Snackbar
-                open={open}
-                autoHideDuration={6000}
-                onClose={handleClose}
-              >
-                <Alert
-                  onClose={handleClose}
-                  severity="success"
-                  variant="outlined"
-                  icon={<CheckCircleOutlineIcon sx={{ color: COLOUR }} />}
-                  sx={{
-                    color: COLOUR,
-                    borderColor:COLOUR,
-                  }}
-                >
-                  {`${car.brand} ${car.model} added`}
-                </Alert>
-              </Snackbar>
-            </Box>
+      <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} justifyContent="space-between" sx={{ margin: 4, mx: 'auto' }}>
+        <Box className="overview-section">
+          <Typography variant="h6" className="section-title" sx={{fontWeight:700}}>
+            Car Overview
+          </Typography>
+          <Box display="flex" flexDirection="column" spacing={2}>
+            {Object.entries({
+              Brand: car.brand,
+              "Usable Battery (kWh)": car.usable_battery,
+              "Real Range (km)": car.real_range,
+              "Efficiency (Wh/km)": car.efficiency,
+              "Acceleration (sec)": car.acceleration,
+              "Top Speed (km/h)": car.top_speed,
+              Year: car.year,
+              "Model Type": car.model_type,
+            }).map(([label, value]) => (
+              <Box key={label} display="flex" justifyContent="space-between" padding="4px" borderBottom="1px solid #ccc">
+                <Typography><strong>{label}</strong></Typography>
+                <Typography>{value}</Typography>
+              </Box>
+            ))}
           </Box>
-        </Grid>
-      </Grid>
+        </Box>
 
-      {/* Display comprehensive car data */}
-      <Grid
-        sx={{
-          flexGrow: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          marginBottom: "75px",
-        }}
-        container
-        spacing={2}
-      >
-        <Grid
-          container
-          spacing={2}
-          sx={{ flexGrow: 1, justifyContent: "center", marginTop: 3 }}
-        >
-          <Grid item xs={12} md={6}>
-            <Grid container spacing={2}>
-              {Object.entries({
-                Year: car.year,
-                "Usable Battery (kWh)": car.usable_battery,
-                "Real Range (km)": car.real_range,
-                "Efficiency (Wh/km)": car.efficiency,
-                "Acceleration (sec)": car.acceleration,
-                "Top Speed (km/h)": car.top_speed,
-              }).map(([label, value]) => (
-                <React.Fragment key={label}>
-                  <Grid
-                    item
-                    xs={6}
-                    sx={{ padding: "4px", borderBottom: "1px solid #ccc" }}
-                  >
-                    <Typography>
-                      <strong>{label}</strong>
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={6} className="cell">
-                    <Typography>{value}</Typography>
-                  </Grid>
-                </React.Fragment>
-              ))}
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
+        <Box className="features-section">
+          <Typography variant="h6" className="section-title" sx={{fontWeight:700}}>
+            Features
+          </Typography>
+          <Box display="flex" flexDirection="column" spacing={2} textAlign="left">
+            {car.features && car.features.split(",").map((feature, index) => (
+              <Typography key={index} sx={{ padding: "4px", fontSize: { xs: "0.9rem", sm: "1rem" } }}>
+                🔵 {feature.trim()}
+              </Typography>
+            ))}
+          </Box>
+        </Box>
+      </Box>
 
-      {/* Contact Seller Component */}
+      <Specifications car={car} />
+
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" variant="outlined" icon={<CheckCircleOutlineIcon sx={{ color: COLOUR }} />} sx={{ color: COLOUR, borderColor: COLOUR }}>
+          {`${car.brand} ${car.model} added to cart`}
+        </Alert>
+      </Snackbar>
+
       <ContactSeller contacts={contactData} />
     </Box>
   );
