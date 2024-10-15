@@ -99,9 +99,9 @@ function Timeline() {
   return (
     <div className="timeline">
         <div className="timeline-header">
-            <h1>Shipping Timeline</h1>
+            <h1>Shipping</h1>
             <h2>At <span className="important">EVrabbit</span>, we want to make your purchase of Chinese electric cars quick and easy.
-            Here is an interactive timeline of what you can expect when buying cars.</h2>
+            Here is an interactive shipping timeline of what you can expect when buying cars.</h2>
             <br></br>
             <h2>Use the buttons below to navigate and change settings in the timeline.</h2>
         </div>

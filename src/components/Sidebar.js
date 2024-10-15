@@ -165,7 +165,7 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <Link to="/Timeline" className="nav-link">
-              Timeline
+              Shipping
             </Link>
           </li>
         </ul>

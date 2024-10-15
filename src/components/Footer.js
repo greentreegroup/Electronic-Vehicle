@@ -71,7 +71,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/Timeline">
-                  Timeline
+                  Shipping
                 </Link>
               </li>
             </ul>
