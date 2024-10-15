@@ -26,6 +26,34 @@
   }
 }
 
+/* Sidebar.css */
+.search-preview {
+  position: absolute;
+  top: 50px;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 60%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.search-preview-item {
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.search-preview-item:hover {
+  background-color: #f0f0f0;
+}
+
+.no-results {
+  padding: 10px;
+  text-align: center;
+}
+
 .logo-div{
   margin-left:20px;
 }
