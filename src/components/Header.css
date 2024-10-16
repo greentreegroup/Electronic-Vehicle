@@ -34,6 +34,7 @@
 .header__logo {
   height: 5rem;
   justify-self: center;
+  background-color: transparent;
 }
 
 .header__btn {
