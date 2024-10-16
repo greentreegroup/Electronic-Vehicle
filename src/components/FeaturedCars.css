@@ -5,6 +5,9 @@ body {
     text-align: center;
 }
 
+.featuredBody{
+    border: solid black 2px;
+}
 
 
 
@@ -103,7 +106,7 @@ nav ul li a.active::after {
 }
 
 .featured-car-caption a {
-    color: #fff;
+    color: #f57b18;
     text-decoration: none;
     font-weight: bold;
 }

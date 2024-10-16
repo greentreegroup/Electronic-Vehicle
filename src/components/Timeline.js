@@ -124,7 +124,7 @@ function Timeline() {
                 //Color scheme
                 theme={{
                     primary: "#f57b18",
-                    secondary: "#17292e",
+                    secondary: "black",
                     titleColor: "black",
                     titleColorActive: "white",
                     cardTitleColor: "black",

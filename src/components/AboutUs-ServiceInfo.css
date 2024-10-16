@@ -1,13 +1,14 @@
 /* AboutUs.css */
 .about-us-container {
-    background: linear-gradient(135deg, #17292e 0%, #091214 100%);
+    /* background: linear-gradient(135deg, #17292e 0%, #091214 100%); */
+    background-color: black;
     color: #ffffff;
     min-height: 100vh;
     font-family: 'Arial', sans-serif;
   }
   
   .hero-section {
-    background: url('/public/img/rabbit.JPG') no-repeat center center;
+    background: url('/public/img/rabbitBlackBg.png') no-repeat center center;
     background-size: cover;
     height: 70vh;
     display: flex;
@@ -96,7 +97,7 @@
   
   .text-content p {
     font-size: 1.1rem;
-    color: #17292e;
+    color: black;
     line-height: 1.6;
     margin-bottom: 20px;
   }

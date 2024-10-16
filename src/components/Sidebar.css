@@ -5,11 +5,11 @@
   z-index: 1000; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
   transition: background-color 0.3s ease; /* Smooth background color transition */
-  background-color: #ecf0f1; /* Maintain the base color */
+  background-color: white; /* Maintain the base color */
 }
 
 .sidebar {
-  background-color: #ecf0f1; /* Maintain the base color */
+  background-color: white; /* Maintain the base color */
   transition: background-color 0.3s ease; /* Smooth background color transition */
   display: flex;
   justify-content: space-between;
@@ -20,9 +20,9 @@
 }
 
 .full-sidebar:hover {
-  background-color: #ced2d3; /* Slightly darken on hover for interactivity */
+  background-color: #ecf0f1; /* Slightly darken on hover for interactivity */
   .sidebar{
-    background-color: #ced2d3 /* Make sure all parts of sidebar are darkened */
+    background-color: #ecf0f1 /* Make sure all parts of sidebar are darkened */
   }
 }
 
@@ -159,7 +159,7 @@
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #ced2d3;
+  background-color: #ecf0f1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   list-style: none;
@@ -282,7 +282,9 @@
   margin-top: 5px;
   padding-top: 5px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
 }
 
 /* Ensure the search bar centers on mobile */

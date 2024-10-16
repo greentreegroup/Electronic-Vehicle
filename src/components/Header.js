@@ -31,7 +31,7 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
 
   return (
     <header className="header">
-      <img src="/img/rabbit.JPG" alt="Nexter logo" className="header__logo" />
+      <img src="/img/rabbitBlackBg.png" alt="Nexter logo" className="header__logo" />
       <h1 className="heading-1">Discover the Car That's Perfect for You</h1>
 
       <div className="HomeSearch d-flex flex-wrap justify-content-center">

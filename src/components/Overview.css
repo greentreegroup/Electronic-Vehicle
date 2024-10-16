@@ -23,17 +23,17 @@
   .feature__text {
     margin-top: 10px;
     font-size: 14px;
-    color: #333;
+    color: black;
   }
   
   .heading-4--dark {
     font-weight: bold;
-    color: #333;
+    color: black;
   }
   
   .heading-2--dark {
     font-weight: bold;
-    color: #333;
+    color: black;
   }
   
   /* Responsive design for smaller screens */

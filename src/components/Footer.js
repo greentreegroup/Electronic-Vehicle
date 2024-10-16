@@ -87,7 +87,7 @@ const Footer = () => {
             </ul>
           </div>
           <div clasNames="listLinks">
-            <h3>By Brands:</h3>
+            <h3 style={{color:'#f57b18'}}>By Brands:</h3>
             <ul>
               <li><a className="link-in-progress" href="#">Aion</a></li>
               <li><a className="link-in-progress" href="#">Avatr</a></li>
@@ -107,15 +107,11 @@ const Footer = () => {
             </ul>
           </div>
           <div className="contactLinks">
-            <h3>Contact Us Here:</h3>
+            <h3>Contact Info:</h3>
             <ul>
               <li>Email: <a href="mailto:support@evrabbit.com">support@evrabbit.com</a></li>
               <li>Phone: +1 (779) 707-1757</li>
               <li>Address: 4753 N Broadway, Chicago, Illinois</li>
-              <li>
-                <Link to="/Contact">
-                  Contact Form
-                </Link></li>
             </ul>
             {/*Can put in additional social media, etc. for contacting*/}
           </div>
@@ -123,7 +119,7 @@ const Footer = () => {
         <hr></hr>
         <div className="important_info">
           <div className="copyright">
-            <p className='inline'><a href="/"><img src="/img/rabbit.JPG" alt="EVrabbit logo"></img></a></p>
+            <p className='inline'><a href="/"><img src="/img/rabbitBlackBg.png" alt="EVrabbit logo"></img></a></p>
             <p> EVrabbit &copy; {new Date().getFullYear()}</p>
           </div>
           <div className="important_links">
