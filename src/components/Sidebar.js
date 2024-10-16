@@ -1,63 +1,61 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Sidebar.css';
 import SignInForm from './SignInForm.js';
 import SignUpForm from './SignUpForm.js';
-import Dealer from './Dealer.js'; // Import Dealer form
+import Dealer from './Dealer.js';
 import Cookies from 'js-cookie';
 
-const Sidebar = () => {
+const Sidebar = ({ setSearchQuery, parts = [] }) => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [showMobileMenu, setShowMobileMenu] = useState(false); // For hamburger menu
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showBrandDropdown, setShowBrandDropdown] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
-  const [showDealer, setShowDealer] = useState(false); // For Dealer form
-  const [searchQuery, setSearchQuery] = useState(''); // For search bar
+  const [showDealer, setShowDealer] = useState(false);
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [filteredPreviewParts, setFilteredPreviewParts] = useState([]);
 
-  /* Dropdown for account menu */
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-    setShowBrandDropdown(false);
+  const location = useLocation(); // To detect the current page route
+
+  // Handle search input change and activate search preview
+  const handleSearchChange = (e) => {
+    const query = e.target.value || '';
+    setSearchQuery(query); // Update the query for the entire app
+    setIsSearchActive(query.length > 0);
+
+    // Filter parts for the search preview
+    if (query) {
+      const filtered = parts.filter((part) =>
+        part.name.toLowerCase().includes(query.toLowerCase())
+      );
+      setFilteredPreviewParts(filtered);
+    } else {
+      setFilteredPreviewParts([]);
+    }
   };
 
-  /* Dropdown for brands menu */
+  const closeSearchPreview = () => setIsSearchActive(false);
+
+  const toggleDropdown = () => setShowDropdown((prev) => !prev);
+  const toggleMobileMenu = () => setShowMobileMenu((prev) => !prev);
+
   const toggleBrandDropdown = () => {
-    setShowBrandDropdown(!showBrandDropdown);
-    setShowDropdown(false);
-  }
-
-  const toggleMobileMenu = () => {
-    setShowMobileMenu(!showMobileMenu);
+    setShowBrandDropdown((prev) => !prev); // Proper toggle logic
+    setShowDropdown(false); // Close other dropdowns
   };
 
-  const handleSignInClick = () => {
-    setShowSignIn(true);
-    setShowSignUp(false);
-    setShowDealer(false);
-    setShowDropdown(false);
-  };
-
-  const handleSignUpClick = () => {
-    setShowSignUp(true);
-    setShowSignIn(false);
-    setShowDealer(false);
-    setShowDropdown(false);
-  };
-
-  const handleDealerClick = () => {
-    setShowDealer(true);
-    setShowSignIn(false);
-    setShowSignUp(false);
+  const handleAuthClick = (authType) => {
+    setShowSignIn(authType === 'signIn');
+    setShowSignUp(authType === 'signUp');
+    setShowDealer(authType === 'dealer');
     setShowDropdown(false);
   };
 
   const handleUserAccountClick = () => {
-    Cookies.get('id') === undefined ? setShowSignIn(true) : window.location.replace('/userProfile/'.concat(Cookies.get('id'))); 
-    setShowSignUp(false);
-    setShowDealer(false);
-    setShowDropdown(false);
-  };  
+    const userId = Cookies.get('id');
+    userId ? window.location.replace(`/userProfile/${userId}`) : handleAuthClick('signIn');
+  };
 
   const closeForms = () => {
     setShowSignIn(false);
@@ -65,25 +63,44 @@ const Sidebar = () => {
     setShowDealer(false);
   };
 
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
+  // Avoid showing the search preview on the PartsAccessories page
+  const isOnPartsPage = location.pathname === '/PartsAccessories';
 
   return (
     <div className="full-sidebar">
       <div className="sidebar">
         <div className="logo-div">
-          <p>EVrabbit </p>
+          <p>EVrabbit</p>
         </div>
+
+        {/* Search Bar with Preview */}
         <div className="search-container">
           <input
             type="text"
             placeholder="🔍 Search for a product..."
-            value={searchQuery}
             onChange={handleSearchChange}
             className="search-bar"
           />
+          {isSearchActive && !isOnPartsPage && (
+            <div className="search-preview">
+              {filteredPreviewParts.length > 0 ? (
+                filteredPreviewParts.slice(0, 5).map((part) => (
+                  <Link
+                    key={part.ID}
+                    to={`/PartsAccessories/${part.ID}`}
+                    className="search-preview-item"
+                    onClick={closeSearchPreview}
+                  >
+                    {part.name}
+                  </Link>
+                ))
+              ) : (
+                <p className="no-results">No results found</p>
+              )}
+            </div>
+          )}
         </div>
+
         <div className="auth-links">
           <div className="account-dropdown">
             <button onClick={toggleDropdown} className="nav-link account-button">
@@ -92,12 +109,12 @@ const Sidebar = () => {
             {showDropdown && (
               <ul className="sidebar-dropdown-menu">
                 <li>
-                  <button onClick={handleSignInClick} className="nav-link">
+                  <button onClick={() => handleAuthClick('signIn')} className="nav-link">
                     Sign In
                   </button>
                 </li>
                 <li>
-                  <button onClick={handleSignUpClick} className="nav-link">
+                  <button onClick={() => handleAuthClick('signUp')} className="nav-link">
                     Sign Up
                   </button>
                 </li>
@@ -107,7 +124,7 @@ const Sidebar = () => {
                   </button>
                 </li>
                 <li>
-                  <button onClick={handleDealerClick} className="nav-link"> {/* Dealer tab */}
+                  <button onClick={() => handleAuthClick('dealer')} className="nav-link">
                     Dealer
                   </button>
                 </li>
@@ -123,15 +140,14 @@ const Sidebar = () => {
 
         {showSignIn && <SignInForm onClose={closeForms} />}
         {showSignUp && <SignUpForm onClose={closeForms} />}
-        {showDealer && <Dealer onClose={closeForms} />} {/* Render Dealer form */}
-
+        {showDealer && <Dealer onClose={closeForms} />}
       </div>
 
       <div className="sidebar">
         <button className="hamburger" onClick={toggleMobileMenu}>
           ☰
         </button>
-
+       
         <ul className={`sidebar-nav ${showMobileMenu ? 'mobile-show' : 'mobile-hide'}`}>
           <li className="nav-item">
             <Link to="/" className="nav-link">
@@ -143,6 +159,16 @@ const Sidebar = () => {
               Parts
             </Link>
           </li>
+          {/*<li className="nav-item">
+            <Link to="/listings" className="nav-link">
+              Listings
+            </Link>
+          </li>
+          {/*<li className="nav-item">
+            <Link to="/track-record" className="nav-link">
+              Track Record
+            </Link>
+          </li>*/}
           <li className="nav-item">
             <Link to="/HelpCenter2" className="nav-link">
               Help Center
@@ -169,7 +195,50 @@ const Sidebar = () => {
             </Link>
           </li>
         </ul>
+
+        {/* Drop down menu for showing popular brands */}
+        <div className="auth-links">
+          <div className="brand-dropdown">
+            <button onClick={toggleBrandDropdown} className="nav-link brand-button">
+              Brands
+            </button>
+            {showBrandDropdown && (
+              <ul className="dropdown-menu">
+                <li>
+                  <button className="nav-link">
+                    Aion
+                  </button>
+                </li>
+                <li>
+                  <button className="nav-link">
+                    Baojun
+                  </button>
+                </li>
+                <li>
+                  <button className="nav-link">
+                    BYD
+                  </button>
+                </li>
+                <li>
+                  <button className="nav-link">
+                    Tesla
+                  </button>
+                </li>
+                <li>
+                  <button className="nav-link">
+                    Wuling
+                  </button>
+                </li>
+                <li>
+                  <button className="nav-link">
+                    All brands
+                  </button>
+                </li>
+              </ul>
+            )}
       </div>
+    </div>
+    </div>
     </div>
   );
 };
