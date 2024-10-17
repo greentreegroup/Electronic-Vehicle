@@ -28,7 +28,7 @@ h2 {
 .faq-question {
   display: flex; /* Use flexbox for alignment */
   align-items: center; /* Center the icon and text vertically */
-  background-color: #1c2a33; /* Darker background for better contrast */
+  background-color: black; /* Darker background for better contrast */
   color: #fff;
   padding: 1.0rem 1.6rem;
   font-size: 1.2rem;
@@ -49,7 +49,7 @@ h2 {
   display: none;
   padding: 0.8rem 1.6rem;
   background-color: #fafaf8; /* Light background for answers */
-  color: #333; /* Darker text for readability */
+  color: black; /* Darker text for readability */
   border: 1px solid #ddd; /* Border around the answer */
   border-top: none; /* Remove top border for seamless look */
 }

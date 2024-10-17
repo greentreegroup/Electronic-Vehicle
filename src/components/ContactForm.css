@@ -1,249 +1,307 @@
-.contactMain{
+/* General Layout */
+.contact-page {
+    padding: 3rem;
+    max-width: 1250px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap:wrap;
-    width:100%;
-}
-
-.contact-header{
-    padding:40px;
-    width:100%;
+    flex-direction: column;
+    gap: 3rem;
+    border-radius: 12px;
+  }
+  
+  /* Title Styling */
+  .title {
     text-align: center;
-    color:white;
-    background-color: #17292e;
-}
-
-.contact-header h1 {
-    font-size: 30px;
-}
-
-/* To make text pop out */
-.important{
-    color:#f57b18
-}
-
-.contact-form {
-    background-color: white;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    /* width: 100%;
-    max-width: 600px; */
-    width:50%;
-    box-sizing: border-box;
-}
-
-.contact-form h1 {
-    margin-bottom: 20px;
-    font-size: 1.75rem;
-    text-align: center;
-    color: #333;
-}
-
-.contact-form p {
-    font-size: 0.9rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #f57b18;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  /* Form Section */
+  .form-section {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .message-info {
+    flex: 1;
+    padding: 1.5rem;
+    border-left: 4px solid #f57b18;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+  }
+  
+  .message-info h2 {
+    margin-bottom: 1rem;
+    color: #17292e;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  
+  .message-info p {
+    font-size: 1.1rem;
     color: #666;
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-.contact-form a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-.form-group {
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 1rem;
-    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Contact Form Styling */
+  .contact-form {
+    flex: 1;
     background-color: white;
-}
-
-.horizontal-group {
-    display: flex;
-    gap: 10px;
-}
-
-.horizontal-group input,
-.horizontal-group select,
-.horizontal-group textarea {
-    width: calc(50% - 5px); /* Adjust to ensure the fields are evenly spaced */
-}
-
-.horizontal-group textarea {
-    width: calc(100% - 10px); /* Full width for the textarea */
-    min-height: 150px; /* Increased height for the textarea */
-}
-
-.contact-submit-button {
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .form-group {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  textarea, .checkbox-group, button {
+    grid-column: span 2;
+  }
+  
+  input,
+  textarea,
+  select {
     width: 100%;
-    padding: 12px;
-    background-color: #333;
+    padding: 0.75rem;
+    border: 1px solid #ecf0f1;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f2f2f5;
+    transition: border-color 0.3s;
+  }
+  
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: #f57b18;
+    outline: none;
+  }
+  
+  textarea {
+    height: 140px;
+    resize: vertical;
+  }
+  
+  button {
+    background-color: #f57b18;
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 0.9rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  button:hover {
+    background-color: #e97012;
+    transform: scale(1.05);
+  }
+  
+  button:disabled {
+    background-color: #d8d8d8;
+    cursor: not-allowed;
+  }
+  
+  /* Checkbox Styling */
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 35px;
     cursor: pointer;
     font-size: 1rem;
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: center;   /* Aligns items vertically in the center */
-    justify-content: center; /* Horizontally centers the checkbox and label within the group */
-    margin-bottom: 20px;   /* Adds space below the group */
-    width: 50%;           /* Reduces width to allow the box and label to be closer together */
-    margin-left:auto; /* Centers the checkbox group with auto margins */
-    margin-right:auto;
-}
-
-.checkbox-group input {
-    margin-right: 5px;   /* Adds space between the checkbox and the label */
-}
-
-.checkbox-group label {
-    font-size: 0.9rem;
-    color: #666;
-    text-align: center;   /* Centers the text within the label */
-    display: block; /* Makes the label take the full width of its flex container */
-    width: 100%; /* Forces the label to take up the rest of the line */
-}
-
-/* Ensures the label text is centered if it wraps onto multiple lines */
-
-#privacy-policy{
-    margin-left: 10px;
-}
-
-.contact-info{
-    background-color: white;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 40%;
-    /* max-width: 600px; */
-    box-sizing: border-box;
-}
-
-.contact-info a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-.contact-info p {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 25px;
+  }
+  
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+  
+  .checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  .checkbox-container input:checked ~ .checkmark {
+    background-color: #f57b18;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .checkbox-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+  
+  /* Success Message and Graphics */
+  .success-container {
     text-align: center;
-}
-
-.info-list{
-    text-align: left;
+    padding: 2rem;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .success-icon {
+    font-size: 4rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+  }
+  
+  .success-message {
+    color: #4CAF50;
     font-size: 1.5rem;
-    color: #666;
-}
-
-.info-list li{
-    margin-bottom:20px;
-    margin-left:20px;
-}
-
-/* Icons found here: https://html-css-js.com/html/character-codes/#:~:text=Click%20the%20emoji%20to%20highlight%20and%20copy%20the%20character.%20Paste */
-.info-list li:nth-child(1){
-    list-style-type: "📧 ";
-}
-
-.info-list li:nth-child(2){
-    list-style-type: "📞 ";
-}
-
-.info-list li:nth-child(3){
-    list-style-type: "💼 ";
-}
-
-.headtext{
-    color: #17292e;
-}
-
-/* For tablets */
-@media (max-width: 795px) {
-    .contact-form {
-        /* padding: 20px; */
-        width:75%
+    margin-bottom: 2rem;
+  }
+  
+  .success-graphic {
+    position: relative;
+    height: 100px;
+    margin-top: 2rem;
+  }
+  
+  .success-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #4CAF50;
+    animation: drawLine 1.5s ease-out forwards;
+  }
+  
+  .success-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    transform: translate(-50%, -50%) scale(0);
+    animation: growCircle 0.5s ease-out 1.5s forwards;
+  }
+  
+  @keyframes drawLine {
+    0% {
+      width: 0;
     }
-
-    .contact-form h1 {
-        font-size: 1.5rem;
+    100% {
+      width: 100%;
     }
-
-    .contact-form p {
-        font-size: 0.85rem;
+  }
+  
+  @keyframes growCircle {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
     }
-
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  /* Info Cards Section */
+  .info-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .info-card {
+    flex: 1;
+    background-color: #ecf0f1;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    padding-top: 4rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .info-card h3 {
+    margin-bottom: 0.5rem;
+    color: #0e1a22;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .info-card p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .info-card .icon {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: white;
+    background-color: #f57b18;
+    border-radius: 50%;
+    padding: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .info-cards {
+      flex-direction: column;
+    }
+    .form-section {
+      flex-direction: column;
+    }
     .form-group {
-        margin-bottom: 15px;
+      grid-template-columns: 1fr;
     }
-
-    .checkbox-group label {
-        font-size: 0.85rem;
-    }
-
-    #privacy-policy{
-        margin-left: 0.8rem;
-    }
-
-    .contact-info{
-        width:75%;
-        margin-top:0px
-    }
-
-    .horizontal-group{
-        flex-direction: column;
-    }
-
-    .horizontal-group input,
-    .horizontal-group select,
-    .horizontal-group textarea {
-        width: 100%; /* Adjust due to column layout */
-        font-size: 0.9rem;
-    }
-
-    .info-list {
-        font-size: 1.1rem;
-    }
-}
-
-
-/* for mobile devices */
-@media (max-width:480px){
-    .horizontal-group input,
-    .horizontal-group select,
-    .horizontal-group textarea {
-        width: 100%; /* Adjust due to column layout */
-        font-size: 0.9rem;
-    }
-
-    .info-list {
-        font-size: 0.9rem;
-    }
-
-    .horizontal-group{
-        flex-direction: column;
-    }
-}
+  }

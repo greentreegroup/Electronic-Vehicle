@@ -60,7 +60,7 @@ const FeatureCars = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: 'black' }}>
+    <div className="featuredBody"style={{ backgroundColor: 'black' }}>
       <header>
         <h1>
       <span style={{color:'white'}}>Most Advanced</span> <em> <span style={{color: '#f57b18'}}>Electric Cars </span></em>
@@ -101,9 +101,9 @@ const FeatureCars = () => {
           >
             <img src={feature.image} alt={feature.title} />
             <div className="featured-car-caption">
-              <h2 style={{ color: 'lightslategray' }}>{feature.title}</h2>
-              <p style={{ color: 'lightslategray' }}>{feature.description}</p>
-              {feature.link && <a href="#">{feature.link}</a>}
+              <h2 style={{ color: 'white' }}>{feature.title}</h2>
+              <p style={{ color: 'white' }}>{feature.description}</p>
+              {feature.link && <a className="link-in-progress" href="#">{feature.link}</a>}
             </div>
           </div>
         ))}

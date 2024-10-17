@@ -7,7 +7,6 @@ const ResearchPage = () => {
   return (
     <div className="research-page">
       <h1 className="page-title">
-        Research and Insights &#128269;
       </h1>
 
       <div className="search-bar">
@@ -15,7 +14,7 @@ const ResearchPage = () => {
         <button>Search</button>
       </div>
 
-      <section className="hero-section">
+      <section className="research-hero-section">
         <div className="hero-text">
           <h2>Mileage On A Car Can’t Tell You Everything</h2>
           <p>

@@ -1,6 +1,6 @@
   :root {
-    --primary-color: #003366;
-    --secondary-color: #666;
+    --primary-color: #f57b18;
+    --secondary-color: black;
     --background-color: #f9f9f9;
     --white: #ffffff;
     --border-color: #ccc;
@@ -35,7 +35,7 @@
     padding: 5px 10px;
     margin-bottom: 10px;
     margin-left:5px;
-    background-color: #003366;
+    background-color:#f57b18;
     color: white;
     border: none;
     border-radius: 5px;
@@ -51,10 +51,10 @@
   }
   
   .search-bar button:hover {
-    background-color: darken(var(--primary-color), 10%);
+    background-color: #bf6012;
   }
   
-  .hero-section {
+  .research-hero-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,7 +88,7 @@
   
   .research-section {
     padding: 40px 20px;
-    background-color: #17292e;
+    background-color: black;
   }
   
   .research-section h2, .research-section h6 {
@@ -214,7 +214,7 @@
   .brand-list div {
     padding: 10px 0;
     font-size: 16px;
-    cursor: pointer;
+    cursor: default;
   }
   
   .brand-list div:hover {

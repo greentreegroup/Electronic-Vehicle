@@ -20,7 +20,7 @@
 }
 
 .blog-card {
-  background: #17292E;
+  background: black;
   border-radius: 15px;
   padding: 20px;
   width: calc(50% - 10px);

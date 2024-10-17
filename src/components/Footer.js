@@ -71,50 +71,47 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/Timeline">
-                  Timeline
+                  Shipping
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* All of these links can be added once the cars pages are developed */}
+          {/* All of these links can be added once the cars pages are developed. They are currently unlickable. Look for 
+          "link-in-progress" class in CSS to make them clickable again */}
           <div className="listLinks">
             <h3>By Energy:</h3>
             <ul>
-              <li><a href="#">Electric</a></li>
-              <li><a href="#">Hybrid</a></li>
+              <li><a className="link-in-progress" href="#">Electric</a></li>
+              <li><a className="link-in-progress" href="#">Hybrid</a></li>
             </ul>
           </div>
           <div clasNames="listLinks">
-            <h3>By Brands:</h3>
+            <h3 style={{color:'#f57b18'}}>By Brands:</h3>
             <ul>
-              <li><a href="#">Aion</a></li>
-              <li><a href="#">Avatr</a></li>
-              <li><a href="#">BYD</a></li>
-              <li><a href="#">Changan</a></li>
-              <li><a href="#">Geely</a></li>
+              <li><a className="link-in-progress" href="#">Aion</a></li>
+              <li><a className="link-in-progress" href="#">Avatr</a></li>
+              <li><a className="link-in-progress" href="#">BYD</a></li>
+              <li><a className="link-in-progress" href="#">Changan</a></li>
+              <li><a className="link-in-progress" href="#">Geely</a></li>
             </ul>
           </div>
           <div className="listLinks">
             <h3>By Model:</h3>
             <ul>
-              <li><a href="#">Hatchback</a></li>
-              <li><a href="#">Mini</a></li>
-              <li><a href="#">MPV</a></li>
-              <li><a href="#">Sedan</a></li>
-              <li><a href="#">SUV</a></li>
+              <li><a className="link-in-progress" href="#">Hatchback</a></li>
+              <li><a className="link-in-progress" href="#">Mini</a></li>
+              <li><a className="link-in-progress" href="#">MPV</a></li>
+              <li><a className="link-in-progress" href="#">Sedan</a></li>
+              <li><a className="link-in-progress" href="#">SUV</a></li>
             </ul>
           </div>
           <div className="contactLinks">
-            <h3>Contact Us Here:</h3>
+            <h3>Contact Info:</h3>
             <ul>
               <li>Email: <a href="mailto:support@evrabbit.com">support@evrabbit.com</a></li>
               <li>Phone: +1 (779) 707-1757</li>
               <li>Address: 4753 N Broadway, Chicago, Illinois</li>
-              <li>
-                <Link to="/Contact">
-                  Contact Form
-                </Link></li>
             </ul>
             {/*Can put in additional social media, etc. for contacting*/}
           </div>
@@ -122,14 +119,14 @@ const Footer = () => {
         <hr></hr>
         <div className="important_info">
           <div className="copyright">
-            <p className='inline'><a href="/"><img src="/img/rabbit.JPG" alt="EVrabbit logo"></img></a></p>
+            <p className='inline'><a href="/"><img src="/img/rabbitBlackBg.png" alt="EVrabbit logo"></img></a></p>
             <p> EVrabbit &copy; {new Date().getFullYear()}</p>
           </div>
           <div className="important_links">
             {/* Terms and conditions and policy can be added here once they are created*/}
-            <a href="#">Terms and Conditions</a>
+            <a className="link-in-progress" href="#">Terms and Conditions</a>
             <span className="bigDot">.</span>
-            <a href="#">Privacy Notice</a>
+            <a className="link-in-progress" href="#">Privacy Notice</a>
           </div>
         </div>
       </div>

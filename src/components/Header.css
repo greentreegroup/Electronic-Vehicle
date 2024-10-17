@@ -5,7 +5,7 @@
 }
 
 .header {
-  background-color: #17292E;
+  background-color: black;
   width: 100%;
   grid-column: full-start / full-end;
   background-size: cover;
@@ -34,6 +34,7 @@
 .header__logo {
   height: 5rem;
   justify-self: center;
+  background-color: transparent;
 }
 
 .header__btn {

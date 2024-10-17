@@ -10,7 +10,7 @@ const HelpCenter = () => {
   const [searchResult, setSearchResult] = useState([]);
 
   const featuredArticles = [
-    { id: 4, title: 'Company Related Articles', url: 'https://www.springer.capital/', image: 'rabbit.JPG' },
+    { id: 4, title: 'Company Related Articles', url: 'https://www.springer.capital/', image: 'rabbitBlackBg.png' },
     { id: 5, title: 'Electric Vehicle Related Articles', url: 'https://www.iea.org/evs', image: 'charge.webp' },
     { id: 6, title: 'EV Laws Article', url: 'https://electrificationcoalition.org/', image: 'about-us.webp' },
   ];

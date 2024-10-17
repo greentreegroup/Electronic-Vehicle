@@ -27,7 +27,7 @@
 
 /* Search Button */
 .part-search-button {
-  background-color: #17292e;
+  background-color: black;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -76,7 +76,7 @@
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #17292e; 
+  background-color: black; 
   color: white; 
   font-family: sans-serif; 
 }
@@ -136,7 +136,7 @@
   right: 0;
   width: 300px; 
   height: 100vh; 
-  background-color: #17292e; 
+  background-color: black; 
   color: white; 
   border-left: 1px solid #ddd;
   padding: 15px;

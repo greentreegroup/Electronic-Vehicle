@@ -5,11 +5,11 @@
   z-index: 1000; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
   transition: background-color 0.3s ease; /* Smooth background color transition */
-  background-color: #ecf0f1; /* Maintain the base color */
+  background-color: white; /* Maintain the base color */
 }
 
 .sidebar {
-  background-color: #ecf0f1; /* Maintain the base color */
+  background-color: white; /* Maintain the base color */
   transition: background-color 0.3s ease; /* Smooth background color transition */
   display: flex;
   justify-content: space-between;
@@ -20,10 +20,38 @@
 }
 
 .full-sidebar:hover {
-  background-color: #ced2d3; /* Slightly darken on hover for interactivity */
+  background-color: #ecf0f1; /* Slightly darken on hover for interactivity */
   .sidebar{
-    background-color: #ced2d3 /* Make sure all parts of sidebar are darkened */
+    background-color: #ecf0f1 /* Make sure all parts of sidebar are darkened */
   }
+}
+
+/* Sidebar.css */
+.search-preview {
+  position: absolute;
+  top: 50px;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 60%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.search-preview-item {
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.search-preview-item:hover {
+  background-color: #f0f0f0;
+}
+
+.no-results {
+  padding: 10px;
+  text-align: center;
 }
 
 .logo-div{
@@ -126,12 +154,12 @@
   color: black;
 }
 
-.dropdown-menu {
+.sidebar-dropdown-menu {
   display: block;
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #ced2d3;
+  background-color: #ecf0f1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   list-style: none;
@@ -140,18 +168,18 @@
   z-index: 1000;
 }
 
-.dropdown-menu li {
+.sidebar-dropdown-menu li {
   margin: 0;
   padding: 10px 15px; /* Uniform padding */
   border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Divider line */
 }
 
-.dropdown-menu li:last-child {
+.sidebar-dropdown-menu li:last-child {
   border-bottom: none; /* Remove border from the last item */
 }
 
-.dropdown-menu li button,
-.dropdown-menu li a {
+.sidebar-dropdown-menu li button,
+.sidebar-dropdown-menu li a {
   display: block; /* Make both button and link elements block level */
   background: none;
   border: none;
@@ -159,13 +187,12 @@
   cursor: pointer;
   width: 100%; /* Ensure both buttons and links take the full width */
   text-align: left; /* Align text to the left */
-  font-weight: bold;
   text-decoration: none;
   padding: 10px 15px; /* Ensure consistent padding */
 }
 
-.dropdown-menu li button:hover,
-.dropdown-menu li a:hover {
+.sidebar-dropdown-menu li button:hover,
+.sidebar-dropdown-menu li a:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
 }
 
@@ -255,7 +282,9 @@
   margin-top: 5px;
   padding-top: 5px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
 }
 
 /* Ensure the search bar centers on mobile */

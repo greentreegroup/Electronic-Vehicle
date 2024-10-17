@@ -1,21 +1,27 @@
 /* Footer.css */
 .footer {
-    background-color: #17292E;
+    background-color: black;
     color: white;
-    /*text-align: center;
-    /*padding: 4rem 2rem; /* Adjust padding as needed */
     position: relative;
     width:100%;
 
-    /* For all links within the footer */
+    /* For all links within the footer (do not need text decorations) */
     a:link, a:visited{
-      color:#faf3e5;
+      color:white;
       text-decoration: none;
     }
     
     a:hover{
-      color:#ffc260;
+      color:#f5cb87;
     }
+
+    border-top: solid 2px #f57b18;
+  }
+
+  /* For links that currently lead to nowhere */
+  .link-in-progress{
+    pointer-events: none;
+    cursor: default;
   }
   
   .footer__content p {
@@ -25,6 +31,7 @@
     /* font-size: 1.4rem; */
   }
 
+  /* Set the img (EVrabbit logo) to a certain size */
   .footer__content img {
     width: 40px;
     height: 40px;
@@ -67,15 +74,20 @@
   }
 
   .signInButton{
-    border-radius: 10px;
+    border-radius: 4px;
     color:white;
     background-color:#f57b18;
+    border-color:transparent;
     margin-top: 30px;
-    margin-right: 155px;
+    margin-right: 145px;
+  }
+
+  .signInButton:hover{
+    background-color:#c66415;
   }
 
   hr{
-    border-color:rgb(66, 105, 105);
+    border-color:rgb(143, 229, 229);
     width:95%;
     margin:auto;
     margin-top:5px;
@@ -107,12 +119,20 @@
     margin-left:10px;
   }
 
+  .listLinks h3 {
+    color:#f57b18;
+  }
+
   .contactLinks{
     vertical-align: middle;
     text-align: center;
     padding:auto;
     margin-left:10px;
     margin-right:10px;
+  }
+
+  .contactLinks h3{
+    color:#f57b18
   }
 
   .contactLinks ul{

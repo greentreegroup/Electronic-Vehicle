@@ -31,7 +31,7 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
 
   return (
     <header className="header">
-      <img src="/img/rabbit.JPG" alt="Nexter logo" className="header__logo" />
+      <img src="/img/rabbitBlackBg.png" alt="Nexter logo" className="header__logo" />
       <h1 className="heading-1">Discover the Car That's Perfect for You</h1>
 
       <div className="HomeSearch d-flex flex-wrap justify-content-center">
@@ -77,12 +77,13 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
 
       <div className='Fmodel text-center mt-4'> {/* Added margin for spacing */}
         <p>Or Browse Featured Model</p>
-        <div className="d-flex justify-content-center flex-wrap">
-          <button className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('SUV')}>SUV</button>
-          <button className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Sedan')}>Sedan</button>
-          <button className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Hatchback')}>Hatchback</button>
-          <button className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Mini')}>Mini</button>
-          <button className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Electric')}>Electric</button>
+        <div className="d-flex justify-content-center flex-wrap"> 
+          {/* Buttons that are not implemented yet are disabled */}
+          <button id="button-in-progress" className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('SUV')}>SUV</button>
+          <button id="button-in-progress" className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Sedan')}>Sedan</button>
+          <button id="button-in-progress" className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Hatchback')}>Hatchback</button>
+          <button id="button-in-progress" className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Mini')}>Mini</button>
+          <button id="button-in-progress" className="btn btn-secondary m-1" onClick={() => handleFeaturedModelClick('Electric')}>Electric</button>
         </div>
       </div>
 
