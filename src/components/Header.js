@@ -40,10 +40,20 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
           <div className="form-group mb-2">
             <select className="filter-dropdown form-select" value={make} onChange={handleMakeChange}>
               <option value="" >Make</option> {/* Placeholder for Make */}
-              <option value="Toyota">Toyota</option>
-              <option value="Ford">Ford</option>
-              <option value="Tesla">Tesla</option>
-              <option value="BMW">BMW</option>
+              <option value="BYD">BYD</option>
+              <option value="Roewe">Roewe</option>
+              <option value="MG">MG</option>
+              <option value="IM Motor">IM Motor</option>
+              <option value="Nio">Nio</option>
+              <option value="GAC Motor">GAC Motor</option>
+              <option value="Li Auto">Li Auto</option>
+              <option value="Geely">Geely</option>
+              <option value="Aion">Aion </option>
+              <option value="Changan">Changan</option>
+              <option value="Chery">Chery</option>
+              <option value="Tank">Tank</option>
+              <option value="Avatr">Avatr</option>
+              <option value="Wuling">Wuling</option>
             </select>
           </div>
 
@@ -70,7 +80,7 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
 
           {/* Search Button */}
           <div className="form-group mb-1">
-            <button type="submit" className="search-button">Search</button>
+            <button type="submit" className="search-button" id="button-in-progress">Search</button>
           </div>
         </form>
       </div>

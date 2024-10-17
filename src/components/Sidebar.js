@@ -37,7 +37,11 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
 
   const closeSearchPreview = () => setIsSearchActive(false);
 
-  const toggleDropdown = () => setShowDropdown((prev) => !prev);
+  const toggleDropdown = () => {
+    setShowDropdown((prev) => !prev); // Proper toggle logic
+    setShowBrandDropdown(false); // Close other dropdowns
+  };
+
   const toggleMobileMenu = () => setShowMobileMenu((prev) => !prev);
 
   const toggleBrandDropdown = () => {
@@ -203,34 +207,34 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
               Brands
             </button>
             {showBrandDropdown && (
-              <ul className="dropdown-menu">
+              <ul className="sidebar-dropdown-menu">
                 <li>
-                  <button className="nav-link">
+                  <button id="button-in-progress" className="nav-link">
                     Aion
                   </button>
                 </li>
                 <li>
-                  <button className="nav-link">
-                    Baojun
+                  <button id="button-in-progress" className="nav-link">
+                    Roewe
                   </button>
                 </li>
                 <li>
-                  <button className="nav-link">
+                  <button id="button-in-progress" className="nav-link">
                     BYD
                   </button>
                 </li>
                 <li>
-                  <button className="nav-link">
-                    Tesla
+                  <button id="button-in-progress" className="nav-link">
+                    MG
                   </button>
                 </li>
                 <li>
-                  <button className="nav-link">
-                    Wuling
+                  <button id="button-in-progress" className="nav-link">
+                    IM Motor
                   </button>
                 </li>
                 <li>
-                  <button className="nav-link">
+                  <button id="button-in-progress" className="nav-link">
                     All brands
                   </button>
                 </li>
