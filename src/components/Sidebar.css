@@ -154,6 +154,12 @@
   color: black;
 }
 
+/* For any buttons in progress (disables clicking on them without impacting css) */
+#button-in-progress{
+  pointer-events: none;
+  cursor: default;
+}
+
 .sidebar-dropdown-menu {
   display: block;
   position: absolute;

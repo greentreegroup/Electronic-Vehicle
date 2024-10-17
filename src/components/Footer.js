@@ -84,6 +84,7 @@ const Footer = () => {
             <ul>
               <li><a className="link-in-progress" href="#">Electric</a></li>
               <li><a className="link-in-progress" href="#">Hybrid</a></li>
+              <li><a className="link-in-progress" href="#">Gas</a></li>
             </ul>
           </div>
           <div clasNames="listLinks">
@@ -99,11 +100,11 @@ const Footer = () => {
           <div className="listLinks">
             <h3>By Model:</h3>
             <ul>
-              <li><a className="link-in-progress" href="#">Hatchback</a></li>
-              <li><a className="link-in-progress" href="#">Mini</a></li>
+              <li><a className="link-in-progress" href="#">Electric</a></li>
               <li><a className="link-in-progress" href="#">MPV</a></li>
               <li><a className="link-in-progress" href="#">Sedan</a></li>
               <li><a className="link-in-progress" href="#">SUV</a></li>
+              <li><a className="link-in-progress" href="#">Truck</a></li>
             </ul>
           </div>
           <div className="contactLinks">
