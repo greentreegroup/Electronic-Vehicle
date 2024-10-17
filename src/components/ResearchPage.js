@@ -7,7 +7,6 @@ const ResearchPage = () => {
   return (
     <div className="research-page">
       <h1 className="page-title">
-        Research and Insights &#128269;
       </h1>
 
       <div className="search-bar">
