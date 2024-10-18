@@ -94,6 +94,44 @@ const timeline_data = [
     },
 ]
 
+const timeline_data_index = [
+    {
+        title: "1.",
+    },
+    {
+        title: "2.",
+    },
+    {
+        title: "3.",
+    },
+    {
+        title: "4.",
+    },
+    {
+        title: "5.",
+    },
+    {
+        title: "6.",
+    },
+    {
+        title: "7.",
+    },
+    {
+        title: "8.",
+    },
+    {
+        title: "9.",
+    },
+    {
+        title: "10.",
+    },
+    {
+        title: "11.",
+    },
+    {
+        title: "12.",
+    },
+]
 
 function Timeline() {
   return (
@@ -102,22 +140,19 @@ function Timeline() {
             <h1>Shipping</h1>
             <h2>At <span className="important">EVrabbit</span>, we want to make your purchase of Chinese electric cars quick and easy.
             Here is an interactive shipping timeline of what you can expect when buying cars.</h2>
-            <br></br>
-            <h2>Use the buttons below to navigate and change settings in the timeline.</h2>
         </div>
         <div className="timeline-body">
 
             {/* NOTE: If you change anything here, you will have to refresh the page to see it on the timeline */}
-            <Chrono 
+            {/* <Chrono 
                 className="timeline-functional"
                 items={timeline_data} //Set items to the array above
-                hideControls={true} //Hide the controls
+                disableToolbar={true} //Hide the controls
+                allowDynamicUpdate={true} //Allows for dynamic updating
                 timelinePointShape="square" //Sets the timeline point to a square
                 readMore={true} //Smaller textboxes will have "read more" button (needs to be refreshed first to work)
                 cardHeight={80} //Max height is 80. 
                 mode="VERTICAL" //Set mode to vertical
-                enableLayoutSwitch={false} //Gets rid of layout switch (not needed)
-                enableQuickJump={false} //Gets rid of quick jump button (does not work properly)
                 highlightCardsOnHover={true} //Highlights the cards on hover
                 disableNavOnKey //Disables keyboard movement of timeline
 
@@ -138,16 +173,94 @@ function Timeline() {
                     title: '1.5rem',
                 }}
 
-                //Button Alt Text
-                buttonTexts={{
-                    first: 'Jump to First Step',
-                    last: 'Jump to Last Step',
-                    next: 'Next Step',
-                    previous: 'Previous Step',
+            > 
+            </Chrono> */}
+
+            <Chrono 
+                mode="VERTICAL" //Set mode to vertical
+                items={timeline_data_index} //For the timeline step numbers
+                disableToolbar={true} //Hide the controls
+                allowDynamicUpdate={true} //Allows for dynamic updating
+                timelinePointShape="square" //Sets the timeline point to a square
+                highlightCardsOnHover={true} //Highlights the cards on hover
+                disableNavOnKey //Disables keyboard movement of timeline
+                cardHeight={170} //Max height is 170. 
+
+                //Color scheme
+                theme={{
+                    primary: "#f57b18",
+                    secondary: "black",
+                    titleColor: "black",
+                    titleColorActive: "white",
+                    cardTitleColor: "black",
                 }}
 
-            > 
-            </Chrono>
+                //Title sizing scheme
+                fontSizes={{
+                    title: '1.5rem',
+                }}
+            >
+                <div className="card-text">
+                    <h4>{timeline_data[0].cardTitle}</h4>
+                    <h6>{timeline_data[0].cardSubtitle}</h6>
+                    <p>{timeline_data[0].cardDetailedText}</p>
+                </div>
+                <div className="card-text">
+                    <h4>{timeline_data[1].cardTitle}</h4>
+                    <h6>{timeline_data[1].cardSubtitle}</h6>
+                    <p>{timeline_data[1].cardDetailedText}</p>
+                </div>
+                <div className="card-text">
+                    <h4>{timeline_data[2].cardTitle}</h4>
+                    <h6>{timeline_data[2].cardSubtitle}</h6>
+                    <p>{timeline_data[2].cardDetailedText}</p>
+                </div>
+                <div className="card-text">
+                    <h4>{timeline_data[3].cardTitle}</h4>
+                    <h6>{timeline_data[3].cardSubtitle}</h6>
+                    <p>{timeline_data[3].cardDetailedText}</p>
+                </div>
+                <div className="card-text">
+                    <h4>{timeline_data[4].cardTitle}</h4>
+                    <h6>{timeline_data[4].cardSubtitle}</h6>
+                    <p>{timeline_data[4].cardDetailedText}</p>
+                </div>
+                <div className="card-text">
+                    <h4>{timeline_data[5].cardTitle}</h4>
+                    <h6>{timeline_data[5].cardSubtitle}</h6>
+                    <p>{timeline_data[5].cardDetailedText}</p>
+                </div>
+                <div className="card-text">
+                    <h4>{timeline_data[6].cardTitle}</h4>
+                    <h6>{timeline_data[6].cardSubtitle}</h6>
+                    <p>{timeline_data[6].cardDetailedText}</p>
+                </div>
+                <div className="card-text">
+                    <h4>{timeline_data[7].cardTitle}</h4>
+                    <h6>{timeline_data[7].cardSubtitle}</h6>
+                    <p>{timeline_data[7].cardDetailedText}</p>
+                </div>
+                <div className="card-text">
+                    <h4>{timeline_data[8].cardTitle}</h4>
+                    <h6>{timeline_data[8].cardSubtitle}</h6>
+                    <p>{timeline_data[8].cardDetailedText}</p>
+                </div>
+                <div className="card-text">
+                    <h4>{timeline_data[9].cardTitle}</h4>
+                    <h6>{timeline_data[9].cardSubtitle}</h6>
+                    <p>{timeline_data[9].cardDetailedText}</p>
+                </div>
+                <div className="card-text">
+                    <h4>{timeline_data[10].cardTitle}</h4>
+                    <h6>{timeline_data[10].cardSubtitle}</h6>
+                    <p>{timeline_data[10].cardDetailedText}</p>
+                </div>
+                <div className="card-text">
+                    <h4>{timeline_data[11].cardTitle}</h4>
+                    <h6>{timeline_data[11].cardSubtitle}</h6>
+                    <p>{timeline_data[11].cardDetailedText}</p>
+                </div>
+            </Chrono>;
         </div>
         <Footer />
     </div>

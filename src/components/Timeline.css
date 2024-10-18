@@ -10,15 +10,86 @@
 .timeline-header{
     color:white;
     background-color: black;
-    padding:40px;
+    padding-top:40px;
+    padding-bottom:10px;
 }
-
-/* For the body of the timeline, where the Chronos component is located*/
-/* .timeline-body{
-    margin:20px;
-} */
 
 /* For important text */
 .important{
     color:#f57b18
+}
+
+.my-card-subtitle{
+    color:red
+}
+
+.card-text{
+    text-align: left;
+    padding:0;
+    margin-right:auto;
+    height:100px;
+}
+
+.card-text h4{
+    font-size: 20px;
+}
+
+.card-text h6{
+    font-size: 15px;
+    margin-bottom:5px;
+}
+
+.card-text p{
+    font-size: 14px;
+}
+
+/* For larger devices*/
+@media (max-width:1025px) {
+    .card-text h4{
+        font-size: 18px;
+    }
+    
+    .card-text h6{
+        font-size: 13px;
+        margin-bottom:5px;
+    }
+    
+    .card-text p{
+        font-size: 12px;
+        line-height: 1.8;
+    }
+}
+
+/* For tablet devices*/
+@media (max-width:768px) {
+    .card-text h4{
+        font-size: 15px;
+    }
+    
+    .card-text h6{
+        font-size: 12px;
+        margin-bottom:5px;
+    }
+    
+    .card-text p{
+        font-size: 11px;
+        line-height: 1.7;
+    }
+}
+
+/* For mobile devices*/
+@media (max-width:480px) {
+    .card-text h4{
+        font-size: 12px;
+    }
+    
+    .card-text h6{
+        font-size: 9px;
+        margin-bottom:5px;
+    }
+    
+    .card-text p{
+        font-size: 8.5px;
+        line-height: 1.5;
+    }
 }
