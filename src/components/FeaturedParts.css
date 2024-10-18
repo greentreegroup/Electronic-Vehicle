@@ -75,6 +75,7 @@
   
   .container {
     padding: 0 10px; /* Reduce padding */
+    max-width: 800px; /* Reduces size because otherwise the responsive design of the homepage gets messed up */
   }
 }
 

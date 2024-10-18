@@ -24,16 +24,20 @@
 
 .play-button {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 45%;
+    left: 47%;
+    /* transform: translate(-50%, -50%); */
     background: white; /* Default background */
     border: none;
     font-size: 2rem;
     color: rgb(0, 0, 0, 0.5);
     cursor: pointer;
     padding: 10px;
-    border-radius: 50%; /* Circular button */
+    padding-left:15px;
+    border-radius: 75%; /* Circular button */
+    height:60px;
+    width:60px;
+    text-align: center;
     transition: background 0.3s; /* Smooth transition for background change */
 }
 
@@ -96,5 +100,21 @@
         width: 80%; /* Adjust content width for smaller screens */
         margin-left: 0; /* Remove left margin */
         text-align: center; /* Center text for better appearance */
+    }
+
+    .play-button{
+        height:40px;
+        width:40px;
+        font-size: 25px;
+        padding:0;
+        padding-top:5px;
+        padding-left:5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .play-button{
+        left:45%;
+        top:40%;
     }
 }

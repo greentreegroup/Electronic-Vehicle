@@ -9,17 +9,15 @@ import './HomePage.css';
 import FeaturedParts from './components/FeaturedParts';
 import FeatureCars from './components/FeaturedCars';
 import CarSection from './components/CarSection';
-import BlogSection from './components/BlogSection';
 
 function HomePage() {
   return (
     <div className="App">
       <Header />
       <main className="App-main">
-      <PremiumBrands /> 
-      <CarSection/>
+        <PremiumBrands /> 
+        <CarSection/>
         <Overview/>
-        <BlogSection/>
         <FeaturedParts/>
         <FeatureCars/>
         <Footer />
