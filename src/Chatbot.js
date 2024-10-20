@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { MessageCircle, X } from 'lucide-react';
 import './Chatbot.css';
 
 const Chatbot = () => {
-  const [isMinimized, setIsMinimized] = useState(false);
-  const [iframeHeight, setIframeHeight] = useState(500); // Default height
+  const [isMinimized, setIsMinimized] = useState(true);
+  const [iframeHeight, setIframeHeight] = useState(500);
 
   const toggleChatbot = () => {
     setIsMinimized(!isMinimized);
@@ -18,19 +19,15 @@ const Chatbot = () => {
     const calculateIframeHeight = () => {
       let height = 500; // Default height
 
-      // Adjust for smaller screens
       if (window.innerWidth < 900) {
-        height = window.innerHeight * 0.7; // 70% of the viewport height for smaller screens/mobile
+        height = window.innerHeight * 0.7; // Adjust for smaller screens
       }
 
       return height;
     };
 
-    // Initial resize
-    handleResize();
-
-    // Listen to window resize events
-    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial resize
+    window.addEventListener('resize', handleResize); // Resize listener
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -40,7 +37,7 @@ const Chatbot = () => {
   return (
     <div className={`chatbot-container ${isMinimized ? 'minimized' : ''}`}>
       <button className="chatbot-toggle" onClick={toggleChatbot}>
-        {isMinimized ? 'Open Chat' : 'Close Chat'}
+        {isMinimized ? <MessageCircle size={24} /> : <X size={24} />}
       </button>
       {!isMinimized && (
         <iframe

@@ -3,9 +3,9 @@
   bottom: 20px;
   right: 20px;
   width: 300px;
-  max-width: 90%; /* Maximum width to prevent it from going too wide */
+  max-width: 90%;
   height: auto;
-  max-height: 80%; /* Maximum height to prevent it from going too tall */
+  max-height: 80%;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: white;
@@ -13,7 +13,7 @@
 }
 
 .chatbot-container.minimized {
-  width: 300px; /* Set the same width as when it's not minimized */
+  width: 300px;
   border: none; 
   box-shadow: none;
 }
@@ -28,12 +28,12 @@
   position: absolute;
   top: -30px;
   right: 0;
-  background-color: #0078d7;
+  background-color: #f57b18;
   color: white;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  z-index: 1001; /* Ensure the button appears above the minimized container */
+  z-index: 1001;
 }
