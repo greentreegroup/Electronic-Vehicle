@@ -6,8 +6,17 @@
 }
 
 .section-heading {
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: 32px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  color: #f57b18;
+  text-align: center;
+}
+
+.timeline-heading {
+  font-size: 32px;
+  margin-bottom: 1px;
+  margin-top: 20px;
   color: #f57b18;
   text-align: center;
 }
@@ -47,11 +56,11 @@
   text-align: center;
 }
 
-.contact-section {
-  background-color: black;
+.timeline-section {
   padding: 20px;
   text-align: center;
   border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .contact-section p {
@@ -64,6 +73,31 @@
 
 .contact-section svg {
   margin-right: 10px;
+}
+
+/* Navigation Arrows */
+.navigation-arrows {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.arrow-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #f57b18; /* Adjust color as needed */
+  font-size: 1.5rem;
+  transition: transform 0.2s;
+}
+
+.arrow-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.arrow-button:hover:not(:disabled) {
+  transform: scale(1.1);
 }
 
 /* Responsive Design */

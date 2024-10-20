@@ -1,54 +1,72 @@
 /* Header.css */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin-top: 0px;
-}
-
 .header {
   background-color: black;
-  width: 100%;
-  grid-column: full-start / full-end;
-  background-size: cover;
-  background-position: center;
-  padding: 8rem;
-  padding-top: 6rem;
-  display: grid;
-  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
-  grid-template-columns: minmax(min-content, max-content);
-  grid-row-gap: 1.5rem;
-  justify-content: center;
-  position: relative; /* For absolute positioning of child elements */
   color: white;
-}
-
-@media screen and (max-width: 768px) {
-  .header {
-    padding-bottom: 2rem; /* Reduce padding at the bottom only on mobile */
-  }
-
-  .header__logo {
-    margin-bottom: 0; /* Ensure no extra space under the logo */
-  }
+  padding: 2rem;
+  text-align: center;
 }
 
 .header__logo {
-  height: 5rem;
-  justify-self: center;
-  background-color: transparent;
+  height: 9rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
-.header__btn {
-  align-self: start;
-  justify-self: start;
+.heading-1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.home-search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.search-form {
+  display: flex;
+  background-color: white;
+  border-radius: 50px;
+  padding: 0.5rem;
+  width: 80%;
+  max-width: 800px;
+}
+
+.search-dropdown {
+  flex: 1;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: transparent;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.search-button {
+  background-color: #f57b18;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #e06c00;
 }
 
 .header__seenon-text {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+  color: #f57b18;
+  align-items: center;
   display: grid;
   grid-template-columns: 1fr max-content 1fr;
   grid-column-gap: 1.5rem;
-  align-items: center;
-  font-size: 1.6rem;
-  color: #f57b18;
 }
 
 .header__seenon-text::before,
@@ -59,118 +77,41 @@
   background-color: currentColor;
 }
 
-.header__seenon-logos {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 3rem;
-  justify-items: center;
-  align-items: center;
+.featured-models {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.header__seenon-logos img {
-  max-height: 2.5rem;
-  max-width: 100%;
-  filter: brightness(70%);
+.featured-button {
+  background-color: #29383c;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 4rem;
 }
 
-/* Mobile styles - Adjusting space between elements */
-@media screen and (max-width: 768px) {
-  .header {
-    padding: 4rem 1rem; /* Reduce padding on mobile */
-    grid-row-gap: 1rem; /* Reduce the space between grid rows */
+.featured-button:hover {
+  background-color: #f57b18;
+}
+
+@media (max-width: 768px) {
+  .search-form {
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 25px;
   }
 
-  .header__logo {
-    height: 4rem; /* Slightly reduce logo size */
-    margin-bottom: 1rem; /* Adjust margin between logo and other elements */
+  .search-dropdown, .search-button {
+    margin: 0.5rem 0;
   }
 
-  .header__btn {
-    margin-top: 1rem; /* Adjust button margin */
-  }
-
-  .header__seenon-logos {
-    grid-template-columns: repeat(2, 1fr); /* Two logos per row on mobile */
-    grid-column-gap: 3rem; /* Reduce gap between logos */
-    grid-row-gap: 2rem;
-  }
-
-  .header__seenon-logos img {
-    max-height: 2rem; /* Reduce logo size slightly on mobile */
-  }
-
-  .header__seenon-text {
-    font-size: 1.4rem; /* Adjust text size */
+  .search-button {
+    align-self: center;
   }
 }
-
-.HomeSearch {
-  margin: 2rem 0; /* Space above and below */
-  margin-left: 20%; /* Start from 20% from the left */
-  width: 60%; /* Adjust width to maintain responsiveness */
-  display: flex; /* Use flexbox for layout */
-  flex-direction: row; /* Align items in a row on larger screens */
-  justify-content: center; /* Center items */
-  background-color: white; /* White background */
-  padding: 1rem 2rem; /* Padding for spacing inside the container */
-  border-radius: 50px; /* Optional: for a rounded shape */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
-}
-
-.filter-dropdown {
-  min-width: 150px; /* Ensure a minimum width for dropdowns */
-}
-
-.search-button {
-  font-size: large;
-  border-radius: 4px; /* Optional: make corners slightly round */
-  min-width: 150px; /* Set a minimum width for consistency */
-}
-
-.search-button:hover{
-  background-color: #f57b18cf;
-}
-
-/* Responsive adjustments */
-@media (max-width: 576px) {
-  
-  .HomeSearch {
-    flex-direction: column; /* Stack elements vertically on mobile */
-    align-items: center; /* Center items */
-    margin-left: 0; /* Reset margin for mobile view */
-    width: 100%; /* Full width on mobile */
-  }
-}
-
-.Fmodel {
-  text-align: center; /* Center the text and buttons */
-  margin-top: 2rem; /* Add some space above */
-}
-
-.Fmodel p {
-  font-size: 1.5rem; /* Adjust font size for the "Or Browse Featured Model" text */
-  font-weight: bold; /* Make the text bold */
-  margin-bottom: 1rem; /* Space below the text */
-}
-
-.btn {
-  background-color: #29383c; /* Primary blue color */
-  color: white; /* White text */
-  border: none; /* No border */
-  border-radius: 25px; /* Rounded edges for buttons */
-  padding: 0.5rem 1.5rem; /* Padding for button size */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.btn:hover {
-  background-color: #f57b18cf; /* Darker blue on hover */
-}
-
-.btn:focus {
-  outline: none; /* Remove default focus outline */
-}
-
-.btn.m-1 {
-  margin: 0.5rem; /* Adjust spacing between buttons */
-}
-

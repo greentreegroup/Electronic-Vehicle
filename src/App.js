@@ -4,7 +4,6 @@ import Cookies from 'js-cookie';
 import Sidebar from './components/Sidebar';
 import EVPartsAccessories from './components/EVPartsAccessories';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import TrackRecord from './TrackRecord';
 import SignInForm from './components/SignInForm';
 import PartDetail from './components/PartDetail';
@@ -17,7 +16,6 @@ import FeatureCars from './components/FeaturedCars';
 import ResearchPage from './components/ResearchPage';
 import ContactForm from './components/ContactForm';
 import AboutUsServiceInfo from './components/AboutUs-ServiceInfo';
-import Timeline from './components/Timeline';
 import axios from 'axios';
 
 function App() {
@@ -77,7 +75,6 @@ function App() {
             <Route path="/Contact" element={<ContactForm />} />
             <Route path="/AboutUs" element={<AboutUsServiceInfo />} />
             <Route path="/signin" element={<SignInForm />} />
-            <Route path="/Timeline" element={<Timeline />} />
           </Routes>
         </main>
         <Chatbot />

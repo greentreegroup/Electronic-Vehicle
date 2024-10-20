@@ -9,7 +9,6 @@ const timeline_data = [
         title: "1.",
         cardTitle: "Select cars",
         cardSubtitle: `Select cars from the car selection page on EVrabbit.`,
-        // url: {Maybe we can set an URL to the cars selection page, after it is implemented?}
         cardDetailedText: `Select from a wide variety of brands, models, and trims at EVrabbit. Our platform allows for buyers to
         easily purchase cars in bulk, making it cost-effective for their needs.`
     },
@@ -137,9 +136,7 @@ function Timeline() {
   return (
     <div className="timeline">
         <div className="timeline-header">
-            <h1>Shipping</h1>
-            <h2>At <span className="important">EVrabbit</span>, we want to make your purchase of Chinese electric cars quick and easy.
-            Here is an interactive shipping timeline of what you can expect when buying cars.</h2>
+            <h1></h1>
         </div>
         <div className="timeline-body">
 
@@ -177,7 +174,7 @@ function Timeline() {
             </Chrono> */}
 
             <Chrono 
-                mode="VERTICAL" //Set mode to vertical
+                mode="HORIZONTAL"
                 items={timeline_data_index} //For the timeline step numbers
                 disableToolbar={true} //Hide the controls
                 allowDynamicUpdate={true} //Allows for dynamic updating
