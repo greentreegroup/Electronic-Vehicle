@@ -63,10 +63,10 @@ const FeatureCars = () => {
     <div className="featuredBody"style={{ backgroundColor: 'black' }}>
       <header>
         <h1>
-      <span style={{color:'white'}}>Most Advanced</span> <em> <span style={{color: '#f57b18'}}>Electric Cars </span></em>
+      <span style={{color:'white'}}>Most Advanced</span> <span style={{color: '#f57b18'}}>Electric Cars </span>
         </h1>
         <h4>
-         <span style={{color:'white'}}> Designed in Lorem; Assembled in Lipsum;<br />
+         <span style={{color:'white'}}> Designed in USA; Assembled in CHINA;<br />
           Engineered to Change the</span> <span style={{ color: '#f57b18' }}>World.</span>
         </h4>
         <nav>

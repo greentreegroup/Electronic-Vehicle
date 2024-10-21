@@ -23,31 +23,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: for shadow effect */
 }
 
-.play-button {
-    position: absolute;
-    top: 45%;
-    left: 47%;
-    /* transform: translate(-50%, -50%); */
-    background: white; /* Default background */
-    border: none;
-    font-size: 2rem;
-    color: rgb(0, 0, 0, 0.5);
-    cursor: pointer;
-    padding: 10px;
-    padding-left:15px;
-    border-radius: 75%; /* Circular button */
-    height:60px;
-    width:60px;
-    text-align: center;
-    transition: background 0.3s; /* Smooth transition for background change */
-}
-
-.play-button:hover {
-    color: white; /* Change background to white on hover */
-    background: rgb(0, 0, 0, 0.5); /* Change text color to black on hover */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Box shadow for depth */
-}
-
 .car-content {
     width: 45%; /* Default width for larger screens */
     margin-left: 20px; /* Margin for spacing */
@@ -71,6 +46,7 @@
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
+    margin-top:10mm;
     border-radius: 5px; /* Optional: for rounded corners */
 }
 

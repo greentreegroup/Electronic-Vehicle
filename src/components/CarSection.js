@@ -7,7 +7,6 @@ function CarSection() {
       <div className="car-image">
 
         <img src="https://img.freepik.com/premium-photo/sports-japanese-cars-car-street-racing_551707-82235.jpg" alt="Luxury Car" />
-        <button className="play-button">▶</button>
       </div>
       <div className="car-content">
         <h1>AN EXPORT COMPANY OF AUTOMOBILES AND IT'S PARTS FROM CHINA</h1>
