@@ -1,48 +1,52 @@
 .premium-brands-container {
     text-align: center;
     padding: 20px;
-    margin: 20px;;
-}
-
-.brand-logos {
+    background-color: #f9f9f9; /* Optional: light background for better contrast */
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    color: #f57b18;
+    font-weight: bold;
+  }
+  
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Ensures equal sizing */
+    gap: 20px; /* Consistent space between boxes */
+    justify-items: center;
+    align-items: center;
+  }
+  
+  .brand-item {
+    width: 120px;
+    height: 120px;
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    justify-content: center; /* Center the items */
-    gap: 20px; /* Space between logos */
-}
-
-.brand-item {
-    display: flex;
-    flex-direction: column; /* Align the image and text vertically */
-    align-items: center; /* Center items horizontally */
-    flex: 0 0 calc(33.33% - 20px); 
-    max-width: 150px; /* Set a max width for the item */
-    text-align: center; /* Center the text */
-    transition: transform 0.2s ease; /* Smooth transition for scaling */
-}
-
-.brand-item:hover {
-    transform: scale(1.1); /* Scale up the item on hover */
-}
-
-.brand-logos img {
-    max-width: 100%; /* Make logos responsive */
-    height: 80px; /* Set a fixed height for logos */
-    object-fit: contain; /* Maintain aspect ratio without stretching */
-}
-
-.brand-item p {
-    margin-top: 10px; /* Space between logo and brand name */
-    font-weight: bold; /* Make brand names bold */
-    height: 30px; /* Set a fixed height for text */
-    display: flex; /* Use flexbox for vertical centering */
-    align-items: center; /* Center text vertically */
-}
-
-
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    .brand-item {
-        flex: 0 0 calc(50% - 20px);
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .brand-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+  }
+  
+  .brand-item img {
+    max-width: 70%; /* Ensures logos fit nicely without overflow */
+    max-height: 70%;
+    object-fit: contain;
+  }
+  
+  @media (max-width: 768px) {
+    .brand-grid {
+      grid-template-columns: repeat(4, 1fr); /* Adjust for smaller screens */
     }
-}
+  }
+  
