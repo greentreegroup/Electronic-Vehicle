@@ -3,8 +3,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    height: 80vh; /* Adjust based on your design */
-    flex-wrap: wrap; /* Allow items to wrap */
+    height: 80vh;
+    flex-wrap: wrap;
+    margin-bottom: 0rem;
 }
 
 .car-image {

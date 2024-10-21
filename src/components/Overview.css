@@ -1,46 +1,70 @@
+.overview {
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  margin-top: -rem;
+}
+
+.overview__title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #f57b18;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
 .features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px; /* Spacing between the features */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.feature {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature__icon {
+  background-color: #f57b18;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.5rem;
+}
+
+.feature__title {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.feature__description {
+  font-size: 0.9rem;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .overview {
+    padding: 3rem 1rem;
   }
-  
-  .feature {
-    flex-basis: calc(16.66% - 20px); /* Makes six features fit in a row */
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #f9f9f9;
-    border-radius: 8px;
+
+  .overview__title {
+    font-size: 2rem;
   }
-  
-  .icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
+
+  .features {
+    grid-template-columns: 1fr;
   }
-  
-  .feature__text {
-    margin-top: 10px;
-    font-size: 14px;
-    color: black;
-  }
-  
-  .heading-4--dark {
-    font-weight: bold;
-    color: black;
-  }
-  
-  .heading-2--dark {
-    font-weight: bold;
-    color: black;
-  }
-  
-  /* Responsive design for smaller screens */
-  @media (max-width: 768px) {
-    .feature {
-      flex-basis: 100%; /* Makes each feature take up full width on smaller screens */
-      margin-bottom: 20px;
-    }
-  }
-  
+}
