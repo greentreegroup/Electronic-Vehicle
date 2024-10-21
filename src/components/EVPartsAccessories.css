@@ -71,14 +71,15 @@
 .filter-box-desktop {
   position: sticky;
   top: 70px;
-  width: 15rem;
-  max-height: 30rem;
+  width: 19rem;
+  max-height: 28rem;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: black; 
   color: white; 
-  font-family: sans-serif; 
+  font-family: sans-serif;
+  text-align: left; 
 }
 
 .filter-box-desktop h3 {
@@ -97,16 +98,19 @@
 .filter-group label {
   font-size: 16px;
   display: flex;
-  align-items: center;
+  align-items: left;
 }
 
 .filter-group input,
 .filter-group select {
-  margin-left: 10px;
-  padding: 5px;
+  padding: 5px; 
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.filter-button {
+  margin-top:10px
 }
 
 /* Filter Toggle Button (mobile) */
@@ -115,7 +119,7 @@
 }
 
 .filter-toggle-button {
-  background-color: #17292e;
+  background-color: black;
   color: white;
   border: none;
   padding: 10px;
@@ -256,6 +260,13 @@
   }
 
   .filter-box-desktop {
+    display: none;
+  }
+}
+
+/* Hides the mobile menu above 480 px.*/
+@media (min-width: 481px){
+  .filter-box-mobile{
     display: none;
   }
 }

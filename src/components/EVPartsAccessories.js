@@ -301,26 +301,28 @@ const EVPartsAccessories = () => {
         <button className="filter-close-button" onClick={toggleFilterBox}>&times;</button>
         <h3>Filter Parts</h3>
         <div className="filter-group">
+          Min Price:
           <label>
-            Min Price:
             <input
               type="number"
+              min="0"
               name="minPrice"
               value={filters.minPrice}
               onChange={updateFilter}
             />
           </label>
+          Max Price:
           <label>
-            Max Price:
             <input
               type="number"
+              min="0"
               name="maxPrice"
               value={filters.maxPrice}
               onChange={updateFilter}
             />
           </label>
+          Category:
           <label>
-            Category:
             <select
               name="selectedCategory"
               value={filters.selectedCategory}
@@ -334,8 +336,8 @@ const EVPartsAccessories = () => {
               <option value="Turbo">Turbo</option>
             </select>
           </label>
+          Availability:
           <label>
-            Availability:
             <select
               name="availability"
               value={filters.availability}
@@ -358,26 +360,28 @@ const EVPartsAccessories = () => {
         <div className="filter-box-desktop">
           <h3>Filter Parts</h3>
           <div className="filter-group">
+            Min Price:
             <label>
-              Min Price:
               <input
                 type="number"
+                min="0"
                 name="minPrice"
                 value={filters.minPrice}
                 onChange={updateFilter}
               />
             </label>
+            Max Price:
             <label>
-              Max Price:
               <input
                 type="number"
+                min="0"
                 name="maxPrice"
                 value={filters.maxPrice}
                 onChange={updateFilter}
               />
             </label>
+            Category:
             <label>
-              Category:
               <select
                 name="selectedCategory"
                 value={filters.selectedCategory}
@@ -391,8 +395,8 @@ const EVPartsAccessories = () => {
                 <option value="Turbo">Turbo</option>
               </select>
             </label>
+            Availability:
             <label>
-              Availability:
               <select
                 name="availability"
                 value={filters.availability}
