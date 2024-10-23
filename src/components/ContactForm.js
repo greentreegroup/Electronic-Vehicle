@@ -54,11 +54,11 @@ const ContactPage = () => {
       setLoading(false);
     }
   };
-
+  
   return (
     <>
       <div className="contact-page">
-        <h1 className="title">Get in Touch</h1>
+        <h1 className="contact-title">Get in Touch</h1>
 
         <div className="form-section">
           <div className="message-info">
