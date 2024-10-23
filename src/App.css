@@ -8,7 +8,8 @@
 
   --paragraph-font-family: 'Verdana', sans-serif;
   --header-font-family: 'Trebuchet MS', sans-serif;
-  --background-color: #f2f2f5;
+  /* --background-color: #f2f2f5; Original color*/
+  --background-color: white;
   --font-weight-bold: bold;
 
 }
@@ -31,7 +32,6 @@
 
 .App-main {
   grid-area: main;
-  /* Other styles */
   margin-top: 40px; /* Adjust as needed */
 }
 

@@ -1,0 +1,134 @@
+body {
+    background-color: #f8fbfd; /* Light background for contrast */
+    font-family: 'Arial', sans-serif; /* Set a clean font */
+}
+
+.car-detail-container{
+    width:100%;
+    overflow-x:scroll;
+}
+
+.car-section {
+    display: flex;
+    flex-direction: row; /* Side by side on larger screens */
+    justify-content: center;
+    align-items: flex-start;
+    margin: 4rem auto; /* Use rem for consistent spacing */
+    max-width: 1500px; /* Limit max width for larger screens */
+    width: 90%; /* Responsive width */
+}
+
+.image-container {
+    flex: 1;
+    max-width: 90%; /* Increased width for the main image */
+    margin: 1rem; /* Use rem for spacing */
+}
+
+.details-container {
+    flex: 1;
+    max-width: 30%; 
+    margin: 1rem; 
+    text-align: left;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure the image covers the area */
+    box-shadow: 1px 2px 2px rgb(140, 140, 140);
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem; /* Use rem */
+    overflow-x: auto;
+}
+
+.thumbnail {
+    width: 10rem; /* Use rem for consistent sizing */
+    height: 6rem;
+    margin: 0.5rem; /* Use rem for spacing */
+    cursor: pointer;
+    border-radius: 0.25rem; /* Use rem */
+}
+
+.thumbnail img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 0.25rem; /* Use rem */
+}
+
+.title {
+    color: black;
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Use rem */
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+.price {
+    margin-top: 1rem; /* Use rem */
+    color: #4d4d4d;
+    font-family: Arial, sans-serif;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem; /* Use rem */
+}
+
+.contact-message {
+    background-color: #f0f0f0;
+    padding: 1rem; /* Use rem */
+    margin-top: 1rem; /* Use rem */
+    border-radius: 0.25rem; /* Use rem */
+}
+
+.overview-section,
+.features-section {
+    background-color: #fff;
+    padding: 2rem; /* Use rem */
+    border-radius: 0.625rem; /* Use rem */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 1rem 4rem; /* Use rem */
+}
+.overview-section strong {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold; /* Keep bold styling */
+  }
+.section-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Use rem */
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.specifications {
+    margin: 2rem 0; /* Use rem */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 700px) {
+
+    .car-section {
+        flex-direction: column; /* Stack vertically on mobile */
+    }
+
+    .image-container,
+    .details-container {
+        max-width: 100%; /* Full width on mobile */
+        margin: 1rem 0; /* Add vertical spacing */
+    }
+    
+    .details-container {
+        margin-top: 1rem; /* Space between image and details on mobile */
+    }
+    .overview-section,
+    .features-section {
+        margin: 0 0;
+    }
+}

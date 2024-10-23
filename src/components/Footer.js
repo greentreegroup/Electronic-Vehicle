@@ -50,6 +50,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/CarSearch">
+                  Electric Cars
+                </Link>
+              </li>
+              <li>
                 <Link to="/PartsAccessories">
                   Parts
                 </Link>
@@ -67,11 +72,6 @@ const Footer = () => {
               <li>
                 <Link to="/AboutUs">
                   About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/Timeline">
-                  Shipping
                 </Link>
               </li>
             </ul>

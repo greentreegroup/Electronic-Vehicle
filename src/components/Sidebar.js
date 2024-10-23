@@ -5,6 +5,9 @@ import SignInForm from './SignInForm.js';
 import SignUpForm from './SignUpForm.js';
 import Dealer from './Dealer.js';
 import Cookies from 'js-cookie';
+import Cart from "./CarSearchCartCompts/ShoppingCartPage";
+import ResearchPage from './ResearchPage.js';
+import ShoppingCartHeader from "./CarSearchCartCompts/ShoppingCartHeader";
 
 const Sidebar = ({ setSearchQuery, parts = [] }) => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -137,6 +140,11 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
                     Settings
                   </Link>
                 </li>
+                <li>
+                  <Link to="/Cart" className="nav-link">
+                    Shopping Cart
+                  </Link>
+                </li>
               </ul>
             )}
           </div>
@@ -156,6 +164,11 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
           <li className="nav-item">
             <Link to="/" className="nav-link">
               Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/CarSearch" className="nav-link">
+              Electric Cars
             </Link>
           </li>
           <li className="nav-item">
@@ -191,11 +204,6 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
           <li className="nav-item">
             <Link to="/AboutUs" className="nav-link">
               About Us
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/Timeline" className="nav-link">
-              Shipping
             </Link>
           </li>
         </ul>
@@ -234,9 +242,9 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
                   </button>
                 </li>
                 <li>
-                  <button id="button-in-progress" className="nav-link">
-                    All brands
-                  </button>
+                  <Link to="/CarSearch" className="nav-link">
+                    All Brands
+                  </Link>
                 </li>
               </ul>
             )}

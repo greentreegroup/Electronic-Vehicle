@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -26,19 +27,19 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
             <option value="MG">MG</option>
           </select>
           <select className="search-dropdown" value={energy} onChange={(e) => setEnergy(e.target.value)}>
-            <option value="Energy">Energy</option>
-            <option value="Gasoline">Gas</option>
-            <option value="Hybrid">Hybrid</option>
             <option value="Electric">Electric</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Gasoline">Gas</option>
           </select>
           <select className="search-dropdown" value={model} onChange={(e) => setModel(e.target.value)}>
-            <option value="Model">Model</option>
             <option value="SUV">SUV</option>
             <option value="Sedan">Sedan</option>
             <option value="Truck">Truck</option>
             <option value="Electric">Electric</option>
           </select>
-          <button className="search-button" onClick={handleSearchClick}>Search</button>
+          <Link to="/CarSearch">
+            <button className="search-button" onClick={handleSearchClick}>Search</button>
+          </Link>
         </div>
       </div>
 

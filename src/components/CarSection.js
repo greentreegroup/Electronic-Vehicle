@@ -1,5 +1,7 @@
 import React from 'react';
 import './CarSection.css'; // Make sure to create this CSS file
+import { Link } from 'react-router-dom';
+
 
 function CarSection() {
   return (
@@ -12,8 +14,11 @@ function CarSection() {
         <h1>AN EXPORT COMPANY OF AUTOMOBILES AND IT'S PARTS FROM CHINA</h1>
         <p>We are dedicated to providing our customers with exceptional service, competitive pricing, and a comprehensive range of automobiles and their parts.</p>
         <p>We are actively seeking DISTRIBUTION PARTNERS to expand our offerings and provide an even wider SELECTION OF HIGH-QUALITY VEHICLES AND COMPONENTS.</p>
-        <button className="get-started-button"><a href="/AboutUs">Get Started</a></button>
-    </div>
+        
+        <Link to="/CarSearch">
+          <button className="get-started-button">Start Searching</button>
+        </Link>
+      </div>
 
     </div>
   );

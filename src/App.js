@@ -17,6 +17,12 @@ import ResearchPage from './components/ResearchPage';
 import ContactForm from './components/ContactForm';
 import AboutUsServiceInfo from './components/AboutUs-ServiceInfo';
 import axios from 'axios';
+import "./App.css";
+//import ContactForm from './components/ContactForm';
+//import AboutUsServiceInfo from './components/AboutUs-ServiceInfo';
+import CarSearch from "./components/CarSearchCartCompts/CarSearch";
+import CarDetails from "./components/CarSearchCartCompts/CarDetails";
+import Cart from "./components/CarSearchCartCompts/ShoppingCartPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -75,6 +81,13 @@ function App() {
             <Route path="/Contact" element={<ContactForm />} />
             <Route path="/AboutUs" element={<AboutUsServiceInfo />} />
             <Route path="/signin" element={<SignInForm />} />
+            <Route path="/userProfile/:userId" element={<UserProfile />} />{" "}
+            <Route path="/Research" element={<ResearchPage />} />
+            <Route path="/CarSearch" element={<CarSearch />} />{" "}
+            {/* Route for searching/filtering electric vehicles database */}
+            <Route path="/car-details/:id" element={<CarDetails />} />
+            <Route path="/cart" element={<Cart />} />
+            {/* Other routes */}
           </Routes>
         </main>
         <Chatbot />
