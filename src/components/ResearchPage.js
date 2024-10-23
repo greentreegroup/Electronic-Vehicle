@@ -7,28 +7,17 @@ const ResearchPage = () => {
   return (
     <div className="research-page">
       <h1 className="page-title">
+      Discover the Best Vehicle for Your Needs
       </h1>
+      <p>
+      Find your perfect car by exploring brands, fuel options, and types. 
+      Use our tools to make informed decisions with confidence.
+          </p>
 
       <div className="search-bar">
         <input type="text" placeholder="Search by make, model, or keyword" />
         <button>Search</button>
       </div>
-
-      <section className="research-hero-section">
-        <div className="hero-text">
-          <h2>Mileage On A Car Can’t Tell You Everything</h2>
-          <p>
-            A used car’s mileage has become shorthand for its condition, but a
-            vehicle’s maintenance history and an inspection might be the key to
-            getting more of the full story.
-          </p>
-        </div>
-        <img
-          src="img/inspection.webp"
-          alt="Car Inspection"
-          className="hero-image"
-        />
-      </section>
 
       <section className="research-section">
         <h2 style={{color:'white'}}>Research your next car</h2>
