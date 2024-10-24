@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './Sidebar.css';
+import styles from './Sidebar.module.css'; // Import the CSS Module
 import SignInForm from './SignInForm.js';
 import SignUpForm from './SignUpForm.js';
 import Dealer from './Dealer.js';
 import Cookies from 'js-cookie';
+import { ShoppingCart, User } from 'lucide-react';
 
 const Sidebar = ({ setSearchQuery, parts = [] }) => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -18,7 +19,6 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
 
   const location = useLocation(); // To detect the current page route
 
-  // Handle search input change and activate search preview
   const handleSearchChange = (e) => {
     const query = e.target.value || '';
     setSearchQuery(query); // Update the query for the entire app
@@ -67,182 +67,147 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
     setShowDealer(false);
   };
 
-  // Avoid showing the search preview on the PartsAccessories page
   const isOnPartsPage = location.pathname === '/PartsAccessories';
-
+  
   return (
-    <div className="full-sidebar">
-      <div className="sidebar">
-        <div className="logo-div">
+    <div className={styles['navbar-container']}>
+      <div className={styles['navbar']}>
+        {/* Logo Section */}
+        <div className={styles['logo-section']}>
           <p>EVrabbit</p>
         </div>
-
-        {/* Search Bar with Preview */}
-        <div className="search-container">
+  
+        {/* Search Bar with Preview (Hidden on Mobile) */}
+        <div className={styles['search-section']}>
           <input
             type="text"
-            placeholder="🔍 Search for a product..."
+            placeholder="🔍 I'm looking for..."
             onChange={handleSearchChange}
-            className="search-bar"
+            className={styles['search-bar']}
           />
-          {isSearchActive && !isOnPartsPage && (
-            <div className="search-preview">
+          <button className={styles['search-button']}>Search</button>
+          {isSearchActive && (
+            <div className={styles['search-preview']}>
               {filteredPreviewParts.length > 0 ? (
-                filteredPreviewParts.slice(0, 5).map((part) => (
-                  <Link
-                    key={part.ID}
-                    to={`/PartsAccessories/${part.ID}`}
-                    className="search-preview-item"
-                    onClick={closeSearchPreview}
-                  >
-                    {part.name}
-                  </Link>
-                ))
+                <ul>
+                  {filteredPreviewParts.slice(0, 5).map((part) => (
+                    <li key={part.id} className={styles['search-preview-item']}>
+                      <Link to={`/parts/${part.id}`} onClick={closeSearchPreview}>
+                        {part.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               ) : (
-                <p className="no-results">No results found</p>
+                <p>No matching parts found</p>
               )}
             </div>
           )}
         </div>
-
-        <div className="auth-links">
-          <div className="account-dropdown">
-            <button onClick={toggleDropdown} className="nav-link account-button">
-              Account
+  
+        {/* Links for Account, Cart, and Hamburger */}
+        <div className={styles['auth-cart-section']}>
+          <div className={styles['account-dropdown']}>
+            <button onClick={toggleDropdown} className={styles['nav-link']}>
+              <User size={30} strokeWidth={2} />
             </button>
             {showDropdown && (
-              <ul className="sidebar-dropdown-menu">
+              <ul className={styles['sidebar-dropdown-menu']}>
                 <li>
-                  <button onClick={() => handleAuthClick('signIn')} className="nav-link">
+                  <button onClick={() => handleAuthClick('signIn')} className={styles['nav-link']}>
                     Sign In
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleAuthClick('signUp')} className="nav-link">
+                  <button onClick={() => handleAuthClick('signUp')} className={styles['nav-link']}>
                     Sign Up
                   </button>
                 </li>
                 <li>
-                  <button onClick={handleUserAccountClick} className="nav-link">
+                  <button onClick={handleUserAccountClick} className={styles['nav-link']}>
                     User Profile
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => handleAuthClick('dealer')} className="nav-link">
-                    Dealer
+                  <button onClick={() => handleAuthClick('dealer')} className={styles['nav-link']}>
+                    Dealer Login
                   </button>
                 </li>
                 <li>
-                  <Link to="/settings" className="nav-link">
+                  <Link to="/settings" className={styles['nav-link']}>
                     Settings
                   </Link>
                 </li>
               </ul>
             )}
           </div>
+          <div className={styles['cart-section']}>
+            <ShoppingCart size={32} strokeWidth={2} />
+          </div>
+          {/* Hamburger Icon for Mobile Menu */}
+          <button className={styles['hamburger']} onClick={toggleMobileMenu}>
+            ☰
+          </button>
         </div>
-
-        {showSignIn && <SignInForm onClose={closeForms} />}
-        {showSignUp && <SignUpForm onClose={closeForms} />}
-        {showDealer && <Dealer onClose={closeForms} />}
       </div>
-
-      <div className="sidebar">
-        <button className="hamburger" onClick={toggleMobileMenu}>
-          ☰
-        </button>
-       
-        <ul className={`sidebar-nav ${showMobileMenu ? 'mobile-show' : 'mobile-hide'}`}>
-          <li className="nav-item">
-            <Link to="/" className="nav-link">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/PartsAccessories" className="nav-link">
-              Parts
-            </Link>
-          </li>
-          {/*<li className="nav-item">
-            <Link to="/listings" className="nav-link">
-              Listings
-            </Link>
-          </li>
-          {/*<li className="nav-item">
-            <Link to="/track-record" className="nav-link">
-              Track Record
-            </Link>
-          </li>*/}
-          <li className="nav-item">
-            <Link to="/HelpCenter2" className="nav-link">
-              Help Center
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/Research" className="nav-link">
-              Research & Insights
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/Contact" className="nav-link">
-              Contact Us
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/AboutUs" className="nav-link">
-              About Us
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/Timeline" className="nav-link">
-              Shipping
-            </Link>
-          </li>
+  
+      {/* Secondary Navbar for large screens */}
+      <div className={styles['secondary-navbar']}>
+        <ul className={styles['secondary-nav-links']}>
+          <li className={styles['nav-item']}><Link to="/" className={styles['nav-link']}>Home</Link></li>
+          <li className={styles['nav-item']}><Link to="/" className={styles['nav-link']}>Cars</Link></li>
+          <li className={styles['nav-item']}><Link to="/PartsAccessories" className={styles['nav-link']}>Parts</Link></li>
+          <li className={styles['nav-item']}><Link to="/HelpCenter2" className={styles['nav-link']}>Help Center</Link></li>
+          {/* <li className={styles['nav-item']}><Link to="/Research" className={styles['nav-link']}>Research & Insights</Link></li> */}
+          <li className={styles['nav-item']}><Link to="/AboutUs" className={styles['nav-link']}>About Us</Link></li>
+          <li className={styles['nav-item']}><Link to="/Contact" className={styles['nav-link']}>Contact Us</Link></li>
         </ul>
-
-        {/* Drop down menu for showing popular brands */}
-        <div className="auth-links">
-          <div className="brand-dropdown">
-            <button onClick={toggleBrandDropdown} className="nav-link brand-button">
-              Brands
-            </button>
-            {showBrandDropdown && (
-              <ul className="sidebar-dropdown-menu">
-                <li>
-                  <button id="button-in-progress" className="nav-link">
-                    Aion
-                  </button>
-                </li>
-                <li>
-                  <button id="button-in-progress" className="nav-link">
-                    Roewe
-                  </button>
-                </li>
-                <li>
-                  <button id="button-in-progress" className="nav-link">
-                    BYD
-                  </button>
-                </li>
-                <li>
-                  <button id="button-in-progress" className="nav-link">
-                    MG
-                  </button>
-                </li>
-                <li>
-                  <button id="button-in-progress" className="nav-link">
-                    IM Motor
-                  </button>
-                </li>
-                <li>
-                  <button id="button-in-progress" className="nav-link">
-                    All brands
-                  </button>
-                </li>
-              </ul>
-            )}
       </div>
-    </div>
-    </div>
+  
+    {/* Mobile Menu */}
+<ul className={`${styles['sidebar-nav']} ${showMobileMenu ? styles['mobile-show'] : styles['mobile-hide']}`}>
+  <li className={styles['nav-item']}><Link to="/" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>Home</Link></li>
+  <li className={styles['nav-item']}><Link to="/" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>Cars</Link></li>
+  <li className={styles['nav-item']}><Link to="/PartsAccessories" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>Parts</Link></li>
+  <li className={styles['nav-item']}><Link to="/HelpCenter2" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>Help Center</Link></li>
+  {/* <li className={styles['nav-item']}><Link to="/Research" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>Research & Insights</Link></li> */}
+  <li className={styles['nav-item']}><Link to="/AboutUs" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>About Us</Link></li>
+  <li className={styles['nav-item']}><Link to="/Contact" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>Contact Us</Link></li>
+
+  {/* Add Search Bar inside Mobile Menu */}
+  <li className={styles['mobile-search-section']}>
+    <input
+      type="text"
+      placeholder="🔍 I'm looking for..."
+      onChange={handleSearchChange}
+      className={styles['mobile-search-bar']}
+    />
+    <button className={styles['mobile-search-button']}>Search</button>
+
+    {/* Mobile Search Preview */}
+    {isSearchActive && (
+      <div className={styles['mobile-search-preview']}>
+        {filteredPreviewParts.length > 0 ? (
+          <ul>
+            {filteredPreviewParts.slice(0, 5).map((part) => (
+              <li key={part.id} className={styles['mobile-search-preview-item']}>
+                <Link to={`/parts/${part.id}`} onClick={() => setShowMobileMenu(false)}>
+                  {part.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No matching parts found</p>
+        )}
+      </div>
+    )}
+  </li>
+</ul>
+  
+      {showSignIn && <SignInForm onClose={closeForms} />}
+      {showSignUp && <SignUpForm onClose={closeForms} />}
+      {showDealer && <Dealer onClose={closeForms} />}
     </div>
   );
 };
