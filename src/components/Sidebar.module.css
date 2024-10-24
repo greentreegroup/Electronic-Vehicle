@@ -1,0 +1,409 @@
+/* Main Container */
+.navbar-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar layout (Search Bar, Cart, Account) */
+.nav-item {
+  padding: 5px 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.body-content {
+  margin-top: 70px; /* Adjust based on the height of the navbar */
+}
+
+/* Search Bar Section (Hidden on Mobile) */
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+  width: 100%; /* Full-width */
+  max-width: 600px; /* Optional max width */
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-right: none; /* Remove right border */
+  border-radius: 5px 0 0 5px; /* Rounded corners for the left side */
+  outline: none;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #f57b18;
+  color: white;
+  border: 1px solid #007bff;
+  border-radius: 0 5px 5px 0; /* Rounded corners for the right side */
+  cursor: pointer;
+  outline: none;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 999px) {
+  .search-section {
+    display: none; /* Hide search bar on mobile */
+  }
+}
+
+/* Mobile Search Bar Section (inside hamburger menu) */
+.mobile-search-section {
+  display: none; /* Hidden by default */
+  padding: 20px;
+  width: 100%;
+  flex-direction: column;
+}
+
+.mobile-search-bar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.mobile-search-button {
+  padding: 10px;
+  background-color: #f57b18;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mobile-search-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 999px) {
+  .mobile-search-section {
+    display: flex; /* Show in mobile menu */
+  }
+}
+
+/* Secondary Navbar */
+.secondary-navbar {
+  display: none; /* Hidden on small screens */
+  background-color: #f8f9fa;
+  /* padding: 1px 0; */
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.secondary-navbar .secondary-nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px; /* Space between links */
+}
+
+.secondary-navbar .nav-item {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.secondary-navbar .nav-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.secondary-navbar .nav-link:hover {
+  color: #007bff;
+}
+
+/* Auth Links & Cart Section */
+.auth-cart-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.account-dropdown {
+  position: relative;
+}
+
+.sidebar-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 250px; /* Adjust the width to make the dropdown wider */
+}
+
+.sidebar-dropdown-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-dropdown-menu li + li {
+  border-top: 1px solid #e0e0e0;
+}
+
+.account-dropdown:hover .sidebar-dropdown-menu {
+  display: block;
+}
+
+.nav-link {
+  display: block;
+  padding: 12px 20px; /* Spacing inside the button/link */
+  text-align: left;
+  text-decoration: none;
+  font-size: 16px;
+  color: #333; /* Dark text color */
+  background-color: transparent;
+  border: none; /* Remove default button styles */
+  width: 100%;
+  cursor: pointer; /* Make it look clickable */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:focus {
+  outline: none;
+}
+
+.nav-link:active {
+  background-color: #f57b18; /* Darker blue on active/click */
+}
+
+.cart-icon {
+  margin-right: 10px;
+}
+
+/* Mobile Nav */
+.sidebar-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 75%; /* Adjust the width to a reasonable size */
+  max-width: 300px; /* Ensure it doesn't get too large */
+  height: 100%; /* Full height */
+  background-color: #f8f9fa;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px; /* Space for the hamburger button */
+  z-index: 1000;
+  transition: transform 0.3s ease; /* Smooth slide-in/out effect */
+  transform: translateX(-100%); /* Initially off-screen */
+}
+
+.sidebar-nav.mobile-show {
+  transform: translateX(0); /* Slide in the menu when shown */
+}
+
+.sidebar-nav.mobile-hide {
+  transform: translateX(-100%); /* Slide out the menu when hidden */
+}
+
+.nav-item {
+  margin: 10px 0;
+  padding: 10px 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+/* Logo Section */
+.logo-section p {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #f57b18;
+}
+
+/* Show secondary navbar only on large screens */
+@media (min-width: 1000px) {
+  .secondary-navbar {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  /* Hide the mobile nav */
+  .sidebar-nav {
+    display: none;
+  }
+}
+
+/* Responsive Behavior for smaller screens */
+@media (max-width: 999px) {
+  .hamburger {
+    display: block;
+  }
+
+  .secondary-navbar {
+    display: none;
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures even spacing between logo and icons */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.auth-cart-section {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between account and cart */
+}
+
+.hamburger {
+  display: none; /* Hide by default */
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: black;
+  order: 3; /* Make sure hamburger is after cart */
+}
+
+/* Ensure cart and user icons align properly */
+.cart-section, .user-section {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive behavior for small screens */
+@media (max-width: 999px) {
+  .hamburger {
+    display: block; /* Show hamburger icon on mobile */
+  }
+
+  .auth-cart-section {
+    justify-content: flex-end;
+    gap: 15px; /* Adjust gap for smaller screens */
+  }
+}
+
+/* Search Preview Container */
+.search-preview {
+  position: absolute; /* Position it below the search bar */
+  top: 100%; /* Align it directly under the search bar */
+  left: 0;
+  width: 100%; /* Match the width of the search bar */
+  max-height: 250px; /* Limit the height of the search preview */
+  overflow-y: auto; /* Add scroll if too many items */
+  background-color: white; /* Ensure it's on top of everything */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  border: 1px solid #ddd; /* Light border */
+  z-index: 1000; /* Make sure it stays on top */
+  border-radius: 0 0 5px 5px; /* Rounded corners at the bottom */
+}
+
+/* Search Preview Item */
+.search-preview-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee; /* Light separator between items */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-preview-item:last-child {
+  border-bottom: none; /* Remove the last border */
+}
+
+.search-preview-item:hover {
+  background-color: #f7f7f7; /* Light gray on hover */
+}
+
+/* No Results Message */
+.search-preview p {
+  padding: 10px;
+  color: #888;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* For Mobile Search Preview */
+@media (max-width: 999px) {
+  .mobile-search-bar {
+    width: 100%;
+  }
+
+  .search-preview {
+    position: static; /* Let it stack inside the mobile menu */
+    max-height: 150px; /* Adjust height for smaller screens */
+  }
+}
+
+/* Mobile-specific Search Preview */
+.mobile-search-preview {
+  margin-top: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  max-height: 200px; /* Limit height to avoid overflowing */
+  overflow-y: auto; /* Allow scrolling if necessary */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.mobile-search-preview-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mobile-search-preview-item:last-child {
+  border-bottom: none;
+}
+
+.mobile-search-preview-item:hover {
+  background-color: #f7f7f7;
+}
+
+.mobile-search-preview p {
+  padding: 10px;
+  color: #888;
+  text-align: center;
+  font-size: 0.9rem;
+}
