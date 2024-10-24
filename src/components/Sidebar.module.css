@@ -110,7 +110,7 @@
 .secondary-navbar {
   display: none; /* Hidden on small screens */
   background-color: #f8f9fa;
-  /* padding: 1px 0; */
+  /* padding: 5px 0; */
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
@@ -121,11 +121,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 30px; /* Space between links */
+  gap: 20px; /* Space between links */
 }
 
 .secondary-navbar .nav-item {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: bold;
   text-transform: capitalize;
 }
