@@ -51,7 +51,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/CarSearch">
-                  Electric Cars
+                  Cars
                 </Link>
               </li>
               <li>
@@ -84,27 +84,37 @@ const Footer = () => {
             <ul>
               <li><a className="link-in-progress" href="#">Electric</a></li>
               <li><a className="link-in-progress" href="#">Hybrid</a></li>
-              <li><a className="link-in-progress" href="#">Gas</a></li>
-            </ul>
-          </div>
-          <div clasNames="listLinks">
-            <h3 style={{color:'#f57b18'}}>By Brands:</h3>
-            <ul>
-              <li><a className="link-in-progress" href="#">Aion</a></li>
-              <li><a className="link-in-progress" href="#">Avatr</a></li>
-              <li><a className="link-in-progress" href="#">BYD</a></li>
-              <li><a className="link-in-progress" href="#">Changan</a></li>
-              <li><a className="link-in-progress" href="#">Geely</a></li>
+              <li><a className="link-in-progress" href="#">Gasoline</a></li>
             </ul>
           </div>
           <div className="listLinks">
             <h3>By Model:</h3>
             <ul>
-              <li><a className="link-in-progress" href="#">Electric</a></li>
-              <li><a className="link-in-progress" href="#">MPV</a></li>
-              <li><a className="link-in-progress" href="#">Sedan</a></li>
-              <li><a className="link-in-progress" href="#">SUV</a></li>
-              <li><a className="link-in-progress" href="#">Truck</a></li>
+              <li>
+                <Link to="/CarSearch" state={{ model: "Hatchback" }}>
+                  Hatchback
+                </Link>
+              </li>
+              <li>
+                <Link to="/CarSearch" state={{ model: "Sedan" }}>
+                  Sedan
+                </Link>
+              </li>
+              <li>
+                <Link to="/CarSearch" state={{ model: "SUV" }}>
+                  SUV
+                </Link>
+              </li>
+              <li>
+                <Link to="/CarSearch" state={{ model: "Mini" }}>
+                  Mini
+                </Link>
+              </li>
+              <li>
+                <Link to="/CarSearch" state={{ model: "MPV" }}>
+                  MPV
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="contactLinks">

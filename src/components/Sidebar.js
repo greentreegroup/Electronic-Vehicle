@@ -168,7 +168,7 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
           </li>
           <li className="nav-item">
             <Link to="/CarSearch" className="nav-link">
-              Electric Cars
+              Cars
             </Link>
           </li>
           <li className="nav-item">
@@ -176,26 +176,16 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
               Parts
             </Link>
           </li>
-          {/*<li className="nav-item">
-            <Link to="/listings" className="nav-link">
-              Listings
-            </Link>
-          </li>
-          {/*<li className="nav-item">
-            <Link to="/track-record" className="nav-link">
-              Track Record
-            </Link>
-          </li>*/}
           <li className="nav-item">
             <Link to="/HelpCenter2" className="nav-link">
               Help Center
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link to="/Research" className="nav-link">
               Research & Insights
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item">
             <Link to="/Contact" className="nav-link">
               Contact Us

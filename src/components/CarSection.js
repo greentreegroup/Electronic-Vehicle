@@ -16,7 +16,7 @@ function CarSection() {
         <p>We are actively seeking DISTRIBUTION PARTNERS to expand our offerings and provide an even wider SELECTION OF HIGH-QUALITY VEHICLES AND COMPONENTS.</p>
         
         <Link to="/CarSearch">
-          <button className="get-started-button">Start Searching</button>
+          <button className="get-started-button">Start Searching for Cars</button>
         </Link>
       </div>
 

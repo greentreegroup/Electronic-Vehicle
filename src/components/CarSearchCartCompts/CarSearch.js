@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom"
 import { Box, Grid, Typography } from "@mui/material";
 import CarCard from "./Card";
 import { useCarContext } from "./CarContext";
@@ -10,6 +11,7 @@ import { PA_BACKEND_CAR_URL, PA_UNIQUE_CAR_BRANDS_URL } from "./urls";
 import "./CarSearch.css";
 
 const Search = () => {
+  const location = useLocation();
   const [searchResults, setSearchResults] = useState([]);
   const { carData, setCarData, currentPage, setCurrentPage } = useCarContext();
   const [sortOrder, setSortOrder] = useState("price-asc");
@@ -30,6 +32,17 @@ const Search = () => {
   const handlePriceChange = (event, newValue) => setPriceRange(newValue);
   const handleYearChange = (event, newValue) => setYearRange(newValue);
 
+  // This useEffect is used for preselecting an model from the link component on another page
+  useEffect(() => {
+    // Check if a pre-selected value was passed via Link state
+    if (location.state && location.state.model) {
+      setModel(location.state.model);
+    }
+    if (location.state && location.state.brand) {
+      setBrand(location.state.brand);
+    }
+  }, [location.state]);
+  
   useEffect(() => {
     const fetchCarData = async () => {
       try {
