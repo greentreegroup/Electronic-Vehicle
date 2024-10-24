@@ -2,10 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    height: 80vh;
     flex-wrap: wrap;
-    margin-bottom: 0rem;
 }
 
 .car-image {

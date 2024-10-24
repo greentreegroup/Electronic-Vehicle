@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import axios from 'axios';
 import Cookies from 'js-cookie';
 import Sidebar from './components/Sidebar';
 import EVPartsAccessories from './components/EVPartsAccessories';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import TrackRecord from './TrackRecord';
 import SignInForm from './components/SignInForm';
 import PartDetail from './components/PartDetail';
@@ -16,13 +16,12 @@ import FeatureCars from './components/FeaturedCars';
 import ResearchPage from './components/ResearchPage';
 import ContactForm from './components/ContactForm';
 import AboutUsServiceInfo from './components/AboutUs-ServiceInfo';
-import axios from 'axios';
-import "./App.css";
-//import ContactForm from './components/ContactForm';
-//import AboutUsServiceInfo from './components/AboutUs-ServiceInfo';
 import CarSearch from "./components/CarSearchCartCompts/CarSearch";
 import CarDetails from "./components/CarSearchCartCompts/CarDetails";
 import Cart from "./components/CarSearchCartCompts/ShoppingCartPage";
+import ScrollToTop from './components/ScrollToTop';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -31,7 +30,6 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch parts data on app mount
   useEffect(() => {
     const fetchPartsData = async () => {
       try {
@@ -57,6 +55,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Sidebar 
           setSearchQuery={setSearchQuery} 
@@ -81,13 +80,9 @@ function App() {
             <Route path="/Contact" element={<ContactForm />} />
             <Route path="/AboutUs" element={<AboutUsServiceInfo />} />
             <Route path="/signin" element={<SignInForm />} />
-            <Route path="/userProfile/:userId" element={<UserProfile />} />{" "}
-            <Route path="/Research" element={<ResearchPage />} />
-            <Route path="/CarSearch" element={<CarSearch />} />{" "}
-            {/* Route for searching/filtering electric vehicles database */}
+            <Route path="/CarSearch" element={<CarSearch />} />
             <Route path="/car-details/:id" element={<CarDetails />} />
             <Route path="/cart" element={<Cart />} />
-            {/* Other routes */}
           </Routes>
         </main>
         <Chatbot />

@@ -1,4 +1,8 @@
 /* Footer.css */
+html {
+  scroll-behavior: smooth;
+}
+
 .footer {
     background-color: black;
     color: white;

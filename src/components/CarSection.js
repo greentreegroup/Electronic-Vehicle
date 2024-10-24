@@ -1,5 +1,5 @@
 import React from 'react';
-import './CarSection.css'; // Make sure to create this CSS file
+import './CarSection.css';
 import { Link } from 'react-router-dom';
 
 

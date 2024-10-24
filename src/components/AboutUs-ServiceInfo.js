@@ -6,7 +6,6 @@ import './AboutUs-ServiceInfo.css';
 const AboutUs = () => {
   return (
     <div className="about-us-container">      
-      {/* Hero Section */}
       <section className="hero-section">
         <div className="content-wrapper">
           <h1 className="main-title">About Us</h1>
