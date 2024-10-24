@@ -6,12 +6,12 @@ import { useCarContext } from "./CarContext";
 import FilterPanel from "./FilterPanel";
 import Pagination from "./Pagination";
 import Loading from "./Loading";
-import { modelTypes } from "./data";
+import { modelTypes, fuelTypes } from "./data";
 import { PA_BACKEND_CAR_URL, PA_UNIQUE_CAR_BRANDS_URL } from "./urls";
 import "./CarSearch.css";
 
 const Search = () => {
-  const location = useLocation();
+  const location = useLocation(); 
   const [searchResults, setSearchResults] = useState([]);
   const { carData, setCarData, currentPage, setCurrentPage } = useCarContext();
   const [sortOrder, setSortOrder] = useState("price-asc");
@@ -19,6 +19,7 @@ const Search = () => {
   const [yearRange, setYearRange] = useState([2000, 2024]);
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
+  const [fuelType, setFuelType] = useState("");
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(false);
   const [carBrands, setCarBrands] = useState([]);
@@ -28,6 +29,7 @@ const Search = () => {
 
   const handleSortBrand = (event) => setBrand(event.target.value);
   const handleSortModels = (event) => setModel(event.target.value);
+  const handleSortFuelTypes = (event) => setFuelType(event.target.value);
   const handleSortOrderChange = (event) => setSortOrder(event.target.value);
   const handlePriceChange = (event, newValue) => setPriceRange(newValue);
   const handleYearChange = (event, newValue) => setYearRange(newValue);
@@ -40,6 +42,9 @@ const Search = () => {
     }
     if (location.state && location.state.brand) {
       setBrand(location.state.brand);
+    }
+    if (location.state && location.state.fuelType) {
+      setFuelType(location.state.fuelType);
     }
   }, [location.state]);
   
@@ -69,7 +74,8 @@ const Search = () => {
         .filter(car => car.price >= priceRange[0] && car.price <= priceRange[1])
         .filter(car => car.year >= yearRange[0] && car.year <= yearRange[1])
         .filter(car => (brand ? car.brand === brand : true))
-        .filter(car => (model ? car.model_type === model : true));
+        .filter(car => (model ? car.model_type === model : true))
+        .filter(car => (fuelType ? car.fuelType === fuelType : true));
 
       switch (sortOrder) {
         case "price-asc":
@@ -96,7 +102,7 @@ const Search = () => {
       setSearchResults(paginatedResults);
       setTotalPages(Math.ceil(filteredResults.length / cardsPerPage));
     }
-  }, [brand, priceRange, yearRange, currentPage, carData, sortOrder, model]);
+  }, [brand, priceRange, yearRange, currentPage, carData, sortOrder, model, fuelType]);
 
   useEffect(() => {
     const fetchCarBrands = async () => {
@@ -125,12 +131,15 @@ const Search = () => {
           <FilterPanel
             brand={brand}
             model={model}
+            fuelType={fuelType}
             sortOrder={sortOrder}
             priceRange={priceRange}
             yearRange={yearRange}
             carBrands={carBrands}
             modelTypes={modelTypes}
+            fuelTypes={fuelTypes}
             handleSortModels={handleSortModels}
+            handleSortFuelTypes={handleSortFuelTypes}
             handleSortOrderChange={handleSortOrderChange}
             handleSortBrand={handleSortBrand}
             handlePriceChange={handlePriceChange}

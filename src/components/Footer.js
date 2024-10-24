@@ -80,11 +80,23 @@ const Footer = () => {
           {/* All of these links can be added once the cars pages are developed. They are currently unlickable. Look for 
           "link-in-progress" class in CSS to make them clickable again */}
           <div className="listLinks">
-            <h3>By Energy:</h3>
+            <h3>By Fuel Type:</h3>
             <ul>
-              <li><a className="link-in-progress" href="#">Electric</a></li>
-              <li><a className="link-in-progress" href="#">Hybrid</a></li>
-              <li><a className="link-in-progress" href="#">Gasoline</a></li>
+              <li>
+                <Link to="/CarSearch" state={{ fuelType: "Electric" }}>
+                  Electric
+                </Link>
+              </li>
+              <li>
+                <Link to="/CarSearch" state={{ fuelType: "Hybrid" }}>
+                  Hybrid
+                </Link>
+              </li>
+              <li>
+                <Link to="/CarSearch" state={{ fuelType: "Gasoline" }}>
+                  Gasoline
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="listLinks">

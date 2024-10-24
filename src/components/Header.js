@@ -4,13 +4,13 @@ import './Header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Header = ({ onSignInClick, onSignUpClick }) => {
-  const [make, setMake] = useState('Brand');
-  const [energy, setEnergy] = useState('Energy');
+  const [brand, setBrand] = useState('Brand');
+  const [fuelType, setFuelType] = useState('Fuel Type');
   const [model, setModel] = useState('Model');
 
   const handleSearchClick = () => {
     // Implement search functionality here
-    console.log('Search clicked', { make, energy, model });
+    console.log('Search clicked', { brand, fuelType, model });
   };
 
   return (
@@ -20,21 +20,21 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
 
       <div className="home-search">
         <div className="search-form">
-          <select className="search-dropdown" value={make} onChange={(e) => setMake(e.target.value)}>
-            <option value="">Brand</option>
-            <option value="GAC Motor">GAC Motor</option>
+          <select className="search-dropdown" value={brand} onChange={(e) => setBrand(e.target.value)}>
+            <option value="Brand">Brand</option>
+            <option value="IM Motor">IM Motor</option>
             <option value="BYD">BYD</option>
             <option value="Roewe">Roewe</option>
             <option value="MG">MG</option>
           </select>
-          <select className="search-dropdown" value={energy} onChange={(e) => setEnergy(e.target.value)}>
-            <option value="">Energy</option>
+          <select className="search-dropdown" value={fuelType} onChange={(e) => setFuelType(e.target.value)}>
+            <option value="Fuel Type">Fuel Type</option>
             <option value="Electric">Electric</option>
             <option value="Hybrid">Hybrid</option>
             <option value="Gasoline">Gas</option>
           </select>
           <select className="search-dropdown" value={model} onChange={(e) => setModel(e.target.value)}>
-            <option value="">Model</option>
+            <option value="Model">Model</option>
             <option value="SUV">SUV</option>
             <option value="Sedan">Sedan</option>
             <option value="MPV">MPV</option>
@@ -43,7 +43,7 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
           </select>
           <Link 
             to="/CarSearch" 
-            //state={{brand:{make}}}
+            //state={{brand, fuelType, model}}
           >
             <button className="search-button" onClick={handleSearchClick}>Search</button>
           </Link>

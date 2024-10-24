@@ -1,17 +1,20 @@
 import React from "react";
 import { Slider, Typography, Grid } from "@mui/material";
-import { FormSortOrder, FormSortBy, FormModelType } from "./Forms";
+import { FormSortOrder, FormSortBy, FormModelType, FormFuelType } from "./Forms";
 import { COLOUR } from "./Colour"
 
 const FilterPanel = ({
   brand,
   model,
+  fuelType,
   sortOrder,
   priceRange,
   yearRange,
   carBrands,
   modelTypes,
+  fuelTypes,
   handleSortModels,
+  handleSortFuelTypes,
   handleSortOrderChange,
   handleSortBrand,
   handlePriceChange,
@@ -31,6 +34,13 @@ const FilterPanel = ({
         model={model}
         modelTypes={modelTypes}
         handleSortModels={handleSortModels}
+      />
+
+      <Typography gutterBottom>Fuel Type</Typography>
+      <FormFuelType
+        fuelType={fuelType}
+        fuelTypes={fuelTypes}
+        handleSortFuelTypes={handleSortFuelTypes}
       />
 
       <Typography gutterBottom>Order</Typography>

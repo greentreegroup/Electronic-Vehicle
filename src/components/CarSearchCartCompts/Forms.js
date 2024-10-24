@@ -134,4 +134,49 @@ const FormModelType = ({ model, modelTypes, handleSortModels }) => {
   );
 };
 
-export { FormSortBy, FormSortOrder, FormModelType };
+const FormFuelType = ({ fuelType, fuelTypes, handleSortFuelTypes }) => {
+  return (
+    <FormControl fullWidth sx={{ marginBottom: 2 }}>
+      <Select
+        id="sort-fuel"
+        value={fuelType}
+        onChange={handleSortFuelTypes}
+        MenuProps={{
+          PaperProps: {
+            sx: {
+              "& .MuiMenuItem-root": {
+                "&.Mui-selected": {
+                  backgroundColor: SELECT_COLOUR2,
+                  "&:hover": {
+                    backgroundColor: SELECT_COLOUR2,
+                  },
+                },
+                "&:hover": {
+                  backgroundColor: SELECT_COLOUR2,
+                },
+              },
+            },
+          },
+        }}
+        sx={{
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: COLOUR,
+          },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: COLOUR,
+          },
+        }}
+      >
+        {/* Option to show all fuel types */}
+        <MenuItem value="">All Fuel Types</MenuItem>{" "}
+        {fuelTypes.map((fuelType, index) => (
+          <MenuItem key={index} value={fuelType}>
+            {fuelType}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+  );
+};
+
+export { FormSortBy, FormSortOrder, FormModelType, FormFuelType };
