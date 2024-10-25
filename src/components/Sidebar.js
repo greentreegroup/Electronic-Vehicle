@@ -151,7 +151,9 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
             )}
           </div>
           <div className={styles['cart-section']}>
-            <ShoppingCart size={32} strokeWidth={2} />
+            <Link to="/Cart" className={styles['nav-link']}>
+              <ShoppingCart size={32} strokeWidth={2} />
+            </Link>
           </div>
           {/* Hamburger Icon for Mobile Menu */}
           <button className={styles['hamburger']} onClick={toggleMobileMenu}>
@@ -164,7 +166,7 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
       <div className={styles['secondary-navbar']}>
         <ul className={styles['secondary-nav-links']}>
           <li className={styles['']}><Link to="/" className={styles['nav-link']}>Home</Link></li>
-          <li className={styles['']}><Link to="/" className={styles['nav-link']}>Cars</Link></li>
+          <li className={styles['']}><Link to="/CarSearch" className={styles['nav-link']}>Cars</Link></li>
           <li className={styles['']}><Link to="/PartsAccessories" className={styles['nav-link']}>Parts</Link></li>
           <li className={styles['']}><Link to="/HelpCenter2" className={styles['nav-link']}>Help Center</Link></li>
           <li className={styles['']}><Link to="/AboutUs" className={styles['nav-link']}>About Us</Link></li>
@@ -206,7 +208,7 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
       {/* Mobile Menu */}
       <ul className={`${styles['sidebar-nav']} ${showMobileMenu ? styles['mobile-show'] : styles['mobile-hide']}`}>
         <li className={styles['nav-item']}><Link to="/" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>Home</Link></li>
-        <li className={styles['nav-item']}><Link to="/" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>Cars</Link></li>
+        <li className={styles['nav-item']}><Link to="/CarSearch" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>Cars</Link></li>
         <li className={styles['nav-item']}><Link to="/PartsAccessories" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>Parts</Link></li>
         <li className={styles['nav-item']}><Link to="/HelpCenter2" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>Help Center</Link></li>
         <li className={styles['nav-item']}><Link to="/AboutUs" className={styles['nav-link']} onClick={() => setShowMobileMenu(false)}>About Us</Link></li>

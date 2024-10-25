@@ -31,7 +31,6 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
             <option value="Fuel Type">Fuel Type</option>
             <option value="Electric">Electric</option>
             <option value="Hybrid">Hybrid</option>
-            <option value="Gasoline">Gas</option>
           </select>
           <select className="search-dropdown" value={model} onChange={(e) => setModel(e.target.value)}>
             <option value="Model">Model</option>

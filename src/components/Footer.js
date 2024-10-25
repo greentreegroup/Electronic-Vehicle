@@ -92,11 +92,6 @@ const Footer = () => {
                   Hybrid
                 </Link>
               </li>
-              <li>
-                <Link to="/CarSearch" state={{ fuelType: "Gasoline" }}>
-                  Gasoline
-                </Link>
-              </li>
             </ul>
           </div>
           <div className="listLinks">

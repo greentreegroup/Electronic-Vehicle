@@ -312,7 +312,7 @@ export const shippingRates = {
 
 export const modelTypes = ["SUV", "Sedan", "Hatchback", "Van", "MPV", "Mini"]
 
-export const fuelTypes = ["Electric", "Hybrid", "Gasoline"]
+export const fuelTypes = ["Electric", "Hybrid"]
 
 export const countries =
 {
