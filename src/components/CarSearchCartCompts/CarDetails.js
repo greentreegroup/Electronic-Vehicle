@@ -171,6 +171,19 @@ const CarDetails = () => {
 
       <Specifications car={car} />
 
+      <Box className="features-section">
+        <Typography variant="h6" className="section-title" sx={{fontWeight:700}}>
+          Model List
+        </Typography>
+        <Box display="flex" flexDirection="column" spacing={2} textAlign="left">
+          {car.modelList && car.modelList.split(",").map((list_model, index) => (
+            <Typography key={index} sx={{ padding: "4px", fontSize: { xs: "0.9rem", sm: "1rem" } }}>
+               {list_model.trim()}
+             </Typography>
+          ))}
+        </Box>
+      </Box>
+
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" variant="outlined" icon={<CheckCircleOutlineIcon sx={{ color: COLOUR }} />} sx={{ color: COLOUR, borderColor: COLOUR }}>
           {`${car.brand} ${car.model} added to cart`}

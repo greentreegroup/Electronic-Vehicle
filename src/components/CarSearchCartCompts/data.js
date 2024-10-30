@@ -310,6 +310,8 @@ export const shippingRates = {
   default: { baseRate: 3000, weightMultiplier: 1.6 },
 };
 
+export const brandTypes = ["BYD", "Roewe", "MG Motor", "IM Motor", "Li Auto", "Aion", "Chery", "Geely", "Avatr", "Changan", "Dayun", "Wuling", "Tank", "XPeng", "Yangwang", "Zeekr", "Wey", "Xiaomi"]
+
 export const modelTypes = ["SUV", "Sedan", "Hatchback", "Van", "MPV", "Mini"]
 
 export const fuelTypes = ["Electric", "Hybrid"]

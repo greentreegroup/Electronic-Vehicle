@@ -6,7 +6,7 @@ import { useCarContext } from "./CarContext";
 import FilterPanel from "./FilterPanel";
 import Pagination from "./Pagination";
 import Loading from "./Loading";
-import { modelTypes, fuelTypes } from "./data";
+import { brandTypes, modelTypes, fuelTypes } from "./data";
 import { PA_BACKEND_CAR_URL, PA_UNIQUE_CAR_BRANDS_URL } from "./urls";
 import "./CarSearch.css";
 
@@ -33,6 +33,24 @@ const Search = () => {
   const handleSortOrderChange = (event) => setSortOrder(event.target.value);
   const handlePriceChange = (event, newValue) => setPriceRange(newValue);
   const handleYearChange = (event, newValue) => setYearRange(newValue);
+
+  //Gets the current brands in the database
+  useEffect(() => {
+    const fetchCarBrands = async () => {
+      try {
+        const response = await fetch(PA_UNIQUE_CAR_BRANDS_URL, {
+          headers: { "Content-Type": "application/json" },
+        });
+        if (!response.ok) throw new Error("Network response error for fetching car brands list");
+        const data = await response.json();
+        setCarBrands(data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    fetchCarBrands();
+  }, []);
 
   // This useEffect is used for preselecting an model from the link component on another page
   useEffect(() => {
@@ -103,23 +121,6 @@ const Search = () => {
       setTotalPages(Math.ceil(filteredResults.length / cardsPerPage));
     }
   }, [brand, priceRange, yearRange, currentPage, carData, sortOrder, model, fuelType]);
-
-  useEffect(() => {
-    const fetchCarBrands = async () => {
-      try {
-        const response = await fetch(PA_UNIQUE_CAR_BRANDS_URL, {
-          headers: { "Content-Type": "application/json" },
-        });
-        if (!response.ok) throw new Error("Network response error for fetching car brands list");
-        const data = await response.json();
-        setCarBrands(data);
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-
-    fetchCarBrands();
-  }, []);
 
   return (
     <Box className="car-search-container">
