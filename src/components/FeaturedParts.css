@@ -2,20 +2,24 @@
   max-width: 1200px;
   margin: 80px auto;
   padding: 0 15px;
-  overflow: hidden; /* Hide overflow to prevent horizontal scrollbar */
-}
-
-.categories-grid {
-  display: flex;
-  gap: 10px;
-  white-space: nowrap;
-  animation: scroll 30s linear infinite; /* Smooth scrolling animation */
 }
 
 .categories-header {
   font-size: 36px;
   text-align: center;
   padding-bottom: 10px;
+}
+
+.categories-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.categories-grid {
+  display: flex;
+  gap: 10px;
+  animation: scroll 20s linear infinite; /* Faster scroll */
+  width: var(--scroll-width, calc(250px * 10));
 }
 
 .category-item {
@@ -28,7 +32,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 200px;
 }
 
@@ -40,7 +44,8 @@
 }
 
 .category-item:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
@@ -52,52 +57,59 @@
   text-align: center;
 }
 
-/* Infinite scrolling effect */
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 12));
+    transform: translateX(calc(-1 * var(--scroll-width, 100%) / 2));
   }
 }
 
-/* For tablets */
+/* Responsive grid for tablets */
 @media (max-width: 768px) {
   .categories-grid {
-    gap: 5px;
-    animation: scroll 45s linear infinite; /* Slow down the scrolling */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    animation: none;
+    width: auto;
+    overflow-x: hidden;
   }
   
   .category-item {
-    min-width: 200px; /* Shrink items */
+    min-width: auto;
+    height: 180px;
+    transition: transform 0.2s ease;
   }
-  
+
   .container {
-    padding: 0 10px; /* Reduce padding */
-    max-width: 800px; /* Reduces size because otherwise the responsive design of the homepage gets messed up */
+    padding: 0 10px;
+    max-width: 800px;
   }
 }
 
-/* For mobile devices */
+/* Grid with two items per row on mobile */
 @media (max-width: 480px) {
   .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 10px;
-    animation: none; /* Disable animation for mobile */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
   }
-  
+
   .category-item {
-    min-width: auto; /* Allow grid items to adjust their width */
+    min-width: auto;
     height: auto;
   }
-  
-  .category-item img {
-    max-width: 70%;
-    max-height: 80px;
+
+  .category-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   }
-  
+
+  .category-title {
+    font-size: 14px;
+  }
+
   .container {
     padding: 0 5px;
   }

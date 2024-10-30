@@ -61,12 +61,5 @@ body, html {
   cursor: default;
 }
 
-/* Responsive adjustments for welcome message on smart screens*/
-@media (max-width: 768px) {
-  .welcome-message {
-    font-size: 18px;
-    padding-right:45px;
-    
-  }
-}
+
 

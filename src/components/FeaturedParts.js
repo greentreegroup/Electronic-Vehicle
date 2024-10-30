@@ -12,8 +12,6 @@ function FeaturedParts() {
     { src: `${process.env.PUBLIC_URL}/img/fluids.jpeg`, alt: 'Car Fluids', title: 'Fluids' },
     { src: `${process.env.PUBLIC_URL}/img/car-mirror.jpeg`, alt: 'Car Mirrors', title: 'Car Mirrors' },
     { src: `${process.env.PUBLIC_URL}/img/lights.jpeg`, alt: 'Lights', title: 'Car Lights' },
-    // { src: `${process.env.PUBLIC_URL}/img/radiator.jpeg`, alt: 'Radiators', title: 'Radiators' },
-    // { src: `${process.env.PUBLIC_URL}/img/coil.jpeg`, alt: 'Ignition Coils', title: 'Ignition Coils' },
     { src: `${process.env.PUBLIC_URL}/img/clearance.jpeg`, alt: 'Clearance', title: 'Clearance' },
   ];
 
@@ -22,13 +20,15 @@ function FeaturedParts() {
       <div className="categories-header">
         Featured Parts & Accessories
       </div>
-      <div className="categories-grid">
-        {parts.map((part, index) => (
-          <div className="category-item" key={index}>
-            <img src={part.src} alt={part.alt} />
-            <div className="category-title">{part.title}</div>
-          </div>
-        ))}
+      <div className="categories-wrapper">
+        <div className="categories-grid">
+          {parts.map((part, index) => (
+            <div className="category-item" key={index}>
+              <img src={part.src} alt={part.alt} />
+              <div className="category-title">{part.title}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

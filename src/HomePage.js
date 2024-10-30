@@ -7,7 +7,6 @@ import Footer from './components/Footer';
 import PremiumBrands from './components/PremiumBrands'; // Import the new component
 import './HomePage.css';
 import FeaturedParts from './components/FeaturedParts';
-import FeatureCars from './components/FeaturedCars';
 import CarSection from './components/CarSection';
 
 function HomePage() {
@@ -19,7 +18,6 @@ function HomePage() {
         <CarSection/>
         <Overview/>
         <FeaturedParts/>
-        <FeatureCars/>
         <Footer />
       </main>
     </div>
