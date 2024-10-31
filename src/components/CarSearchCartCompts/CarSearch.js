@@ -16,8 +16,7 @@ const Search = () => {
   const { carData, setCarData, currentPage, setCurrentPage } = useCarContext();
   const [sortOrder, setSortOrder] = useState("price-asc");
   const [priceRange, setPriceRange] = useState([0, 200000]);
-  const [yearRange, setYearRange] = useState([2000, 2024]);
-  const [brand, setBrand] = useState("");
+  const [yearRange, setYearRange] = useState([new Date().getFullYear() - 1, new Date().getFullYear() + 1]);  const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
   const [fuelType, setFuelType] = useState("");
   const [totalPages, setTotalPages] = useState(0);
