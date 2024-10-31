@@ -1,15 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { PA_UNIQUE_CAR_BRANDS_URL } from '/Users/ibrahemali/Documents/GitHub/Electronic-Vehicle/src/components/CarSearchCartCompts/urls';
 
 const Header = ({ onSignInClick, onSignUpClick }) => {
   const [brand, setBrand] = useState('Brand');
   const [fuelType, setFuelType] = useState('Fuel Type');
   const [model, setModel] = useState('Model');
+  const [carBrands, setCarBrands] = useState([]);
+
+  useEffect(() => {
+    const fetchCarBrands = async () => {
+      try {
+        const response = await fetch(PA_UNIQUE_CAR_BRANDS_URL, {
+          headers: { "Content-Type": "application/json" },
+        });
+        if (!response.ok) throw new Error("Network response error for fetching car brands list");
+        const data = await response.json();
+        setCarBrands(data);
+      } catch (error) {
+        console.error("Error fetching car brands:", error);
+      }
+    };
+
+    fetchCarBrands();
+  }, []);
 
   const handleSearchClick = () => {
-    // Implement search functionality here
     console.log('Search clicked', { brand, fuelType, model });
   };
 
@@ -21,12 +39,11 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
       <div className="home-search">
         <div className="search-form">
           <select className="search-dropdown" value={brand} onChange={(e) => setBrand(e.target.value)}>
-            <option value="Brand">Brand</option>
-            <option value="IM Motor">IM Motor</option>
-            <option value="BYD">BYD</option>
-            <option value="Roewe">Roewe</option>
-            <option value="MG">MG</option>
-          </select>
+              <option value="Brand">Brand</option>
+              {carBrands.map((brandName, index) => (
+                <option key={index} value={brandName}>{brandName}</option>
+              ))}
+            </select>
           <select className="search-dropdown" value={fuelType} onChange={(e) => setFuelType(e.target.value)}>
             <option value="Fuel Type">Fuel Type</option>
             <option value="Electric">Electric</option>
