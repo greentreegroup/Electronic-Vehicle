@@ -94,10 +94,6 @@ const UserProfile = () => {
                   <p>{userData?.phone_number || 'Not provided'}</p>
                 </div>
                 <div className="info-item">
-                  <h4>Date of Birth</h4>
-                  <p>{userData?.date_of_birth || 'Not provided'}</p>
-                </div>
-                <div className="info-item">
                   <h4>Language</h4>
                   <p>{userData?.language || 'English'}</p>
                 </div>
@@ -118,11 +114,11 @@ const UserProfile = () => {
               <div className="info-grid">
                 <div className="info-item">
                   <h4>Billing Method</h4>
-                  <p>Visa ending in ****1234</p>
+                  <p></p>
                 </div>
                 <div className="info-item">
                   <h4>Next Payment Due</h4>
-                  <p>April 25, 2024</p>
+                  <p></p>
                 </div>
               </div>
             </div>
@@ -134,12 +130,12 @@ const UserProfile = () => {
               <p>View your past orders and track their current status.</p>
               <div className="info-grid">
                 <div className="info-item">
-                  <h4>Order #123456</h4>
-                  <p>Delivered on March 15, 2024</p>
+                  <h4></h4>
+                  <p></p>
                 </div>
                 <div className="info-item">
-                  <h4>Order #789101</h4>
-                  <p>In transit - Estimated delivery: April 20, 2024</p>
+                  <h4></h4>
+                  <p></p>
                 </div>
               </div>
             </div>
