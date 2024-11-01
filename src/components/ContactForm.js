@@ -7,10 +7,8 @@ const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
-    vin: '',
     email: '',
     country: '',
-    type: '',
     question_or_comment: '',
     agree_to_privacy_policy: false,
   });
@@ -39,10 +37,8 @@ const ContactPage = () => {
         setFormData({
           name: '',
           mobile: '',
-          vin: '',
           email: '',
           country: '',
-          type: '',
           question_or_comment: '',
           agree_to_privacy_policy: false,
         });
@@ -98,14 +94,6 @@ const ContactPage = () => {
 
               <div className="form-group">
                 <input
-                  type="text"
-                  name="vin"
-                  placeholder="VIN/ID"
-                  value={formData.vin}
-                  onChange={handleInputChange}
-                  required
-                />
-                <input
                   type="email"
                   name="email"
                   placeholder="Email Address"
@@ -113,9 +101,6 @@ const ContactPage = () => {
                   onChange={handleInputChange}
                   required
                 />
-              </div>
-
-              <div className="form-group">
                 <input
                   type="text"
                   name="country"
@@ -124,17 +109,6 @@ const ContactPage = () => {
                   onChange={handleInputChange}
                   required
                 />
-                <select
-                  name="type"
-                  value={formData.type}
-                  onChange={handleInputChange}
-                  required
-                >
-                  <option value="" disabled>Select Type</option>
-                  <option value="question">Question</option>
-                  <option value="comment">Comment</option>
-                  <option value="complaint">Complaint</option>
-                </select>
               </div>
 
               <textarea
