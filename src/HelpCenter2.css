@@ -11,6 +11,7 @@
   margin-top: 20px;
   color: #f57b18;
   text-align: center;
+  font-weight: bold;
 }
 
 .timeline-heading {
@@ -19,6 +20,7 @@
   margin-top: 20px;
   color: #f57b18;
   text-align: center;
+  font-weight: bold;
 }
 
 .featured-articles-section {
@@ -63,6 +65,31 @@
   margin-bottom: 20px;
 }
 
+/* Timeline specific styles */
+.timeline-section .css-1g2yra2 {
+  margin-top: -30px !important; /* Reduce space between timeline and cards */
+}
+
+/* Adjust the card container spacing */
+.timeline-card-content {
+  margin-top: -40px !important;
+}
+
+/* Style the timeline items container */
+.timeline-section .css-48891c {
+  margin-top: -10px !important;
+}
+
+/* Adjust the vertical spacing between timeline and cards */
+.timeline-section .css-1m3jznb {
+  padding-top: 20px !important;
+}
+
+/* Reduce the overall timeline height */
+.timeline-section .css-zly8ry {
+  min-height: 380px !important;
+}
+
 .contact-section p {
   font-size: 16px;
   display: flex;
@@ -86,7 +113,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #f57b18; /* Adjust color as needed */
+  color: #f57b18;
   font-size: 1.5rem;
   transition: transform 0.2s;
 }
@@ -104,5 +131,14 @@
 @media (max-width: 768px) {
   .articles-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Adjust timeline spacing for mobile */
+  .timeline-section .css-1g2yra2 {
+    margin-top: -20px !important;
+  }
+  
+  .timeline-section .css-zly8ry {
+    min-height: 420px !important;
   }
 }

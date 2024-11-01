@@ -11,6 +11,7 @@ h2 {
   text-align: center;
   color: #f57b18; /* Title color */
   margin-bottom: 20px; /* Space below the title */
+  font-weight: bold;
 }
 
 .faq-item {
