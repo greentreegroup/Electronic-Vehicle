@@ -24,6 +24,26 @@ const SignInForm = ({ onClose }) => {
         setFormData({ ...formData, [name]: value });
     };
 
+    const checkIfDealer = async (userId) => {
+        //This flow determines if the userId belongs to a dealer.
+        const api = `https://prod-14.southeastasia.logic.azure.com/workflows/a2230706678947c889f5b1dcb2b6377e/triggers/manual/paths/invoke/userId/${userId}?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=_zKKnjuV-nvNRXgTq00dxE9RdhYyNrd9w_l3omut7Hk`;
+
+        try{
+            const response = await fetch(api);
+            if(response.ok){
+                
+                //Gets the data in Json form
+                const data = await response.json();
+
+                //Returns the boolean result (either true or null)
+                return data[0].is_dealer;
+            }
+        }catch(error){
+            console.log(error);
+            setError("Error while checking dealer status");
+        }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -44,12 +64,22 @@ const SignInForm = ({ onClose }) => {
             // Handle the response based on your requirements
             if (response.ok) {
                 const userId = await response.text(); // Assuming the response is just a plain text
-                console.log('Login successful!');
-                console.log('Response data:', userId); // Log the user ID
-                onClose(); // Close the form or redirect to another page
-                Cookies.set('isLoggedIn', 'true', { expires: 1000*60*4 }); // NEW: Set cookie on successful login
-                Cookies.set('id', userId, {expires: 1000*60*4} ) // 1000*60*4 = 4 hour cookie from login time
-                navigate(`/userProfile/${userId}`);
+                const isDealer = await checkIfDealer(userId);
+                
+                //Checks if the user is a dealer
+                if(isDealer){
+                    setError('Loading dealer page...');
+                    // Commented out for now. In the future, this should go to our Dealer page once it is implemented.
+
+                    // console.log('Login successful!');
+                    // console.log('Response data:', userId); // Log the user ID
+                    // onClose(); // Close the form or redirect to another page
+                    // Cookies.set('isLoggedIn', 'true', { expires: 1000*60*4 }); // NEW: Set cookie on successful login
+                    // Cookies.set('id', userId, {expires: 1000*60*4} ) // 1000*60*4 = 4 hour cookie from login time
+                    // navigate(`/userProfile/${userId}`);
+                } else {
+                    setError('This account is not registered as a dealer.');
+                }
             } else if (response.status === 401 || response.status === 403) {
                 console.error('Login failed: Unauthorized access');
                 setError('Incorrect email or password. Please try again.');
