@@ -12,7 +12,8 @@ const UserProfile = () => {
   const [activeSection, setActiveSection] = useState('personal');
 
   const { userId } = useParams();
-  const apiUrl = `https://prod-04.southeastasia.logic.azure.com/workflows/59546a02895f4ab2b5f2c2cde57f2ed6/triggers/manual/paths/invoke/userId/${userId}?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=LElgT0NEd674m9Pm0o7ybQNGakf-58DkcaLM-KX1p6I`;
+  const apiUrl = 
+      `https://prod-04.southeastasia.logic.azure.com/workflows/59546a02895f4ab2b5f2c2cde57f2ed6/triggers/manual/paths/invoke/userId/${userId}?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=LElgT0NEd674m9Pm0o7ybQNGakf-58DkcaLM-KX1p6I`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,7 +87,7 @@ const UserProfile = () => {
                   <p>{userData?.first_name} {userData?.last_name}</p>
                 </div>
                 <div className="info-item">
-                  <h4>Country/Region</h4>
+                  <h4>Country</h4>
                   <p>{userData?.country || 'Not provided'}</p>
                 </div>
                 <div className="info-item">

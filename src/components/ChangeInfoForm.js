@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import './ChangeInfoForm.css';
 
@@ -9,6 +8,8 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
     Last_Name: '',
     email_addres: '',
     phone_number: '',
+    country: '',
+    region: '',
   });
 
   const [error, setError] = useState(null);
@@ -23,8 +24,8 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
 
   const reloadAfterUpdate = async () => {
     setTimeout(() => {
-      window.location.reload(); {/*reload to show updated info*/}  
-    } , "5000"); 
+      window.location.reload(); {/* reload to show updated info */}  
+    }, 5000); 
   };
 
   const handleSubmit = async (e) => {
@@ -37,11 +38,9 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
       'Content-Type': 'application/json',
     };
 
-    // Convert fields that should be integers to numbers
     const body = JSON.stringify({
       ...formData,
       id: parseInt(formData.id), // Assuming id should be an integer
-      // Add other fields that should be integers here
     });
 
     try {
@@ -76,7 +75,7 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
     <div className="signup-form-container">
       <div className="signup-form">
         <h2>Update Information</h2>
-        <button className="close-btn" onClick={onClose}>
+        <button className="close-btnn" onClick={onClose}>
           ✖
         </button>
         <form onSubmit={handleSubmit}>
@@ -116,8 +115,17 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
               onChange={handleChange}
             />
           </label>
+          <label>
+            <span>Country:</span>
+            <input
+              type="text"
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+            />
+          </label>
           {error && <div className="error-message">{error}</div>}
-          <button type="submit" className="submit-butn">
+          <button type="submit" className="update-b">
             Update
           </button>
         </form>

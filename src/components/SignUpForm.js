@@ -1,5 +1,5 @@
-//SignUpForm.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Country, State, City } from 'country-state-city';
 import './SignUpForm.css';
 import bcrypt from 'bcryptjs';
 
@@ -14,9 +14,36 @@ const SignUpForm = ({ onClose }) => {
         password_repet: '',
         phone_number: '',
         Is_developer: false,
+        country: '',
+        state: '',
+        city: ''
     });
 
     const [error, setError] = useState(null);
+    const [countries, setCountries] = useState([]);
+    const [states, setStates] = useState([]);
+    const [cities, setCities] = useState([]);
+
+    useEffect(() => {
+        // Load all countries on component mount
+        setCountries(Country.getAllCountries());
+    }, []);
+
+    useEffect(() => {
+        // Load states when country changes
+        if (formData.country) {
+            setStates(State.getStatesOfCountry(formData.country));
+            setFormData(prev => ({ ...prev, state: '', city: '' }));
+        }
+    }, [formData.country]);
+
+    useEffect(() => {
+        // Load cities when state changes
+        if (formData.state && formData.country) {
+            setCities(City.getCitiesOfState(formData.country, formData.state));
+            setFormData(prev => ({ ...prev, city: '' }));
+        }
+    }, [formData.state, formData.country]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -34,9 +61,6 @@ const SignUpForm = ({ onClose }) => {
             return;
         }
 
-        /*need a better password system */
-        /*const hashedPassword = await bcrypt.hash(formData.password, saltRounds);*/
-
         const url =
             'https://prod-63.southeastasia.logic.azure.com:443/workflows/298505686ab047b881892eb5678736d1/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=uDGzv3sDKOnM1EuAMt6FsOY2FhgmNUQYY6M4FeiAwgY';
 
@@ -46,7 +70,6 @@ const SignUpForm = ({ onClose }) => {
 
         const body = JSON.stringify({
             ...formData
-            /*password: hashedPassword,*/
         });
 
         try {
@@ -62,7 +85,6 @@ const SignUpForm = ({ onClose }) => {
             } else {
                 console.error('Error while sending data:', response.statusText);
 
-                // Dodaj obsługę błędu 403 (Forbidden)
                 if (response.status === 403) {
                     setError('Error: Email already exists. Please use a different email.');
                 } else {
@@ -120,6 +142,62 @@ const SignUpForm = ({ onClose }) => {
                             onChange={handleChange}
                             required
                         />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="country">Country:</label>
+                        <select
+                            id="country"
+                            name="country"
+                            value={formData.country}
+                            onChange={handleChange}
+                            required
+                        >
+                            <option value="">Select Country</option>
+                            {countries.map((country) => (
+                                <option key={country.isoCode} value={country.isoCode}>
+                                    {country.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="state">State/Province:</label>
+                        <select
+                            id="state"
+                            name="state"
+                            value={formData.state}
+                            onChange={handleChange}
+                            required
+                            disabled={!formData.country}
+                        >
+                            <option value="">Select State</option>
+                            {states.map((state) => (
+                                <option key={state.isoCode} value={state.isoCode}>
+                                    {state.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="city">City:</label>
+                        <select
+                            id="city"
+                            name="city"
+                            value={formData.city}
+                            onChange={handleChange}
+                            required
+                            disabled={!formData.state}
+                        >
+                            <option value="">Select City</option>
+                            {cities.map((city) => (
+                                <option key={city.name} value={city.name}>
+                                    {city.name}
+                                </option>
+                            ))}
+                        </select>
                     </div>
 
                     <div className="form-group">
