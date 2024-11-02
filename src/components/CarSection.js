@@ -8,7 +8,7 @@ function CarSection() {
     <div className="car-section">
       <div className="car-image">
 
-        <img src="https://img.freepik.com/premium-photo/sports-japanese-cars-car-street-racing_551707-82235.jpg" alt="Luxury Car" />
+        <img src="https://media.licdn.com/dms/image/v2/D5612AQGNTF8iUd5IwA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1676337863821?e=1735776000&v=beta&t=5c3HeGplp1FxyQcIZZqvT83fHvv1PdAIRdNJWM_Ew0g" alt="Luxury Car" />
       </div>
       <div className="car-content">
         <h1>AN EXPORT COMPANY OF AUTOMOBILES AND IT'S PARTS FROM CHINA</h1>
