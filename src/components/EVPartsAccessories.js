@@ -167,6 +167,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './EVPartsAccessories.css';
+import { Link } from 'react-router-dom';
 
 const MAX_NAME_LENGTH = 25;
 
@@ -417,7 +418,7 @@ const EVPartsAccessories = () => {
         <div className={`parts-grid ${filteredParts.length === 0 ? 'empty' : ''}`}>
           {filteredParts.length > 0 ? (
             filteredParts.map((part) => (
-              <a href={`/PartsAccessories/${part.ID}`} key={part.ID} className="part-card-link">
+              <Link to={`/PartsAccessories/${part.ID}`} key={part.ID} className="part-card-link">
                 <div className="part-card">
                   <img src={part.image || 'default-image.jpg'} alt={part.name || 'Part Image'} className="part-card__img" />
                   <h5 className="part-card__name">
@@ -427,7 +428,7 @@ const EVPartsAccessories = () => {
                   <p className="part-card__price">{formatPrice(part.price)}</p>
                   <p className="part-card__availability">{getAvailabilityText(part.availability)}</p>
                 </div>
-              </a>
+              </Link>
             ))
           ) : (
             <p className="error-message">No parts found.</p>
