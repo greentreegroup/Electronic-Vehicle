@@ -65,25 +65,27 @@ const Specifications = ({ car }) => {
 
   const renderSpecificationContent = (specCategory) => {
     return (
-      <List sx={{ padding: "1rem" }}>
+      <List sx={{ padding: "1rem"}}>
         {Object.entries(specCategory).map(([label, value], index) => (
           <ListItem 
             key={label} 
             sx={{ 
               display: 'flex', 
               justifyContent: 'space-between', 
-              paddingY: '10px', 
-              borderBottom: index === Object.entries(specCategory).length - 1 ? 'none' : '1px solid #ccc' // Avoid border on the last item
+              flexDirection: { xs: 'column', md: 'row' }, //Shows the info vertically in smaller screen sizes
+              paddingY: '10px',
+              overflowX:'auto',
+              borderBottom: index === Object.entries(specCategory).length - 1 ? 'none' : '1px solid #ccc', // Avoid border on the last item
             }}
           >
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            <Typography variant="body1" sx={{ fontWeight: "bold", fontSize: { xs: '10px', md: '15px' }}}> 
               {label}
             </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: { xs: '10px', md: '15px' } }}>
               {typeof value === 'boolean' ? (
                 value ? <CheckIcon sx={{ color: 'green' }} /> : <CloseIcon sx={{ color: 'red' }} />
               ) : (
-                <Typography variant="body1">{value}</Typography>
+                <Typography variant="body1" >{value}</Typography>
               )}
             </Box>
           </ListItem>
@@ -138,7 +140,7 @@ const Specifications = ({ car }) => {
       }}
     >
       <Box sx={{ width: '35%', borderRight: '1px solid #ccc' }}>
-        <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "1rem", marginTop: "1rem",textAlign:"center" }}>
+        <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "1rem", marginTop: "1rem", textAlign:"center", fontSize: {xs: '15px', md:'20px'} }}>
           Specifications
         </Typography>
         <Tabs
@@ -153,14 +155,14 @@ const Specifications = ({ car }) => {
           ))}
         </Tabs>
       </Box>
-      <Box sx={{ width: '70%', height: '32rem', overflowY: 'auto', paddingLeft: { xs: '0', sm: '2rem' }, paddingRight: { xs: '0', sm: '2rem' }, scrollSnapType: 'y mandatory' }}>
+      <Box sx={{ width: '75%', height: '32rem', overflowY: 'auto', overflowX: 'auto', paddingLeft: { xs: '0', sm: '2rem' }, paddingRight: { xs: '0', sm: '2rem' }, scrollSnapType: 'y mandatory' }}>
         {Object.entries(specificationsData).map(([category, specs], index) => (
           <Box
             key={category}
             ref={el => sectionsRef.current[index] = el}
             sx={{ marginBottom: '1rem', scrollSnapAlign: 'start' }}
           >
-            <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: '0.5rem' ,textAlign:"center"}}>
+            <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: '0.5rem', textAlign:"center", fontSize: { xs: '15px', md: '20px' }}}>
               {category}
             </Typography>
             {renderSpecificationContent(specs)}

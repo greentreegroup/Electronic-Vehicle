@@ -39,8 +39,8 @@ body {
 }
 
 .thumbnails {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 1rem; /* Use rem */
     overflow-x: auto;
 }
@@ -96,6 +96,7 @@ body {
     flex: 1;
     margin: 1rem 4rem; /* Use rem */
 }
+
 .overview-section strong {
     font-family: 'Arial', sans-serif;
     font-weight: bold; /* Keep bold styling */
@@ -109,10 +110,20 @@ body {
 
 .specifications {
     margin: 2rem 0; /* Use rem */
+    overflow-x: auto;
+}
+
+.models-section {
+    background-color: #fff;
+    padding: 2rem; /* Use rem */
+    border-radius: 0.625rem; /* Use rem */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 1rem 20rem; /* Use rem */
 }
 
 /* Media query for mobile devices */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
 
     .car-section {
         flex-direction: column; /* Stack vertically on mobile */
@@ -128,7 +139,32 @@ body {
         margin-top: 1rem; /* Space between image and details on mobile */
     }
     .overview-section,
-    .features-section {
+    .features-section,
+    .models-section {
         margin: 0 0;
     }
+
+    .overview-section{
+        margin-bottom: 1rem;
+    }
+
+    .models-section{
+        margin-top: 1rem;
+    }
+}
+
+/* Media query for smaller divices */
+@media (max-width: 550px){
+    .thumbnails {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Media query for even smaller divices */
+@media (max-width: 376px){
+    .thumbnail {
+        height: 3rem;
+        width: 5rem;
+    }
+
 }

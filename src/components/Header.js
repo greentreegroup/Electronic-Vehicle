@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { PA_UNIQUE_CAR_BRANDS_URL } from '/Users/ibrahemali/Documents/GitHub/Electronic-Vehicle/src/components/CarSearchCartCompts/urls';
+import { PA_UNIQUE_CAR_BRANDS_URL } from './CarSearchCartCompts/urls';
 
 const Header = ({ onSignInClick, onSignUpClick }) => {
   const [brand, setBrand] = useState('Brand');

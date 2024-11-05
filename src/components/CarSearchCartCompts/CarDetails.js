@@ -168,10 +168,10 @@ const CarDetails = () => {
           </Box>
         </Box>
       </Box>
+      
+      <Specifications className="specifications" car={car} />
 
-      <Specifications car={car} />
-
-      <Box className="features-section">
+      <Box className="models-section">
         <Typography variant="h6" className="section-title" sx={{fontWeight:700}}>
           Model List
         </Typography>
