@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { PA_UNIQUE_CAR_BRANDS_URL } from './CarSearchCartCompts/urls';
 
 const Header = ({ onSignInClick, onSignUpClick }) => {
-  const [brand, setBrand] = useState('Brand');
-  const [fuelType, setFuelType] = useState('Fuel Type');
-  const [model, setModel] = useState('Model');
+  const navigate = useNavigate();
+  const [brand, setBrand] = useState('');
+  const [fuelType, setFuelType] = useState('');
+  const [model, setModel] = useState('');
   const [carBrands, setCarBrands] = useState([]);
 
   useEffect(() => {
@@ -29,6 +30,21 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
 
   const handleSearchClick = () => {
     console.log('Search clicked', { brand, fuelType, model });
+
+    //Defines data variable
+    let data;
+
+    //Depending on whats chosen, it will pass different states to data
+    if(fuelType !== "" && model !== ""){
+      data = { fuelType: fuelType, model: model };
+    } else if (fuelType !== "") {
+      data = { fuelType: fuelType };
+    } else if (model !== ""){
+      data = { model: model };
+    } 
+
+    //Navigate to car page with the data
+    navigate(`/carSearch`, { state: data });
   };
 
   return (
@@ -45,24 +61,19 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
               ))}
             </select>
           <select className="search-dropdown" value={fuelType} onChange={(e) => setFuelType(e.target.value)}>
-            <option value="Fuel Type">Fuel Type</option>
+            <option value="">Fuel Type</option>
             <option value="Electric">Electric</option>
             <option value="Hybrid">Hybrid</option>
           </select>
           <select className="search-dropdown" value={model} onChange={(e) => setModel(e.target.value)}>
-            <option value="Model">Model</option>
+            <option value="">Model</option>
             <option value="SUV">SUV</option>
             <option value="Sedan">Sedan</option>
             <option value="MPV">MPV</option>
             <option value="Mini">Mini</option>
             <option value="Hatchback">Hatchback</option>
           </select>
-          <Link 
-            to="/CarSearch" 
-            //state={{brand, fuelType, model}}
-          >
-            <button className="search-button" onClick={handleSearchClick}>Search</button>
-          </Link>
+          <button className="search-button" onClick={handleSearchClick}>Search</button>
         </div>
       </div>
 

@@ -52,8 +52,8 @@ const UserProfile = () => {
   };
 
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <div style={{marginTop: '50px'}}>Loading...</div>;
+  if (error) return <div style={{marginTop: '50px'}}>Error: {error}</div>;
 
   return (
     <div className="user-profile">
@@ -104,7 +104,7 @@ const UserProfile = () => {
                 </div>
                 <div className="info-item">
                   <h4>Language</h4>
-                  <p>{userData?.language || 'English'}</p>
+                  <p>{userData?.language || 'Not provided'}</p>
                 </div>
                 <div className="info-item">
                   <h4>Contact</h4>
