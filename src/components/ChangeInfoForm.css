@@ -21,6 +21,11 @@
     position: relative;
     border-radius: 8px;
   }
+
+  .form-group{
+    width:95%;
+    align-self:center;
+  }
   
   .signup-form h2 {
     margin-top: 0;

@@ -91,6 +91,14 @@ const UserProfile = () => {
                   <p>{userData?.country || 'Not provided'}</p>
                 </div>
                 <div className="info-item">
+                  <h4>State/Province</h4>
+                  <p>{userData?.state || 'Not provided'}</p>
+                </div>
+                <div className="info-item">
+                  <h4>City</h4>
+                  <p>{userData?.city || 'Not provided'}</p>
+                </div>
+                <div className="info-item">
                   <h4>Phone</h4>
                   <p>{userData?.phone_number || 'Not provided'}</p>
                 </div>
