@@ -35,13 +35,21 @@ const Header = ({ onSignInClick, onSignUpClick }) => {
     let data;
 
     //Depending on whats chosen, it will pass different states to data
-    if(fuelType !== "" && model !== ""){
-      data = { fuelType: fuelType, model: model };
+    if(brand !== "" && fuelType !== "" && model !== ""){
+      data = { brand: brand, fuelType: fuelType, model: model}
+    } else if (fuelType !== "" && brand !== "") {
+      data = { brand: brand, fuelType: fuelType };
+    } else if (model !== "" && brand !== ""){
+      data = { brand: brand, model: model };
+    } else if (fuelType !== "" && model !== ""){
+      data = { model: model, fuelType: fuelType};
     } else if (fuelType !== "") {
       data = { fuelType: fuelType };
     } else if (model !== ""){
       data = { model: model };
-    } 
+    } else if (brand !== ""){
+      data = { brand: brand };
+    }
 
     //Navigate to car page with the data
     navigate(`/carSearch`, { state: data });

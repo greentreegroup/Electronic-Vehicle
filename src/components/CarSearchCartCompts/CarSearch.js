@@ -37,28 +37,34 @@ const Search = () => {
   useEffect(() => {
     const fetchCarBrands = async () => {
       try {
+        setLoading(true);
         const response = await fetch(PA_UNIQUE_CAR_BRANDS_URL, {
           headers: { "Content-Type": "application/json" },
         });
         if (!response.ok) throw new Error("Network response error for fetching car brands list");
         const data = await response.json();
         setCarBrands(data);
+
+        //If a brand state was put in from another link, it will automatically select it when the brands load
+        if (location.state && location.state.brand) {
+          setBrand(location.state.brand);
+        }
+
       } catch (error) {
         setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchCarBrands();
   }, []);
 
-  // This useEffect is used for preselecting an model from the link component on another page
+  // This useEffect is used for preselecting a model or fuel type from the link component on another page
   useEffect(() => {
     // Check if a pre-selected value was passed via Link state
     if (location.state && location.state.model) {
       setModel(location.state.model);
-    }
-    if (location.state && location.state.brand) {
-      setBrand(location.state.brand);
     }
     if (location.state && location.state.fuelType) {
       setFuelType(location.state.fuelType);
