@@ -5,9 +5,9 @@
 }
 
 .section-title {
-  font-size: 2rem; /* Increased font size for emphasis */
-  margin-bottom: 30px;
-  color: #f57b18; /* Brand color */
+  font-size: 2rem;
+  margin-bottom: 300px;
+  color: #f57b18;
   font-weight: bold;
 }
 
@@ -17,6 +17,7 @@
   gap: 20px; /* Consistent space between boxes */
   justify-content: center; /* Center items in the grid */
   align-items: center;
+  margin: auto;
 }
 
 .brand-item {
@@ -45,12 +46,12 @@
 
 @media (max-width: 768px) {
   .brand-grid {
-      grid-template-columns: repeat(2, 1fr); /* Adjust for smaller screens */
+      grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 480px) {
   .brand-grid {
-    grid-template-columns: repeat(2, 1fr); /* Stack logos on very small screens */
+    grid-template-columns: repeat(4, 1fr);
   }
 }
