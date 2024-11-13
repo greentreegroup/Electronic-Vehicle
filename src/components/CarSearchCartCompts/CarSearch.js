@@ -24,7 +24,7 @@ const Search = () => {
   const [carBrands, setCarBrands] = useState([]);
   const [error, setError] = useState(null);
 
-  const cardsPerPage = 6;
+  const cardsPerPage = 12;
 
   const handleSortBrand = (event) => setBrand(event.target.value);
   const handleSortModels = (event) => setModel(event.target.value);
