@@ -13,27 +13,9 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [showDealer, setShowDealer] = useState(false);
-  const [isSearchActive, setIsSearchActive] = useState(false);
-  const [filteredPreviewParts, setFilteredPreviewParts] = useState([]);
-  
+
   const location = useLocation();
 
-  const handleSearchChange = (e) => {
-    const query = e.target.value || '';
-    setSearchQuery(query);
-    setIsSearchActive(query.length > 0);
-
-    if (query) {
-      const filtered = parts.filter((part) =>
-        part.name.toLowerCase().includes(query.toLowerCase())
-      );
-      setFilteredPreviewParts(filtered);
-    } else {
-      setFilteredPreviewParts([]);
-    }
-  };
-
-  const closeSearchPreview = () => setIsSearchActive(false);
   const toggleDropdown = () => setShowDropdown((prev) => !prev);
   const toggleMobileMenu = () => setShowMobileMenu((prev) => !prev);
   const handleAuthClick = (authType) => {
@@ -46,33 +28,8 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
   return (
     <div className={styles['navbar-container']}>
       <div className={styles['navbar']}>
-        <div className={styles['search-section']}>
-          <input
-            type="text"
-            placeholder="🔍 I'm looking for..."
-            onChange={handleSearchChange}
-            className={styles['search-bar']}
-          />
-          <button className={styles['search-button']}>Search</button>
-          {isSearchActive && (
-            <div className={styles['search-preview']}>
-              {filteredPreviewParts.length > 0 ? (
-                <ul>
-                  {filteredPreviewParts.slice(0, 5).map((part) => (
-                    <li key={part.id} className={styles['search-preview-item']}>
-                      <Link to={`/PartsAccessories/${part.id}`} onClick={closeSearchPreview}>
-                        {part.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p>No matching parts found</p>
-              )}
-            </div>
-          )}
-        </div>
-
+        {/* Removed search section */}
+        
         <div className={styles['nav-links']}>
           <Link to="/" className={styles['nav-link']}>Home</Link>
           <Link to="/CarSearch" className={styles['nav-link']}>Cars</Link>
@@ -87,14 +44,14 @@ const Sidebar = ({ setSearchQuery, parts = [] }) => {
             <User size={30} strokeWidth={2} />
           </button>
           {showDropdown && (
-  <ul className={`${styles['sidebar-dropdown-menu']} ${showDropdown ? styles.active : ''}`}>
-    <li><button onClick={() => handleAuthClick('signIn')} className={styles['nav-link']}>Sign In</button></li>
-    <li><button onClick={() => handleAuthClick('signUp')} className={styles['nav-link']}>Sign Up</button></li>
-    <li><button onClick={() => handleAuthClick('dealer')} className={styles['nav-link']}>Dealer Login</button></li>
-    <li><Link to="/settings" className={styles['nav-link']}>Settings</Link></li>
-    <li><Link to="/Cart" className={styles['nav-link']}>Shopping Cart</Link></li>
-  </ul>
-)}
+            <ul className={`${styles['sidebar-dropdown-menu']} ${showDropdown ? styles.active : ''}`}>
+              <li><button onClick={() => handleAuthClick('signIn')} className={styles['nav-link']}>Sign In</button></li>
+              <li><button onClick={() => handleAuthClick('signUp')} className={styles['nav-link']}>Sign Up</button></li>
+              <li><button onClick={() => handleAuthClick('dealer')} className={styles['nav-link']}>Dealer Login</button></li>
+              <li><Link to="/settings" className={styles['nav-link']}>Settings</Link></li>
+              <li><Link to="/Cart" className={styles['nav-link']}>Shopping Cart</Link></li>
+            </ul>
+          )}
           <Link to="/Cart" className={styles['nav-link']}>
             <ShoppingCart size={32} strokeWidth={2} />
           </Link>
