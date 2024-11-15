@@ -9,12 +9,6 @@ const HelpCenter = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResult, setSearchResult] = useState([]);
 
-  const featuredArticles = [
-    { id: 4, title: 'EV Bunny News and Articles', url: 'https://www.plugshare.com/', image: 'rabbitBlackBg.png' },
-    { id: 5, title: 'EV Related Articles', url: 'https://www.edmunds.com/electric-car/', image: 'charge.webp' },
-    { id: 6, title: 'EV Laws Article', url: 'https://www.miit.gov.cn', image: 'about-us.webp' },
-  ];
-
   const timeline_data = [
     {
         title: "Selection",
@@ -166,18 +160,6 @@ const HelpCenter = () => {
             useReadMore={false}
             cardPositionHorizontal="TOP"
           />
-        </div>
-
-        <div className="featured-articles-section">
-          <h2 className="section-heading">Featured Articles</h2>
-          <div className="articles-grid">
-            {featuredArticles.map((article) => (
-              <a key={article.id} href={article.url} className="article-card" target="_blank" rel="noopener noreferrer">
-                <img src={`/img/${article.image}`} alt={article.title} className="article-image" />
-                <h3 className="article-title">{article.title}</h3>
-              </a>
-            ))}
-          </div>
         </div>
 
       </div>

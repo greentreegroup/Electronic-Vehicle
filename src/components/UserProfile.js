@@ -108,7 +108,11 @@ const UserProfile = () => {
                 </div>
                 <div className="info-item">
                   <h4>Contact</h4>
-                  <p>{userData?.email_address}</p>
+                  <p>{userData?.email_address || 'Not provided'}</p>
+                </div>
+                <div className="info-item">
+                  <h4>Address</h4>
+                  <p>{userData?.address || 'Not provided'}</p>
                 </div>
               </div>
               <button onClick={handleOpenChangeInfo}>Update Info</button>

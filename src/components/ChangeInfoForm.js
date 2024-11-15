@@ -13,6 +13,8 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
     state: '',
     city:'',
     region: '',
+    address: '',
+    language: ''
   });
 
   const [error, setError] = useState(null);
@@ -124,7 +126,8 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
               onChange={handleChange}
             />
           </label>
-          <label>
+          {/* Commented it out until this works */}
+          {/* <label>
             <span>Email Address:</span>
             <input
               type="email"
@@ -132,13 +135,31 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
               value={formData.email_addres}
               onChange={handleChange}
             />
-          </label>
+          </label> */}
           <label>
             <span>Phone Number:</span>
             <input
               type="tel"
               name="phone_number"
               value={formData.phone_number}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            <span>Address:</span>
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            <span>Language:</span>
+            <input
+              type="text"
+              name="language"
+              value={formData.language}
               onChange={handleChange}
             />
           </label>
