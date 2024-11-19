@@ -19,7 +19,7 @@ const BackButton = ({ handleBack }) => {
       }}
       variant="outlined"
     >
-      Back to Cars
+      Back to Home
     </Button>
   );
 };

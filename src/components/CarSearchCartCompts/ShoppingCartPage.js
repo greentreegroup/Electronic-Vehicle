@@ -35,7 +35,7 @@ const Cart = () => {
   }, []);
 
   const handleBack = () => {
-    navigate("/CarSearch");
+    navigate("/");
   };
 
   const handleEmptyCart = () => {
@@ -121,7 +121,7 @@ const Cart = () => {
                 <EmptyCartButton handleEmptyCart={handleEmptyCart} />
                 <Stack spacing={1}>
                   <Stack direction="row" spacing={1} alignItems="center">
-                    <Typography variant="body1">Types of Cars:</Typography>
+                    <Typography variant="body1">Types of Products:</Typography>
                     <Chip label={totalCars} variant="outlined" />
                   </Stack>
                   <Stack direction="row" spacing={1} alignItems="center">

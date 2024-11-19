@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './PartDetail.css';
+import { useCart } from "./CarSearchCartCompts/CartContext";
+import Alert from "@mui/material/Alert";
+import { Snackbar } from "@mui/material";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 const PartDetail = () => {
   const { listingId } = useParams();
@@ -12,6 +16,8 @@ const PartDetail = () => {
   const [recommendLoading, setRecommendLoading] = useState(true);
   const [recommendError, setRecommendError] = useState(null);
   const [quantity, setQuantity] = useState(1); 
+  const [open, setOpen] = useState(false);
+  const { cart, setCart } = useCart();
 
   useEffect(() => {
     const fetchPartData = async () => {
@@ -57,8 +63,41 @@ const PartDetail = () => {
     setQuantity(Number(event.target.value));
   };
 
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") return;
+    setOpen(false);
+  };
+
   const handleAddToCart = () => {
     console.log(`Added ${quantity} of ${part.name} to the cart`);
+
+    //Finds if the part exists within the cart
+    const existingPart = cart.find((item) => item.id === listingId);
+    let updatedCart;
+
+    //If the part is already in the cart, update the quantity
+    if(existingPart){
+      updatedCart = cart.map((item) =>
+        item.id === listingId
+          ? { ...item, quantity: existingPart.quantity + quantity }
+          : item
+      );
+    } else {
+
+      //Make new item
+      const newCartItem = {
+        id: listingId,
+        name: `${part.name}`,
+        price: part.price,
+        image: part.image,
+        quantity,
+      };
+      updatedCart = [...cart, newCartItem];
+    }
+
+    setOpen(true);
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   if (loading) {
@@ -143,6 +182,13 @@ const PartDetail = () => {
           <p>No recommendations available.</p>
         )}
       </section>
+
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" variant="outlined" icon={<CheckCircleOutlineIcon sx={{ color: "#f57b18" }} />} sx={{ color: "#f57b18", borderColor: "#f57b18" }}>
+          {`${part.name} added to cart`}
+        </Alert>
+      </Snackbar>
+
     </div>
   );
 };
