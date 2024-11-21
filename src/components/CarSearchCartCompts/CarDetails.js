@@ -10,6 +10,7 @@ import { contactData } from "./data";
 import { COLOUR } from "./Colour";
 import Specifications from "./Specifications";
 import './CarDetails.css'; 
+import QASection from "./QASection";
 
 const formatPrice = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!))/g, ",");
@@ -191,7 +192,10 @@ const CarDetails = () => {
         </Alert>
       </Snackbar>
 
+      <QASection car={car} />
+
       <ContactSeller contacts={contactData} />
+
     </Box>
   );
 };
