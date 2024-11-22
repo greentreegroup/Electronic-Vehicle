@@ -12,13 +12,16 @@ const Specifications = ({ car }) => {
     sectionsRef.current[newValue]?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
 
+  //Some of the details are currently commented out due to a lack of accurate information on them 
   const specificationsData = {
     "Engine & Transmission": {
       "Battery Capacity": car.batteryCapacity,
-      "Motor Power": car.motorPower,
+      // "Usable Battery (kWh)": car.usable_battery,
       "Max Power": car.maxPower,
+      //  "Motor Power": car.motorPower,
       "Max Torque": car.maxTorque,
-      "Range": car.real_range,
+      "Range": car.real_range + " km",
+      "Consumption": car.efficiency +" kWh/100km",
       "Charging Time (D.C)": car.chargingTimeDC,
       "Regenerative Braking": car.regenerativeBraking,
       "Charging Port": car.chargingPort,
@@ -28,7 +31,7 @@ const Specifications = ({ car }) => {
     "Fuel & Performance": {
       "Fuel Type": car.fuelType,
       "Emission Norm Compliance": car.emissionNorm,
-      "Acceleration 0-100 km/h": car.acceleration,
+      "Acceleration 0-100 km/h": car.acceleration + " s",
     },
     "Charging": {
       "Charging Time": car.chargingTimeDC,
@@ -52,12 +55,12 @@ const Specifications = ({ car }) => {
     },
     "Entertainment": {
       "Radio": car.radio,
-      "Wireless Phone Charging": car.wirelessCharging,
+      //  "Wireless Phone Charging": car.wirelessCharging,
       "Bluetooth Connectivity": car.bluetooth,
-      "Touchscreen": car.touchscreen,
-      "Touchscreen Size": car.touchscreenSize,
-      "Android Auto": car.androidAuto,
-      "Apple CarPlay": car.appleCarPlay,
+      // "Touchscreen": car.touchscreen,
+      // "Touchscreen Size": car.touchscreenSize,
+      // "Android Auto": car.androidAuto,
+      // "Apple CarPlay": car.appleCarPlay,
       "No. of Speakers": car.speakers,
       "USB Ports": car.usbPorts,
     },

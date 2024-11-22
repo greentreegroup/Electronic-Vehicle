@@ -6,11 +6,13 @@ import { useCart } from "./CartContext";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import BackButton from "./BackButton";
-import { shippingRates } from "./data";
+import { shippingRates, taxRates } from "./data";
 import CountrySelect from "./CountrySelect";
 import { formatCurrency } from "./functions";
 import ModalEmptyCart from "./ModalEmptyCart";
+import CheckoutForm from "./CheckoutForm";
 import EmptyCartButton from "./EmptyCartButton";
+import CheckoutButton from "./CheckoutButton";
 import { COLOUR } from "./Colour";
 
 const Cart = () => {
@@ -22,6 +24,7 @@ const Cart = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const [showCheckout, setShowCheckout] = useState(false);
   const navigate = useNavigate();
   const totalCars = cart.length;
 
@@ -32,10 +35,11 @@ const Cart = () => {
       setCart(parsedCart);
       calculateTotal(parsedCart);
     }
+
   }, []);
 
   const handleBack = () => {
-    navigate("/CarSearch");
+    navigate("/");
   };
 
   const handleEmptyCart = () => {
@@ -43,6 +47,15 @@ const Cart = () => {
       setModalOpen(true);
     }
   };
+
+  const handleCheckoutCart = () => {
+    console.log("Items checked out.");
+    setShowCheckout(true);
+  }
+
+  const closeForm = () => {
+    setShowCheckout(false);
+  }
 
   const calculateTotal = (updatedCart) => {
     const subtotal = updatedCart.reduce(
@@ -58,8 +71,9 @@ const Cart = () => {
     const shippingCost =
       calculateShippingCost(selectedCountry) * newTotalQuantity;
     setShippingCost(shippingCost);
-    const tax = subtotal * 0.1;
-    setEstimatedTax(tax); // Assume 10% tax
+    const taxNumber = getTaxRate(selectedCountry);
+    const tax = subtotal * taxNumber;
+    setEstimatedTax(tax);
     setTotalPrice(subtotal + shippingCost + tax);
   };
 
@@ -68,11 +82,18 @@ const Cart = () => {
     return rate.baseRate * rate.weightMultiplier;
   };
 
+  const getTaxRate = (country) => {
+    const rate = taxRates[country] || taxRates.default;
+    return rate.taxRate;
+  }
+
   const handleCountryChange = (event) => {
     const country = event.target.value;
     setSelectedCountry(country);
     const newShippingCost = calculateShippingCost(country);
     setShippingCost(newShippingCost);
+    const newEstimatedTax = getTaxRate(country) * (subtotal + newShippingCost);
+    setEstimatedTax(newEstimatedTax);
     const updatedTotalPrice = subtotal + newShippingCost + estimatedTax;
     setTotalPrice(updatedTotalPrice);
   };
@@ -102,6 +123,10 @@ const Cart = () => {
         setModalOpen={setModalOpen}
         calculateTotal={calculateTotal}
       />
+      {/* Title (Shopping Cart) */}
+      <Grid item sx={{ ml: 2, marginTop:"30px" }}>
+          <Typography variant="h2">Shopping Cart</Typography>
+      </Grid>
       <Grid
         container
         alignItems="center"
@@ -121,7 +146,7 @@ const Cart = () => {
                 <EmptyCartButton handleEmptyCart={handleEmptyCart} />
                 <Stack spacing={1}>
                   <Stack direction="row" spacing={1} alignItems="center">
-                    <Typography variant="body1">Types of Cars:</Typography>
+                    <Typography variant="body1">Types of Products:</Typography>
                     <Chip label={totalCars} variant="outlined" />
                   </Stack>
                   <Stack direction="row" spacing={1} alignItems="center">
@@ -130,11 +155,6 @@ const Cart = () => {
                   </Stack>
                 </Stack>
               </Stack>
-            </Grid>
-
-            {/* Title (Shopping Cart) */}
-            <Grid item sx={{ ml: 2 }}>
-              <Typography variant="h2">Shopping Cart</Typography>
             </Grid>
           </Grid>
         </Grid>
@@ -212,12 +232,16 @@ const Cart = () => {
                     }}
                   />
                 </Stack>
+                <CheckoutButton handleCheckoutCart={handleCheckoutCart} />
+                {showCheckout && <CheckoutForm onClose={closeForm} />}
               </Stack>
             </Grid>
           </Grid>
         </Grid>
       ) : (
-        <Typography variant="h6">Your cart is empty.</Typography>
+        <Typography variant="h6">
+          Your cart is empty.
+        </Typography>
       )}
     </>
   );

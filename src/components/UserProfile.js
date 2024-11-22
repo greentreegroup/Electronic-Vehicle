@@ -52,8 +52,8 @@ const UserProfile = () => {
   };
 
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <div style={{marginTop: '50px'}}>Loading...</div>;
+  if (error) return <div style={{marginTop: '50px'}}>Error: {error}</div>;
 
   return (
     <div className="user-profile">
@@ -91,16 +91,28 @@ const UserProfile = () => {
                   <p>{userData?.country || 'Not provided'}</p>
                 </div>
                 <div className="info-item">
+                  <h4>State/Province</h4>
+                  <p>{userData?.state || 'Not provided'}</p>
+                </div>
+                <div className="info-item">
+                  <h4>City</h4>
+                  <p>{userData?.city || 'Not provided'}</p>
+                </div>
+                <div className="info-item">
                   <h4>Phone</h4>
                   <p>{userData?.phone_number || 'Not provided'}</p>
                 </div>
                 <div className="info-item">
                   <h4>Language</h4>
-                  <p>{userData?.language || 'English'}</p>
+                  <p>{userData?.language || 'Not provided'}</p>
                 </div>
                 <div className="info-item">
                   <h4>Contact</h4>
-                  <p>{userData?.email_address}</p>
+                  <p>{userData?.email_address || 'Not provided'}</p>
+                </div>
+                <div className="info-item">
+                  <h4>Address</h4>
+                  <p>{userData?.address || 'Not provided'}</p>
                 </div>
               </div>
               <button onClick={handleOpenChangeInfo}>Update Info</button>

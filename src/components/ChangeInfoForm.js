@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Country, State, City } from 'country-state-city';
 import './ChangeInfoForm.css';
 
 const ChangeInfoForm = ({ onClose, user_id }) => {
@@ -9,10 +10,38 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
     email_addres: '',
     phone_number: '',
     country: '',
+    state: '',
+    city:'',
     region: '',
+    address: '',
+    language: ''
   });
 
   const [error, setError] = useState(null);
+  const [countries, setCountries] = useState([]);
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
+
+  useEffect(() => {
+      // Load all countries on component mount
+      setCountries(Country.getAllCountries());
+  }, []);
+
+  useEffect(() => {
+      // Load states when country changes
+      if (formData.country) {
+          setStates(State.getStatesOfCountry(formData.country));
+          setFormData(prev => ({ ...prev, state: '', city: '' }));
+      }
+  }, [formData.country]);
+
+  useEffect(() => {
+      // Load cities when state changes
+      if (formData.state && formData.country) {
+          setCities(City.getCitiesOfState(formData.country, formData.state));
+          setFormData(prev => ({ ...prev, city: '' }));
+      }
+  }, [formData.state, formData.country]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -97,7 +126,8 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
               onChange={handleChange}
             />
           </label>
-          <label>
+          {/* Commented it out until this works */}
+          {/* <label>
             <span>Email Address:</span>
             <input
               type="email"
@@ -105,7 +135,7 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
               value={formData.email_addres}
               onChange={handleChange}
             />
-          </label>
+          </label> */}
           <label>
             <span>Phone Number:</span>
             <input
@@ -116,14 +146,74 @@ const ChangeInfoForm = ({ onClose, user_id }) => {
             />
           </label>
           <label>
-            <span>Country:</span>
+            <span>Address:</span>
             <input
               type="text"
-              name="country"
-              value={formData.country}
+              name="address"
+              value={formData.address}
               onChange={handleChange}
             />
           </label>
+          <label>
+            <span>Language:</span>
+            <input
+              type="text"
+              name="language"
+              value={formData.language}
+              onChange={handleChange}
+            />
+          </label>
+          <div className="form-group">
+              <label htmlFor="country">Country:</label>
+              <select
+                  id="country"
+                  name="country"
+                  value={formData.country}
+                  onChange={handleChange}
+              >
+              <option value="">Select Country</option>
+              {countries.map((country) => (
+                <option key={country.isoCode} value={country.isoCode}>
+                    {country.name}
+                </option>
+              ))}
+              </select>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="state">State/Province:</label>
+              <select
+                  id="state"
+                  name="state"
+                  value={formData.state}
+                  onChange={handleChange}
+                  disabled={!formData.country}
+              >
+                  <option value="">Select State</option>
+                  {states.map((state) => (
+                      <option key={state.isoCode} value={state.isoCode}>
+                          {state.name}
+                      </option>
+                  ))}
+              </select>
+            </div>
+            <div className="form-group">
+                <label htmlFor="city">City:</label>
+                <select
+                    id="city"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                    disabled={!formData.state}
+                >
+                    <option value="">Select City</option>
+                    {cities.map((city) => (
+                        <option key={city.name} value={city.name}>
+                            {city.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
           {error && <div className="error-message">{error}</div>}
           <button type="submit" className="update-b">
             Update

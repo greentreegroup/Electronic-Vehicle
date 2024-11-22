@@ -10,6 +10,7 @@ import { contactData } from "./data";
 import { COLOUR } from "./Colour";
 import Specifications from "./Specifications";
 import './CarDetails.css'; 
+import QASection from "./QASection";
 
 const formatPrice = (price) => {
   return price.toString().replace(/\B(?=(\d{3})+(?!))/g, ",");
@@ -139,11 +140,12 @@ const CarDetails = () => {
           <Box display="flex" flexDirection="column" spacing={2}>
             {Object.entries({
               Brand: car.brand,
-              "Usable Battery (kWh)": car.usable_battery,
-              "Real Range (km)": car.real_range,
-              "Efficiency (Wh/km)": car.efficiency,
-              "Acceleration (sec)": car.acceleration,
-              "Top Speed (km/h)": car.top_speed,
+              "Battery Capacity": car.batteryCapacity,
+              "Real Range": car.real_range + " km",
+              "Max Torque": car.maxTorque,
+              "Max Power": car.maxPower,
+              "Acceleration 0 - 100 km/h ": car.acceleration + " sec",
+              "Top Speed": car.top_speed + " km/h",
               Year: car.year,
               "Model Type": car.model_type,
             }).map(([label, value]) => (
@@ -190,7 +192,10 @@ const CarDetails = () => {
         </Alert>
       </Snackbar>
 
+      <QASection car={car} />
+
       <ContactSeller contacts={contactData} />
+
     </Box>
   );
 };
