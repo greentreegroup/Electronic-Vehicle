@@ -214,7 +214,7 @@ const CheckoutForm = ({ onClose }) => {
                       
                     {error && <div className="error-message">{error}</div>}
 
-                    <button type="submit" className="submit-bton">
+                    <button type="submit" disabled className="submit-bton">
                         Confirm Order
                     </button>
                 </form>
