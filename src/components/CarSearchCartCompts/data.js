@@ -307,7 +307,20 @@ export const shippingRates = {
   "United Kingdom": { baseRate: 3500, weightMultiplier: 1.5 },
   Germany: { baseRate: 2000, weightMultiplier: 1.3 },
   Australia: { baseRate: 3500, weightMultiplier: 1.4 },
+  "Afghanistan": { baseRate: 2470, weightMultiplier: 1.3},
+  "Chad": { baseRate: 3570, weightMultiplier: 1},
   default: { baseRate: 3000, weightMultiplier: 1.6 },
+};
+
+export const taxRates = {
+  "United States": { taxRate: 0.15},
+  Canada: { taxRate: 0.5},
+  "United Kingdom": { taxRate: 0.6 },
+  Germany: { taxRate: 0.2 },
+  Australia: { taxRate: 0.3 },
+  "Afghanistan": { taxRate: 0.05 },
+  "Chad": { taxRate: 0.11 },
+  default: { taxRate: 0.1 }
 };
 
 export const brandTypes = ["Aion", "Avatr", "BYD", "Changan", "Chery", "Dayun", "GAC Motor", "Geely", "IM Motor", "Li Auto", "MG Motor", "NIO", "Roewe", "Tank", "Wey", "Wuling", "Xiaomi", "XPeng", "Yangwang", "Zeekr"]
@@ -315,6 +328,8 @@ export const brandTypes = ["Aion", "Avatr", "BYD", "Changan", "Chery", "Dayun", 
 export const modelTypes = ["SUV", "Sedan", "Hatchback", "Van", "MPV", "Mini"]
 
 export const fuelTypes = ["Electric", "Hybrid"]
+
+export const shipping_methods = ["Standard", "Expidited", "Overnight"]
 
 export const countries =
 {
